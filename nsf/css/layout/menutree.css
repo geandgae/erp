@@ -115,3 +115,263 @@
 li {
   list-style: none;
 }
+
+
+/* nsf-x-tool */
+.nsf-x-tool {
+  overflow: hidden;
+  width: 15px;
+  height: 15px;
+  float: right;
+  cursor: pointer;
+  background: transparent url(./images/icon/tool-sprites.gif) no-repeat;
+  margin-left: 2px;
+}
+.nsf-x-tool-toggle {
+  background-position: 0 -60px;
+}
+
+.nsf-x-tool-close {
+  background-position: 0 -0;
+}
+.nsf-x-tool-close-over {
+  background-position: -15px 0;
+}
+
+.nsf-x-tool-minimize {
+  background-position: 0 -15px;
+}
+.nsf-x-tool-minimize-over {
+  background-position: -15px -15px;
+}
+
+.nsf-x-tool-maximize {
+  background-position: 0 -30px;
+}
+.nsf-x-tool-maximize-over {
+  background-position: -15px -30px;
+}
+
+.nsf-x-tool-restore {
+  background-position: 0 -45px;
+}
+.nsf-x-tool-restore-over {
+  background-position: -15px -45px;
+}
+
+.nsf-x-tool-gear {
+  background-position: 0 -90px;
+}
+.nsf-x-tool-gear-over {
+  background-position: -15px -90px;
+}
+
+.nsf-x-tool-pin {
+  background-position: 0 -135px;
+}
+.nsf-x-tool-pin-over {
+  background-position: -15px -135px;
+}
+.nsf-x-tool-unpin {
+  background-position: 0 -150px;
+}
+.nsf-x-tool-unpin-over {
+  background-position: -15px -150px;
+}
+.nsf-x-tool-right {
+  background-position: 0 -165px;
+}
+.nsf-x-tool-right-over {
+  background-position: -15px -165px;
+}
+.nsf-x-tool-left {
+  background-position: 0 -180px;
+}
+.nsf-x-tool-left-over {
+  background-position: -15px -180px;
+}
+.nsf-x-tool-up {
+  background-position: 0 -210px;
+}
+.nsf-x-tool-up-over {
+  background-position: -15px -210px;
+}
+.nsf-x-tool-down {
+  background-position: 0 -195px;
+}
+.nsf-x-tool-down-over {
+  background-position: -15px -195px;
+}
+.nsf-x-tool-refresh {
+  background-position: 0 -225px;
+}
+.nsf-x-tool-refresh-over {
+  background-position: -15px -225px;
+}
+.nsf-x-tool-minus {
+  background-position: 0 -255px;
+}
+.nsf-x-tool-minus-over {
+  background-position: -15px -255px;
+}
+.nsf-x-tool-plus {
+  background-position: 0 -240px;
+}
+.nsf-x-tool-plus-over {
+  background-position: -15px -240px;
+}
+.nsf-x-tool-search {
+  background-position: 0 -270px;
+}
+.nsf-x-tool-search-over {
+  background-position: -15px -270px;
+}
+.nsf-x-tool-save {
+  background-position: 0 -285px;
+}
+.nsf-x-tool-save-over {
+  background-position: -15px -285px;
+}
+.nsf-x-tool-help {
+  background-position: 0 -300px;
+}
+.nsf-x-tool-help-over {
+  background-position: -15px -300px;
+}
+.nsf-x-tool-print {
+  background-position: 0 -315px;
+}
+.nsf-x-tool-print-over {
+  background-position: -15px -315px;
+}
+.nsf-x-tool-collapse-south {
+  background-position: 0 -195px;
+}
+.nsf-x-tool-collapse-south-over {
+  background-position: -15px -195px;
+}
+.nsf-x-tool-collapse-north {
+  background-position: 0 -210px;
+}
+.nsf-x-tool-collapse-north-over {
+  background-position: -15px -210px;
+}
+.nsf-x-tool-collapse-west {
+  background-position: 0 -180px;
+}
+.nsf-x-tool-collapse-west-over {
+  background-position: -15px -180px;
+}
+.nsf-x-tool-collapse-east {
+  background-position: 0 -165px;
+}
+.nsf-x-tool-collapse-east-over {
+  background-position: -15px -165px;
+}
+.nsf-x-tool-expand-south {
+  background-position: 0 -210px;
+}
+.nsf-x-tool-expand-south-over {
+  background-position: -15px -210px;
+}
+.nsf-x-tool-expand-north {
+  background-position: 0 -195px;
+}
+.nsf-x-tool-expand-north-over {
+  background-position: -15px -195px;
+}
+.nsf-x-tool-expand-west {
+  background-position: 0 -165px;
+}
+.nsf-x-tool-expand-west-over {
+  background-position: -15px -165px;
+}
+.nsf-x-tool-expand-east {
+  background-position: 0 -180px;
+}
+.nsf-x-tool-expand-east-over {
+  background-position: -15px -180px;
+}
+.nsf-x-tool-expand-north,
+.nsf-x-tool-expand-south {
+  float: right;
+  margin: 3px;
+}
+.nsf-x-tool-expand-east,
+.nsf-x-tool-expand-west {
+  float: none;
+  margin: 3px auto;
+}
+
+
+/* jquery treeview */
+.treeview, .treeview ul { 
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+.treeview ul {
+	background-color: white;
+	margin-top: 4px;
+}
+
+.treeview .hitarea {
+	background: url(/jquery/plugin/treeview/css/images/treeview-default.gif) -64px -25px no-repeat;
+	height: 16px;
+	width: 16px;
+	margin-left: -16px;
+	float: left;
+	cursor: pointer;
+}
+/* fix for IE6 */
+* html .hitarea {
+	display: inline;
+	float:none;
+}
+
+.treeview li { 
+	margin: 0;
+	padding: 3px 0pt 3px 16px;
+}
+
+.treeview a.selected {
+	background-color: #eee;
+}
+
+#treecontrol { margin: 1em 0; display: none; }
+
+.treeview .hover { color: red; cursor: pointer; }
+
+.treeview li { background: url(../../../jquery/plugin/treeview/css/images/treeview-default-line.gif) 0 0 no-repeat; }
+.treeview li.collapsable, .treeview li.expandable { background-position: 0 -176px; }
+
+.treeview .expandable-hitarea { background-position: -80px -3px; }
+
+.treeview li.last { background-position: 0 -1766px }
+.treeview li.lastCollapsable, .treeview li.lastExpandable { background-image: url(../../../jquery/plugin/treeview/css/images/treeview-default.gif); }  
+.treeview li.lastCollapsable { background-position: 0 -111px }
+.treeview li.lastExpandable { background-position: -32px -67px }
+
+.treeview div.lastCollapsable-hitarea, .treeview div.lastExpandable-hitarea { background-position: 0; }
+
+.treeview-red li { background-image: url(../../../jquery/plugin/treeview/css/images/treeview-red-line.gif); }
+.treeview-red .hitarea, .treeview-red li.lastCollapsable, .treeview-red li.lastExpandable { background-image: url(../../../jquery/plugin/treeview/css/images/treeview-red.gif); } 
+
+.treeview-black li { background-image: url(../../../jquery/plugin/treeview/css/images/treeview-black-line.gif); }
+.treeview-black .hitarea, .treeview-black li.lastCollapsable, .treeview-black li.lastExpandable { background-image: url(../../../jquery/plugin/treeview/css/images/treeview-black.gif); }  
+
+.treeview-gray li { background-image: url(../../../jquery/plugin/treeview/css/images/treeview-gray-line.gif); }
+.treeview-gray .hitarea, .treeview-gray li.lastCollapsable, .treeview-gray li.lastExpandable { background-image: url(../../../jquery/plugin/treeview/css/images/treeview-gray.gif); } 
+
+.treeview-famfamfam li { background-image: url(../../../jquery/plugin/treeview/css/images/treeview-famfamfam-line.gif); }
+.treeview-famfamfam .hitarea, .treeview-famfamfam li.lastCollapsable, .treeview-famfamfam li.lastExpandable { background-image: url(../../../jquery/plugin/treeview/css/images/treeview-famfamfam.gif); } 
+
+
+.filetree li { padding: 3px 0 2px 16px; }
+.filetree span.folder, .filetree span.file, filetree span.computer { padding: 1px 0 1px 16px; display: block; }
+.filetree span.folder { background: url(../../../jquery/plugin/treeview/css/images/folder.gif) 0 0 no-repeat; }
+.filetree li.expandable span.folder { background: url(../../../jquery/plugin/treeview/css/images/folder-closed.gif) 0 0 no-repeat; }
+.filetree span.file { background: url(../../../jquery/plugin/treeview/css/images/file.gif) 0 0 no-repeat; }
+.filetree span.computer { padding: 1px 0 1px 17px; display: block; }
+.filetree span.computer { background: url(../../../jquery/plugin/treeview/css/images/computer.png) 0 0 no-repeat; }
