@@ -1,0 +1,18 @@
+@charset "utf-8";
+
+:root {
+  --color-prm : #3281ff;
+  --color-2nd : #09532a;
+  --color-3rd : #ff6c27;
+  --color-4th : #fffc4d;
+  --color-5th : #22031d;
+
+  --color-black : #000;
+  --color-white : #fff;
+
+  --color-dark : #111;
+  --color-dkgray : #414141;
+  --color-gray : #929292;
+  --color-ltgray : #ddd;
+  --color-light : #f9f9f9;
+}

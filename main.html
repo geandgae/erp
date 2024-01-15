@@ -267,19 +267,25 @@
     </script>
   </head>
   <body>
+    <!-- [renewal] 2024 -->
     <div class="nsf-panel-top">
-      <img alt="System Logo" src="./nsf/css/images/panel/logo_wisen.png" />
-      <p>
-        <span id="clock" title="12월 13일, 2023">12월 13일 수요일 2:30 오후</span>
-        <span id="spanNmLogin" class="name_cb">tester123</span>
-        <span>님 환영합니다.</span>
-        <a href="#"><img alt="로그아웃" src="./nsf/css/images/panel/btn_logout.gif" id="btnLogout" /></a>
-        <a href="#">
-          <img alt="도움말" src="./nsf/css/images/icon/help.png" id="btnHelp" />
-        </a>
-        <span id="login" style="display: none"></span>
-      </p>
+      <div class="header-logo">
+        <img alt="System Logo" src="./nsf/css/images/panel/logo_wisen.png" />
+      </div>
+      <div class="header-info">
+        <div class="hta-user">
+          <span id="spanNmLogin" class="name_cb">tester123</span>님 좋은 하루 보내세요
+        </div>
+        <div class="hta-time" id="clock" title="12월 13일, 2023">12월 13일 수요일 2:30 오후</div>
+        <!-- 로그인 관련 버튼 -->
+        <!-- <button class="btn-login" id="btnLogin"><span>로그인</span></button> -->
+        <button class="btn-logout" id="btnLogout"><span>로그아웃</span></button>
+        <!-- 도울말 -->
+        <button class="btn-help" id="btnHelp"><span>도움말</span></button>
+      </div>
     </div>
+    <!-- //[renewal] 2024 -->
+
     <div id="divCloseAll" style="width: 18px">
       <img id="btnAllClose" alt="전체닫기" src="./nsf/css/images/icon/close.gif" />
     </div>
