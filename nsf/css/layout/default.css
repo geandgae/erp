@@ -7,6 +7,8 @@
 @import "./var.css";
 
 /* 페이지 */
+@import "./icons.css";
+@import "./btns.css";
 @import "./common.css";
 @import "./menutree.css";
 @import "./layout.css";

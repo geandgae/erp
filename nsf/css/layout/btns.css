@@ -1,0 +1,233 @@
+@charset "utf-8";  
+
+/* nsf-btn */
+.nsf-btnbar {
+  padding: 4px 4px 2px 4px;
+  background-color: #dbdfe9;
+  border: 1px solid #889cbf;
+  height: 25px;
+  color: #2f4f4f;
+}
+.nsf-btnbar table {
+  width: 100%;
+}
+.nsf-btnbar table .nsf-right {
+  text-align: right;
+}
+.nsf-btnbar a {
+  display: inline-block;
+  padding-right: 1px;
+}
+.nsf-btnbar a label {
+  display: inline-block;
+  letter-spacing: -1px;
+  padding: 0px 0px 0px 3px;
+}
+.nsf-btnbar button {
+  height: 23px;
+  border: 0 none;
+  background-position: left center;
+  background-color: transparent;
+  cursor: pointer;
+  border-width: 1px;
+  border-style: solid solid solid solid;
+  border-color: transparent;
+  color: #2f4f4f;
+}
+.nsf-btnbar button {
+  font-family: TAHOMA, Dotum Arial, Helvetica, sans-serif;
+  font-size: 9pt;
+  font-style: normal;
+}
+
+.nsf-btnbar-a {
+  background: url(./images/icon/btn.png) no-repeat 100% top;
+}
+.nsf-btnbar-a-label {
+  background: url(./images/icon/btn.png) no-repeat left top;
+}
+
+.nsf-btn-refresh {
+  background-image: url(./images/icon/load.png);
+  background-repeat: no-repeat;
+  padding-left: 18px;
+}
+.nsf-btn-search {
+  background-image: url(./images/icon/search.png);
+  background-repeat: no-repeat;
+  padding-left: 18px;
+}
+.nsf-btn-add {
+  background-image: url(./images/icon/add.png);
+  background-repeat: no-repeat;
+  padding-left: 18px;
+}
+.nsf-btn-delete {
+  background-image: url(./images/icon/delete.png);
+  background-repeat: no-repeat;
+  padding-left: 18px;
+}
+.nsf-btn-save {
+  background-image: url(./images/icon/save.png);
+  background-repeat: no-repeat;
+  padding-left: 18px;
+}
+
+.nsf-btn-process {
+  background-image: url(./images/icon/save.png);
+  background-repeat: no-repeat;
+  padding-left: 18px;
+}
+.nsf-btn-hide {
+  background-image: url(./images/icon/close02.png);
+  background-repeat: no-repeat;
+  padding-left: 18px;
+}
+.nsf-btn-file {
+  background-image: url(./images/icon/save.png);
+  background-repeat: no-repeat;
+  padding-left: 18px;
+}
+.nsf-btn-excel {
+  background-image: url(./images/icon/excel.png);
+  background-repeat: no-repeat;
+  padding-left: 18px;
+}
+.nsf-btn-print {
+  background-image: url(./images/icon/print.png);
+  background-repeat: no-repeat;
+  padding-left: 18px;
+}
+.nsf-btn-send {
+  background-image: url(./images/icon/send.png);
+  background-repeat: no-repeat;
+  padding-left: 18px;
+}
+.nsf-btn-gsend {
+  background-image: url(./images/icon/gsend.png);
+  background-repeat: no-repeat;
+  padding-left: 18px;
+}
+.nsf-btn-regist {
+  background-image: url(./images/icon/regist.png);
+  background-repeat: no-repeat;
+  padding-left: 18px;
+}
+
+.nsf-btn-allok {
+  background-image: url(./images/icon/ico_allok.png);
+  background-repeat: no-repeat;
+  padding-left: 18px;
+}
+.nsf-btn-cal {
+  background-image: url(./images/icon/ico_cal.png);
+  background-repeat: no-repeat;
+  padding-left: 18px;
+}
+.nsf-btn-copy {
+  background-image: url(./images/icon/ico_copy.png);
+  background-repeat: no-repeat;
+  padding-left: 18px;
+}
+.nsf-btn-detail {
+  background-image: url(./images/icon/ico_detail.png);
+  background-repeat: no-repeat;
+  padding-left: 18px;
+}
+.nsf-btn-paste {
+  background-image: url(./images/icon/ico_paste.png);
+  background-repeat: no-repeat;
+  padding-left: 18px;
+}
+.nsf-btn-pop {
+  background-image: url(./images/icon/ico_pop.png);
+  background-repeat: no-repeat;
+  padding-left: 18px;
+}
+.nsf-btn-print2 {
+  background-image: url(./images/icon/ico_print.png);
+  background-repeat: no-repeat;
+  padding-left: 18px;
+}
+.nsf-btn-up {
+  background-image: url(./images/icon/ico_up.png);
+  background-repeat: no-repeat;
+  padding-left: 18px;
+}
+.nsf-btn-down {
+  background-image: url(./images/icon/ico_down.png);
+  background-repeat: no-repeat;
+  padding-left: 18px;
+}
+
+/* 버튼 이미지 사이즈업 요청 2023-03-14
+.nsf-btn-refresh { background-image: url(./images/icon/load.png); background-repeat: no-repeat; padding-left: 30px; background-size:25px; }
+.nsf-btn-search { background-image: url(./images/icon/search.png); background-repeat: no-repeat; padding-left: 30px; background-size:25px; }
+.nsf-btn-add { background-image: url(./images/icon/add.png); background-repeat: no-repeat; padding-left: 30px; background-size:25px; }
+.nsf-btn-delete { background-image: url(./images/icon/delete.png); background-repeat: no-repeat; padding-left: 30px; background-size:25px; }
+.nsf-btn-save { background-image: url(./images/icon/save.png); background-repeat: no-repeat; padding-left: 30px; background-size:25px; }
+
+.nsf-btn-process { background-image: url(./images/icon/save.png); background-repeat: no-repeat; padding-left: 30px; background-size:25px; }
+.nsf-btn-hide { background-image: url(./images/icon/close02.png); background-repeat: no-repeat; padding-left: 30px; background-size:25px; }
+.nsf-btn-file { background-image: url(./images/icon/save.png); background-repeat: no-repeat; padding-left: 30px; background-size:25px; }
+.nsf-btn-excel { background-image: url(./images/icon/excel.png); background-repeat: no-repeat; padding-left: 30px; background-size:25px; }
+.nsf-btn-print { background-image: url(./images/icon/print.png); background-repeat: no-repeat; padding-left: 30px; background-size:25px; }
+.nsf-btn-send { background-image: url(./images/icon/send.png); background-repeat: no-repeat; padding-left: 30px; background-size:25px; }
+.nsf-btn-gsend { background-image: url(./images/icon/gsend.png); background-repeat: no-repeat; padding-left: 30px; background-size:25px; }
+.nsf-btn-regist { background-image: url(./images/icon/regist.png); background-repeat: no-repeat; padding-left: 30px; background-size:25px; }
+
+.nsf-btn-allok { background-image: url(./images/icon/ico_allok.png); background-repeat: no-repeat; padding-left: 30px; background-size:25px; }
+.nsf-btn-cal { background-image: url(./images/icon/ico_cal.png); background-repeat: no-repeat; padding-left: 30px; background-size:25px; }
+.nsf-btn-copy { background-image: url(./images/icon/ico_copy.png); background-repeat: no-repeat; padding-left: 30px; background-size:25px; }
+.nsf-btn-detail { background-image: url(./images/icon/ico_detail.png); background-repeat: no-repeat; padding-left: 30px; background-size:25px; }
+.nsf-btn-paste { background-image: url(./images/icon/ico_paste.png); background-repeat: no-repeat; padding-left: 30px; background-size:25px; }
+.nsf-btn-pop { background-image: url(./images/icon/ico_pop.png); background-repeat: no-repeat; padding-left: 30px; background-size:25px; }
+.nsf-btn-print2 { background-image: url(./images/icon/ico_print.png); background-repeat: no-repeat; padding-left: 30px; background-size:25px; }
+.nsf-btn-up { background-image: url(./images/icon/ico_up.png); background-repeat: no-repeat; padding-left: 30px; background-size:25px; }
+.nsf-btn-down { background-image: url(./images/icon/ico_down.png); background-repeat: no-repeat; padding-left: 30px; background-size:25px; }
+ */
+.nsf-btn-popup {
+  background: url(./images/icon/btn_glass_over.gif) no-repeat;
+  width: 18px;
+  height: 18px;
+  border: none;
+}
+.nsf-btn-popup:hover {
+  background: url(./images/icon/btn_glass.gif) no-repeat;
+}
+
+.nsf-btn-regist {
+  background: url(./images/icon/regist.png) no-repeat;
+  padding-left: 18px;
+  border: none;
+}
+
+.nsf-btn-confirm {
+  background-image: url(./images/icon/confirm.png);
+  background-repeat: no-repeat;
+  padding-left: 18px;
+}
+.nsf-btn-confirm2 {
+  background-image: url(./images/icon/decision2.png);
+  background-repeat: no-repeat;
+  padding-left: 18px;
+}
+.nsf-btn-cancel {
+  background-image: url(./images/icon/cancel.png);
+  background-repeat: no-repeat;
+  padding-left: 18px;
+}
+.nsf-btn-close {
+  background-image: url(./images/icon/close02.png);
+  background-repeat: no-repeat;
+  padding-left: 18px;
+}
+
+.nsf-btn-normal {
+  padding: 3px 15px 3px 15px;
+  width: 90px;
+  border-width: 1px;
+  border-style: solid solid solid solid;
+  border-color: #cccfe3;
+  border-style: ridge;
+}

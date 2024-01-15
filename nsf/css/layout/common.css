@@ -50,11 +50,16 @@
   background: url(./images/icon/btn_arrow_over.gif) no-repeat;
 }
 
-
 /* nsf-widget-content */
 .nsf-widget-content {
   background-color: #e2e5ef !important;
   border-width: 1px;
   border-style: none solid solid solid;
   border-color: #878ca0;
+}
+
+/* nsf-panel */
+.nsf-panel .head,
+.nsf-panel .body {
+  padding: 0.5em 0.8em 0.5em 0.8em;
 }

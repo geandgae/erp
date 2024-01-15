@@ -23,11 +23,19 @@
   font-weight: 700;
 }
 .nsf-panel-top [class^=btn-] {
-  background-color: var(--color-2nd);
+  width: 16px;
+  height: 16px;
+  /* background-color: var(--color-2nd); */
+  background-image: var(--ico-test2);
+  background-repeat: no-repeat;
+}
+.nsf-panel-top [class^=btn-] .hide {
+  display: none;
 }
 
 
 /* nsf-panel-content */
 .nsf-panel-content {
   padding: 0;
+  border: 2px solid var(--color-prm);
 }
