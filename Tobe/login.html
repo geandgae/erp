@@ -1,128 +1,87 @@
 <!DOCTYPE html>
-<!--
-/**
- * ============================================================================
- * NsfJ Portal UI
- *
- * @author jissfa
- * @version 1.0
- * @since 1.0
- * <p>
- * History<br>
- * 1.0  2009.09.07  jissfa    initial version
- * ============================================================================
- */
--->
-<html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0 ,maximum-scale=2.0 ,user-scalable=no">
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 ,maximum-scale=2.0 ,user-scalable=no" />
     <title>Welcome to WiseN</title>
-
-    <link rel="stylesheet" type="text/css" href="./jquery/ui/themes/jquery-ui.css"/>
-
-
-    <link rel="stylesheet" type="text/css" href="./jquery/plugin/jqGrid/css/ui.jqgrid.css"/>
-    <link rel="stylesheet" type="text/css" href="./jquery/plugin/jqGrid/plugins/ui.multiselect.css"/>
-
-    <!-- Bootstrap core CSS -->
-    <link href="./jquery/plugin/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap theme -->
-    <link href="./jquery/plugin/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
-
-    <style type="text/css">
-        
-    </style>
-
     <script type="text/javascript" src="./jquery/jquery.js"></script>
-    <script type="text/javascript" src="./jquery/ui/jquery-ui.js"></script>
-    <script type="text/javascript" src="./jquery/plugin/blockUI/jquery.blockUI.js"></script>
-    <script type="text/javascript" src="./jquery/plugin/jqGrid/i18n/grid.locale-en.js"></script>
-    <script type="text/javascript" src="./jquery/plugin/jqGrid/plugins/ui.multiselect.js"></script>
-    <script type="text/javascript" src="./jquery/plugin/jqGrid/jquery.jqGrid.js"></script>
-    <script type="text/javascript" src="./jquery/plugin/form/jquery.form.js"></script> 
-    <!-- swalert -->
-    <script type="text/javascript" src="./jquery/plugin/sweetalert2/sweetalert2.js" ></script>
-    <link rel="stylesheet" href="./jquery/plugin/sweetalert2/css/sweetalert2.css"  />
-    <script type="text/javascript" src="./nsf/nsf.message.js"></script>
-
     <!-- [renewal] 2024 -->
     <link rel="stylesheet" type="text/css" href="./nsf/css/layout/default.css" />
-
-</head>
-<body>
-<div id="divMain">
-    <div class="con" style="width:692px; overflow:hidden; display:inline-block">
+  </head>
+  <body>
+    <!-- portal login -->
+    <div id="divMain">
+      <div class="con" style="width: 692px; overflow: hidden; display: inline-block">
         <h1><img src="./nsf/css/images/panel/logo.png" alt="로고" /> -ERP</h1>
         <div class="nsf-box">
-            <p><img src="./nsf/css/images/portal/img.png" alt="로그인 이미지" /></p>
-            <div class="tx">
-                <img src="./nsf/css/images/portal/tx.gif" alt="Member Login:아이디와 비밀번호를 입력후 로그인해주세요." />
-            </div>
-            <div class="cont nsf-form-search" style="border:width:350px;color:black;">
-                <dl>
-                    <dt>법인종류</dt>
-                    <dd>
-                        <select id="cboCdCompany" name="cdCompany" class="nsf-param">
-                            <option value="10000">한전산업개발</option>
-                        </select>
-                    </dd>
-                    <dt>아이디</dt>
-                    <dd>
-                        <input type="text" name="loginId" id="loginId" title="" class="nsf-param" autocomplete="off"/>
-                    </dd>
-                    <dt>비밀번호</dt>
-                    <dd>
-                        <input type="password" name="loginPw" id="loginPw" title="" class="nsf-param" autocomplete="off"/>
-                    </dd>
-                    <li class="nsf-status-hid">
-                        <dt>연결할 프로그램</dt>
-                        <dd>
-                            <input type="pgm" name="pgm" id="pgm" title="" class="nsf-param"/>
-                        </dd>
-                    </li>
-                </dl>
-                <span><img src="./nsf/css/images/portal/btn_login.gif" alt="로그인버튼" id="btnLogin"/></span>
-            </div>
+          <p><img src="./nsf/css/images/portal/img.png" alt="로그인 이미지" /></p>
+          <div class="tx">
+            <img src="./nsf/css/images/portal/tx.gif" alt="Member Login:아이디와 비밀번호를 입력후 로그인해주세요." />
+          </div>
+          <div class="cont nsf-form-search">
+            <dl>
+              <dt>법인종류</dt>
+              <dd>
+                <select id="cboCdCompany" name="cdCompany" class="nsf-param">
+                  <option value="10000">한전산업개발</option>
+                </select>
+              </dd>
+              <dt>아이디</dt>
+              <dd>
+                <input type="text" name="loginId" id="loginId" title="" class="nsf-param" autocomplete="off" />
+              </dd>
+              <dt>비밀번호</dt>
+              <dd>
+                <input type="password" name="loginPw" id="loginPw" title="" class="nsf-param" autocomplete="off" />
+              </dd>
+              <li class="nsf-status-hid">
+                <dt>연결할 프로그램</dt>
+                <dd>
+                  <input type="pgm" name="pgm" id="pgm" title="" class="nsf-param" />
+                </dd>
+              </li>
+            </dl>
+            <span><img src="./nsf/css/images/portal/btn_login.gif" alt="로그인버튼" id="btnLogin" /></span>
+          </div>
         </div>
+      </div>
     </div>
-</div> 
-</body>
-<script type="text/javascript">
-        /**
-         * generated By JADI Generator
-         * 페이지 초기화
-         * @since 1.0
-         */
+    <!-- //portal login -->
+  </body>
+  <script type="text/javascript">
+    /**
+     * generated By JADI Generator
+     * 페이지 초기화
+     * @since 1.0
+     */
 
-        function fInitPage() {
-            jQuery("#btnLogin").css("cursor", "pointer");
-            jQuery("#loginId").on("keypress", function(e) {
-                if (13 == e.which) jQuery("#loginPw").focus();
-            });
+    function fInitPage() {
+      jQuery("#btnLogin").css("cursor", "pointer");
+      jQuery("#loginId").on("keypress", function (e) {
+        if (13 == e.which) jQuery("#loginPw").focus();
+      });
 
-            jQuery("#loginPw").on("keypress", function(e) {
-                if (13 == e.which) jQuery("#btnLogin").trigger("click");
-            });
+      jQuery("#loginPw").on("keypress", function (e) {
+        if (13 == e.which) jQuery("#btnLogin").trigger("click");
+      });
 
-            jQuery("#btnLogin").click(function(){
-                fLogin();
-            }); 
-        }
+      jQuery("#btnLogin").click(function () {
+        fLogin();
+      });
+    }
 
-        function fLogin(){
+    function fLogin() {
+      if (jQuery("#loginId").val() == null || jQuery("#loginId").val().trim() == "") {
+        NsfMessage.alert("아이디를 입력해주세요.");
+        return;
+      }
 
-            if(jQuery("#loginId").val() == null || jQuery("#loginId").val().trim() == "" ){
-                NsfMessage.alert("아이디를 입력해주세요.");
-                return;
-            }
-
-            if(jQuery("#loginPw").val() == null || jQuery("#loginPw").val().trim() == "" ){
-                NsfMessage.alert("비밀번호를 입력해주세요.");
-                return;
-            }
-            document.location.href="main.html";
-        } 
-        fInitPage();
-    </script>
+      if (jQuery("#loginPw").val() == null || jQuery("#loginPw").val().trim() == "") {
+        NsfMessage.alert("비밀번호를 입력해주세요.");
+        return;
+      }
+      document.location.href = "main.html";
+    }
+    fInitPage();
+  </script>
 </html>

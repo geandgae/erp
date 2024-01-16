@@ -1,575 +1,166 @@
 @charset "utf-8";
 
-
-/* accordion */
-.ui-accordion-content {
-  padding: 0 !important;
-}
-
-/* dialog */
-.ui-dialog {
-  padding: 0;
-  border: 5px solid #c5d8eb;
-}
-.ui-dialog-titlebar {
-  border-top: 1px solid #6785a7;
-  border-left: 1px solid #6785a7;
-  border-right: 1px solid #6785a7;
-  height: 20px;
-}
-.ui-dialog-title {
-  position: relative;
-  top: 4px;
-}
-.ui-dialog-content {
-  overflow: hidden !important;
-  padding: 0 0 0 0 !important;
-  border-bottom: 1px solid #6785a7 !important;
-  border-left: 1px solid #6785a7 !important;
-  border-right: 1px solid #6785a7 !important;
-}
-
-
-
-
-
-
-.nsf-border-top {
-  border-top: 1px solid #878ca0;
-}
-.nsf-border-left {
-  border-left: 1px solid #878ca0;
-}
-.nsf-border-right {
-  border-right: 1px solid #878ca0;
-}
-.nsf-border-bottom {
-  border-bottom: 1px solid #878ca0;
-}
-
-
-.nsf-form {
-  overflow: hidden;
-  padding: 0.4em 0.5em 0.4em 0.5em;
-  color: #f5f5f5;
-}
-.nsf-form table {
-  width: 100%;
-}
-.nsf-form ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-.nsf-form ol {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-.nsf-form li {
-  overflow: hidden;
-  white-space: nowrap;
-  margin: 2px 0 2px 0;
-  padding: 0;
-  width: 300px;
-  height: 20px;
-  float: left;
-  border: 0px solid #bfcfda;
-}
-.nsf-form li INPUT[type="text"],
-.nsf-form li INPUT[type="password"] {
-  width: 120px;
-}
-.nsf-form li SELECT {
-  width: 120px;
-}
-.nsf-form li span {
-  display: inline-block;
-  color: #2f4f4f;
-  padding-left: 18px;
-  font-weight: normal;
-  border: 0px solid #bfcfda;
-  height: 18px;
-  width: 100px;
-  text-align: right;
-}
-.nsf-form li label {
-  color: #2f4f4f;
-  position: relative;
-  top: 0px;
-}
-
-.nsf-required {
-  color: #ba0000 !important;
-  font-weight: bold;
-}
-.nsf-required:before {
-  content: "* ";
-}
-
-.nsf-form-search {
-  overflow: hidden;
-  padding: 0.5em 0.5em 0.5em 0.5em;
-  color: #f5f5f5;
-}
-.nsf-form-search table {
-  width: 100%;
-}
-.nsf-form-search ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-.nsf-form-search li {
-  overflow: hidden;
-  white-space: nowrap;
-  margin: 2px 0 2px 0;
-  padding: 0;
-  width: 300px;
-  height: 20px;
-  float: left;
-  border: 0px solid #bfcfda;
-}
-.nsf-form-search li INPUT[type="text"],
-.nsf-form-search li INPUT[type="password"] {
-  width: 120px;
-}
-.nsf-form-search li SELECT {
-  width: 120px;
-}
-.nsf-form-search li span {
-  display: inline-block;
-  color: #2f4f4f;
-  padding-left: 18px;
-  font-weight: normal;
-  border: 0px solid #bfcfda;
-  height: 18px;
-  width: 100px;
-  text-align: right;
-}
-.nsf-form-search li label {
-  color: #2f4f4f;
-  position: relative;
-  top: 0px;
-}
-
-.nsf-form-save {
-  overflow: hidden;
-  padding: 0.5em 0.5em 0.5em 0.5em;
-  color: #f5f5f5;
-}
-.nsf-form-save table {
-  width: 100%;
-}
-.nsf-form-save ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-.nsf-form-save li {
-  overflow: hidden;
-  white-space: nowrap;
-  margin: 2px 0 2px 0;
-  padding: 0;
-  width: 300px;
-  height: 20px;
-  float: left;
-  border: 0px solid #bfcfda;
-}
-.nsf-form-save li INPUT[type="text"],
-.nsf-form-search li INPUT[type="password"] {
-  width: 120px;
-}
-.nsf-form-save li SELECT {
-  width: 120px;
-}
-.nsf-form-save li span {
-  display: inline-block;
-  color: #2f4f4f;
-  padding-left: 18px;
-  font-weight: normal;
-  border: 0px solid #bfcfda;
-  height: 18px;
-  width: 100px;
-  text-align: right;
-}
-.nsf-form-save li label {
-  color: #2f4f4f;
-  position: relative;
-  top: 0px;
-}
-
-.nsf-form-li-350 {
-  width: 350px !important;
-}
-.nsf-form-li-400 {
-  width: 400px !important;
-}
-.nsf-form-li-500 {
-  width: 500px !important;
-}
-.nsf-form-li-1x {
-  width: 300px !important;
-}
-.nsf-form-li-2x {
-  width: 600px !important;
-}
-.nsf-form-li-3x {
-  width: 900px !important;
-}
-.nsf-form-li-4x {
-  width: 1200px !important;
-}
-.nsf-form-li-5x {
-  width: 1500px !important;
-}
-.nsf-form-li-6x {
-  width: 1800px !important;
-}
-.nsf-form-li-7x {
-  width: 2100px !important;
-}
-.nsf-form-li-8x {
-  width: 2400px !important;
-}
-.nsf-form-li-9x {
-  width: 2700px !important;
-}
-.nsf-form-li-10x {
-  width: 3000px !important;
-}
-.nsf-form-li-xx {
-  width: 98% !important;
-}
-.nsf-form-li-full {
-  width: 100% !important;
-}
-.nsf-form-li-v-2x {
-  height: 40px !important;
-}
-.nsf-form-li-v-3x {
-  height: 60px !important;
-}
-.nsf-form-li-v-4x {
-  height: 80px !important;
-}
-.nsf-form-li-v-5x {
-  height: 100px !important;
-}
-.nsf-form-li-v-6x {
-  height: 120px !important;
-}
-.nsf-form-li-v-7x {
-  height: 140px !important;
-}
-.nsf-form-li-v-8x {
-  height: 160px !important;
-}
-.nsf-form-li-v-9x {
-  height: 180px !important;
-}
-.nsf-form-li-v-10x {
-  height: 200px !important;
-}
-.nsf-form-li-v-xx {
-  height: 98% !important;
-}
-.nsf-form-item-half {
-  width: 60px !important;
-}
-.nsf-form-item-70 {
-  width: 70px !important;
-}
-.nsf-form-item-80 {
-  width: 80px !important;
-}
-.nsf-form-item-90 {
-  width: 90px !important;
-}
-.nsf-form-item-100 {
-  width: 100px !important;
-}
-.nsf-form-item-1x {
-  width: 120px !important;
-}
-.nsf-form-item-2x {
-  width: 240px !important;
-}
-.nsf-form-item-3x {
-  width: 360px !important;
-}
-.nsf-form-item-4x {
-  width: 480px !important;
-}
-.nsf-form-item-5x {
-  width: 600px !important;
-}
-.nsf-form-item-6x {
-  width: 720px !important;
-}
-.nsf-form-item-7x {
-  width: 840px !important;
-}
-.nsf-form-item-8x {
-  width: 960px !important;
-}
-.nsf-form-item-9x {
-  width: 1080px !important;
-}
-.nsf-form-item-10x {
-  width: 1200px !important;
-}
-
-.nsf-form-item-v-2x {
-  height: 32px !important;
-}
-.nsf-form-item-v-3x {
-  height: 48px !important;
-}
-.nsf-form-item-v-4x {
-  height: 64px !important;
-}
-.nsf-form-item-v-5x {
-  height: 80px !important;
-}
-.nsf-form-item-v-6x {
-  height: 96px !important;
-}
-.nsf-form-item-v-7x {
-  height: 112px !important;
-}
-.nsf-form-item-v-8x {
-  height: 128px !important;
-}
-.nsf-form-item-v-9x {
-  height: 144px !important;
-}
-.nsf-form-item-v-10x {
-  height: 160px !important;
-}
-
-
-
-.nsf-mini-vertical {
-  width: 58px;
-  height: 7px;
-  background-image: url(../images/icon/btn_Gmini.png);
-  background-repeat: no-repeat;
-  background-position: center top;
-  cursor: pointer;
-  border: none;
-}
-.nsf-mini-vertical:hover {
-  background-image: url(../images/icon/btn_mini.png);
-}
-.nsf-mini-horizontal {
-  width: 5px;
-  background-color: transparent;
-}
-
-.nsf-space-vertical {
-  height: 10px;
-}
-.nsf-space-horizontal {
-  width: 10px;
-}
-
-.nsf-title {
-  float: left;
-  background: url(../images/icon/bullet02.gif) no-repeat 3px 1px;
-  width: 98%;
-  font-weight: bold;
-  font-size: 12px;
-  color: #666;
-  padding-left: 18px;
-  margin-bottom: 7px;
-}
-
-
-/*.nsf-status-ess { background-color: #F2EBE6; #fbec88; }*/
-.nsf-status-lck {
-  background-color: #e4e4f1;
-}
-.nsf-status-ess {
-  background-color: #fff2f0;
-}
-INPUT[type="text"].nsf-status-lck,
-SELECT.nsf-status-lck,
-TEXTAREA.nsf-status-lck {
-  background-color: #e4e4f1;
-}
-.nsf-status-hid {
-  display: none !important;
-}
-
-.nsf-radio {
+/* 개인별급여내역조정 */
+.css-form .ui-widget-header label {
   position: relative;
   top: 3px;
-  border: o;
-  border-style: none none none none;
-  height: 14px;
+  left: 3px;
 }
-.nsf-file {
-  border: 1px solid #9c9491;
-  height: 20px;
+.css-form-search .ui-widget-header label {
+  position: relative;
+  top: 3px;
+  left: 3px;
 }
-
-.ui-nsf-widget-titlebar {
-  padding: 0.3em 0.2em 0.2em 0.3em;
+#divOrg,
+#divView {
+  display: none;
+  height: 0px;
 }
-.ui-nsf-widget-content {
-  padding: 0.3em 0em 0.3em 0em;
-}
-.ui-nsf-widget-bottombar {
-  height: 25px;
-}
-
-.nsf-left {
-  text-align: left;
-}
-.nsf-right {
+.nsf-number {
   text-align: right;
 }
-.nsf-center {
+
+
+
+/* 국세청PDF자료등록 */
+.css-form .ui-widget-header label {
+  position: relative;
+  top: 3px;
+  left: 3px;
+}
+.css-form-search .ui-widget-header label {
+  position: relative;
+  top: 3px;
+  left: 3px;
+}
+#divOrg,
+#divView {
+  display: none;
+  height: 0px;
+}
+.nsf-form-li-2xx {
+  width: 400px !important;
+}
+
+
+
+/* 부가세신고서작성 */
+.css-form {
+  display: none;
+}
+.css-form .ui-widget-header label {
+  position: relative;
+  top: 3px;
+  left: 3px;
+}
+.css-form-search .ui-widget-header label {
+  position: relative;
+  top: 3px;
+  left: 3px;
+}
+#divOrg,
+#divView {
+  display: none;
+  height: 0px;
+}
+.test {
   text-align: center;
 }
 
-.nsf-number {
-  text-align: right;
-  ime-mode: disabled;
-}
 
-.nsf-list {
-  padding: 2;
-  background-color: #f6f7f4;
-  border-color: #cccfe3;
-  border-style: none none none none;
-  border-width: 1px;
+
+/* 연말정산기초자료등록및계산 */
+.css-form {
+  display: none;
 }
-.nsf-list ul {
-  list-style-type: none;
-  margin: 1;
-  padding: 2;
-}
-.nsf-list li {
-  margin: 3px 3px 3px 3px;
-  padding: 1px;
-  width: 100%;
-  vertical-align: middle;
-  border-color: #cccfe3;
-  border-style: solid solid solid solid;
-  border-width: 1px;
-  overflow: hidden;
-  height: 20px;
-  cursor: pointer;
-}
-.nsf-list li label {
-  display: inline-block;
-  width: 100px;
-}
-.nsf-list li span {
-  font-weight: normal;
-  border-color: #cccfe3;
-  border-style: none none none none;
-  border-width: 1px;
-  display: inline-block;
-  width: 100px;
-  vertical-align: top;
+.css-form .ui-widget-header label {
   position: relative;
   top: 3px;
+  left: 3px;
 }
-.nsf-list-select {
-  background-color: #e5eaf2;
-}
-
-.nsf-list-head {
-  background-color: #7cacc9;
-  display: inline-block;
-  width: 100%;
-  height: 25px;
-}
-.nsf-list-head label {
-  color: white;
-  font-weight: bold;
-  padding: 5px 0px 0px 1px;
-  display: inline-block;
-  width: 100px;
-}
-
-.nsf-sortable {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-.nsf-td {
-  vertical-align: text-top;
-}
-
-.nsf-form-fix {
-  overflow-x: hidden;
-  overflow-y: auto;
-}
-
-.nsf-form-btnbar {
-  padding: 2px 2px 2px 2px;
-  background-color: #f6f7f4;
-  border-color: #cccfe3;
-  border-style: none none solid none;
-  border-width: 1px;
-  height: 25px;
-}
-.nsf-form-btnbar button {
-  background-position: left center;
-  background-color: transparent;
-  cursor: pointer;
-}
-.nsf-form-btnbar input {
+.css-form-search .ui-widget-header label {
   position: relative;
   top: 3px;
+  left: 3px;
+}
+rg,
+#divView {
+  display: none;
+  height: 0px;
+}
+#nsftab_bas li {
+  width: 400px;
+}
+#nsftab2_lis .nsf-form table {
+  border-collapse: collapse;
+  border: 1px black solid;
+}
+#nsftab2_lis .nsf-form table td {
+  border-collapse: collapse;
+  border: 1px black solid;
+}
+#nsftab2_lis .nsf-form table td li {
+  width: 100px;
+}
+#nsftab_tax .nsf-form table {
+  border-collapse: collapse;
+  border: 1px black solid;
+  table-layout: fixed;
+}
+#nsftab_tax .nsf-form table th {
+  border-collapse: collapse;
+  border: 1px black solid;
+}
+#nsftab_tax .nsf-form table td {
+  border-collapse: collapse;
+  border: 1px black solid;
+}
+#nsftab_tax .nsf-form table tr {
+  height: 22px;
+}
+#nsftab_tax .nsf-form table td li {
+  width: 100px;
+}
+#nsftab_fam ul li span {
+  width: 190px;
+}
+#nsftab_amtN ul li span {
+  width: 190px;
+}
+#nsftab_amtS ul li span {
+  width: 190px;
+}
+#nsftab_amtA ul li span {
+  width: 190px;
+}
+#nsftab_amtD ul li span {
+  width: 190px;
 }
 
-.nsf-mini-bottom {
-  width: 50px;
-  height: 5px;
-  background-image: url(../images/icon/mini-bottom.gif);
-  background-repeat: no-repeat;
-  background-position: center top;
-  cursor: pointer;
-  border: none;
-}
-.nsf-mini-left {
-  height: 35px;
-  background-image: url(../images/icon/mini-left.gif);
-  background-repeat: no-repeat;
-  background-position: center top;
-  cursor: pointer;
-}
 
 
-.nsf-accordion-content {
-  margin: 0;
-  padding: 0;
+/* 인사자료등록 */
+.css-form .ui-widget-header label {
+  position: relative;
+  top: 3px;
+  left: 3px;
 }
-
-.nsf-item {
-  margin: 5px;
-  padding: 5px;
-  background-color: white;
-  border-color: #cccfe3;
-  border-style: solid solid solid solid;
-  border-width: 1px;
-  height: 1.5em;
-  text-align: left;
-  overflow: hidden;
+.css-form-search .ui-widget-header label {
+  position: relative;
+  top: 3px;
+  left: 3px;
 }
-.nsf-item-select {
-  background: #e5eaf2;
+#divOrg, #divView {
+  display: none;
+  height: 0px;
 }
-
-.nsf-load {
-  display: inline-block;
-  background: url(images/icon/load.gif) no-repeat left;
-  width: 20px;
-  height: 13px;
+.ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button
+{
+  font-size: 1em;
+  font-family: TAHOMA, Dotum Arial, Helvetica, sans-serif;
+}
+span {
+  font-size: 9pt;
+  font-style: normal;
+  font-family: TAHOMA, Dotum Arial, Helvetica, sans-serif;
 }
