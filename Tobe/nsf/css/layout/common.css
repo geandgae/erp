@@ -26,7 +26,7 @@
   /* height: 15px; */
 }
 .nsf-widget-header label {
-  background-image: url(./images/icon/bullet_w.png);
+  background-image: url(../images/icon/bullet_w.png);
   background-position: left center;
   background-repeat: no-repeat;
   padding-left: 12px;
@@ -42,12 +42,12 @@
   border: none;
   padding: 0;
   margin: 0;
-  background: url(./images/icon/btn_arrow.gif) no-repeat;
+  background: url(../images/icon/btn_arrow.gif) no-repeat;
   width: 20px;
   height: 20px;
 }
 .nsf-widget-header button:hover {
-  background: url(./images/icon/btn_arrow_over.gif) no-repeat;
+  background: url(../images/icon/btn_arrow_over.gif) no-repeat;
 }
 
 /* nsf-widget-content */

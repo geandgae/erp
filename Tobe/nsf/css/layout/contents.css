@@ -353,14 +353,14 @@
 .nsf-mini-vertical {
   width: 58px;
   height: 7px;
-  background-image: url(./images/icon/btn_Gmini.png);
+  background-image: url(../images/icon/btn_Gmini.png);
   background-repeat: no-repeat;
   background-position: center top;
   cursor: pointer;
   border: none;
 }
 .nsf-mini-vertical:hover {
-  background-image: url(./images/icon/btn_mini.png);
+  background-image: url(../images/icon/btn_mini.png);
 }
 .nsf-mini-horizontal {
   width: 5px;
@@ -376,7 +376,7 @@
 
 .nsf-title {
   float: left;
-  background: url(./images/icon/bullet02.gif) no-repeat 3px 1px;
+  background: url(../images/icon/bullet02.gif) no-repeat 3px 1px;
   display: inline-block;
   width: 98%;
   font-weight: bold;
@@ -533,7 +533,7 @@ TEXTAREA.nsf-status-lck {
 .nsf-mini-bottom {
   width: 50px;
   height: 5px;
-  background-image: url(./images/icon/mini-bottom.gif);
+  background-image: url(../images/icon/mini-bottom.gif);
   background-repeat: no-repeat;
   background-position: center top;
   cursor: pointer;
@@ -541,7 +541,7 @@ TEXTAREA.nsf-status-lck {
 }
 .nsf-mini-left {
   height: 35px;
-  background-image: url(./images/icon/mini-left.gif);
+  background-image: url(../images/icon/mini-left.gif);
   background-repeat: no-repeat;
   background-position: center top;
   cursor: pointer;

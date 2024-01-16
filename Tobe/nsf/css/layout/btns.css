@@ -41,184 +41,184 @@
 }
 
 .nsf-btnbar-a {
-  background: url(./images/icon/btn.png) no-repeat 100% top;
+  background: url(../images/icon/btn.png) no-repeat 100% top;
 }
 .nsf-btnbar-a-label {
-  background: url(./images/icon/btn.png) no-repeat left top;
+  background: url(../images/icon/btn.png) no-repeat left top;
 }
 
 .nsf-btn-refresh {
-  background-image: url(./images/icon/load.png);
+  background-image: url(../images/icon/load.png);
   background-repeat: no-repeat;
   padding-left: 18px;
 }
 .nsf-btn-search {
-  background-image: url(./images/icon/search.png);
+  background-image: url(../images/icon/search.png);
   background-repeat: no-repeat;
   padding-left: 18px;
 }
 .nsf-btn-add {
-  background-image: url(./images/icon/add.png);
+  background-image: url(../images/icon/add.png);
   background-repeat: no-repeat;
   padding-left: 18px;
 }
 .nsf-btn-delete {
-  background-image: url(./images/icon/delete.png);
+  background-image: url(../images/icon/delete.png);
   background-repeat: no-repeat;
   padding-left: 18px;
 }
 .nsf-btn-save {
-  background-image: url(./images/icon/save.png);
+  background-image: url(../images/icon/save.png);
   background-repeat: no-repeat;
   padding-left: 18px;
 }
 
 .nsf-btn-process {
-  background-image: url(./images/icon/save.png);
+  background-image: url(../images/icon/save.png);
   background-repeat: no-repeat;
   padding-left: 18px;
 }
 .nsf-btn-hide {
-  background-image: url(./images/icon/close02.png);
+  background-image: url(../images/icon/close02.png);
   background-repeat: no-repeat;
   padding-left: 18px;
 }
 .nsf-btn-file {
-  background-image: url(./images/icon/save.png);
+  background-image: url(../images/icon/save.png);
   background-repeat: no-repeat;
   padding-left: 18px;
 }
 .nsf-btn-excel {
-  background-image: url(./images/icon/excel.png);
+  background-image: url(../images/icon/excel.png);
   background-repeat: no-repeat;
   padding-left: 18px;
 }
 .nsf-btn-print {
-  background-image: url(./images/icon/print.png);
+  background-image: url(../images/icon/print.png);
   background-repeat: no-repeat;
   padding-left: 18px;
 }
 .nsf-btn-send {
-  background-image: url(./images/icon/send.png);
+  background-image: url(../images/icon/send.png);
   background-repeat: no-repeat;
   padding-left: 18px;
 }
 .nsf-btn-gsend {
-  background-image: url(./images/icon/gsend.png);
+  background-image: url(../images/icon/gsend.png);
   background-repeat: no-repeat;
   padding-left: 18px;
 }
 .nsf-btn-regist {
-  background-image: url(./images/icon/regist.png);
+  background-image: url(../images/icon/regist.png);
   background-repeat: no-repeat;
   padding-left: 18px;
 }
 
 .nsf-btn-allok {
-  background-image: url(./images/icon/ico_allok.png);
+  background-image: url(../images/icon/ico_allok.png);
   background-repeat: no-repeat;
   padding-left: 18px;
 }
 .nsf-btn-cal {
-  background-image: url(./images/icon/ico_cal.png);
+  background-image: url(../images/icon/ico_cal.png);
   background-repeat: no-repeat;
   padding-left: 18px;
 }
 .nsf-btn-copy {
-  background-image: url(./images/icon/ico_copy.png);
+  background-image: url(../images/icon/ico_copy.png);
   background-repeat: no-repeat;
   padding-left: 18px;
 }
 .nsf-btn-detail {
-  background-image: url(./images/icon/ico_detail.png);
+  background-image: url(../images/icon/ico_detail.png);
   background-repeat: no-repeat;
   padding-left: 18px;
 }
 .nsf-btn-paste {
-  background-image: url(./images/icon/ico_paste.png);
+  background-image: url(../images/icon/ico_paste.png);
   background-repeat: no-repeat;
   padding-left: 18px;
 }
 .nsf-btn-pop {
-  background-image: url(./images/icon/ico_pop.png);
+  background-image: url(../images/icon/ico_pop.png);
   background-repeat: no-repeat;
   padding-left: 18px;
 }
 .nsf-btn-print2 {
-  background-image: url(./images/icon/ico_print.png);
+  background-image: url(../images/icon/ico_print.png);
   background-repeat: no-repeat;
   padding-left: 18px;
 }
 .nsf-btn-up {
-  background-image: url(./images/icon/ico_up.png);
+  background-image: url(../images/icon/ico_up.png);
   background-repeat: no-repeat;
   padding-left: 18px;
 }
 .nsf-btn-down {
-  background-image: url(./images/icon/ico_down.png);
+  background-image: url(../images/icon/ico_down.png);
   background-repeat: no-repeat;
   padding-left: 18px;
 }
 
 /* 버튼 이미지 사이즈업 요청 2023-03-14
-.nsf-btn-refresh { background-image: url(./images/icon/load.png); background-repeat: no-repeat; padding-left: 30px; background-size:25px; }
-.nsf-btn-search { background-image: url(./images/icon/search.png); background-repeat: no-repeat; padding-left: 30px; background-size:25px; }
-.nsf-btn-add { background-image: url(./images/icon/add.png); background-repeat: no-repeat; padding-left: 30px; background-size:25px; }
-.nsf-btn-delete { background-image: url(./images/icon/delete.png); background-repeat: no-repeat; padding-left: 30px; background-size:25px; }
-.nsf-btn-save { background-image: url(./images/icon/save.png); background-repeat: no-repeat; padding-left: 30px; background-size:25px; }
+.nsf-btn-refresh { background-image: url(../images/icon/load.png); background-repeat: no-repeat; padding-left: 30px; background-size:25px; }
+.nsf-btn-search { background-image: url(../images/icon/search.png); background-repeat: no-repeat; padding-left: 30px; background-size:25px; }
+.nsf-btn-add { background-image: url(../images/icon/add.png); background-repeat: no-repeat; padding-left: 30px; background-size:25px; }
+.nsf-btn-delete { background-image: url(../images/icon/delete.png); background-repeat: no-repeat; padding-left: 30px; background-size:25px; }
+.nsf-btn-save { background-image: url(../images/icon/save.png); background-repeat: no-repeat; padding-left: 30px; background-size:25px; }
 
-.nsf-btn-process { background-image: url(./images/icon/save.png); background-repeat: no-repeat; padding-left: 30px; background-size:25px; }
-.nsf-btn-hide { background-image: url(./images/icon/close02.png); background-repeat: no-repeat; padding-left: 30px; background-size:25px; }
-.nsf-btn-file { background-image: url(./images/icon/save.png); background-repeat: no-repeat; padding-left: 30px; background-size:25px; }
-.nsf-btn-excel { background-image: url(./images/icon/excel.png); background-repeat: no-repeat; padding-left: 30px; background-size:25px; }
-.nsf-btn-print { background-image: url(./images/icon/print.png); background-repeat: no-repeat; padding-left: 30px; background-size:25px; }
-.nsf-btn-send { background-image: url(./images/icon/send.png); background-repeat: no-repeat; padding-left: 30px; background-size:25px; }
-.nsf-btn-gsend { background-image: url(./images/icon/gsend.png); background-repeat: no-repeat; padding-left: 30px; background-size:25px; }
-.nsf-btn-regist { background-image: url(./images/icon/regist.png); background-repeat: no-repeat; padding-left: 30px; background-size:25px; }
+.nsf-btn-process { background-image: url(../images/icon/save.png); background-repeat: no-repeat; padding-left: 30px; background-size:25px; }
+.nsf-btn-hide { background-image: url(../images/icon/close02.png); background-repeat: no-repeat; padding-left: 30px; background-size:25px; }
+.nsf-btn-file { background-image: url(../images/icon/save.png); background-repeat: no-repeat; padding-left: 30px; background-size:25px; }
+.nsf-btn-excel { background-image: url(../images/icon/excel.png); background-repeat: no-repeat; padding-left: 30px; background-size:25px; }
+.nsf-btn-print { background-image: url(../images/icon/print.png); background-repeat: no-repeat; padding-left: 30px; background-size:25px; }
+.nsf-btn-send { background-image: url(../images/icon/send.png); background-repeat: no-repeat; padding-left: 30px; background-size:25px; }
+.nsf-btn-gsend { background-image: url(../images/icon/gsend.png); background-repeat: no-repeat; padding-left: 30px; background-size:25px; }
+.nsf-btn-regist { background-image: url(../images/icon/regist.png); background-repeat: no-repeat; padding-left: 30px; background-size:25px; }
 
-.nsf-btn-allok { background-image: url(./images/icon/ico_allok.png); background-repeat: no-repeat; padding-left: 30px; background-size:25px; }
-.nsf-btn-cal { background-image: url(./images/icon/ico_cal.png); background-repeat: no-repeat; padding-left: 30px; background-size:25px; }
-.nsf-btn-copy { background-image: url(./images/icon/ico_copy.png); background-repeat: no-repeat; padding-left: 30px; background-size:25px; }
-.nsf-btn-detail { background-image: url(./images/icon/ico_detail.png); background-repeat: no-repeat; padding-left: 30px; background-size:25px; }
-.nsf-btn-paste { background-image: url(./images/icon/ico_paste.png); background-repeat: no-repeat; padding-left: 30px; background-size:25px; }
-.nsf-btn-pop { background-image: url(./images/icon/ico_pop.png); background-repeat: no-repeat; padding-left: 30px; background-size:25px; }
-.nsf-btn-print2 { background-image: url(./images/icon/ico_print.png); background-repeat: no-repeat; padding-left: 30px; background-size:25px; }
-.nsf-btn-up { background-image: url(./images/icon/ico_up.png); background-repeat: no-repeat; padding-left: 30px; background-size:25px; }
-.nsf-btn-down { background-image: url(./images/icon/ico_down.png); background-repeat: no-repeat; padding-left: 30px; background-size:25px; }
+.nsf-btn-allok { background-image: url(../images/icon/ico_allok.png); background-repeat: no-repeat; padding-left: 30px; background-size:25px; }
+.nsf-btn-cal { background-image: url(../images/icon/ico_cal.png); background-repeat: no-repeat; padding-left: 30px; background-size:25px; }
+.nsf-btn-copy { background-image: url(../images/icon/ico_copy.png); background-repeat: no-repeat; padding-left: 30px; background-size:25px; }
+.nsf-btn-detail { background-image: url(../images/icon/ico_detail.png); background-repeat: no-repeat; padding-left: 30px; background-size:25px; }
+.nsf-btn-paste { background-image: url(../images/icon/ico_paste.png); background-repeat: no-repeat; padding-left: 30px; background-size:25px; }
+.nsf-btn-pop { background-image: url(../images/icon/ico_pop.png); background-repeat: no-repeat; padding-left: 30px; background-size:25px; }
+.nsf-btn-print2 { background-image: url(../images/icon/ico_print.png); background-repeat: no-repeat; padding-left: 30px; background-size:25px; }
+.nsf-btn-up { background-image: url(../images/icon/ico_up.png); background-repeat: no-repeat; padding-left: 30px; background-size:25px; }
+.nsf-btn-down { background-image: url(../images/icon/ico_down.png); background-repeat: no-repeat; padding-left: 30px; background-size:25px; }
  */
 .nsf-btn-popup {
-  background: url(./images/icon/btn_glass_over.gif) no-repeat;
+  background: url(../images/icon/btn_glass_over.gif) no-repeat;
   width: 18px;
   height: 18px;
   border: none;
 }
 .nsf-btn-popup:hover {
-  background: url(./images/icon/btn_glass.gif) no-repeat;
+  background: url(../images/icon/btn_glass.gif) no-repeat;
 }
 
 .nsf-btn-regist {
-  background: url(./images/icon/regist.png) no-repeat;
+  background: url(../images/icon/regist.png) no-repeat;
   padding-left: 18px;
   border: none;
 }
 
 .nsf-btn-confirm {
-  background-image: url(./images/icon/confirm.png);
+  background-image: url(../images/icon/confirm.png);
   background-repeat: no-repeat;
   padding-left: 18px;
 }
 .nsf-btn-confirm2 {
-  background-image: url(./images/icon/decision2.png);
+  background-image: url(../images/icon/decision2.png);
   background-repeat: no-repeat;
   padding-left: 18px;
 }
 .nsf-btn-cancel {
-  background-image: url(./images/icon/cancel.png);
+  background-image: url(../images/icon/cancel.png);
   background-repeat: no-repeat;
   padding-left: 18px;
 }
 .nsf-btn-close {
-  background-image: url(./images/icon/close02.png);
+  background-image: url(../images/icon/close02.png);
   background-repeat: no-repeat;
   padding-left: 18px;
 }
