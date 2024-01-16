@@ -5,11 +5,12 @@
 /* 공통 */
 @import "./reset.css"; 
 @import "./var.css";
+@import "./fonts.css";
 
 /* 페이지 */
+@import "./common.css";
 @import "./icons.css";
 @import "./btns.css";
-@import "./common.css";
 @import "./menutree.css";
 @import "./layout.css";
 @import "./contents.css";
