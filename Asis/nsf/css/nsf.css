@@ -1,5 +1,7 @@
 /* 공통 */
 @import "./bhj.css"; 
+@import "./bih.css"; 
+@import "./kdh.css"; 
 
 BODY {
 	scrollbar-face-color:#becee9;
