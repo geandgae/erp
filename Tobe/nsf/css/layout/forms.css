@@ -157,6 +157,10 @@
 .nsf-form-li-400 {
   width: 400px !important;
 }
+/* 국세청PDF만 씀 */
+.nsf-form-li-2xx {
+  width: 400px !important;
+}
 .nsf-form-li-500 {
   width: 500px !important;
 }
