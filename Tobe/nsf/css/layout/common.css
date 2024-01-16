@@ -24,6 +24,7 @@
 .nsf-widget-header {
   /* padding: 0.4em 0.5em 0.4em 0.5em; */
   /* height: 15px; */
+  padding: 0;
 }
 .nsf-widget-header label {
   background-image: url(../images/icon/bullet_w.png);
