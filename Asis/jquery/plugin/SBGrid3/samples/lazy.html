@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <script type="text/javascript" src="../SBGrid3/sbgrid3.js"></script> -->
+    <script type="text/javascript" src="../require.js"></script>
+
+    <link rel="stylesheet" href="../css/sbgrid3.css" />
+    <script src="./data/mergeData.js" defer></script>
+    <title>Document</title>
+    <script>
+
+    </script>
+</head>
+
+<body>
+    <div id="grid"></div>
+
+    <script type="text/javascript">
+        require(["../dist/Grid/SBGrid3",], function (test) {
+        //document.addEventListener("DOMContentLoaded", function () {
+            makeGroupOrders();
+        });
+
+    </script>
+    <script>
+        
+        function makeGroupOrders() {
+            let columnsTree2 = [
+                { field: "orderId", align: "center", caption: "주문번호" },
+                {
+                    caption: "배송정보",
+                    cellTemplate: "Ship {{shipCountry}} - {{shipCity}}",
+                    columns: [
+                        {
+                            caption: "배송지",
+                            columns: [
+                                { field: "shipCountry", unit: "%", caption: "국가", align: "center" },
+                                { field: "shipCity", caption: "도시", align: "center" },
+                                { field: "shipRegion", caption: "지역", align: "center" },
+                            ],
+                        },
+                        { field: "shipVia", align: "center", caption: "경유지", width: 50 },
+                    ],
+                },
+                {
+                    field: "shipName",
+                    caption: "배송자",
+                    align: "center",
+                    width: 200,
+                    columns: [
+                        {
+                            field: "shipAddress",
+                            caption: "보내는곳",
+                            captionVisible: true,
+                            align: "center",
+                            width: 200,
+                            columns: [
+                                {
+                                    field: "detail",
+                                    caption: "상세",
+                                    captionVisible: true,
+                                    align: "center",
+                                    width: 200,
+                                },
+                            ],
+                        },
+                    ],
+                },
+                {
+                    field: "orderDate",
+                    caption: "주문일",
+                    type: "date",
+                    format: "yyyy-MM-dd",
+                    columns: [
+                        {
+                            field: "requiredDate",
+                            unit: "%",
+                            caption: "예정일",
+                            type: "date",
+                            format: "yyyy-MM-dd",
+                        },
+                        {
+                            field: "shippedDate",
+                            unit: "%",
+                            caption: "배송일",
+                            type: "date",
+                            format: "yyyy-MM-dd",
+                        },
+                    ],
+                },
+                { field: "customerId", align: "center", caption: "주문자" },
+                { field: "employeeId", align: "center", caption: "담당자ID" },
+                { field: "freight", caption: "화물" },
+                { field: "shipPostalCode", caption: "우편번호" },
+                { field: "shipViaNavigation", caption: "배송정보" },
+                { field: "orderDetails", caption: "주문상세" },
+            ];
+
+            let sourceConfig = {
+                ajax: {
+                    select: {
+                        // url: "http://192.168.0.241/Northwind?model=Orders",
+                        url: "https://sbgrid.co.kr/json",
+                        loadType: "post",
+                        dataType: "json",
+                    },
+                    total: "total",
+                    selected: "data",
+                },
+                schema: {
+                    id: "orderId",
+                },
+                lazyLoading: false,
+                cachePaging: true,
+                serverPaging: true,
+
+                pageSize: 10,
+            };
+
+            let gridConfig = {
+                dataSource: sourceConfig,
+                columns: columnsTree2,
+                container: "#grid",
+                width: "100%",
+                height: "550px",
+            };
+
+            datagrid = SBGrid3.createGrid(gridConfig);
+            datagrid.refresh();
+        }
+
+    </script>
+</body>
+
+</html>
