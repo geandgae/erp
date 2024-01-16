@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <script src="../sbgrid3.js"></script> -->
+    <script type="text/javascript" src="../require.js"></script>
+    <link rel="stylesheet" href="../css/sbgrid3.css" />
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="grid"></div>
+    <input type="button" value="refresh" onclick="SBGrid3.refresh(grid)" />
+    <input type="button" value="reload" onclick="SBGrid3.reload(grid)" />
+    <input type="button" value="rebuild" onclick="SBGrid3.rebuild(grid)" />
+
+    <script type="text/javascript">
+        require(["../dist/Grid/SBGrid3",], function (test) {
+            //document.addEventListener("DOMContentLoaded", function () {
+            createGrid();
+        });
+
+    </script>
+
+
+    <script>
+
+        const gridData = [
+            { checkDt: '2023-10-10', no: '1234-1234-1234-1234', name: '홍길동', price: 20000, checkSts: false },
+            { checkDt: '2023-10-11', no: '1234-1234-1234-1234', name: '임꺽정', price: 20000, checkSts: false },
+        ];
+
+        function createGrid() {
+            const gridConfig = {
+                dataSource: gridData,
+                container: '#grid',
+                height: '500px',
+                defaultColumn: {
+                    width: 150,
+                },
+                columns: [
+                    {
+                        caption: '결제일시', field: 'checkDt', unit: '%', width: 10,
+                        total: {
+                            footer: { template: '정상승인 건수/금액' }
+                        }
+                    },
+                    {
+                        caption: '카드번호', field: 'no', unit: '%', width: 10,
+                        total: {
+                            aggregates: [
+                                { func: 'total' },
+                                { func: 'sum', require: 'price' }
+                            ],
+                            footer: { template: '{{total}} / {{sum}}' }
+                        }
+                    },
+                    {
+                        caption: '성명', field: 'name', unit: '%', width: 10,
+                        total: {
+                            footer: { template: '승인취소 건수/금액' }
+                        }
+                    },
+                    {
+                        caption: '금액', field: 'price', unit: '%', width: 10,
+                        total: {
+                            aggregates: [
+                                { func: 'count', require: 'cancel', params: true },
+                                { func: 'sum', require: 'price' }
+                            ],
+                            footer: { template: '{{count}} / {{sum}}' }
+                        }
+                    },
+                    {
+                        caption: '비고', field: 'remark', unit: '%', width: 10,
+                        total: {
+                            footer: { template: '순 승인거래 건수/금액' }
+                        }
+                    },
+                    {
+                        caption: '취소처리', field: 'cancel',
+                        type: 'button', caption: '취소처리', unit: '%', width: 10,
+                        command: (container, data) => {
+                            regnToday = undefined;
+                            if (regnToday == data.originData.checkDt.replaceAll('.', '') && data.originData.checkSts != '9' && data.originData.nocardYn == 'Y') {
+                                const button = document.createElement('button');
+                                button.innerText = '취소';
+                                button.onclick = () => { fn_payCncl(data.originData); };
+                                container.append(button);
+                            }
+                        },
+                        total: {
+                            aggregates: [
+                                { func: 'count', require: 'cancel', params: true },
+                                { func: 'sum', require: 'price' }
+                            ],
+                            footer: {
+                                template: '{{count}} / {{sum}}',
+                                colSpan: 2
+                            }
+                        }
+                    },
+                    { caption: '영수증', field: 'date1', unit: '%', width: 5,
+                },
+                ]
+            };
+
+            window.grid = SBGrid3.createGrid(gridConfig);
+        }
+    </script>
+</body>
+
+</html>

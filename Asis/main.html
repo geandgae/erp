@@ -1,0 +1,483 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--
+/**
+ * ============================================================================
+ * Wisen NKRF Main UI
+ *
+ * @author jissfa
+ * @version 1.0
+ * @since 1.0
+ * <p>
+ * History<br>
+ * 1.0  2013.06.21  jissfa    initial version
+ * ============================================================================
+ */
+-->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Welcome to WiseN</title>
+<link rel="stylesheet" type="text/css" href="./jquery/plugin//treeview/css/jquery.treeview.css"/>
+<link rel="stylesheet" type="text/css" href="./nsf/css/panel.css"/>
+<!-- CSS -->
+<link rel="stylesheet" type="text/css" href="./jquery/ui/themes/jquery-ui.css"/>
+<link rel="stylesheet" type="text/css" href="./jquery/plugin/jqGrid/css/ui.jqgrid.css"/>
+<link rel="stylesheet" type="text/css" href="./jquery/plugin/jqGrid/plugins/ui.multiselect.css"/>
+<link rel="stylesheet" type="text/css" href="./nsf/css/nsf.css"/>
+
+<!-- JS -->
+<script type="text/javascript" src="./jquery/jquery.js"></script>
+<script type="text/javascript" src="./jquery/ui/jquery-ui.js"></script>
+<script type="text/javascript" src="./jquery/plugin/blockUI/jquery.blockUI.js"></script>
+<script type="text/javascript" src="./jquery/ui/jquery.ui.datepicker-ko.js"></script>
+<!--<script type="text/javascript" src="./nsf/nsf.js"></script>-->
+
+<!-- JQ Grid -->
+<script type="text/javascript" src="./jquery/plugin/jqGrid/plugins/ui.multiselect.js"></script>
+<script type="text/javascript" src="./jquery/plugin/jqGrid/i18n/grid.locale-en.js"></script>
+<script type="text/javascript" src="./jquery/plugin/jqGrid/jquery.jqGrid.js"></script>
+<script type="text/javascript" src="./jquery/plugin/form/jquery.form.js"></script>
+  
+<!-- swalert -->
+<script type="text/javascript" src="./jquery/plugin/sweetalert2/sweetalert2.js" ></script>
+<link rel="stylesheet" href="./jquery/plugin/sweetalert2/css/sweetalert2.css"  />
+
+<!-- JS2 nsf.js/nsfPopup.js-->
+<script type="text/javascript" src="./nsf/nsf.message.js"></script>
+<script type="text/javascript" src="./nsf/nsf.request.js"></script>
+<script type="text/javascript" src="./nsf/nsf.popup.js"></script> 
+<script type="text/javascript" src="./nsf/nsf.util.jqgrid.js"></script>
+<script type="text/javascript" src="./nsf/nsf.util.sbgrid.js"></script> 
+<script type="text/javascript" src="./nsf/json2.js"></script>
+<script type="text/javascript" src="./nsf/jquery.blockUI.js"></script> 
+    <script type="text/javascript" src="./nsf/nsf.js"></script>
+<style type="text/css">
+
+	#divOpenMenu { position: relative; top: 3px; background-color: #E6E6E6; }
+	#divOpenMenu .ui-widget-header { height: 29px; }
+ 	#divOpenMenu .ui-widget-header h3 { position:relative; top: -7px; left: 3px; width: 160px; }
+/* 	#divOpenMenu .ui-widget-header h3 { width:185px; height:25px; background:url(./nsf/css/images/portal/left_h3.gif) no-repeat; padding:10px 0 0 15px; color:#fff; position:relative; } */
+	#divOpenMenu .ui-widget-header .nsf-x-tool-collapse-west { position: relative; top: 7px; right: 3px; }
+	#divOpenMenu #logo { position: relative; font-size: 11pt; top: 5px; left: 2px; }
+
+    #divMenuTabFix,#divMenuTabTree { width: 253px; overflow: auto; }
+    #divMenuTabFix,#divMenuTabFind {width: 253px; overflow: auto; }
+    #divMenuTabFix,#divMenuTabMyMenu {width: 253px; overflow: auto; }
+
+	#divCloseMenu { position: relative; top: 3px; display: none; width: 22px;  }
+	#divCloseMenu .nsf-x-tool-collapse-east { position: relative; top: 7px; right: 3px; }
+
+	#divContent {  }
+
+	#divBottom { position: absolute; bottom: 0; width: 99%; height: 20px; }
+	#divBottom center { vertical-align: middle; }
+	#divBottom label { color: #E6E6E6; }
+
+	#divMenuTab {
+		padding: 0px;border:1px solid #d9d9d9; background-color:#f7f7f7;
+	}
+
+	#divMenuTab .ui-tabs-nav li { margin: .5px .1em 0 0; }
+	#divMenuTab .ui-tabs-nav li a { font-size:9pt !important; }
+
+	#divContent {  }
+	#divContentTab { border : none;  }
+	/*
+	#divContentTab .ui-tabs-nav { border : 1px solid #dedede }
+	*/
+	#divContentTab .ui-tabs-nav { border : 1px solid #868ca1; background-color: #e2e5ef; }
+	#divContentTab li .ui-icon-close { float: left; margin: 0.4em 0.2em 0 0; cursor: pointer; }
+
+	.css-content { }
+	.css-menu-content { background-color: white !important; }
+
+
+
+	#divContent .ui-tabs .ui-tabs-panel {
+		padding-top : 10px;
+	}
+
+	li{list-style:none;}
+</style>
+<script type="text/javascript" src="./jquery/plugin/treeview/jquery.treeview.js"></script>
+
+<script type="text/javascript">
+//-----------------------------------------------------------------
+//Initialize Section
+//-----------------------------------------------------------------
+var menuWidth = 220, menuWidthOrg = 220;
+
+function fRenderPage() {
+	jQuery(".name_cb").text("tester123");
+	jQuery("#login").hide();
+}
+
+function fResizePage() {
+	var width = Nsf.width - menuWidth;
+	var height = Nsf.height - 70;
+
+	jQuery("#divOpenMenu").height(height);
+	jQuery("#divCloseMenu").height(height);
+
+	jQuery(".css-menu-content").height(height-65);
+
+	jQuery("#divContent").width(width - 51);
+	jQuery("#divContent").height(height);
+
+	jQuery(".css-content").height(height-33);
+
+	var wid = jQuery(document).width() - 40 + "px";
+	var p = jQuery("#divContentTab").position();
+
+	var heig = p.top + 10 + "px";
+
+	jQuery("#divCloseAll").css({ "position": "fixed", "top": heig, "left":wid, "z-index":"1" });
+
+}
+
+function fInitPage() { 
+
+	jQuery("#divMenuTab").tabs({ fxFade:true, fxSpeed:"slow" });
+	jQuery("#divMenuTab").removeClass("ui-corner-all");
+
+	jQuery("#divContentTab").tabs({ fxFade:true, fxSpeed:"slow" });
+	jQuery("#divContentTab").removeClass("ui-corner-all");
+
+	jQuery("#divContentTab").tabs().delegate( "span.ui-icon-close", "click", function() {
+		var panelId = jQuery( this ).closest( "li" ).remove().attr( "aria-controls" );
+		jQuery( "#" + panelId ).remove();
+		jQuery("#divContentTab").tabs( "refresh" );
+	});
+
+	jQuery("#divMenuTab").removeClass("ui-widget-content");
+	jQuery("#divContentTab").removeClass("ui-widget-content");
+
+	jQuery("#accordion").accordion();
+	jQuery("#accordion").accordion("option","icons",null);
+
+	jQuery("#treeMenu").treeview();
+
+	jQuery("#treeMenu .file").click(function() {
+		fOpenMenu(jQuery(this).attr("id"), jQuery(this).text(), jQuery(this).attr("uri"));
+	}); 
+
+	jQuery("#divMenuTabTree  .file").on("mouseover", function() {
+		jQuery(this).css({ "color": "red", "cursor": "pointer" });
+	});
+
+	jQuery("#divMenuTabTree  .file").on("mouseleave", function() {
+		jQuery(this).css({ "color": "black", "cursor": "pointer" });
+	}); 
+
+	jQuery("#divOpenMenu .nsf-x-tool-collapse-west").click(function(){
+		fHideMenu();
+	});
+
+	jQuery("#divCloseMenu .nsf-x-tool-collapse-east").click(function(){
+		fShowMenu();
+	}); 
+
+	jQuery("#btnLogout").click(function(){
+		NsfMessage.confirm("로그아웃 하시겠습니까?").then(function(val){
+			if(val){document.location.href="login.html";}
+		});
+	});
+
+	jQuery("#btnAllClose").click(function(){
+		fAllClose();
+	});
+
+    jQuery("#btnFindM1").click(function(){
+        fFindMenu();
+    });
+
+    jQuery("#txtSearchMenu").keydown(function(event){
+        if (event.keyCode == '13') {
+            fFindMenu();
+        }
+    });
+
+    jQuery("#btnAddM1").click(function(){
+        fAddMyMenu();
+    });
+
+    jQuery("#btnRemoveM1").click(function(){
+        fRemoveMyMenu();
+    });
+
+    jQuery("#btnAllok").click(function(){
+        fOpenMenu("OpMnu030S", "즐겨찾기관리", "/wisen/op/mnu/control/OpMnu030SC");
+    });
+
+	jQuery("#btnAllClose").css("cursor", "pointer");
+
+	var wid = jQuery(document).width() - 45 + "px";
+
+	jQuery("#divCloseAll").css({ "position": "fixed", "top": "72px", "left":wid, "z-index":"1" });
+  
+    jQuery("#btnHelp").click(function(){
+        fOpenHelp();
+    });
+}
+ 
+
+function fAllClose(){
+	var panelId = jQuery( "#divContentTab li span.ui-icon-close" ).click();
+
+	jQuery("#divContentTab").tabs("refresh");
+} 
+
+function fStartEvent(){
+	jQuery(document).on("click", "#treeMenu .file", function(){
+		fOpenMenu(jQuery(this).attr("id"), jQuery(this).text(), jQuery(this).attr("uri"));믿ㄱ
+	});
+
+	jQuery("#divMenuTabTree  .file").on("mouseover", function() {
+		jQuery(this).css({ "color": "red", "cursor": "pointer" });
+	});
+
+	jQuery("#divMenuTabTree  .file").on("mouseleave", function() {
+		jQuery(this).css({ "color": "black", "cursor": "pointer" });
+	});
+}
+
+function fShowMenu() {
+	jQuery("#divCloseMenu").hide("slide", {}, 300, function() {
+		menuWidth = menuWidthOrg;
+		Nsf.resize();
+		jQuery("#divContent").css("left", "210px");
+
+		jQuery("#divOpenMenu").show("slide", {}, 300);
+
+		var cnt = jQuery("#divContentTab > div > iframe").contents().length;
+
+		for( var i=0;i<cnt;i++ ){
+
+			jQuery("#divContentTab > div > iframe").eq(i).contents().find(".nsf-section, .nsf-section-resize").outerWidth(jQuery("#divContent").width()-10);
+
+			if ( typeof jQuery('#divContentTab > div > iframe').get(i).contentWindow.fResizePageWidth != "undefined" ){
+				jQuery('#divContentTab > div > iframe').get(i).contentWindow.fResizePageWidth();
+			}
+
+
+		}
+	});
+}
+
+function fHideMenu() {
+	jQuery("#divOpenMenu").hide("slide", {}, 300, function() {
+		menuWidth = -11;
+		Nsf.resize();
+		jQuery("#divContent").css("left", "33px");
+
+		jQuery("#divCloseMenu").show("slide", {}, 300);
+	});
+}
+
+function fOpenMenu(tabId, tabTitle, tabUri, param) {
+	if (jQuery("#divContentTab_" + tabId).is("*")) {
+		var index = jQuery("#divContentTab a[href=\"#divContentTab_" + tabId + "\"]").parent().index();
+		jQuery("#divContentTab").tabs("option", "active", index);
+		return;
+	}
+
+	var date = new Date();
+	var frameId = "iframeContentTab_" + date.getTime();
+
+	var li = "<li><a href=\"#divContentTab_" + tabId + "\">" + tabTitle + "</a> <span class=\"ui-icon ui-icon-close\">Remove Tab</span></li>";
+	var div = "<div id=\"divContentTab_" + tabId + "\" class=\"css-content\">"
+			+ "<iframe id=\"" + frameId + "\" name=\"" + frameId + "\" style=\"width:100%; height:100%;\" scrolling=\"auto\" frameborder=\"0\" marginheight=\"0\" marginwidth=\"0\"/>"
+			+ "</div>";
+
+	jQuery("#divContentTab").find( ".ui-tabs-nav" ).append( li );
+	jQuery("#divContentTab").append( div );
+//	$('iframe[name="login"').hide();
+//	$('iframe#'+tabId).show();
+	
+	jQuery("#divContentTab").tabs("refresh");
+	jQuery("#divContentTab").tabs("option", "active", -1);
+
+	Nsf.resize();
+}   
+ 
+</script>
+</head>
+<body>
+	<div class="nsf-panel-top"> 
+		<img alt="System Logo" src="./nsf/css/images/panel/logo_wisen.png">
+		<p>
+			<span id="clock" title="12월 13일, 2023">12월 13일 수요일 2:30 오후</span>
+			<span id="spanNmLogin" class="name_cb">tester123</span>
+			<span>님 환영합니다.</span>
+			<a href="#"><img alt="로그아웃" src="./nsf/css/images/panel/btn_logout.gif" id="btnLogout"></a>
+            <a href="#">
+                <img alt="도움말" src="./nsf/css/images/icon/help.png" id="btnHelp">
+            </a>
+			<span id="login" style="display:none;"></span>
+		</p>
+	</div>
+	<div id="divCloseAll" style="width:18px">
+		<img id="btnAllClose" alt="전체닫기" src="./nsf/css/images/icon/close.gif">
+	</div> 
+	<div class="nsf-panel-content">
+		<table><tr>
+		<td>
+			<div id="divOpenMenu">
+				<div class="ui-widget-header">
+					<div class="nsf-x-tool nsf-x-tool-toggle nsf-x-tool-collapse-west">&nbsp;</div>
+					<h3>통합경영정보시스템</h3>
+				</div>
+				<div id="divMenuTab">
+					<ul>
+						<li><a href="#divMenuTabTree">업무메뉴</a></li>
+                        <li><a href="#divMenuTabFind">찾기</a></li>
+                        <li><a href="#divMenuTabMyMenu">즐겨찾기</a></li>
+					</ul>
+					<div id="divMenuTabTree" class="css-menu-content">
+						
+            <ul id="treeMenu" class="filetree">
+            <li><span class="computer">디자인_UI_1</span>
+                <ul>
+                    <li class="closed"><span class="folder">공통정보</span>
+                        <ul>
+                            <li><span class="file" id="B1" uri="./공지사항.html">공지사항</span></li>
+                            <li><span class="file" id="B2" uri="./공통번호등록.html">공통코드등록</span></li>
+                            <li><span class="file" id="B3" uri="./인사자료등록.html">인사자료등록</span></li>
+                            <li><span class="file" id="B4" uri="./개인별급여내역조정.html">개인별급여내역조정</span></li>
+                            <li><span class="file" id="B5" uri="./연말정산기초자료등록및계산2022.html">연말정산기초자료등록및계산_2022</span></li>
+                            <li><span class="file" id="B6" uri="./국세청PDF자료등록2022.html">국세청PDF자료등록_2022</span></li>
+                            <li><span class="file" id="B7" uri="./결의전표승인신규.html">결의전표승인(신규)</span></li>
+                            <li><span class="file" id="B8" uri="./부가세신고서작성.html">부가세신고서작성</span></li>
+                        </ul>
+                    </li>
+                    <li class="closed"><span class="folder">사외조직</span>
+                        <ul>
+                            <li><span class="file" id="BaPub010S" uri="/wisen/ba/pub/control/BaPub010SC">은행정보등록</span></li>
+                            <li><span class="file" id="BaPub020S" uri="/wisen/ba/pub/control/BaPub020SC">세무서정보등록</span></li>
+                            <li><span class="file" id="BaPub030S" uri="/wisen/ba/pub/control/BaPub030SC">카드사정보등록</span></li>
+                            <li><span class="file" id="BaPub330S" uri="/wisen/ba/pub/control/BaPub330SC">테스트화면</span></li>
+                        </ul>
+                    </li>
+                    <li class="closed"><span class="folder">사내조직</span>
+                        <ul>
+                            <li><span class="file" id="BaOrg010S" uri="/wisen/ba/org/control/BaOrg010SC">법인정보등록</span></li>
+                            <li><span class="file" id="BaOrg020S" uri="/wisen/ba/org/control/BaOrg020SC">신고사업장등록</span></li>
+                            <li><span class="file" id="BaOrg150S" uri="/wisen/ba/org/control/BaOrg150SC">소속사업장등록</span></li>
+                            <li><span class="file" id="BaOrg040S" uri="/wisen/ba/org/control/BaOrg040SC">부서등록</span></li>
+                            <li><span class="file" id="BaOrg080S" uri="/wisen/ba/org/control/BaOrg080SC">부서이력등록</span></li>
+                            <li><span class="file" id="BaOrg160S" uri="/wisen/ba/org/control/BaOrg160SC">부서이력조회</span></li>
+                            <li><span class="file" id="BaOrg060S" uri="/wisen/ba/org/control/BaOrg060SC">손익센터등록</span></li>
+                            <li><span class="file" id="BaOrg070S" uri="/wisen/ba/org/control/BaOrg070SC">손익센터이력등록</span></li>
+                            <li><span class="file" id="BaOrg180S" uri="/wisen/ba/org/control/BaOrg180SC">업무담당등록</span></li>
+                            <li><span class="file" id="BaOrg190S" uri="/wisen/ba/org/control/BaOrg190SC">인사/회계 사용자권한 등록</span></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><span class="computer">디자인_UI_2</span>
+                <ul>
+                    <li class="closed"><span class="folder">채용관리</span>
+                        <ul>
+                            <li class="closed"><span class="folder">지원자관리</span>
+                                <ul>
+                                    <li><span class="file" id="HuRcr200S" uri="/wisen/hu/rcr/control/HuRcr200SC">지원자통계</span></li>
+                                    <li><span class="file" id="HuRcr210S" uri="/wisen/hu/rcr/control/HuRcr210SC">지원자현황</span></li>
+                                    <li><span class="file" id="HuRcr230S" uri="/wisen/hu/rcr/control/HuRcr230SC">합격자통보</span></li>
+                                </ul>
+                            </li>
+                            <li class="closed"><span class="folder">채용전형</span>
+                                <ul>
+                                    <li><span class="file" id="HuRcr001S_043" uri="/wisen/hu/rcr/control/HuRcr001S_043C">채용공고등록</span></li>
+                                    <li><span class="file" id="HuRcr300S" uri="/wisen/hu/rcr/control/HuRcr300SC">서류전형 기준등록</span></li>
+                                    <li><span class="file" id="HuRcr310S" uri="/wisen/hu/rcr/control/HuRcr310SC">서류전형 결과등록</span></li>
+                                    <li><span class="file" id="HuRcr320S" uri="/wisen/hu/rcr/control/HuRcr320SC">인적성/역량평가 결과등록</span></li>
+                                    <li><span class="file" id="HuRcr330S" uri="/wisen/hu/rcr/control/HuRcr330SC">면접전형대상자등록</span></li>
+                                    <li><span class="file" id="HuRcr340S" uri="/wisen/hu/rcr/control/HuRcr340SC">면접전형 결과등록</span></li>
+                                    <li><span class="file" id="HuRcr350S" uri="/wisen/hu/rcr/control/HuRcr350SC">최종결과등록</span></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li> 
+                </ul>
+            </li> 
+        </ul>
+					</div>
+                    <div id="divMenuTabFind" class="css-menu-content" > 
+                        <div class="nsf-btnbar" style="width: 243px;">
+                            <table>
+                                <tr>
+                                    <td class="nsf-right">
+                                        <button id="btnFindM1" type="button" class="nsf-btn-search">조회</button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div id="eEditFormM1" class="nsf-form" style="width: 243px;">
+                            <ul>
+                                <li><input type="hidden" id="txtNoPerson" name="noPerson" class="nsf-param">
+                                    <input type="text" id="txtSearchMenu" name="searchMenu" class="nsf-param" style="width: 230px">
+                                </li>
+                            </ul>
+                        </div>
+                        <table id="jqGridM1"></table>
+                        <div id="jqGridnavM1"></div>
+                    </div>
+                    <div id="divMenuTabMyMenu" class="css-menu-content;"> 
+                        <div class="nsf-btnbar" style="width: 243px;">
+                            <table>
+                                <tr>
+                                    <td class="nsf-right" style="width: 100%;">
+                                        <button id="btnAllok" type="button" class="nsf-btn-allok">관리</button>
+                                        <button id="btnAddM1" type="button" class="nsf-btn-add">추가</button>
+                                        <button id="btnRemoveM1" type="button" class="nsf-btn-delete">삭제</button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <table id="jqGridM2"></table>
+                        <div id="jqGridnavM2"></div>
+                    </div>
+				</div>
+			</div>
+			<div id="divCloseMenu" class="ui-widget-content">
+				<div class="nsf-x-tool nsf-x-tool-toggle nsf-x-tool-collapse-east">&nbsp;</div>
+			</div>
+		</td>
+		<td style="width:8px;" nowrap></td>
+		<td>
+
+			<div id="divContent">
+				<div id="divContentTab">
+					<ul>
+						<li><a href="#divContentTabWelcome">공지사항</a></li>
+					</ul>
+					<div id="divContentTabWelcome" class="css-content">
+						<!--<iframe src="./login.html" id="login" name="login" width="100%" height="100%" scrolling="auto" frameborder="0" marginheight="0" marginwidth="0">-->
+						<!--</iframe>-->
+						<iframe src="./공지사항.html" id="B1" name="login" width="100%" height="100%" scrolling="auto" frameborder="0" marginheight="0" marginwidth="0">
+						</iframe>
+						<!--<iframe src="./공통번호등록.html" id="B2" name="login" width="100%" height="100%" scrolling="auto" frameborder="0" marginheight="0" marginwidth="0">-->
+						<!--</iframe>-->
+						<!--<iframe src="./인사자료등록.html" id="B3" name="login" width="100%" height="100%" scrolling="auto" frameborder="0" marginheight="0" marginwidth="0">-->
+						<!--</iframe>-->
+						<!--<iframe src="./개인별급여내역조정.html" id="B4" name="login" width="100%" height="100%" scrolling="auto" frameborder="0" marginheight="0" marginwidth="0">-->
+						<!--</iframe>-->
+						<!--<iframe src="./연말정산기초자료등록및계산2022.html" id="B5" name="login" width="100%" height="100%" scrolling="auto" frameborder="0" marginheight="0" marginwidth="0">-->
+						<!--</iframe>-->
+						<!--<iframe src="./국세청PDF자료등록2022.html" id="B6" name="login" width="100%" height="100%" scrolling="auto" frameborder="0" marginheight="0" marginwidth="0">-->
+						<!--</iframe>-->
+						<!--<iframe src="./결의전표승인신규.html" id="B7" name="login" width="100%" height="100%" scrolling="auto" frameborder="0" marginheight="0" marginwidth="0">-->
+						<!--</iframe>-->
+						<!--<iframe src="./부가세신고서작성.html" id="B8" name="login" width="100%" height="100%" scrolling="auto" frameborder="0" marginheight="0" marginwidth="0">-->
+						<!--</iframe>-->
+					</div>
+				</div>
+			</div>
+		</td>
+		</tr>
+		
+		</table>
+	</div>
+
+</body>
+</html>

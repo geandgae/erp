@@ -1,0 +1,689 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--
+/**
+ * ============================================================================
+ * 사용자 UI
+ *
+ * @author <a href="mailto:@">jissfa</a>
+ * @version 1.0
+ * @since 1.0
+ * <p>
+ * History<br>
+ * 1.0  2010.11.22  jissfa    initial version
+ * ============================================================================
+ */
+-->
+<html lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>공통번호등록</title> <!-- CSS -->
+<link rel="stylesheet" type="text/css" href="./jquery/ui/themes/jquery-ui.css"/>
+<link rel="stylesheet" type="text/css" href="./jquery/plugin/jqGrid/css/ui.jqgrid.css"/>
+<link rel="stylesheet" type="text/css" href="./jquery/plugin/jqGrid/plugins/ui.multiselect.css"/>
+<link rel="stylesheet" type="text/css" href="./nsf/css/nsf.css"/>
+
+<!-- JS -->
+<script type="text/javascript" src="./jquery/jquery.js"></script>
+<script type="text/javascript" src="./jquery/ui/jquery-ui.js"></script>
+<script type="text/javascript" src="./jquery/plugin/blockUI/jquery.blockUI.js"></script>
+<script type="text/javascript" src="./jquery/ui/jquery.ui.datepicker-ko.js"></script>
+<!--<script type="text/javascript" src="./nsf/nsf.js"></script>--> 
+
+<!-- SB Grid -->
+<script type="text/javascript" src="./jquery/plugin/SBGrid3/sbgrid3.js" ></script>
+<link rel="stylesheet" href="./jquery/plugin/SBGrid3/css/sbgrid3.css"  />
+
+<!-- swalert -->
+<script type="text/javascript" src="./jquery/plugin/sweetalert2/sweetalert2.js" ></script>
+<link rel="stylesheet" href="./jquery/plugin/sweetalert2/css/sweetalert2.css"  />
+
+<!-- JS2 nsf.js/nsfPopup.js-->
+<script type="text/javascript" src="./nsf/nsf.message.js"></script>
+<script type="text/javascript" src="./nsf/nsf.request.js"></script>
+<script type="text/javascript" src="./nsf/nsf.popup.js"></script>
+<script type="text/javascript" src="./nsf/nsf.util.js"></script>
+<script type="text/javascript" src="./nsf/nsf.util.jqgrid.js"></script>
+<script type="text/javascript" src="./nsf/nsf.util.sbgrid.js"></script> 
+<script type="text/javascript" src="./nsf/json2.js"></script>
+<script type="text/javascript" src="./nsf/jquery.blockUI.js"></script> 
+<style type="text/css">
+</style>
+<script type="text/javascript" src="./nsf/nsf.js"></script>
+<script type="text/javascript">
+//-----------------------------------------------------------------
+// Initialize Section
+//-----------------------------------------------------------------
+const appUri = "/wisen.kepid/webApp/wisen/ba/com/control/BaCom010SC";
+var sbGridM1;
+var sbGridD1;
+var initGridSearch = false;
+function fInitBefore() {
+    NsfUtil.select.append("select[id=cboFgModuleH]", "AC", "회계관리");
+    NsfUtil.select.append("select[id=cboFgModuleH]", "BA", "기초관리");
+    NsfUtil.select.append("select[id=cboFgModuleH]", "CO", "관리회계");
+    NsfUtil.select.append("select[id=cboFgModuleH]", "EI", "경영관리");
+    NsfUtil.select.append("select[id=cboFgModuleH]", "HU", "인사관리");
+    NsfUtil.select.append("select[id=cboFgModuleH]", "OP", "운영관리");
+    NsfUtil.select.append("select[id=cboFgModuleH]", "TB", "전자세금계산서");
+}
+
+function fInitPage() {
+    jQuery("#form").hide();
+
+    jQuery("#sectionA1 #toggle").on("click", function() {
+        jQuery("#sectionA2").slideToggle(null, function() {Nsf.resize();});
+    });
+    jQuery("#sectionB1 #toggle").on("click", function() {
+        jQuery("#sectionB2").slideToggle(null, function() {Nsf.resize();});
+    });
+
+    jQuery("#sectionA2 #grid .nsf-mini-vertical").on("click", function() {
+        jQuery("#sectionA2 #grid .nsf-form-search").slideToggle(null, function() {Nsf.resize();});
+    });
+
+    // Popup Icon Click
+    jQuery("#popCdMasterH").click(function() {
+        var url = "/wisen.kepid/webView/wisen/fd/pop/control/PopMasterCode10SC";
+        NsfPopup.modalDialog.open(url, [{name: "multiselect", value: "false"}
+                                        , {name: "cdSearch", value: jQuery("#txtCdMasterH").val()}
+        ], {title: "공통코드", dialogWidth: "500px", dialogHeight: "400px"}, function(data) {
+            jQuery("#txtCdMasterH").val(data.cdMaster);
+            jQuery("#txtNmMasterH").val(data.nmMaster);
+        });
+    });
+
+    // Code Search
+    jQuery("#txtCdMasterH").change(function() {
+        if(jQuery.trim(jQuery("#txtCdMasterH").val()) == ""){
+            jQuery("#txtNmMasterH").val("");
+            return;
+        }
+        var url = "/wisen.kepid/webView/wisen/fd/pop/control/PopMasterCode10SC";
+        var data = {cbowhereFlagFr:"H", cdSearch:jQuery("#txtCdMasterH").val()};
+
+        NsfRequest.ajax.doPost(url,
+                               [{name: "methodName", value: "find"},
+                                {name: "params", value: JSON.stringify(data)}],
+                               function(data) {
+                                   if(data.grid.rows.length == 1){
+                                       data.rtn = data.grid.rows[0];
+                                       jQuery("#txtCdMasterH").val(data.rtn.cdMaster);
+                                       jQuery("#txtNmMasterH").val(data.rtn.nmMaster);
+                                   }
+                    else{
+                                       jQuery("#popCdMasterH").click();
+                                   }
+                               }
+        );
+    });
+
+    // NsfRequest.ac(".nsf-form-search #txtCdMasterH", "ba", "cdMaster", function(data) {
+    //     jQuery("#txtCdMasterH").val(data.cdMaster);
+    //     jQuery("#txtNmMasterH").val(data.nmMaster);
+    // });
+    //
+    // NsfRequest.ac(".nsf-form-search #txtNmMasterH", "ba", "nmMaster", function(data) {
+    //     jQuery("#txtCdMasterH").val(data.cdMaster);
+    //     jQuery("#txtNmMasterH").val(data.nmMaster);
+    // });
+
+    fCreateSBGridM1();
+    fCreateSBGridD1();
+
+    //조회/추가/삭제/저장 버튼
+    jQuery("#btnFindM1").click(function() {
+        fSearch();
+    });
+
+    jQuery("#btnRegistM1").click(function() {
+        fRegistM1();
+    });
+
+    jQuery("#btnRemoveM1").click(function() {
+        fRemoveM1();
+    });
+
+    jQuery("#btnProcessM1").click(function() {
+        fProcessM1();
+    });
+
+    jQuery("#btnRegistD1").click(function() {
+        fRegistD1();
+    });
+
+    jQuery("#btnRemoveD1").click(function() {
+        fRemoveD1();
+    });
+
+    jQuery("#btnProcessD1").click(function() {
+        fProcessD1();
+    });
+
+    NsfUtil.field.reset(".nsf-form-search");
+    // 다른 화면에서 메뉴 호출시 리턴값 셋팅.
+    jQuery("#txtCdMasterH").val("");
+    jQuery("#txtNmMasterH").val("");
+}
+
+function fResizePageWidth() {
+    NsfUtilSBGrid.setWidth(sbGridM1, jQuery("#sectionA2").width()-Nsf.offsetWidth);
+    NsfUtilSBGrid.setWidth(sbGridM1, jQuery("#sectionB2").width()-Nsf.offsetWidth);
+}
+
+function fResizePageHeight() {
+    var height;
+    height = jQuery("#sectionA2").height();
+    height = height - (jQuery("#sectionA2 #grid .nsf-form-search").is(":visible") ? jQuery("#sectionA2 #grid .nsf-form-search").outerHeight() : 0);
+    height = height - jQuery("#sectionA2 #grid .nsf-btnbar").outerHeight();
+    height = height - jQuery("#sectionA2 #grid .nsf-mini-vertical").outerHeight();
+    height = height - Nsf.offsetHeight;
+    NsfUtilSBGrid.setHeight(sbGridM1, height);
+
+    height = jQuery("#sectionB2").height();
+    height = height - jQuery("#sectionB2 #grid .nsf-btnbar").outerHeight();
+    height = height - Nsf.offsetHeight;
+    NsfUtilSBGrid.setHeight(sbGridD1, height);
+}
+
+function fShowPanelMsg() {
+    jQuery("#sectionA2 #grid").hide();
+    jQuery("#sectionA2 #form").show();
+    Nsf.resize();
+}
+
+function fHidePanelMsg() {
+    jQuery("#sectionA2 #grid").show();
+    jQuery("#sectionA2 #form").hide();
+    Nsf.resize();
+}
+
+function fSearch() {
+    SBGrid3.reload(sbGridM1, true);
+    SBGrid3.reload(sbGridD1, true);
+}
+
+/********************* M1 Grid Setting Start *********************/
+function fLoadDataM1(request = {}, dataType = "json") { 
+    return new Promise(function (resolve, reject) {
+        if(!initGridSearch){
+            resolve( { selected : [
+                {
+                    "nmMasterJpn": "",
+                    "paginationRn": 1,
+                    "cdMaster": "AA000",
+                    "no": "1",
+                    "nmMasterCha": "",
+                    "lenDetail": 99,
+                    "nmMasterEng": "",
+                    "fgModule": "TB",
+                    "fgMaster": "U",
+                    "id": 0,
+                    "fgDisplay": "",
+                    "fgControl": "N",
+                    "nmMaster": "테스트",
+                    "txtDesc": "테스트2"
+                },
+                {
+                    "id": 1,
+                    "paginationRn": 2,
+                    "cdMaster": "AC001",
+                    "no": "2",
+                    "fgControl": "N",
+                    "nmMaster": "차대구분",
+                    "txtDesc": "계정과목의 차변/대변 잔액구분을 표시",
+                    "lenDetail": 1,
+                    "fgMaster": "S",
+                    "fgModule": "AC"
+                },
+                {
+                    "id": 2,
+                    "paginationRn": 3,
+                    "cdMaster": "AC002",
+                    "no": "3",
+                    "fgControl": "N",
+                    "nmMaster": "전표구분",
+                    "txtDesc": "전표의 종류",
+                    "lenDetail": 1,
+                    "fgMaster": "S",
+                    "fgModule": "AC"
+                },
+                {
+                    "id": 3,
+                    "paginationRn": 4,
+                    "cdMaster": "AC003",
+                    "no": "4",
+                    "fgControl": "N",
+                    "nmMaster": "매입매출구분",
+                    "txtDesc": "매입/매출 구분",
+                    "lenDetail": 1,
+                    "fgMaster": "S",
+                    "fgModule": "AC"
+                },
+                {
+                    "id": 4,
+                    "paginationRn": 5,
+                    "cdMaster": "AC004",
+                    "no": "5",
+                    "fgControl": "N",
+                    "nmMaster": "관리여부",
+                    "txtDesc": "관리/미관리를 표시",
+                    "lenDetail": 1,
+                    "fgMaster": "S",
+                    "fgModule": "AC"
+                },
+                {
+                    "id": 5,
+                    "paginationRn": 6,
+                    "cdMaster": "AC005",
+                    "no": "6",
+                    "fgControl": "N",
+                    "nmMaster": "입력구분",
+                    "txtDesc": "전표 종류에 따른 내역 구분",
+                    "lenDetail": 1,
+                    "fgMaster": "S",
+                    "fgModule": "AC"
+                },
+                {
+                    "id": 6,
+                    "paginationRn": 7,
+                    "cdMaster": "AC006",
+                    "no": "7",
+                    "fgControl": "N",
+                    "nmMaster": "전표입력경로",
+                    "txtDesc": "전표가 생성된 경로를 표시",
+                    "lenDetail": 2,
+                    "fgMaster": "S",
+                    "fgModule": "AC"
+                },
+
+                ] } );
+            initGridSearch=true;
+        }  
+    })
+}
+
+function fCreateSBGridM1(){
+    // 1.Grid Set Column
+    let columnsM1 = [
+        { field : "cdMaster", caption : "MASTER번호", width: 140, sortable:true, colCss:"nsf-status-ess", align: "left", visible: true,
+            editable : function(data) { return NsfUtilSBGrid.keyColumn(data) }, maxLength:5, directApplyValue : true  }
+        ,{ field : "nmMaster", caption : "MASTER명", width: 250, sortable:true, align: "left", visible: true, editable:true, maxLength:100, directApplyValue : true  }
+        ,{ field : "lenDetail", caption : "길이", width: 100, sortable:true, colCss:"nsf-status-ess", align: "right", visible: true, type: "number",
+        validators: [ { rule: "type", value: "number", message: "숫자를 입력하세요." } ],
+        format: "\#,\#\#0.00",
+        editable:true, maxLength:2, directApplyValue : true }
+        ,{ field : "fgMaster", caption : "구분", width: 80, sortable:true, colCss:"nsf-status-ess", align: "left", visible: true, type: "combo",
+        items : [
+            { value: "S", label: "시스템" },
+            { value: "U", label: "사용자" },
+            ],
+        editable:true, directApplyValue : true }
+        ,{ field : "fgControl",   caption : "제어구분", width: 100, sortable:true, colCss:"nsf-status-ess", align: "left", visible: true, type: "combo",
+        items : [
+            { value: "N", label: "불가" },
+            { value: "Y", label: "가능" },
+            ],
+        editable:true, directApplyValue : true  }
+        ,{ field : "fgModule",    caption : "업무구분", index: "FG_MODULE", width: 120, sortable:true, colCss:"nsf-status-ess", align: "left", visible: true, type: "combo",
+        items : [
+            { value: "AC", label: "회계관리" },
+            { value: "BA", label: "기초관리" },
+            { value: "CO", label: "관리회계" },
+            { value: "EI", label: "경영관리" },
+            { value: "HU", label: "인사관리" },
+            { value: "OP", label: "운영관리" },
+            { value: "TB", label: "전자세금계산서" },
+            ],
+        editable:true, edittype:"select", directApplyValue : true }
+        ,{ field : "txtDesc",     caption : "설명", width: 250, sortable:true, align: "left", visible: true, editable:true, maxLength:100, directApplyValue : true }
+
+        ,{ field : "fgDisplay",   caption : "표시구분", width: 100, sortable:true, align: "left", visible: false, editable:false }
+        ,{ field : "nmMasterEng", caption : "MASTER명(영어)", width: 100, sortable:true, align: "left", visible: false, editable:true, maxLength:100, directApplyValue : true  }
+        ,{ field : "nmMasterCha", caption : "MASTER명(중국)", width: 100, sortable:true, align: "left", visible: false, editable:true, maxLength:100, directApplyValue : true  }
+        ,{ field : "nmMasterJpn", caption : "MASTER명(일본)", width: 100, sortable:true, align: "left", visible: false, editable:true, maxLength:100, directApplyValue : true  }
+    ];
+    // 2.DataSource Config
+    let dsConfig = {
+        ajax : {
+            select  : async function(request) {
+                return await fLoadDataM1(request);
+            },
+            selected: "content",
+        },
+    };
+    // 3.Grid Config
+    let gridConfig = {
+        dataSource: [],
+        container: "#sbGridM1",
+        columns: columnsM1,
+        height: 200,
+        pagerBar: ['#sbGridM1ColumnsPopup'],
+        editable: true,
+        pageable: true,
+        doCommand: function(grid, name, command){
+            switch (name) {
+                case "event": {
+                    if (command.event.type == "click") {
+                        fSBGridM1OnClick(grid, command);
+                    }
+                    break;
+                }
+                case "focus" :{
+                    break;
+                }
+                case "add": {
+                    NsfUtilSBGrid.addRowColumnEditable(sbGridM1, sbGridM1.columns[2]);
+                    SBGrid3.setClientData(sbGridD1, []);
+                    break;
+                }
+                case "updated": {
+                    break;
+                }
+            }
+        }
+    }
+    // 4.Create Grid
+    sbGridM1 = NsfUtilSBGrid.create(dsConfig, gridConfig);
+    sbGridM1.refresh();
+}
+/********************* M1 Grid Setting End **********************/
+
+function fRegistM1() {
+    if(NsfUtilSBGrid.isChangeGrid(sbGridD1)){
+        NsfMessage.alert("하단 자료를 먼저 저장 해 주세요.");
+        return;
+    }
+
+    var rowdata = {lenDetail:"0"}; //신규로 추가될 로우의 Default 값 입력. 필요한 컬럼만 지정해 주면 됨
+    NsfUtilSBGrid.addRow(sbGridM1, rowdata);
+}
+
+function fRemoveM1() {
+    if(SBGrid3.getFocusedKey(sbGridM1) === undefined){
+        NsfMessage.alert("삭제할 행을 선택해 주세요!");
+        return;
+    }
+    var allData = SBGrid3.getAllItems(sbGridD1);
+    if(allData.length > 0){
+        NsfMessage.alert("하단 자료가 존재합니다. 삭제할 수 없습니다.");
+        return;
+    }
+    NsfUtilSBGrid.deleteRow(sbGridM1);
+}
+
+function fProcessM1() {
+    if(NsfUtilSBGrid.isChangeGrid(sbGridD1)){
+        NsfMessage.alert("하단 자료를 먼저 저장 해 주세요.");
+        return;
+    }
+    var reqColumn = ["cdMaster","fgMaster","fgControl","fgModule"];      // 저장 필수 항목 서버전 검사
+    var arrM1 = NsfUtilSBGrid.getSaveData(sbGridM1, reqColumn);
+    if(arrM1?.data === undefined && arrM1.name != undefined) {
+        var vConf = NsfMessage.alert("[필수값] : "+arrM1.name + " (은)는 필수항목입니다.",{type:"W"});
+        vConf.then(function(val) {
+            if(val){
+                // var cellFouce = SBGrid3.moveFocus(sbGridM1,arrM1.rowIndex,arrM1.column);
+                // cellFouce.then(function(val) {
+                SBGrid3.columnEditable(sbGridM1, arrM1.rowKey, arrM1.column, true);
+                // });
+            }
+        });
+        return;
+    } else {
+        if(arrM1.length === 0){ NsfMessage.alert("저장할 데이터가 없습니다."); return; }
+
+        NsfRequest.ajax.doPost(	appUri,
+                                   [{name: "methodName", value: "processM1"},
+                                    {name: "params", value: JSON.stringify(arrM1.data)}],
+                                   function(data) {
+                                       /** Grid교체 - Save Data Grid Reload 202311 */
+                                       SBGrid3.reload(sbGridM1, false); // 현재 page 유지 Reload
+                                       SBGrid3.setClientData(sbGridD1, []);
+                                       NsfMessage.alert(data.message);
+                                   }
+        );
+    }
+}
+
+function fSBGridM1OnClick(grid, obj) {
+    SBGrid3.reload(sbGridD1, true);
+}
+/********************* D1 Grid Setting Start *********************/
+function fLoadDataD1(request = {}, dataType = "json") { 
+    return new Promise(function(resolve, reject) { 
+            resolve( { selected : [] } ); 
+    })
+}
+function fCreateSBGridD1(){
+    // 1.Grid Set Column
+    let columnsD1 = [
+        { field: "cdMaster"    , caption : "MASTER번호", width: 100, sortable:true, align: "left", visible: false, editable:false, maxLength:5, directApplyValue : true }
+        ,{ field: "cdDetail"    , caption : "DETAIL번호", width: 140, sortable:true, colCss:"nsf-status-ess", align: "left", visible: true,
+        editable: function(data) { return NsfUtilSBGrid.keyColumn(data)}, maxLength:10, directApplyValue : true  }
+        ,{ field: "nmDetail"    , caption : "DETAIL명", width: 250, sortable:true, align: "left", visible: true, editable:true, maxLength:100, directApplyValue : true  }
+        ,{ field: "nmDetailPrint",caption : "출력DETAIL명", width: 250, sortable:true, align: "left", visible: true, editable:true, maxLength:100, directApplyValue : true  }
+        ,{ field: "fgDetail"    , caption : "구분", width: 100, sortable:true, colCss:"nsf-status-ess", align: "left", visible: true, type: "combo",
+        items : [
+            { value: "S", label: "시스템" },
+            { value: "U", label: "사용자" },
+            ],
+        editable:true, edittype:"select", directApplyValue : true } //[{cdNm=시스템, cdMaster=BA001, cd=S}, {cdNm=사용자, cdMaster=BA001, cd=U}]
+    ,{ field: "ynUse"       , caption : "사용여부", width: 100, sortable:true, colCss:"nsf-status-ess", align: "left", visible: true, type: "combo",
+            items : [
+                { value: "N", label: "아니오" },
+                { value: "Y", label: "예" },
+                ],
+            editable:true, directApplyValue : true } //[{cdNm=아니오, cdMaster=OP012, cd=N}, {cdNm=예, cdMaster=OP012, cd=Y}]
+    ,{ field: "seqDisplay"  , caption : "표시순서", width: 100, sortable:true, align: "right", visible: true, type:"number",
+            validators: [ { rule: "type", value: "number", message: "숫자를 입력하세요." } ],
+            format: "\#,\#\#0",
+            editable:true, maxLength:5, directApplyValue : true }
+    ,{ field: "txtDesc"     , caption : "설명", width: 250, sortable:true, align: "left", visible: true, editable:true, maxLength:200, directApplyValue : true  }
+    ,{ field: "nmDetailEng" , caption : "DETAIL명(영어)", width: 100, sortable:true, align: "left", visible: false, editable:true, maxLength:100, directApplyValue : true }
+    ,{ field: "nmDetailCha" , caption : "DETAIL명(중국)", width: 100, sortable:true, align: "left", visible: false, editable:true, maxLength:100, directApplyValue : true }
+    ,{ field: "nmDetailJpn" , caption : "DETAIL명(일본)", width: 100, sortable:true, align: "left", visible: false, editable:true, maxLength:100, directApplyValue : true }
+
+    ];
+    // 2.DataSource Config
+    let dsConfig = {
+        ajax : {
+            select  : async function(request) {
+                return await fLoadDataD1(request);
+            },
+            selected: "content",
+        },
+    };
+
+    // 3.Grid Config
+    let gridConfig = {
+        container: "#sbGridD1",
+        columns: columnsD1,
+        height: 200,
+        pagerBar: ['#sbGridD1ColumnsPopup'],
+        pageable: true,
+        editable: true,
+        doCommand: function(grid, name, command){
+            switch (name) {
+                case "event": {
+                    break;
+                }
+                case "focus" :{
+                    break;
+                }
+                case "add": {
+                    NsfUtilSBGrid.addRowColumnEditable(sbGridD1, sbGridD1.columns[3]);
+                    break;
+                }
+                case "updated": {
+                    break;
+                }
+            }
+        }
+    }
+    // 4.Create Grid
+    sbGridD1 = NsfUtilSBGrid.create(dsConfig, gridConfig);
+    sbGridD1.refresh();
+}
+/********************* D1 Grid Setting End *********************/
+
+function fRegistD1() {
+    let m1Focused = NsfUtilSBGrid.isSelectedCell(sbGridM1);
+    if (!m1Focused){
+        NsfMessage.alert("상단 자료를 선택해 주세요.");
+        return;
+    }
+    if(NsfUtilSBGrid.isChangeGrid(sbGridM1)){
+        NsfMessage.alert("상단 자료를 먼저 저장 해 주세요.");
+        return;
+    }
+    var rowdata = {editFlag :"C", cdMaster:SBGrid3.getFocusedValue(sbGridM1, "cdMaster"), fgDetail:"U", ynUse:"Y", seqDisplay:0 };
+    NsfUtilSBGrid.addRow(sbGridD1, rowdata);
+}
+
+function fRemoveD1() {
+    if(NsfUtilSBGrid.isChangeGrid(sbGridM1)){
+        NsfMessage.alert("상단 자료를 먼저 저장 해 주세요.");
+        return;
+    }
+    if(SBGrid3.getFocusedKey(sbGridD1) === undefined){
+        NsfMessage.alert("삭제할 행을 선택해 주세요!");
+        return;
+    }
+    NsfUtilSBGrid.deleteRow(sbGridD1);
+}
+
+function fProcessD1() {
+    var url = "/wisen.kepid/webApp/wisen/ba/com/control/BaCom010SC";
+    if(NsfUtilSBGrid.isChangeGrid(sbGridM1)){
+        NsfMessage.alert("상단 자료를 먼저 저장 해 주세요.");
+        return;
+    }
+
+    var reqColumn = ["cdDetail","fgDetail","ynUse"];      // 저장 필수 항목 서버전 검사
+    var arrD1 = NsfUtilSBGrid.getSaveData(sbGridD1, reqColumn);
+    if(arrD1?.data === undefined && arrD1.name != undefined) {
+        var vConf = NsfMessage.alert("[필수값] : "+arrD1.name + " (은)는 필수항목입니다.",{type:"W"});
+        vConf.then(function(val) {
+            if(val){
+                // var cellFouce = SBGrid3.moveFocus(sbGridM1,arrD1.rowIndex,arrD1.column);
+                // cellFouce.then(function(val) {
+                SBGrid3.columnEditable(sbGridD1, arrD1.rowKey, arrD1.column, true);
+                // });
+            }
+        });
+        return;
+    } else {
+        if(arrD1.data.length === 0){ NsfMessage.alert("저장할 데이터가 없습니다."); return; }
+        NsfRequest.ajax.doPost(	url,
+                                   [{name: "methodName", value: "processD1"},
+                                    {name: "params", value: JSON.stringify(arrD1.data)}],
+                                   function(data) {
+                                       SBGrid3.reload(sbGridD1, false); // 현재 page 유지 Reload
+                                       NsfMessage.alert(data.message);
+                                   }
+        );
+    }
+}
+</script>
+</head>
+<body>
+
+	<div id="sectionA1"
+		class="nsf-section nsf-widget-header ui-widget-header">
+		<table>
+			<tr>
+				<td><label>공통번호</label></td>
+				<td class="nsf-right">
+					<button id="toggle" type="button"></button>
+				</td>
+			</tr>
+		</table>
+	</div>
+
+	<div id="sectionA2" class="nsf-section-resize nsf-widget-content"
+		additionHeight="-100">
+		<div class="nsf-panel">
+			<div id="grid">
+				<div class="head nsf-form-search">
+					<ul>
+						<li class="nsf-form-li-2x"><span>MASTER번호</span> <input
+							type="text" id="txtCdMasterH" name="cdMaster" class="nsf-param">
+							<button id="popCdMasterH" class="nsf-btn-popup">
+								<a>&nbsp;</a>
+							</button> <input type="text" id="txtNmMasterH" name="nmMaster"
+							class="nsf-param nsf-status-lck nsf-form-item-2x"
+							readonly="readonly"></li>
+						<li><span>업무구분&nbsp;</span> <select id="cboFgModuleH"
+							name="fgModule" title="업무구분" class="nsf-param">
+								<option value=""></option>
+						</select></li>
+					</ul>
+				</div>
+				<div class="nsf-border-top">
+					<center>
+						<img class="nsf-mini-vertical"></img>
+					</center>
+				</div>
+				<div class="body">
+					<div class="nsf-btnbar">
+						<table>
+							<tr>
+								<td class="nsf-right">
+									<button id="btnFindM1" type="button" class="nsf-btn-search">조회</button>
+									<button id="btnRegistM1" type="button" class="nsf-btn-add">추가</button>
+									<button id="btnRemoveM1" type="button" class="nsf-btn-delete">삭제</button>
+									<button id="btnProcessM1" type="button" class="nsf-btn-save">저장</button>
+								</td>
+							</tr>
+						</table>
+					</div>
+					<div id="sbGridM1"></div>
+					<script id="sbGridM1ColumnsPopup" type="text/x-handlebars-template">
+                        <input type='button' id="btnColumnsbGridM1" class="sbgrid-tool" onclick="NsfUtilSBGrid.pageBarColumnShowHide.toolbarClick(this)" value="column">
+                    </script>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="nsf-space-vertical nsf-section"></div>
+
+	<div id="sectionB1"
+		class="nsf-section nsf-widget-header ui-widget-header">
+		<table>
+			<tr>
+				<td><label>공통번호 Detail</label></td>
+				<td class="nsf-right">
+					<button id="toggle" type="button"></button>
+				</td>
+			</tr>
+		</table>
+	</div>
+
+	<div id="sectionB2" class="nsf-section-resize nsf-widget-content">
+		<div class="nsf-panel">
+			<div id="grid">
+				<div class="body">
+					<div class="nsf-btnbar">
+						<table>
+							<tr>
+								<td class="nsf-right">
+									<button id="btnRegistD1" type="button" class="nsf-btn-add">추가</button>
+									<button id="btnRemoveD1" type="button" class="nsf-btn-delete">삭제</button>
+									<button id="btnProcessD1" type="button" class="nsf-btn-save">저장</button>
+								</td>
+							</tr>
+						</table>
+					</div>
+					<div id="sbGridD1"></div>
+					<script id="sbGridD1ColumnsPopup" type="text/x-handlebars-template">
+                        <input type='button' id="btnColumnsbGridD1" class="sbgrid-tool" onclick="NsfUtilSBGrid.pageBarColumnShowHide.toolbarClick(this)" value="column">
+                    </script>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
+

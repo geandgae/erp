@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="../css/sbgrid3.css" />
+        <script src="../sbgrid3.js"></script>
+        <title>Document</title>
+        <script src="./data/testData.js"></script>
+    </head>
+    <body>
+        <div id="grid"></div>
+        <script>
+            SBGrid3.$(function () {
+                let dsconfig = {
+                    data: grid_data,
+                    serverPaging: false,
+                    lazyLoading: false,
+                    pageSize: 20,
+                    schema: {
+                        id: 'rn',
+                        fields: {
+                            order: { default: 100 },
+                            insttTy: { convert: value => '_' + value },
+                            insttNm: {},
+                            listConfmDate: { convert: value => new Date(Date.parse(value)) },
+                            maxUpdtDt: { dataType: 'date' },
+                        },
+                        convert: data => {
+                            data.minUpdtDt = new Date(Date.parse(data.minUpdtDt));
+                            data.rn = parseFloat(data.rn);
+                            return data;
+                        },
+                    },
+                };
+
+                let columns = [
+                    {
+                        caption: '기관유형',
+                        field: 'insttTy',
+                        width: 200,
+                        align: 'center',
+                        part: 'head',
+                        mergeRow: true,
+                        editable: true,
+                        total: {
+                            header: {
+                                prefix: 'header: [',
+                                suffix: ']',
+                                cssClass: data => {
+                                    return 'func insttTy';
+                                },
+                            },
+                            footer: { prefix: 'total: ', suffix: '', cssClass: 'footer' },
+                            aggregates: [{ func: 'total' }],
+                        },
+                        groups: [
+                            {
+                                field: 'insttTy',
+                                footer: { template: 'count = {{total}}', cssClass: 'insttTy footer' },
+                                aggregates: [{ require: 'insttTy', func: 'total' }],
+                            },
+                            {
+                                field: 'insttNm',
+                                footer: {
+                                    template: '{{insttNm_min}} ~ {{insttNm_max}}',
+                                    cssClass: data => {
+                                        /*console.log('insttNm footer', data);*/ return 'insttNm footer';
+                                    },
+                                },
+                                aggregates: [
+                                    { func: 'min', field: 'insttNm_min' },
+                                    { func: 'max', field: 'insttNm_max' },
+                                ],
+                            },
+                            {
+                                field: 'minUpdtDt',
+                                footer: { template: 'min={{minUpdDt_min}}' },
+                                aggregates: [{ func: 'min', field: 'minUpdDt_min' }],
+                            },
+                            {
+                                field: 'maxUpdtDt',
+                                header: { template: 'min={{maxUpdDt_max}}' },
+                                aggregates: [{ func: 'max', field: 'maxUpdDt_max' }],
+                            },
+                        ],
+                    },
+                    {
+                        caption: '기관명',
+                        field: 'insttNm',
+                        width: 200,
+                        align: 'center',
+                        mergeRow: true,
+                        directApplyValue: true,
+                        groups: {
+                            group: '*',
+                            field: 'insttNm',
+                            aggregates: [{ func: 'total' }, { func: 'total', require: 'rn', field: 'rn_total' }],
+                            header: { prefix: 'header total: ' },
+                            footer: [{ template: 'footer: {{rn_total}}' }, { prefix: 'total', field: 'total' }],
+                        },
+                        total: {
+                            aggregates: [{ func: 'total' }],
+                            header: {
+                                prefix: 'header : ',
+                                cssClass: data => {
+                                    return 'func insttNm';
+                                },
+                            },
+                            footer: { template: 'footer: {{total}}' },
+                        },
+                        getValue: (value, rowItem) => {
+                            return value.replace('insttNm_', '');
+                        },
+                        setValue: (value, rowItem) => {
+                            return 'insttNm_' + value;
+                        },
+                    },
+                    {
+                        caption: '코드',
+                        field: 'rn',
+                        align: 'center',
+                        part: 'sticky',
+                        groups: [
+                            {
+                                field: 'insttNm',
+                                header: { prefix: 'max : [', field: 'max', suffix: ']' },
+                                footer: { template: 'min: [{{min}}]' },
+                                aggregates: [
+                                    { func: 'min', nullAs: 'ignore' },
+                                    { func: 'max', nullAs: 'ignore' },
+                                ],
+                            },
+                            {
+                                group: 'insttTy, inssttNm', // group: '*'
+                                header: { prefix: 'header : [', field: 'max', suffix: ']' },
+                                footer: { template: 'footer: [{{min}}]' },
+                                aggregates: [
+                                    { func: 'min', nullAs: 'ignore' },
+                                    { func: 'max', nullAs: 'ignore' },
+                                ],
+                            },
+                            {
+                                group: '*',
+                                header: { prefix: 'max : [', field: 'max', suffix: ']' },
+                                footer: { template: 'min: [{{min}}]' },
+                                aggregates: [{ func: 'min' }, { func: 'max' }],
+                            },
+                        ],
+                        total: {
+                            header: { prefix: 'max : [', field: 'max', suffix: ']' },
+                            footer: { template: '{{min}} ~ {{max}}' },
+                            aggregates: [
+                                { func: 'min', nullAs: 'ignore' },
+                                { func: 'max', nullAs: 'ignore' },
+                            ],
+                        },
+                    },
+                    { field: 'order' },
+                    {
+                        caption: '공공데이터명',
+                        field: 'publicDataSj',
+                        width: 2,
+                        unit: 'fr',
+                        minWidth: 100,
+                        mergeRow: true,
+                        total: {
+                            aggregates: [{ func: 'first' }, { func: 'last' }],
+                            header: [
+                                { prefix: 'header: ', field: 'first' },
+                                { prefix: 'last: ', field: 'last' },
+                            ],
+                            footer: [
+                                { prefix: 'first: ', field: 'first' },
+                                { prefix: 'last: ', field: 'last' },
+                            ],
+                        },
+                    },
+                    {
+                        caption: '목록개방일',
+                        width: 100,
+                        field: 'minUpdtDt',
+                        align: 'center',
+                        mergeRow: true,
+                        dataType: 'date',
+                        format: 'yyyy/MM/dd',
+                        total: {
+                            header: { prefix: 'max : ', field: 'max' },
+                            footer: [{ template: '{{min}}' }, { template: '{{max}}' }],
+                            aggregates: [{ func: 'min' }, { func: 'max' }],
+                        },
+                    },
+                    {
+                        caption: '목록폐지일',
+                        width: 100,
+                        field: 'maxUpdtDt',
+                        align: 'center',
+                        dataType: 'date',
+                        placeHolder: 'yyyy-MM-dd',
+                        mergeRow: data => data.insttTy + data.maxUpdtDt,
+                        total: {
+                            header: { prefix: 'max : ', field: 'max' },
+                            footer: { template: '{{min}} ~ {{max}}' },
+                            aggregates: [
+                                { func: 'min', nullAs: 'ignore' },
+                                { func: 'max', nullAs: 'ignore' },
+                            ],
+                        },
+                    },
+                    {
+                        caption: '목록등록일',
+                        width: 100,
+                        field: 'registDt',
+                        align: 'center',
+                        part: 'body',
+                        mergeRow: true,
+                        dataType: 'date',
+                        total: {
+                            header: [
+                                { template: '{{min}}', format: 'yyyy-MM-dd' },
+                                { template: '{{max}}', format: 'yyyy-MM-dd' },
+                            ],
+                            footer: [
+                                { template: '{{min}}', format: 'yyyy-MM-dd' },
+                                { template: '{{max}}', format: 'yyyy-MM-dd' },
+                            ],
+                            aggregates: [
+                                { func: 'min', dataType: 'date' },
+                                { func: 'max', dataType: 'date' },
+                            ],
+                        },
+                    },
+                    {
+                        caption: '목록승인일',
+                        width: 100,
+                        field: 'listConfmDate',
+                        align: 'center',
+                        part: 'tail',
+                        mergeRow: true,
+                        dataType: 'date',
+                        format: 'yyyy-mm-dd',
+                        total: {
+                            header: { prefix: 'max : ', field: 'max' },
+                            footer: [{ template: '{{min}}' }, { template: '{{max}}' }],
+                            aggregates: [{ func: 'min' }, { func: 'max' }],
+                        },
+                    },
+                ];
+
+                function createGrid() {
+                    let gridConfig = {
+                        dataSource: dsconfig,
+                        columns: columns,
+                        showSticky: true,
+                        showState: true,
+                        stickyHeader: true,
+                        stickyFooter: true,
+                        stickyRow: true,
+                        stickyEdit: true,
+                        stickyUpdate: true,
+                        container: '#grid',
+                        toolBar: [
+                            'undo',
+                            'redo',
+                            'add',
+                            'insert',
+                            'append',
+                            'delete',
+                            'undelete',
+                            'save',
+                            'excel',
+                            'excelImport',
+                            'search',
+                        ],
+                        pageBar: ['pager'],
+                        pageable: true,
+                        sortable: 'toggle',
+                        multiSort: false,
+                        groupable: true,
+                        groupAutoOpen: true,
+                        groupBar: {
+                            left: [
+                                'group',
+                                'pager',
+                                container => {
+                                    SBGrid3.$(container).append('<button>test</button>');
+                                },
+                            ],
+                            right: [
+                                container => {
+                                    SBGrid3.$(container).append('<button>search</button>');
+                                },
+                            ],
+                            rightFlex: { flexGrow: 0 },
+                        },
+                        width: '100%',
+                        height: '90vh',
+                        selectable: {
+                            rowSelect: true,
+                            columnSelect: false,
+                            cellSelect: 'cell',
+                            selectMode: 'multi',
+                        },
+                        hover: 'cell',
+                        resizable: {
+                            mode: 'guideLine',
+                            autoFit: ['caption', 'data'],
+                        },
+                        reorderable: {
+                            row: {
+                                scrollInterval: 100,
+                            },
+                            column: {
+                                scrollInterval: 500,
+                            },
+                        },
+                        editable: {
+                            mode: 'incell',
+                            eventType: 'dblclick',
+                        },
+                        navigatable: true,
+                        copyable: { fill: true },
+                        canCommand: (grid, name, command) => {
+                            switch (name) {
+                                case 'edit': {
+                                    const value = SBGrid3.getValue(grid, command.key, 'insttTy');
+
+                                    if (command.column.field == 'insttTy') {
+                                        return value == '공공기관';
+                                    }
+
+                                    break;
+                                }
+                            }
+                            return true;
+                        },
+                        doCommand: (grid, name, command) => {
+                            switch (name) {
+                                case 'event': {
+                                    if (command.event.type == 'dblclick') {
+                                        const rn = SBGrid3.getValue(grid, command.key, 'rn');
+                                    }
+                                    break;
+                                }
+                                case 'updated': {
+                                    const info = command.info;
+                                    break;
+                                }
+                            }
+                        },
+                    };
+
+                    globalThis.grid = SBGrid3.createGrid(gridConfig);
+                }
+
+                createGrid();
+            });
+        </script>
+    </body>
+</html>
