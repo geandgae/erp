@@ -3692,7 +3692,7 @@
 
 /* treemenu */
 /* old */
-/* #divOpenMenu {
+#divOpenMenu {
   position: relative;
   top: 3px;
   background-color: #e6e6e6;
@@ -3784,9 +3784,6 @@
 #divContent .ui-tabs .ui-tabs-panel {
   padding-top: 10px;
 }
-li {
-  list-style: none;
-} */
 /* old */
 
 #divOpenMenu > * {
@@ -4005,4 +4002,40 @@ li {
 #divMenuTabTree .treeview span.file:hover,
 #divMenuTabTree .treeview span.file:hover::before {
   color: #536a97 !important;
+}
+
+
+/* tab */
+#divCloseAll {
+  left: unset !important;
+  right: 10px !important;
+}
+.main-tab-wrap {
+  position: relative;
+  width: 100%;
+  background-color: aquamarine;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.main-tab-wrap .btn {
+  width: 24px;
+  height: 24px;
+}
+.main-tab-wrap .btn-tab-left::before {
+  content: "<";
+}
+.main-tab-wrap .btn-tab-right::before {
+  content: ">";
+}
+.main-tab-wrap .ui-tabs-nav {
+  width: calc(100% - 100px);
+  overflow-y: hidden;
+  overflow-x: hidden;
+  /* overflow-x: auto; */
+  display: flex;
+}
+.main-tab-wrap .ui-tabs-nav li {
+  display: flex;
+  align-items: center;
 }
