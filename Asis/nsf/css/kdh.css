@@ -3681,8 +3681,10 @@
   content: "\ec32"
 }
 
+/* layout */
 .nsf-panel-top {
   margin: 0 !important;
+  display: none !important;
 }
 .nsf-panel-content {
   padding: 0 !important;
@@ -3691,6 +3693,7 @@
   width: 100% !important;
 }
 
+/* treemenu */
 #divOpenMenu > * {
   color: #181818 !important;
 }
