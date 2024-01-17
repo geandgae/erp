@@ -15,125 +15,85 @@
 -->
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0 ,maximum-scale=2.0 ,user-scalable=no">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 ,maximum-scale=1.0 ,user-scalable=no">
     <title>Welcome to WiseN</title>
 
-    <link rel="stylesheet" type="text/css" href="./jquery/ui/themes/jquery-ui.css"/>
-    <link rel="stylesheet" type="text/css" href="./nsf/css/nsf.css"/>
-    <link rel="stylesheet" type="text/css" href="./nsf/css/portal.css"/>
+    <link rel="stylesheet" type="text/css" href="./nsf/css/login.css"/>
 
-    <link rel="stylesheet" type="text/css" href="./jquery/plugin/jqGrid/css/ui.jqgrid.css"/>
-    <link rel="stylesheet" type="text/css" href="./jquery/plugin/jqGrid/plugins/ui.multiselect.css"/>
+    <script type="text/javascript" src="./jquery/lib/jquery-1.12.3.js"></script> 
+    <script type="text/javascript" src="./jquery/lib/jquery.js"></script>
+    <script type="text/javascript" src="./jquery/lib/jquery.scrollbar.js"></script>
+    <script type="text/javascript" src="./jquery/lib/jquery-ui-1.12.1.min.js"></script> 
 
-    <!-- Bootstrap core CSS -->
-    <link href="./jquery/plugin/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap theme -->
-    <link href="./jquery/plugin/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
-
-    <style type="text/css">
-        .form-signin {
-            max-width: 330px;
-            /*  		width: 100%; */
-            padding: 0px;
-            margin: 0 auto;
-        }
-        .form-signin .form-signin-heading,
-        .form-signin .checkbox {
-            margin-bottom: 10px;
-        }
-        .form-signin .checkbox {
-            font-weight: normal;
-        }
-        .form-signin .form-control {
-            position: relative;
-            height: auto;
-            -webkit-box-sizing: border-box;
-            -moz-box-sizing: border-box;
-            box-sizing: border-box;
-            padding: 10px;
-            font-size: 16px;
-        }
-        .form-signin .form-control:focus {
-            z-index: 2;
-        }
-        .form-signin input[type="password"] {
-            margin-bottom: 10px;
-            border-top-left-radius: 0;
-            border-top-right-radius: 0;
-        }
-        body {font-size:0.75em; margin:0; padding:0; font-family:나눔고딕, 돋움, 굴림; background:url(/wisen.kepid/nsf/css/images/portal/bg.gif) repeat;}
-        p { float: left; width: 200px; }
-
-        dl {padding:0; margin:0;}
-        dt {padding:0; margin:0;}
-        dd {padding:0; margin:0;}
-        input {padding:0; margin:0;}
-
-        input, button, select, textarea {vertical-align:middle;}
-        img {vertical-align:middle;}
-
-        #form { float: left; width: 270px; margin-top: 20px; }
-        #form p { width: 270px; }
-        .nsf-form { padding: 10px 0 10px 0; }
-        .nsf-form li { margin: 3px 0 3px 0; width: 269px; }
-        .nsf-form li span { width: 50px; }
-        .nsf-form li input, .nsf-form li select { width: 180px !important; }
-        .con h1 {float:left; width:100%; text-align:left; padding-left:10px;}
-
-        #divMain   {background:url(./nsf/css/images/portal/bg_img.png) no-repeat 50%; width:100%; text-align:center; padding-top:5%;}
-    </style>
-
-    <script type="text/javascript" src="./jquery/jquery.js"></script>
-    <script type="text/javascript" src="./jquery/ui/jquery-ui.js"></script>
-    <script type="text/javascript" src="./jquery/plugin/blockUI/jquery.blockUI.js"></script>
-    <script type="text/javascript" src="./jquery/plugin/jqGrid/i18n/grid.locale-en.js"></script>
-    <script type="text/javascript" src="./jquery/plugin/jqGrid/plugins/ui.multiselect.js"></script>
-    <script type="text/javascript" src="./jquery/plugin/jqGrid/jquery.jqGrid.js"></script>
-    <script type="text/javascript" src="./jquery/plugin/form/jquery.form.js"></script> 
     <!-- swalert -->
     <script type="text/javascript" src="./jquery/plugin/sweetalert2/sweetalert2.js" ></script>
     <link rel="stylesheet" href="./jquery/plugin/sweetalert2/css/sweetalert2.css"  />
     <script type="text/javascript" src="./nsf/nsf.message.js"></script>
 
 </head>
-<body style="">
-<div id="divMain" style="boeder:10px solid">
-    <div class="con" style="width:692px; overflow:hidden; display:inline-block">
-        <h1><img src="./nsf/css/images/panel/logo.png" alt="로고" /> -ERP</h1>
-        <div class="nsf-box">
-            <p><img src="./nsf/css/images/portal/img.png" alt="로그인 이미지" /></p>
-            <div class="tx">
-                <img src="./nsf/css/images/portal/tx.gif" alt="Member Login:아이디와 비밀번호를 입력후 로그인해주세요." />
-            </div>
-            <div class="cont nsf-form-search" style="border:width:350px;color:black;">
-                <dl>
-                    <dt>법인종류</dt>
-                    <dd>
-                        <select id="cboCdCompany" name="cdCompany" class="nsf-param">
-                            <option value="10000">한전산업개발</option>
-                        </select>
-                    </dd>
-                    <dt>아이디</dt>
-                    <dd>
-                        <input type="text" name="loginId" id="loginId" title="" class="nsf-param" autocomplete="off"/>
-                    </dd>
-                    <dt>비밀번호</dt>
-                    <dd>
-                        <input type="password" name="loginPw" id="loginPw" title="" class="nsf-param" autocomplete="off"/>
-                    </dd>
-                    <li class="nsf-status-hid">
-                        <dt>연결할 프로그램</dt>
-                        <dd>
-                            <input type="pgm" name="pgm" id="pgm" title="" class="nsf-param"/>
-                        </dd>
-                    </li>
-                </dl>
-                <span><img src="./nsf/css/images/portal/btn_login.gif" alt="로그인버튼" id="btnLogin"/></span>
+<body>
+    <div class="login_area">
+        <div class="logins">  
+            <div class="logins_box">
+                <div class="loginbox">
+                    <div class="login_txt">
+                        <strong class="logo"><img src="./nsf/css/images/login/wisen_logo.png" alt="wisen solution"></strong>
+                        <p class="tit"><img src="./nsf/css/images/login/login_tit.png" alt="Log In"></p>
+                        <p class="txt">Easy ERP<br>
+                            Smart ERP<br>
+                            Enterprise ERP<br>
+                            <span>WISEN ERP System</span></p>
+                        <p class="footer"><img src="./nsf/css/images/login/kepid_logo.png" alt="한전산업개발(주)"></p>
+                    </div>
+                    <div class="login_box">
+                        <strong class="logos"><img src="./nsf/css/images/login/login_logo.png" alt="HANDY Groupware"></strong>
+                        <div class="logs_cont">
+                            <p class="logos_des">Sign into your Groupware account.</p>
+                            <div class="sel">
+                                <div class="selectbox">
+                                    <select>
+                                        <option value="kepid1" selected="">
+                                            한전산업개발(주)
+                                        </option>
+                                        <option value="kepid2" selected="">
+                                            한전산업개발(주)
+                                        </option>
+                                        <option value="kepid3" selected="">
+                                            한전산업개발(주)
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="logs_area">
+                                <!-- <div class="radio-group">
+                                    <input type="radio" id="one" name="selector" checked="checked"><label for="one">이름</label>
+                                    <input type="radio" id="two" name="selector"><label for="two">사번</label>
+                                </div> -->
+                                <ul class="logs_txt">
+                                    <li class="log_id">
+                                        <input type="text" placeholder="아이디" title="아이디입력">
+                                    </li>
+                                    <li class="log_pw">
+                                        <input type="password" placeholder="비밀번호" title="비밀번호입력">
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="btns">
+                            <a href="#" class="bts">로그인</a>
+                            <!-- <div class="checks">
+                                <input type="checkbox" id="c1" checked="checked"> <label for="c1"><span></span>Remember me.</label>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+        <span class="login_footer">ⓒ DASAN Handysoft Corp.</span>
     </div>
-</div> 
 </body>
 <script type="text/javascript">
         /**
@@ -171,5 +131,32 @@
             document.location.href="main.html";
         } 
         fInitPage();
+
+        
+    </script>
+    <script>
+        $(function(){
+
+            /* 셀렉트 라이브러리 */
+            $('select').selectmenu({		
+                create: function(event, ui) {
+                    $(this).selectmenu("option", "appendTo", $(this).parent());
+                },
+                open: function(event) {
+                    var openid = "#"+$(this).attr("id");
+                    var selectbutton = openid+"-button";
+                    var selectid = $(selectbutton).attr("aria-labelledby");
+                    var selectmenu = openid+"-menu";
+                    $(selectmenu).find(".ui-menu-item-wrapper").removeClass("selected");
+                    $(selectmenu).find("#"+selectid).addClass("selected");
+                }
+            });
+            /* 셀렉트 스크롤 */
+            $('.ui-menu').each(function() {	
+                $(this).parent().wrapInner('<div class="handy-scroll"></div>');		
+            }); 
+
+        });
+
     </script>
 </html>
