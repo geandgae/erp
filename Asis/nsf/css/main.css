@@ -77,6 +77,30 @@
 }
 
 /* nsf-tree */
+.nsf-tree {
+  padding: 0 10px;
+}
 .nsf-tree ul li span {
+  display: block;
+  width: 100%;
+}
+.nsf-tree ul li span:hover{
+  color: red;
+  background-color: #eee;
+  cursor: pointer;
+}
+
+/* nav */
+.nsf-tree .depth-1 span{
+  font-size: 12px;
+  font-weight: 700;
+}
+.nsf-tree .depth-2 span{
   padding-left: 10px;
+  font-size: 12px;
+}
+.nsf-tree .depth-3 span{
+  padding-left: 20px;
+  font-size: 12px;
+  font-weight: 400;
 }
