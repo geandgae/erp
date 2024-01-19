@@ -107,6 +107,10 @@
   font-size: 12px;
   font-weight: 400;
 }
+.nsf-tree .depth-4 span{
+  padding-left: 30px;
+  font-size: 12px;
+}
 /* .nsf-tree .on{
   display: block;
 } */
