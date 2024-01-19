@@ -91,22 +91,13 @@ const menuData = [
 //   ]
 // };
 
-// map
-// const array1 = [1, 4, 9, 16];
-// const map1 = array1.map((x) => x * 2);
-// console.log(map1);
-// Expected output: Array [2, 8, 18, 32]
-
-const arrt = [1, 4, 9, 16];
 const tree = generateTree(menuData);
-const test = arrt.map((el) => {return el * 3});
-const test2 = arrt.map(el => el * 3);
-console.log(test);
-console.log(test2);
 const menuElement = document.querySelector(".nsf-tree");
 // menuElement.innerHTML = `<ul>${tree.map(item => item.render()).join("")}</ul>`;
 menuElement.innerHTML = `<ul>${tree.map((item) => {return item.render()}).join("")}</ul>`;
-menuElement.addEventListener("click", (e) => {
+
+const nav = menuElement.querySelector("ul")
+nav.addEventListener("click", (e) => {
   console.log(e.target);
   console.log(e.target.closest("li"));
   console.log(e.target.closest("li").querySelector("ul"));
@@ -131,18 +122,29 @@ menuElement.addEventListener("click", (e) => {
 
 
 
+// map
+// const array1 = [1, 4, 9, 16];
+// const map1 = array1.map((x) => x * 2);
+// console.log(map1);
+// Expected output: Array [2, 8, 18, 32]
 
+const arrt = [1, 4, 9, 16];
+
+const test = arrt.map((el) => {return el * 3});
+const test2 = arrt.map(el => el * 3);
+// console.log(test);
+// console.log(test2);
 
 let arr = [2, 3, 5, 7]
 // arr.map(function(element, index, array){  }, this);
 arr.map(function(element, index, array){
-	console.log(this) // 80
+	// console.log(this) // 80
 }, 80);
 arr.map(function(element, index, array){
-  console.log(element);
-  console.log(index);
-  console.log(array);
-  return element;
+  // console.log(element);
+  // console.log(index);
+  // console.log(array);
+  // return element;
 }, 80);
 
 // 트리메뉴 참조
