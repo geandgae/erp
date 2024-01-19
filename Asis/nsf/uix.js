@@ -61,26 +61,23 @@ function generateTree(menu) {
 const menuData = [
   { label: "depthA-1", idx:"a1", children: [
     { label: "depth2", idx:"a2", children: [
-      { label: "depth3", idx:"a3", },
-      { label: "depth3", idx:"a4", },
-      { label: "depth3", idx:"a5", }
+      { label: "공통번호등록", idx:"a3", },
+      { label: "부가세신고서작성", idx:"a4", },
+      { label: "결의전표승인신규", idx:"a5", }
     ]},
     { label: "depth2", idx:"a6", children: [
-      { label: "depth3", idx:"a7", },
-      { label: "depth3", idx:"a8", }
+      { label: "공지사항", idx:"a7", },
+      { label: "국세청PDF자료등록2022", idx:"a8", }
     ]}
   ]},
   { label: "depthA-2", idx:"a9", children: [
-    { label: "depth2", idx:"a10", },
+    { label: "공지사항_1", idx:"a10", },
     { label: "depth2", idx:"a12", children: [
-      { label: "depth3", idx:"a13", },
-      { label: "depth3", idx:"a14", children: [
-        { label: "depth4", idx:"a15", },
-        { label: "depth4", idx:"a16", }
-      ]}
+      { label: "개인별급여내역조정", idx:"a13", },
+      { label: "인사자료등록", idx:"a14", }
     ]}
   ]},
-  { label: "depthA-3", idx:"a15", },
+  { label: "login", idx:"a15", },
 ];
 
 // const menuData = {
@@ -99,15 +96,80 @@ const menuElement = document.querySelector(".nsf-tree");
 // menuElement.innerHTML = `<ul>${tree.map(item => item.render()).join("")}</ul>`;
 menuElement.innerHTML = `<ul>${tree.map((item) => {return item.render()}).join("")}</ul>`;
 
-// 작동부
+// 탬생성
+const makeTab = (val) => {
+  // ◎ append() - 컨텐츠를 선택된 요소 내부의 끝 부분에서 삽입
+  // ◎ prepend() - 콘텐츠를 선택한 요소 내부의 시작 부분에서 삽입
+  // ◎ after() - 선택한 요소 뒤에 컨텐츠 삽입
+  // ◎ before() - 선택된 요소 앞에 컨텐츠 삽입
+  const tabs = document.querySelectorAll(".nsf-tab-panel");
+  const tabchk = document.querySelector(`.nsf-tab-panel#${val}`);
+  for (const item of tabs) {
+    item.classList.add("hide");
+  }
+  console.log(tabchk);
+  if (tabchk) {
+    tabchk.classList.remove("hide");
+    return
+  } else {
+    const tabContents = document.querySelector(".nsf-main-tab-contents");
+    // const tabPannel = `
+    //   <div class="nsf-tab-panel" id="${val}" style="height: 100%; overflow: hidden; border: 1px solid #111;">
+    //     ${val}
+    //   </div>
+    // `
+    // tabContents.innerHTML += tabPannel;
+    const tabPannel = document.createElement('div');
+    tabPannel.classList.add("nsf-tab-panel");
+    tabPannel.setAttribute("id", val);
+    // tabPannel.textContent = val;
+    tabPannel.innerHTML = `<iframe src="./${val}.html" id="" name="" width="100%" height="100%">
+    </iframe>`
+    tabContents.appendChild(tabPannel);
+  
+    // const newTabId = `tab${document.querySelectorAll('.tab').length + 1}`;
+      
+    // // 새로운 탭 추가
+    // const newTab = document.createElement('div');
+    // newTab.classList.add('tab');
+    // newTab.setAttribute('data-tab', newTabId);
+    // newTab.textContent = `Tab ${document.querySelectorAll('.tab').length + 1}`;
+    // newTab.addEventListener('click', () => openTab(newTabId));
+  
+    // // 새로운 탭 콘텐츠 추가
+    // const newTabContent = document.createElement('div');
+    // newTabContent.id = newTabId;
+    // newTabContent.classList.add('tab-content');
+    // newTabContent.innerHTML = `<h2>${newTab.textContent} Content</h2><p>This is the content of ${newTab.textContent}.</p>`;
+    // newTabContent.style.display = 'none';
+  
+    // // 탭 컨테이너에 추가
+    // document.querySelector('.tab-container').insertBefore(newTab, document.querySelector('.add-tab'));
+    // document.body.appendChild(newTabContent);
+  
+    // // 새로운 탭 활성화
+    // openTab(newTabId);
+
+  }
+
+
+}
+
+// 작동
 const nav = menuElement.querySelector("ul")
 nav.addEventListener("click", (e) => {
   console.log(e.target);
   console.log(e.target.closest("li"));
   console.log(e.target.closest("li").querySelector("ul"));
+  const li = e.target.closest("li");
   const ul = e.target.closest("li").querySelector("ul");
   if (ul) {
     ul.classList.toggle("hide");
+  }
+  if (li.classList.contains("tree-page")) {
+    // makeTab(e.target.id);
+    makeTab(e.target.textContent);
+    console.log(e.target.id);
   }
 })
 
