@@ -96,6 +96,7 @@ const menuElement = document.querySelector(".nsf-tree");
 // menuElement.innerHTML = `<ul>${tree.map(item => item.render()).join("")}</ul>`;
 menuElement.innerHTML = `<ul>${tree.map((item) => {return item.render()}).join("")}</ul>`;
 
+// 작동부
 const nav = menuElement.querySelector("ul")
 nav.addEventListener("click", (e) => {
   console.log(e.target);
