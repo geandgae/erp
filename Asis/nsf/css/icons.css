@@ -3678,3 +3678,21 @@
 .xi-youtube-play:before {
   content: "\ec32";
 }
+
+/* 임시 tree */
+.nsf-tree li span {
+  display: flex;
+  align-items: center;
+}
+.tree-toggle span::before {
+  font-size: 10px;
+  content: "toggle";
+  color: #ccc;
+  padding-right: 10px;
+}
+.tree-page span::before {
+  font-size: 10px;
+  content: "page";
+  color: #ccc;
+  padding-right: 10px;
+}
