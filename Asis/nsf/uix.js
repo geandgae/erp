@@ -1,4 +1,4 @@
-﻿// left menu
+﻿"use strict";
 class TreeNode {
   constructor(label, children = [], depth = 1) {
     console.log(label);
