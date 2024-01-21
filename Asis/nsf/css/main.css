@@ -62,6 +62,10 @@
   flex: 1;
   overflow-y: auto;
 }
+.nsf-main .nsf-main-tab-contents .nsf-tab-panel {
+  height: 100%;
+  overflow: hidden;
+}
 
 /* nsf-header */
 .nsf-header {
