@@ -96,14 +96,16 @@ const menuElement = document.querySelector(".nsf-tree");
 // menuElement.innerHTML = `<ul>${tree.map(item => item.render()).join("")}</ul>`;
 menuElement.innerHTML = `<ul>${tree.map((item) => {return item.render()}).join("")}</ul>`;
 
+
+
 // 탬생성
-const makeTab = (val) => {
+const makeTab = (idx, label) => {
   // ◎ append() - 컨텐츠를 선택된 요소 내부의 끝 부분에서 삽입
   // ◎ prepend() - 콘텐츠를 선택한 요소 내부의 시작 부분에서 삽입
   // ◎ after() - 선택한 요소 뒤에 컨텐츠 삽입
   // ◎ before() - 선택된 요소 앞에 컨텐츠 삽입
   const tabs = document.querySelectorAll(".nsf-tab-panel");
-  const tabchk = document.querySelector(`.nsf-tab-panel#${val}`);
+  const tabchk = document.querySelector(`.nsf-tab-panel#${idx}`);
   for (const item of tabs) {
     item.classList.add("hide");
   }
@@ -112,21 +114,27 @@ const makeTab = (val) => {
     tabchk.classList.remove("hide");
     return
   } else {
+    // 탭리스트 생성
+    const tabList = document.querySelector(".nsf-tablist");
+    let tabNav = document.createElement('li');
+    tabNav.innerHTML = `
+      <button type="button" class="tab-nav" id="tab-${idx}" data-tab-target="#panel-${idx}" role="tab"><span>${label}</span></button>
+      <button type="button" class="tab-nav-close">x</button>
+    `;
+    tabList.appendChild(tabNav);
+    // 탭패널 생성
     const tabContents = document.querySelector(".nsf-main-tab-contents");
-    // const tabPannel = `
-    //   <div class="nsf-tab-panel" id="${val}" style="height: 100%; overflow: hidden; border: 1px solid #111;">
-    //     ${val}
-    //   </div>
-    // `
-    // tabContents.innerHTML += tabPannel;
     const tabPannel = document.createElement('div');
     tabPannel.classList.add("nsf-tab-panel");
-    tabPannel.setAttribute("id", val);
-    // tabPannel.textContent = val;
-    tabPannel.innerHTML = `<iframe src="./${val}.html" id="" name="" width="100%" height="100%">
-    </iframe>`
+    tabPannel.setAttribute("id", `panel-${idx}`);
+    tabPannel.setAttribute("aria-labelledby", `tab-${idx}`);
+    tabPannel.setAttribute("role", `tabpanel`);
+    // tabPannel.textContent = idx;
+    // tabPannel.innerHTML = `<iframe src="./${idx}.html" id="" name="" width="100%" height="100%"></iframe>`
+    tabPannel.innerHTML = `${idx}`
     tabContents.appendChild(tabPannel);
   
+
     // const newTabId = `tab${document.querySelectorAll('.tab').length + 1}`;
       
     // // 새로운 탭 추가
@@ -167,13 +175,28 @@ nav.addEventListener("click", (e) => {
     ul.classList.toggle("hide");
   }
   if (li.classList.contains("tree-page")) {
-    // makeTab(e.target.id);
-    makeTab(e.target.textContent);
+    makeTab(e.target.id, e.target.textContent);
+    // makeTab(e.target.textContent);
     console.log(e.target.id);
   }
 })
 
 
+// test
+const tabIntro = document.querySelector("#tab-intro");
+let tabButtons = document.querySelectorAll(".nsf-tablist button.tab-nav");
+tabIntro.addEventListener("click", () => {
+  tabButtons = document.querySelectorAll(".nsf-tablist button.tab-nav");
+  console.log(tabButtons);
+  testtab();
+})
+const testtab = () => {
+  for (const item of tabButtons) {
+    item.addEventListener("click", () => {
+      console.log(item.innerHTML);
+    })
+  }
+}
 
 
 

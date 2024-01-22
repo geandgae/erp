@@ -60,8 +60,7 @@
         <div class="nsf-main-tabs">
 					<!-- tablist -->
 					<ul class="nsf-tablist">
-						<li><button type="button"><span>intro</span></button></li>
-            <!-- <li><a href="#divContentTabWelcome">intro</a></li> -->
+						<li><button type="button" class="tab-nav" id="tab-intro" data-tab-target="#panel-intro" role="tab"><span>intro</span></button></li>
           </ul>
 					<!-- tabctrl -->
 					<div class="nsf-tabctrl">
@@ -73,12 +72,12 @@
         <!-- //main-tabs -->
         <!-- main-tab-contents -->
         <div class="nsf-main-tab-contents">
-					<!-- style="height: 100%; overflow: hidden; border: 1px solid #111;" -->
-          <div class="nsf-tab-panel" id="intro">
+          <!-- nsf-tab-panel -->
+          <div class="nsf-tab-panel" id="panel-intro" aria-labelledby="tab-intro" role="tabpanel" >
 						intro
             <!-- <iframe src="./공지사항.html" id="" name="" width="100%" height="100%">
-            </iframe>
-          </div> -->
+            </iframe> -->
+          </div> 
         </div>
         <!-- //main-tab-contents -->
       </section>

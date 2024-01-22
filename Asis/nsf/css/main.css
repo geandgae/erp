@@ -54,10 +54,6 @@
   display: flex;
   flex-direction: column;
 }
-.nsf-main .nsf-main-tabs {
-  height: 50px;
-  border: 1px solid #111;
-}
 .nsf-main .nsf-main-tab-contents {
   flex: 1;
   overflow-y: auto;
@@ -118,3 +114,19 @@
 /* .nsf-tree .on{
   display: block;
 } */
+
+/* nsf-main-tabs */
+.nsf-main .nsf-main-tabs {
+  height: 50px;
+  border: 1px solid #111;
+}
+.nsf-main .nsf-main-tabs .nsf-tablist {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.nsf-main .nsf-main-tabs .nsf-tablist > li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
