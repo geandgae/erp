@@ -146,7 +146,6 @@ const makeEvent = () => {
   const tabPanels = document.querySelectorAll(".nsf-tab-panel");
   for (const item of tabNavs) {
     const btn = item.querySelector(".tab-nav");
-    const close = item.querySelector(".tab-nav-close");
     if (btn) {
       btn.addEventListener("click", () => {
         tabNavs.forEach((el)=> {
@@ -158,21 +157,6 @@ const makeEvent = () => {
         });
         const activePanel = document.querySelector(btn.dataset.tabTarget);
         activePanel.classList.add("active");
-        tabScroll();
-      });
-    }
-    if(close) {
-      close.addEventListener("click", () => {
-        const val = close.closest("li").querySelector("button.tab-nav").id.split("-")[1];
-        const prev = close.closest("li");
-        const prevActive = close.closest("li").previousElementSibling.querySelector("button.tab-nav").id.split("-")[1];
-        const active = document.querySelector(".nsf-tablist li.active button.tab-nav").id.split("-")[1];
-        deleteArray(val);
-        if (prev.classList.contains("active")) {
-          updateState(prevActive);
-        } else {
-          updateState(active);
-        }
       });
     }
   }
@@ -209,38 +193,6 @@ nav.addEventListener("click", (e) => {
   }
 })
 
-// tabCtrl
-const tabCtrl = () => {
-  const btnReset = document.querySelector(".nsf-tabctrl .tab-reset");
-  btnReset.addEventListener("click", () => {
-    if (tabArray.length > 0) {
-      tabArray = [];
-      makeTab();
-    }
-  })
-  const parent = document.querySelector(".nsf-tablist");
-  const btnPrev = document.querySelector(".nsf-tabctrl .tab-prev");
-  const btnNext = document.querySelector(".nsf-tabctrl .tab-next");
-  btnPrev.addEventListener("click", () => {
-    let pos = parent.scrollLeft;
-    pos -= 100
-    parent.scrollTo({
-      top: 0,
-      left: pos,
-      behavior: "smooth"
-    })
-  })
-  btnNext.addEventListener("click", () => {
-    let pos = parent.scrollLeft;
-    pos += 100
-    parent.scrollTo({
-      top: 0,
-      left: pos,
-      behavior: "smooth"
-    })
-  })
-}
-tabCtrl();
 
 // tabScroll
 const tabScroll = () => {
