@@ -51,6 +51,7 @@ const generateTree = (menu) => {
   }
 }
 const menuData = [
+  { label: "intro", idx:"intro", },
   { label: "depthA-1", idx:"a1", children: [
     { label: "depth2", idx:"a2", children: [
       { label: "공통번호등록", idx:"a3", },
@@ -208,23 +209,3 @@ const tabScroll = () => {
     behavior: "smooth"
   })
 }
-
-// gnbTabs
-const nsfGnbTabs = () => {
-  const gnbTabs = document.querySelectorAll(".nsf-gnb-tabs button");
-  const gnbPanel = document.querySelectorAll(".nsf-gnb-panel");
-  for (const item of gnbTabs) {
-    item.addEventListener("click", () => {
-      console.log(item.id);
-      gnbTabs.forEach(el => {
-        el.classList.remove("active");
-      });
-      item.classList.add("active");
-      gnbPanel.forEach(el => {
-        el.classList.add("hide");
-      });
-      document.querySelector(`.nsf-gnb-panel.${item.id}`).classList.remove("hide");
-    })
-  }
-}
-nsfGnbTabs();
