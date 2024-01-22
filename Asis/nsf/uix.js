@@ -131,7 +131,7 @@ const makeTab = (idx, label) => {
     tabPannel.setAttribute("role", `tabpanel`);
     // tabPannel.textContent = idx;
     // tabPannel.innerHTML = `<iframe src="./${idx}.html" id="" name="" width="100%" height="100%"></iframe>`
-    tabPannel.innerHTML = `${idx}`
+    tabPannel.innerHTML = `${label}`
     tabContents.appendChild(tabPannel);
   
 
@@ -185,8 +185,10 @@ nav.addEventListener("click", (e) => {
 // test
 const tabIntro = document.querySelector("#tab-intro");
 let tabButtons = document.querySelectorAll(".nsf-tablist button.tab-nav");
+let tabClose = document.querySelectorAll(".nsf-tablist button.tab-nav-close");
 tabIntro.addEventListener("click", () => {
   tabButtons = document.querySelectorAll(".nsf-tablist button.tab-nav");
+  tabClose = document.querySelectorAll(".nsf-tablist button.tab-nav-close");
   console.log(tabButtons);
   testtab();
 })
@@ -194,6 +196,12 @@ const testtab = () => {
   for (const item of tabButtons) {
     item.addEventListener("click", () => {
       console.log(item.innerHTML);
+    })
+  }
+  for (const item of tabClose) {
+    item.addEventListener("click", () => {
+      const target = item.closest("li").querySelector("button.tab-nav"); 
+      console.log(`닫기 ${target.innerHTML}`);
     })
   }
 }
