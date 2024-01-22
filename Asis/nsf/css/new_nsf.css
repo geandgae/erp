@@ -1,0 +1,295 @@
+@charset "utf-8";
+BODY, DIV, TABLE, TR, TD, UL, LI, SPAN, LABEL, INPUT, SELECT, BUTTON {
+    font-family: '맑은고딕', "Malgun Gothic", TAHOMA, Arial, Helvetica, sans-serif !important;
+}
+
+.nst_new_main{
+    background-color: #f0f0f0;
+}
+
+/* #divContentTab .ui-tabs-nav{
+    border: 0 !important;
+    background-color: #fff !important;
+    border-bottom: 1px solid #d9d9d9!important;
+}
+#divContentTab li .ui-icon-close {
+    margin: 0.5em 0.3em 0 0 !important;
+} */
+
+/* .ui-tabs .ui-tabs-nav li.ui-tabs-active{
+    margin: 0;
+    background: none;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-left: 1px solid #d6d6d6;
+    border-right: 1px solid #d6d6d6;
+    border-top: 2px solid #536a97;
+
+    border-bottom: 1px solid #fff;
+    margin-top: 0;
+    background: #fff;
+    display: inline-block;
+    color: #ccc;
+    position: relative;
+} */
+
+
+/* .ui-tabs .ui-tabs-nav li.ui-tabs-active a{
+    color: #536a97;
+    display: block;
+} */
+
+/* .ui-state-active .ui-icon {
+    background-image: url(images/icon/active_close.png);
+    background-position: 0 0;
+} */
+
+/* 컨텐츠 영역 css 변경*/
+
+/* 헤더 변경*/
+.nsf-widget-header{
+    padding: 0.4em 0.5em 0.4em 0.5em ;
+    height: 27px ;
+}
+.ui-widget-header {
+    border: 0;
+    border-bottom: 1px solid #d6d6d6;
+    background: #fff;
+    color: #181818;
+    font-weight: bold;
+    font-size: 12px;
+}
+.nsf-widget-header label {
+    background-image: url(./images/icon/ic_tit.png) ;
+    background-position: 10px center ;
+    background-repeat: no-repeat ;
+    padding-left: 30px ;
+}
+
+/*  토글 버튼*/
+.nsf-widget-header button { 
+    background:url(./images/icon/btn_arrow.png) no-repeat ; 
+    width:18px ; 
+    height:18px ;  
+}
+.nsf-widget-header button:hover { 
+    background:url(./images/icon/btn_arrow_over.png) no-repeat ; 
+}
+
+/* top 레벨 디자인 */
+.nsf-widget-content { 
+    background-color: #fff ;
+    border: none ; 
+}
+.nsf-panel .head{ padding: 10px;}
+.nsf-panel .body { padding: 0;}
+
+.nsf-form-search {
+    background-color: #f9f9f9;
+}
+.nsf-form-search ul {
+    border: 1px solid #d6d6d6;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+}
+.nsf-form-search li {
+    overflow: hidden;
+    white-space: nowrap;
+    margin: 0;
+    width: auto;
+    height: 29px;
+    float: none;
+    border: none;
+}
+.nsf-form-search li span{
+    background-color: #f3f3f3 ;
+    display: inline-block ;
+    padding: 4px 0 3px ;
+    height: 29px ;
+}
+
+.nsf-form-search ul + ul{
+    margin-top: -1px;
+}
+.nsf-form-search ul.per25 li{
+    width: 25% ;
+}
+.nsf-form-search ul.per33 li{
+    width: 33.3333% ;
+}
+.nsf-form-search ul.per50 li{
+    width: 50% ;
+}
+
+.nsf-border-top {
+    border-top: 1px solid #536a97 ;
+}
+.nsf-mini-vertical {
+    height: 18px ;
+    margin-top: -1px ;
+    border: 0 none ;
+}
+.w10{width: 10px;}
+.va_top{vertical-align: top;}
+
+/**/
+.css-form .ui-widget-header{
+    border: 0 !important;
+    color: #181818;
+    font-weight: bold;
+    font-size: 12px;
+    height: 27px;
+}
+.css-form .ui-widget-header label {
+    background-image: url(./images/icon/ic_tit.png);
+    background-position: 2px center;
+    background-repeat: no-repeat;
+    padding-left: 22px;
+    height: 27px;
+}
+
+
+/*그리드 레벨*/
+.ui-widget-content {
+    border: 1px solid #d9d9d9 ;
+    background: #fff;
+    color: #585858 ;
+}
+.nsf-form {
+    overflow: hidden;
+    padding: 0 ;
+    color: #f5f5f5;
+}
+
+
+.nsf-form ul li {
+    overflow: hidden;
+    white-space: nowrap;
+    margin: 0 ;
+    padding: 0 ;
+    width: 25% ;
+    height: 29px ;
+    border-bottom: 1px solid #d9d9d9 ;
+}
+.nsf-form ul li.bb_none{
+    border-bottom: 0 !important ;
+}
+
+.nsf-form ul li span {
+    display: inline-block;
+    color: #585858 ;
+    padding-left: 18px;
+    font-weight: normal;
+    border: 0px solid #bfcfda;
+    height: 29px ;
+    width: 120px;
+    text-align: right;
+    background-color: #f3f3f3 ;
+    padding: 5px 2px 3px ;
+}
+
+
+.nsf-form ul.per25 li {
+    width: 25%;
+}
+.nsf-form ul.per33 li {
+    width: 33.3333%;
+}
+.nsf-form ul.per50 li {
+    width: 50%;
+}
+.nsf-form ul.per100 li {
+    width: 100%;
+}
+
+
+.nsf-form-li-2x {
+    width: 50% !important;
+}
+.nsf-form-li-2x-33 {
+    width: 66% !important;
+}
+.nsf-form-li-2x-100 {
+    width: 100% !important;
+}
+
+/* 버튼 에어리어 */
+.nsf-btnbar {
+    padding: 4px 4px 2px 4px;
+    background-color: #f3f3f3;
+    border: 0;
+    border-top: 1px solid #d9d9d9;
+    border-left: 1px solid #d9d9d9;
+    border-right: 1px solid #d9d9d9;
+    height: 25px;
+    color: #181818;
+}
+.nsf-btnbar button {
+    color: #181818;
+}
+
+.nsf-btnbar-a { background: url(./images/icon/btn.png) no-repeat 100% top; }
+.nsf-btnbar-a-label { background: url(./images/icon/btn.png) no-repeat left top; }
+
+.nsf-btn-refresh { background-image: url(./images/icon/load.png); background-repeat: no-repeat; padding-left: 18px; }
+.nsf-btn-search { background-image: url(./images/icon/search.png); background-repeat: no-repeat; padding-left: 18px; }
+.nsf-btn-add { background-image: url(./images/icon/add.png); background-repeat: no-repeat; padding-left: 18px; }
+.nsf-btn-delete { background-image: url(./images/icon/delete.png); background-repeat: no-repeat; padding-left: 18px; }
+.nsf-btn-save { background-image: url(./images/icon/save.png); background-repeat: no-repeat; padding-left: 18px; }
+
+.nsf-btn-process { background-image: url(./images/icon/save.png); background-repeat: no-repeat; padding-left: 18px; }
+.nsf-btn-hide { background-image: url(./images/icon/close02.png); background-repeat: no-repeat; padding-left: 18px; }
+.nsf-btn-file { background-image: url(./images/icon/save.png); background-repeat: no-repeat; padding-left: 18px; }
+.nsf-btn-excel { background-image: url(./images/icon/excel.png); background-repeat: no-repeat; padding-left: 18px; }
+.nsf-btn-print { background-image: url(./images/icon/print.png); background-repeat: no-repeat; padding-left: 18px; }
+.nsf-btn-send { background-image: url(./images/icon/send.png); background-repeat: no-repeat; padding-left: 18px; }
+.nsf-btn-gsend { background-image: url(./images/icon/gsend.png); background-repeat: no-repeat; padding-left: 18px; }
+.nsf-btn-regist { background-image: url(./images/icon/regist.png); background-repeat: no-repeat; padding-left: 18px; }
+
+.nsf-btn-allok { background-image: url(./images/icon/ico_allok.png); background-repeat: no-repeat; padding-left: 18px; }
+.nsf-btn-cal { background-image: url(./images/icon/ico_cal.png); background-repeat: no-repeat; padding-left: 18px; }
+.nsf-btn-copy { background-image: url(./images/icon/ico_copy.png); background-repeat: no-repeat; padding-left: 18px; }
+.nsf-btn-detail { background-image: url(./images/icon/ico_detail.png); background-repeat: no-repeat; padding-left: 18px; }
+.nsf-btn-paste { background-image: url(./images/icon/ico_paste.png); background-repeat: no-repeat; padding-left: 18px; }
+.nsf-btn-pop { background-image: url(./images/icon/ico_pop.png); background-repeat: no-repeat; padding-left: 18px; }
+.nsf-btn-print2 { background-image: url(./images/icon/ico_print.png); background-repeat: no-repeat; padding-left: 18px; }
+.nsf-btn-up { background-image: url(./images/icon/ico_up.png); background-repeat: no-repeat; padding-left: 18px; }
+.nsf-btn-down { background-image: url(./images/icon/ico_down.png); background-repeat: no-repeat; padding-left: 18px; }
+
+
+/*인풋*/
+/* INPUT {
+    border: 1px solid #ccc !important;
+    height: 16px;
+} */
+
+/*셀렉트*/
+/* SELECT {
+    border: 1px solid #aaa !important;
+    height: 20px;
+} */
+
+.nsf-btn-popup {
+    background: url(./images/icon/btn_glass.png) no-repeat;
+    width: 18px;
+    height: 18px;
+    border: none;
+}
+.nsf-btn-popup:hover {
+    background: url(./images/icon/btn_glass_over.png) no-repeat;
+}
+
+/* 캘런더 */
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+    border: 1px solid #d9d9d9;
+    background: #F9F9F9;
+    font-weight: bold;
+    color: #585858;
+}
+.ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight {
+    border: 1px solid #cccccc;
+    background: #dbe7ff;
+    color: #0552e6;
+}
