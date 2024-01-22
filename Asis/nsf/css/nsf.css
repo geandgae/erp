@@ -1,5 +1,5 @@
 /* 공통 */
-@import "./bih.css"; 
+/* @import "./bih.css";  */
 @import "./kdh.css"; 
 
 BODY {
@@ -92,7 +92,7 @@ IFRAME { border: 0; }
 light color
 .nsf-widget-content { background-color: #f5f5f5; border-width: 1px; border-style: none solid solid solid; border-color: #dddddd; }
 */
-.nsf-widget-content { background-color: #e2e5ef !important; border-width: 1px; border-style: none solid solid solid; border-color: #878ca0; }
+.nsf-widget-content { background-color: #e2e5ef; border-width: 1px; border-style: none solid solid solid; border-color: #878ca0; }
 
 .nsf-panel .head, .nsf-panel .body { padding: .5em .8em .5em .8em; }
 
@@ -114,7 +114,7 @@ light color
 .nsf-form ol { list-style-type: none; margin: 0; padding: 0; }
 .nsf-form li { overflow: hidden; white-space: nowrap; margin: 2px 0 2px 0; padding: 0; width: 300px; height: 20px; float: left; border: 0px solid #bfcfda; }
 .nsf-form li INPUT[type=text], .nsf-form li INPUT[type=password] { width: 120px; }
-.nsf-form li SELECT { width: 120px; }
+.nsf-form li SELECT { width: 126px; }
 .nsf-form li span { display:inline-block; color: #2f4f4f; padding-left: 18px; font-weight:normal; border: 0px solid #bfcfda; height: 18px; width:100px; text-align: right; }
 .nsf-form li label { color: #2f4f4f; position: relative; top: 0px;}
 
@@ -143,7 +143,7 @@ light color
 .nsf-form-li-400 { width:400px !important; }
 .nsf-form-li-500 { width:500px !important; }
 .nsf-form-li-1x { width:300px !important; }
-.nsf-form-li-2x { width:600px !important; }
+.nsf-form-li-2x { width:600px}
 .nsf-form-li-3x { width:900px !important; }
 .nsf-form-li-4x { width:1200px !important; }
 .nsf-form-li-5x { width:1500px !important; }
@@ -287,9 +287,9 @@ light color
 .nsf-label {  }
 
 /*.nsf-status-ess { background-color: #F2EBE6; #fbec88; }*/
-.nsf-status-lck { background-color: #E4E4F1; }
+.nsf-status-lck { background-color: #f1f1f1; }
 .nsf-status-ess { background-color: #fff2f0; }
-INPUT[type=text].nsf-status-lck, SELECT.nsf-status-lck, TEXTAREA.nsf-status-lck { background-color: #E4E4F1; }
+INPUT[type=text].nsf-status-lck, SELECT.nsf-status-lck, TEXTAREA.nsf-status-lck { background-color: #f1f1f1; }
 .nsf-status-hid { display: none !important; }
 
 .nsf-radio { position: relative; top: 3px; border: o; border-style: none none none none; height: 14px;}

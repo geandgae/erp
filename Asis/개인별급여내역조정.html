@@ -8,13 +8,13 @@
 <link rel="stylesheet" type="text/css" href="./jquery/plugin/jqGrid/css/ui.jqgrid.css"/>
 <link rel="stylesheet" type="text/css" href="./jquery/plugin/jqGrid/plugins/ui.multiselect.css"/>
 <link rel="stylesheet" type="text/css" href="./nsf/css/nsf.css"/>
+<link rel="stylesheet" type="text/css" href="./nsf/css/new_nsf.css"/>
 
 <style type="text/css">
 	.css-form .ui-widget-header label { position: relative; top: 3px; left: 3px; }
 	.css-form-search .ui-widget-header label { position: relative; top: 3px; left: 3px; }
 	#divOrg, #divView { display:none; height:0px; }
 	.nsf-number {text-align: right}
-
 </style>
 
 <script type="text/javascript" src="./jquery/jquery.js"></script>
@@ -69,17 +69,17 @@ function fInitPage() {
     // 		url: "./webApp/erp/hu/pay/control/HuPay204SC",
     // 		mtype: "POST",
     datatype: "local",
-		colNames: [
+	colNames: [
     //"상태",
-    "법인코드"
-		          ,"부서코드"
-		          ,"부서명"
-		          ,"사번"
-		          ,"성명"
-		          ,"구분"
-		          ,"급여년월"
-		          ,"지급구분"
-		          ,"지급일자"
+    "법인코드",
+	"부서코드",
+	"부서명",
+	"사번",
+	"성명",
+	"구분",
+	"급여년월",
+	"지급구분",
+	"지급일자",
     ],
     colModel: [
     //{ name: "editFlag", index:"editFlag", width:30, sortable:false, align:"center", hidden: true, classes:"nsf-status-lck"},
@@ -94,27 +94,27 @@ function fInitPage() {
     ,{ name: "dtProv", index: "DT_PROV", width: 0, sortable:true, align: "left", hidden: true, editable:false, editoptions:{size:"100",maxlength:"100"} }
     ],
     shrinkToFit:false,
-		   		sortable:true,
-		   		width: "",
-		   		height: 200,
-		   		gridview: true,
-		   		rownumbers: true,
-		   		pager: "#jqGridnavM1",
-		   		rowNum: 200,
-				rowList: [20, 30, 50, 100, 200, 500],
-		   		pgbuttons: true,
-		   		pginput: true,
-		   		viewrecords: false,
+	sortable:true,
+	width: "",
+	height: 200,
+	gridview: true,
+	rownumbers: true,
+	pager: "#jqGridnavM1",
+	rowNum: 200,
+	owList: [20, 30, 50, 100, 200, 500],
+	pgbuttons: true,
+	pginput: true,
+	viewrecords: false,
 
-		   		onSortCol: function() {
-                       fFindjqGridM1();
-                   },
+	onSortCol: function() {
+	fFindjqGridM1();
+	},
     onPaging: function() {
         fFindjqGridM1();
     },
- 
+
     cellEdit: true,
-		   		cellsubmit: "clientArray",
+	cellsubmit: "clientArray",
 
 		   	// editable:false 인 필드에서 발생
     onSelectCell: function (rowid, cellname, value, iRow, iCol){
@@ -157,7 +157,7 @@ function fInitPage() {
     ondblClickRow: function(rowid,iRow,iCol,e) {
     }
 });
- 
+
     jQuery("#jqGridD1").jqGrid({
     // 				url: "./webApp/erp/hu/pay/control/HuPay204SC",
     // 				mtype: "POST",
@@ -197,25 +197,25 @@ function fInitPage() {
     // 		                  ,{ name: "dtUpdate", index: "dtUpdate", width: 100, sortable:true, align: "left", hidden: true, editable:true, editoptions:{size:"10",maxlength:"10"}  }
     ],
     shrinkToFit:false,
-				   		sortable:true,
+	sortable:true,
 // 				   		width: 280,
     height: 200,
-				   		gridview: true,
-				   		rownumbers: true,
-				   		pager: "",
-				   		rowNum: 200,
-						rowList: [20, 30, 50, 100, 200, 500],
-				   		pgbuttons: false,
-				   		pginput: false,
-				   		viewrecords: false,
+	gridview: true,
+	rownumbers: true,
+	pager: "",
+	rowNum: 200,
+	rowList: [20, 30, 50, 100, 200, 500],
+	pgbuttons: false,
+	pginput: false,
+	viewrecords: false,
 
- 
+
     cellEdit: true,
-				   		cellsubmit: "clientArray",
+	cellsubmit: "clientArray",
 
-				   		onSortCol: function() {
-                               fFindjqGridD1();
-                           },
+	onSortCol: function() {
+	fFindjqGridD1();
+	},
     onPaging: function() {
         fFindjqGridD1();
     },
@@ -264,21 +264,21 @@ function fInitPage() {
     // 						url: "./webApp/erp/hu/pay/control/HuPay204SC",
     // 						mtype: "POST",
     datatype: "local",
-						colNames: [
-                            "상태"
-                            ,"법인"
-                            ,"급여년월"
-                            ,"급여구분"
-                            ,"지급일자"
-                            ,"사번"
-                            ,"공제항목"
-                            ,"금액"
-                            ,"계산구분"
-                            ,"비고"
-                            // 						          ,"등록자"
-    // 						          ,"등록일"
-    // 						          ,"수정자"
-    // 						          ,"수정일"
+	colNames: [
+		"상태"
+		,"법인"
+		,"급여년월"
+		,"급여구분"
+		,"지급일자"
+		,"사번"
+		,"공제항목"
+		,"금액"
+		,"계산구분"
+		,"비고"
+	// 	,"등록자"
+    // 	,"등록일"
+    // 	,"수정자"
+    // 	,"수정일"
     ],
     colModel: [
         { name: "editFlag", index:"editFlag", width:30, sortable:false, align:"center", hidden: false, classes:"nsf-status-lck"}
@@ -297,28 +297,28 @@ function fInitPage() {
     // 				                  ,{ name: "dtUpdate", index: "dtUpdate", width: 100, sortable:true, align: "left", hidden: true , editable:true, editoptions:{size:"10",maxlength:"10"} }
     ],
     shrinkToFit:false,
-						   		sortable:true,
-// 						   		width: 280,
+	sortable:true,
+// 	width: 280,
     height: 200,
-						   		gridview: true,
-						   		rownumbers: true,
-						   		pager: "",
-						   		rowNum: 200,
-								rowList: [20, 30, 50, 100, 200, 500],
-						   		pgbuttons: false,
-						   		pginput: false,
-						   		viewrecords: false,
+	gridview: true,
+	rownumbers: true,
+	pager: "",
+	rowNum: 200,
+	rowList: [20, 30, 50, 100, 200, 500],
+	pgbuttons: false,
+	pginput: false,
+	viewrecords: false,
 
-						   		onSortCol: function() {
-                                       fFindjqGridD2();
-                                   },
+	onSortCol: function() {
+	fFindjqGridD2();
+	},
     onPaging: function() {
         fFindjqGridD2();
     },
 
- 
+
     cellEdit: true,
-						   		cellsubmit: "clientArray",
+	cellsubmit: "clientArray",
 
 						   	// editable:false 인 필드에서 발생
     onSelectCell: function (rowid, cellname, value, iRow, iCol){
@@ -328,7 +328,7 @@ function fInitPage() {
         if(cellname == "cdDeduct"  ){
             var rowdata = jQuery(this).getRowData(rowid);
             if(rowdata.editFlag == 'C')
-						 					jQuery(this).editCell(iRow,iCol);
+	jQuery(this).editCell(iRow,iCol);
         }
     },
 
@@ -343,7 +343,7 @@ function fInitPage() {
         if(cellname == "cdDeduct" ){
             var rowdata = jQuery(this).getRowData(rowid);
             if(rowdata.editFlag != 'C')
-							 					jQuery(this).restoreCell(iRow,iCol);
+	jQuery(this).restoreCell(iRow,iCol);
         }
     },
 
@@ -383,7 +383,7 @@ function fInitPage() {
 
     //급여지급일
     jQuery("#txtDtProvH").datepicker({dateFormat: "yy-mm-dd"});
-     
+
     jQuery("#txtDtProvH").focus(function(){
         jQuery(this).data("value",jQuery(this).val());
     }); 
@@ -401,7 +401,7 @@ function fInitPage() {
         }
 
     });
- 
+
     // 부서팝업  Popup Icon Click
     jQuery("#popCdDeptH").click(function() {
         var url = "./webView/wisen/fd/pop/control/PopHumanDept10SC";
@@ -466,9 +466,9 @@ function fInitPage() {
         fProcessD2();
         fProcessM1();
     });
- 
+
 } 
- 
+
 function fResizePageWidth() {
     jQuery("#jqGridM1").setGridWidth(430-Nsf.offsetWidth);
 }
@@ -492,20 +492,20 @@ function fSearch() {
 }
 
 function fFindjqGridM1() { 
-   jQuery("#jqGridM1").clearGridData();
-   jQuery("#jqGridM1")[0].addJSONData(data.grid); 
+	jQuery("#jqGridM1").clearGridData();
+	jQuery("#jqGridM1")[0].addJSONData(data.grid); 
 } 
 
 
 
 function fFindjqGridD1() { 
-   jQuery("#jqGridD1").clearGridData();
-   jQuery("#jqGridD1")[0].addJSONData(data.grid); 
+	jQuery("#jqGridD1").clearGridData();
+	jQuery("#jqGridD1")[0].addJSONData(data.grid); 
 }
 
 function fFindjqGridD2() { 
-   jQuery("#jqGridD2").clearGridData();
-   jQuery("#jqGridD2")[0].addJSONData(data.grid); 
+	jQuery("#jqGridD2").clearGridData();
+	jQuery("#jqGridD2")[0].addJSONData(data.grid); 
 }
 
 function fRegistD1() {
@@ -566,9 +566,7 @@ function fRegistD2() {
     jQuery("#jqGridD2").setSelection(ids.length, true);
 
 }
- 
 
- 
 
 function fRemoveD1() {
 
@@ -619,7 +617,6 @@ function replaceAll(inputString, targetString, replacement)
 </script>
 </head>
 <body>
-
 <div id="sectionA1" class="nsf-section nsf-widget-header ui-widget-header">
 	<table><tr><td>
 		<label>개인별 급여내역조정</label>
@@ -632,7 +629,7 @@ function replaceAll(inputString, targetString, replacement)
 	<div class="nsf-panel">
 		<div id="grid">
 			<div class="head nsf-form-search">
-				<ul>
+				<ul class="per33"><!-- 신규 상단 클래스 추가 li 33% -->
 					<li class="nsf-form-li-2x nsf-status-hid"><span>법인코드&nbsp;</span>
 						<input type="text" id="txtCdCompanyH" name="cdCompany" class="nsf-param nsf-status-ess" maxlength="10">
 						<button id="popCdCompanyH" class="nsf-btn-popup"><a>&nbsp;</a></button>
@@ -668,25 +665,27 @@ function replaceAll(inputString, targetString, replacement)
 							<option value="350"$data.get("selected")>후원인력</option>
 						</select>
 					</li>
-
+				</ul>
+				<ul class="per50"><!-- 신규 상단 클래스 추가 li 50% -->
 					<li class="nsf-form-li-2x"><span>부서&nbsp;</span>
 						<input type="text" id="txtCdDeptH" name="cdDeptH" class="nsf-param">
 						<button id="popCdDeptH" class="nsf-btn-popup"><a>&nbsp;</a></button>
-                        <input type="text" id="txtNmDeptH" name="nmDept" class="nsf-param nsf-status-lck nsf-form-item-2x" disabled=true >
+                        <input type="text" id="txtNmDeptH" name="nmDept" class="nsf-param nsf-status-lck nsf-form-item-2x" disabled="true">
 					</li>
 					<li class="nsf-form-li-2x"><span>사원&nbsp;</span>
 						<input type="text" id="txtNoPersonH" name="noPersonH" class="nsf-param">
 						<button id="popnoPersonH" class="nsf-btn-popup"><a>&nbsp;</a></button>
-                        <input type="text" id="txtNmPersonH" name="nmPerson" class="nsf-param nsf-status-lck nsf-form-item-2x" disabled=true >
+                        <input type="text" id="txtNmPersonH" name="nmPerson" class="nsf-param nsf-status-lck nsf-form-item-2x" disabled="true">
 					</li>
 				</ul>
 			</div>
-			<div class="nsf-border-top"><center><img class="nsf-mini-vertical"></img></center></div>
+			<div class="nsf-border-top"><center><img class="nsf-mini-vertical" /></center></div>
 			<div class="body">
 			<div id="eEditForm1" class="css-form">
 				<table>
 					<tr>
-						<td style="vertical-align:top;" rowspan=3>
+						<!-- 오론쪽 영역 -->
+						<td class="va_top" rowspan="3">
 							<div class="nsf-btnbar">
 								<table><tr><td class="nsf-right">
 									<button id="btnFindM1" type="button" class="nsf-btn-search">조회</button>
@@ -696,447 +695,454 @@ function replaceAll(inputString, targetString, replacement)
 							<table id="jqGridM1"></table>
 							<div id="jqGridnavM1"></div>
 						</td>
-						<td colspan=3>
+						<!-- 왼쪽 영역-->
+						<td class="w10"></td>
+						<td colspan="5" class="va_top"> <!-- top 정렬 추가 -->
 							<div class="ui-widget-content ui-corner-bottom">
 							<div class="nsf-form">
-								<ul>
-									 <li class="nsf-status-hid"><span>법인번호&nbsp;</span>
+								<ul class="per33"><!-- ul class 33% add -->
+									<li class="nsf-status-hid"><span>법인번호&nbsp;</span>
 										<input type="text" id="txtCdCompanyM" name="cdCompany" class="nsf-param nsf-status-ess"></li>
-									 <li class="nsf-status-hid"><span>editFlag&nbsp;</span>
+									<li class="nsf-status-hid"><span>editFlag&nbsp;</span>
 										<input type="text" id="txtEditFlagM1" name="editFlag"  class="nsf-param"></li>
-									 <li><span>사번&nbsp;</span>
-										<input type="text" id="txtNoPersonM" name="noPerson"  class="nsf-param nsf-status-lck" disabled=true >
-					            	 <li><span>성명&nbsp;</span>
-					            		<input type="text" id="txtNmPersonM" name="nmPerson"  class="nsf-param nsf-status-lck" disabled=true ></li>
-					            	 <li><span>지급일자&nbsp;</span>
-											<input type="text" id="txtDtProvM" name="dtProv"  class="nsf-param nsf-status-lck" disabled=true></li>
-									 <li class="nsf-status-hid"><span>급여년월&nbsp;</span>
-											<input type="text" id="txtYmPayM" name="ymPay"  class="nsf-param nsf-status-lck" disabled=true></li>
-									 <li><span>급여구분&nbsp;</span>
-											<select id="cboFgSuppM" name="fgSupp"class="nsf-param nsf-status-lck" disabled=true>
+									<li><span>사번&nbsp;</span>
+										<input type="text" id="txtNoPersonM" name="noPerson"  class="nsf-param nsf-status-lck" disabled="true">
+									<li><span>성명&nbsp;</span>
+										<input type="text" id="txtNmPersonM" name="nmPerson"  class="nsf-param nsf-status-lck" disabled="true"></li>
+									<li><span>지급일자&nbsp;</span>
+											<input type="text" id="txtDtProvM" name="dtProv"  class="nsf-param nsf-status-lck" disabled="true"></li>
+									<li class="nsf-status-hid"><span>급여년월&nbsp;</span>
+											<input type="text" id="txtYmPayM" name="ymPay"  class="nsf-param nsf-status-lck" disabled="true"></li>
+									<li><span>급여구분&nbsp;</span>
+											<select id="cboFgSuppM" name="fgSupp"class="nsf-param nsf-status-lck" disabled="true">
 												<option value=""></option>
-																	<option value="001"$data.get("selected")>급여</option>
-																	<option value="002"$data.get("selected")>급여/상여</option>
-																	<option value="003"$data.get("selected")>퇴직년차</option>
-																	<option value="004"$data.get("selected")>제수당</option>
-																	<option value="101"$data.get("selected")>상여</option>
-																	<option value="999"$data.get("selected")>기타</option>
-																</select>
+												<option value="001"$data.get("selected")>급여</option>
+												<option value="002"$data.get("selected")>급여/상여</option>
+												<option value="003"$data.get("selected")>퇴직년차</option>
+												<option value="004"$data.get("selected")>제수당</option>
+												<option value="101"$data.get("selected")>상여</option>
+												<option value="999"$data.get("selected")>기타</option>
+											</select>
 									</li>
-									 <li><span>사업장&nbsp;</span>
-											<select id="cboCdRegBizAreaM" name="cdRegBizArea"  class="nsf-param nsf-status-lck" disabled=true>
+									<li><span>사업장&nbsp;</span>
+											<select id="cboCdRegBizAreaM" name="cdRegBizArea"  class="nsf-param nsf-status-lck" disabled="true">
 												<option value=""></option>
-																</select>
+											</select>
 									</li>
 									<li><span>부서&nbsp;</span>
-											<input type="text" id="txtCdDeptM" name="nmDept"  class="nsf-param nsf-status-lck" disabled=true></li>
-									<li><span>급여그룹&nbsp;</span>
-											<select id="cboCdPayGpM" name="cdPayGpM"  class="nsf-param nsf-status-lck" disabled=true>
+											<input type="text" id="txtCdDeptM" name="nmDept"  class="nsf-param nsf-status-lck" disabled="true"></li>
+									<li>
+										<span>급여그룹&nbsp;</span>
+											<select id="cboCdPayGpM" name="cdPayGpM"  class="nsf-param nsf-status-lck" disabled="true">
 												<option value=""></option>
-																	<option value="IA00"$data.get("selected")>전체</option>
-																</select>
+												<option value="IA00"$data.get("selected")>전체</option>
+											</select>
 									</li>
-									  <li><span>신고사업장&nbsp;</span>
-											<select id="cboCdBizAreaM" name="cdBizArea" class="nsf-param nsf-status-lck" disabled=true>
+									<li>
+										<span>신고사업장&nbsp;</span>
+											<select id="cboCdBizAreaM" name="cdBizArea" class="nsf-param nsf-status-lck" disabled="true">
 												<option value=""></option>
-																	<option value="B101"$data.get("selected")>한전산업개발(주)</option>
-																	<option value="B102"$data.get("selected")>한전산업개발(주)한산빌딩</option>
-																	<option value="B201"$data.get("selected")>한전산업개발(주) 1지역본부</option>
-																	<option value="B202"$data.get("selected")>한전산업개발(주)남서울지사(구)</option>
-																	<option value="B203"$data.get("selected")>한전산업개발(주)경기인천지사(구)</option>
-																	<option value="B204"$data.get("selected")>한전산업개발(주)인천지사(구)</option>
-																	<option value="B205"$data.get("selected")>한전산업개발(주)대구경북지사(구)</option>
-																	<option value="B206"$data.get("selected")>한전산업개발(주) 2지역본부</option>
-																	<option value="B207"$data.get("selected")>한전산업개발(주) 3지역본부</option>
-																	<option value="B208"$data.get("selected")>한전산업개발(주)충청지사(구)</option>
-																	<option value="B209"$data.get("selected")>한전산업개발(주)경남지사(구)</option>
-																	<option value="B210"$data.get("selected")>한전산업개발(주)대구경북지사(구)</option>
-																	<option value="B401"$data.get("selected")>한전산업개발(주)보령사업처</option>
-																	<option value="B402"$data.get("selected")>한전산업개발(주)삼천포사업처</option>
-																	<option value="B403"$data.get("selected")>한전산업개발(주)호남사업처</option>
-																	<option value="B404"$data.get("selected")>한전산업개발(주)태안사업처</option>
-																	<option value="B405"$data.get("selected")>한전산업개발(주)서천사업소</option>
-																	<option value="B406"$data.get("selected")>한전산업개발(주)영동사업소</option>
-																	<option value="B407"$data.get("selected")>한전산업개발(주)하동사업처</option>
-																	<option value="B408"$data.get("selected")>한전산업개발(주)동해사업처</option>
-																	<option value="B409"$data.get("selected")>한전산업개발(주)당진사업처</option>
-																	<option value="B410"$data.get("selected")>한전산업개발(주)울산사업처</option>
-																	<option value="B411"$data.get("selected")>한전산업개발(주)제주사업처</option>
-																	<option value="B412"$data.get("selected")>한전산업개발(주)당진특수사업소</option>
-																	<option value="B413"$data.get("selected")>한전산업개발(주)여수사업처</option>
-																	<option value="B414"$data.get("selected")>한전산업개발(주)영남사업소(구)</option>
-																	<option value="B415"$data.get("selected")>한전산업개발(주)월성원자력사업소(구)</option>
-																	<option value="B416"$data.get("selected")>한전산업개발(주)인천국제공항사업소</option>
-																	<option value="B417"$data.get("selected")>한전산업개발(주)삼척사업처</option>
-																	<option value="B418"$data.get("selected")>한전산업개발(주)한빛원자력사업소</option>
-																	<option value="B419"$data.get("selected")>한전산업개발(주)신당진사업소</option>
-																	<option value="B420"$data.get("selected")>한전산업개발(주)신보령사업처</option>
-																	<option value="B421"$data.get("selected")>한전산업개발(주)북평사업처</option>
-																	<option value="B422"$data.get("selected")>한전산업개발(주)고성사업처</option>
-																	<option value="B423"$data.get("selected")>한전산업개발(주)서천사업처</option>
-																	<option value="B424"$data.get("selected")>한전산업개발(주)당진그린사업처</option>
-																	<option value="B425"$data.get("selected")>한전산업개발(주)강릉사업처</option>
-																	<option value="B426"$data.get("selected")>한전산업개발(주)고리원자력사업처</option>
-																	<option value="B427"$data.get("selected")>한전산업개발(주)울산에코사업처</option>
-																	<option value="B801"$data.get("selected")>한전산업개발(주)강진태양광</option>
-																	<option value="B802"$data.get("selected")>한전산업개발(주)의왕공장(구)</option>
-																	<option value="B803"$data.get("selected")>한전산업개발(주)코레일대전태양광</option>
-																	<option value="B804"$data.get("selected")>한전산업개발(주)양주골프연습장</option>
-																	<option value="B805"$data.get("selected")>한전산업개발(주)부평공장(구)</option>
-																	<option value="T01"$data.get("selected")>TEST01</option>
-																</select>
+												<option value="B101"$data.get("selected")>한전산업개발(주)</option>
+												<option value="B102"$data.get("selected")>한전산업개발(주)한산빌딩</option>
+												<option value="B201"$data.get("selected")>한전산업개발(주) 1지역본부</option>
+												<option value="B202"$data.get("selected")>한전산업개발(주)남서울지사(구)</option>
+												<option value="B203"$data.get("selected")>한전산업개발(주)경기인천지사(구)</option>
+												<option value="B204"$data.get("selected")>한전산업개발(주)인천지사(구)</option>
+												<option value="B205"$data.get("selected")>한전산업개발(주)대구경북지사(구)</option>
+												<option value="B206"$data.get("selected")>한전산업개발(주) 2지역본부</option>
+												<option value="B207"$data.get("selected")>한전산업개발(주) 3지역본부</option>
+												<option value="B208"$data.get("selected")>한전산업개발(주)충청지사(구)</option>
+												<option value="B209"$data.get("selected")>한전산업개발(주)경남지사(구)</option>
+												<option value="B210"$data.get("selected")>한전산업개발(주)대구경북지사(구)</option>
+												<option value="B401"$data.get("selected")>한전산업개발(주)보령사업처</option>
+												<option value="B402"$data.get("selected")>한전산업개발(주)삼천포사업처</option>
+												<option value="B403"$data.get("selected")>한전산업개발(주)호남사업처</option>
+												<option value="B404"$data.get("selected")>한전산업개발(주)태안사업처</option>
+												<option value="B405"$data.get("selected")>한전산업개발(주)서천사업소</option>
+												<option value="B406"$data.get("selected")>한전산업개발(주)영동사업소</option>
+												<option value="B407"$data.get("selected")>한전산업개발(주)하동사업처</option>
+												<option value="B408"$data.get("selected")>한전산업개발(주)동해사업처</option>
+												<option value="B409"$data.get("selected")>한전산업개발(주)당진사업처</option>
+												<option value="B410"$data.get("selected")>한전산업개발(주)울산사업처</option>
+												<option value="B411"$data.get("selected")>한전산업개발(주)제주사업처</option>
+												<option value="B412"$data.get("selected")>한전산업개발(주)당진특수사업소</option>
+												<option value="B413"$data.get("selected")>한전산업개발(주)여수사업처</option>
+												<option value="B414"$data.get("selected")>한전산업개발(주)영남사업소(구)</option>
+												<option value="B415"$data.get("selected")>한전산업개발(주)월성원자력사업소(구)</option>
+												<option value="B416"$data.get("selected")>한전산업개발(주)인천국제공항사업소</option>
+												<option value="B417"$data.get("selected")>한전산업개발(주)삼척사업처</option>
+												<option value="B418"$data.get("selected")>한전산업개발(주)한빛원자력사업소</option>
+												<option value="B419"$data.get("selected")>한전산업개발(주)신당진사업소</option>
+												<option value="B420"$data.get("selected")>한전산업개발(주)신보령사업처</option>
+												<option value="B421"$data.get("selected")>한전산업개발(주)북평사업처</option>
+												<option value="B422"$data.get("selected")>한전산업개발(주)고성사업처</option>
+												<option value="B423"$data.get("selected")>한전산업개발(주)서천사업처</option>
+												<option value="B424"$data.get("selected")>한전산업개발(주)당진그린사업처</option>
+												<option value="B425"$data.get("selected")>한전산업개발(주)강릉사업처</option>
+												<option value="B426"$data.get("selected")>한전산업개발(주)고리원자력사업처</option>
+												<option value="B427"$data.get("selected")>한전산업개발(주)울산에코사업처</option>
+												<option value="B801"$data.get("selected")>한전산업개발(주)강진태양광</option>
+												<option value="B802"$data.get("selected")>한전산업개발(주)의왕공장(구)</option>
+												<option value="B803"$data.get("selected")>한전산업개발(주)코레일대전태양광</option>
+												<option value="B804"$data.get("selected")>한전산업개발(주)양주골프연습장</option>
+												<option value="B805"$data.get("selected")>한전산업개발(주)부평공장(구)</option>
+												<option value="T01"$data.get("selected")>TEST01</option>
+											</select>
 									</li>
-									<li><span>직책&nbsp;</span>
-											<select id="cboCdAbilM" name="cdAbil"  class="nsf-param nsf-status-lck" disabled=true>
+									<li>
+										<span>직책&nbsp;</span>
+											<select id="cboCdAbilM" name="cdAbil"  class="nsf-param nsf-status-lck" disabled="true">
 												<option value=""></option>
-																	<option value="0"$data.get("selected")>고위임직원및관리자</option>
-																	<option value="2"$data.get("selected")>기술공및준전문가</option>
-																	<option value="3"$data.get("selected")>사무종사자</option>
-																	<option value="4"$data.get("selected")>서비스종사자</option>
-																	<option value="5"$data.get("selected")>판매종사자</option>
-																	<option value="7"$data.get("selected")>기능원</option>
-																	<option value="8"$data.get("selected")>장치기계조작및조립종사자</option>
-																	<option value="9"$data.get("selected")>단순노무종사자</option>
-																</select>
+												<option value="0"$data.get("selected")>고위임직원및관리자</option>
+												<option value="2"$data.get("selected")>기술공및준전문가</option>
+												<option value="3"$data.get("selected")>사무종사자</option>
+												<option value="4"$data.get("selected")>서비스종사자</option>
+												<option value="5"$data.get("selected")>판매종사자</option>
+												<option value="7"$data.get("selected")>기능원</option>
+												<option value="8"$data.get("selected")>장치기계조작및조립종사자</option>
+												<option value="9"$data.get("selected")>단순노무종사자</option>
+											</select>
 									</li>
-									<li><span>직종&nbsp;</span>
-											<select id="cboCdOcptM" name="cdOcpt" class="nsf-param nsf-status-lck" disabled=true>
+									<li>
+										<span>직종&nbsp;</span>
+											<select id="cboCdOcptM" name="cdOcpt" class="nsf-param nsf-status-lck" disabled="true">
 												<option value=""></option>
-																	<option value="01"$data.get("selected")>사장</option>
-																	<option value="02"$data.get("selected")>감사</option>
-																	<option value="03"$data.get("selected")>부사장</option>
-																	<option value="04"$data.get("selected")>전무이사</option>
-																	<option value="05"$data.get("selected")>경영간부</option>
-																	<option value="06"$data.get("selected")>상무이사</option>
-																	<option value="07"$data.get("selected")>비등기이사</option>
-																	<option value="08"$data.get("selected")>경영임원</option>
-																	<option value="10"$data.get("selected")>사무직</option>
-																	<option value="20"$data.get("selected")>기술직</option>
-																	<option value="30"$data.get("selected")>영업직</option>
-																</select>
+												<option value="01"$data.get("selected")>사장</option>
+												<option value="02"$data.get("selected")>감사</option>
+												<option value="03"$data.get("selected")>부사장</option>
+												<option value="04"$data.get("selected")>전무이사</option>
+												<option value="05"$data.get("selected")>경영간부</option>
+												<option value="06"$data.get("selected")>상무이사</option>
+												<option value="07"$data.get("selected")>비등기이사</option>
+												<option value="08"$data.get("selected")>경영임원</option>
+												<option value="10"$data.get("selected")>사무직</option>
+												<option value="20"$data.get("selected")>기술직</option>
+												<option value="30"$data.get("selected")>영업직</option>
+											</select>
 									</li>
-									<li><span>직무&nbsp;</span>
-											<select id="cboCdJobM" name="cdJob" class="nsf-param nsf-status-lck" disabled=true>
+									<li>
+										<span>직무&nbsp;</span>
+											<select id="cboCdJobM" name="cdJob" class="nsf-param nsf-status-lck" disabled="true">
 												<option value=""></option>
-																	<option value="A2001"$data.get("selected")>고문</option>
-																	<option value="A2002"$data.get("selected")>기술자문</option>
-																	<option value="A2003"$data.get("selected")>정제회판매</option>
-																	<option value="A2004"$data.get("selected")>옥내저탄장 안전품질과장</option>
-																	<option value="A2005"$data.get("selected")>옥내저탄장 시공담당</option>
-																	<option value="A2006"$data.get("selected")>옥내저탄장 사무소장</option>
-																	<option value="A2007"$data.get("selected")>코레일태양광</option>
-																	<option value="A2008"$data.get("selected")>재택근무(중증장애)</option>
-																	<option value="A2009"$data.get("selected")>해외사업담당</option>
-																	<option value="A1001"$data.get("selected")>해외사업담당</option>
-																	<option value="A1002"$data.get("selected")>최고경영자(CEO)</option>
-																	<option value="A1003"$data.get("selected")>감사(CIO)</option>
-																	<option value="A1004"$data.get("selected")>경영본부장</option>
-																	<option value="A1005"$data.get("selected")>스마트사업본부장</option>
-																	<option value="A1006"$data.get("selected")>발전본부장</option>
-																	<option value="A1007"$data.get("selected")>에너지사업본부장</option>
-																	<option value="A1008"$data.get("selected")>그린사업팀장</option>
-																	<option value="A1009"$data.get("selected")>그린사업담당</option>
-																	<option value="A1010"$data.get("selected")>전산보안팀장</option>
-																	<option value="A1011"$data.get("selected")>전산보안담당</option>
-																	<option value="A1012"$data.get("selected")>스마트사업처장</option>
-																	<option value="A1013"$data.get("selected")>안전품질담당</option>
-																	<option value="A1014"$data.get("selected")>에너지1팀장</option>
-																	<option value="A1015"$data.get("selected")>에너지2팀장</option>
-																	<option value="A1016"$data.get("selected")>기획처장</option>
-																	<option value="A1017"$data.get("selected")>경영처장</option>
-																	<option value="A1018"$data.get("selected")>기획예산담당</option>
-																	<option value="A1019"$data.get("selected")>재무팀장</option>
-																	<option value="A1020"$data.get("selected")>법무팀장</option>
-																	<option value="A1021"$data.get("selected")>기술연구담당</option>
-																	<option value="A1022"$data.get("selected")>일상감사담당</option>
-																	<option value="A1023"$data.get("selected")>종합감사담당</option>
-																	<option value="A1024"$data.get("selected")>일상감사팀장</option>
-																	<option value="A1025"$data.get("selected")>회계자금담당</option>
-																	<option value="A1026"$data.get("selected")>회계담당</option>
-																	<option value="A1027"$data.get("selected")>자금담당</option>
-																	<option value="A1028"$data.get("selected")>주식담당</option>
-																	<option value="A1029"$data.get("selected")>경영지원팀장</option>
-																	<option value="A1030"$data.get("selected")>총무담당</option>
-																	<option value="A1031"$data.get("selected")>빌딩관리담당</option>
-																	<option value="A1032"$data.get("selected")>인사담당</option>
-																	<option value="A1033"$data.get("selected")>교육담당</option>
-																	<option value="A1034"$data.get("selected")>비서담당</option>
-																	<option value="A1035"$data.get("selected")>차량운전담당</option>
-																	<option value="A1036"$data.get("selected")>법무담당</option>
-																	<option value="A1037"$data.get("selected")>법무팀장</option>
-																	<option value="A1038"$data.get("selected")>경영지원담당</option>
-																	<option value="A1039"$data.get("selected")>인사팀장</option>
-																	<option value="A1040"$data.get("selected")>노무담당</option>
-																	<option value="A1041"$data.get("selected")>노무팀장</option>
-																	<option value="A1042"$data.get("selected")>급여담당</option>
-																	<option value="A1043"$data.get("selected")>전산담당</option>
-																	<option value="A1044"$data.get("selected")>빌링사업팀장</option>
-																	<option value="A1045"$data.get("selected")>빌링사업담당</option>
-																	<option value="A1046"$data.get("selected")>에너지사업담당</option>
-																	<option value="A1047"$data.get("selected")>운전사업팀장</option>
-																	<option value="A1048"$data.get("selected")>운전사업담당</option>
-																	<option value="A1049"$data.get("selected")>정비사업팀장</option>
-																	<option value="A1050"$data.get("selected")>정비사업담당</option>
-																	<option value="A1051"$data.get("selected")>글로벌사업팀장</option>
-																	<option value="A1052"$data.get("selected")>글로벌사업담당</option>
-																	<option value="A1053"$data.get("selected")>안전품질팀장</option>
-																	<option value="A1054"$data.get("selected")>안전보건담당</option>
-																	<option value="A1055"$data.get("selected")>안전보건처장</option>
-																	<option value="A1056"$data.get("selected")>안전보건실장</option>
-																	<option value="A1057"$data.get("selected")>안전관리부장</option>
-																	<option value="A1058"$data.get("selected")>안전보건팀장</option>
-																	<option value="A1059"$data.get("selected")>안전기획과장</option>
-																	<option value="A1060"$data.get("selected")>안전공정과장</option>
-																	<option value="A1061"$data.get("selected")>품질과장</option>
-																	<option value="A1062"$data.get("selected")>안전과장</option>
-																	<option value="A1063"$data.get("selected")>품질담당</option>
-																	<option value="A1064"$data.get("selected")>안전담당</option>
-																	<option value="A1065"$data.get("selected")>안전기획담당</option>
-																	<option value="A1066"$data.get("selected")>안전공정담당</option>
-																	<option value="A1067"$data.get("selected")>사업개발팀장</option>
-																	<option value="A1068"$data.get("selected")>사업개발담당</option>
-																	<option value="A1069"$data.get("selected")>에스코담당</option>
-																	<option value="A1070"$data.get("selected")>기술연구팀장</option>
-																	<option value="A1071"$data.get("selected")>태양광사업담당</option>
-																	<option value="A1072"$data.get("selected")>안전품질팀장</option>
-																	<option value="A1073"$data.get("selected")>에너지솔루션담당</option>
-																	<option value="A1074"$data.get("selected")>발전처장</option>
-																	<option value="A1075"$data.get("selected")>감사실장</option>
-																	<option value="A1076"$data.get("selected")>행정지원실장</option>
-																	<option value="A1077"$data.get("selected")>기술연구원장</option>
-																	<option value="A1078"$data.get("selected")>과장요원</option>
-																	<option value="A1079"$data.get("selected")>특허사업파트</option>
-																	<option value="A1080"$data.get("selected")>연구개발파트</option>
-																	<option value="A1081"$data.get("selected")>종합감사담당</option>
-																	<option value="A1082"$data.get("selected")>대외협력실장</option>
-																	<option value="A1083"$data.get("selected")>대외협력담당</option>
-																	<option value="A1084"$data.get("selected")>근로시간면제</option>
-																	<option value="A1085"$data.get("selected")>운영계획팀장</option>
-																	<option value="A1086"$data.get("selected")>운영계획담당</option>
-																	<option value="A1087"$data.get("selected")>기획예산팀장</option>
-																	<option value="A1088"$data.get("selected")>노무팀장</option>
-																	<option value="AC001"$data.get("selected")>기타</option>
-																	<option value="AC002"$data.get("selected")>관리역</option>
-																	<option value="C1001"$data.get("selected")>사업처장(1-2)</option>
-																	<option value="C1002"$data.get("selected")>사업처장(1-1)</option>
-																	<option value="C1003"$data.get("selected")>행정지원실장(1-1)</option>
-																	<option value="C1004"$data.get("selected")>사업처장(2)</option>
-																	<option value="C1005"$data.get("selected")>행정지원실장(2)</option>
-																	<option value="C1006"$data.get("selected")>총무부장</option>
-																	<option value="C1007"$data.get("selected")>총무차장</option>
-																	<option value="C1008"$data.get("selected")>발전사무원(5)</option>
-																	<option value="C1009"$data.get("selected")>발전사무원(6-2)</option>
-																	<option value="C1010"$data.get("selected")>사무보조원(6-2)</option>
-																	<option value="C1011"$data.get("selected")>사무보조원(6-1)</option>
-																	<option value="C1012"$data.get("selected")>경노무원</option>
-																	<option value="C1101"$data.get("selected")>운영실장</option>
-																	<option value="C1102"$data.get("selected")>연료설비부장</option>
-																	<option value="C1103"$data.get("selected")>운영부장</option>
-																	<option value="C1104"$data.get("selected")>(연료)기술차장</option>
-																	<option value="C1105"$data.get("selected")>연료공무차장</option>
-																	<option value="C1106"$data.get("selected")>(연료)기술공무</option>
-																	<option value="C1107"$data.get("selected")>교육(기술)공무</option>
-																	<option value="C1108"$data.get("selected")>연료현장지원(TSO)</option>
-																	<option value="C1109"$data.get("selected")>품질공무</option>
-																	<option value="C1201"$data.get("selected")>환경설비부장</option>
-																	<option value="C1202"$data.get("selected")>탈황(환경)기술차장</option>
-																	<option value="C1203"$data.get("selected")>회처리기술차장</option>
-																	<option value="C1204"$data.get("selected")>화학기술차장</option>
-																	<option value="C1205"$data.get("selected")>탈황(환경)기술공무</option>
-																	<option value="C1206"$data.get("selected")>회처리기술공무</option>
-																	<option value="C1207"$data.get("selected")>환경현장지원(TSO)</option>
-																	<option value="C1301"$data.get("selected")>안전보건실장</option>
-																	<option value="C1302"$data.get("selected")>안전관리부장</option>
-																	<option value="C1303"$data.get("selected")>안전(기획)차장</option>
-																	<option value="C1304"$data.get("selected")>안전공정차장</option>
-																	<option value="C1305"$data.get("selected")>안전공무</option>
-																	<option value="C1306"$data.get("selected")>보건관리자</option>
-																	<option value="C1401"$data.get("selected")>품질차장</option>
-																	<option value="C2001"$data.get("selected")>연료운영차장</option>
-																	<option value="C2002"$data.get("selected")>연료작업통제전문가(SAP)</option>
-																	<option value="C2003"$data.get("selected")>중기낙탄차장</option>
-																	<option value="C2004"$data.get("selected")>연료현장대리(교대)</option>
-																	<option value="C2005"$data.get("selected")>연료현장대리(일근)</option>
-																	<option value="C2006"$data.get("selected")>연료제어원</option>
-																	<option value="C2007"$data.get("selected")>급탄기제어원</option>
-																	<option value="C2008"$data.get("selected")>하역설비제어원(카덤프)</option>
-																	<option value="C2009"$data.get("selected")>RDM제어원</option>
-																	<option value="C2010"$data.get("selected")>혼탄관리원</option>
-																	<option value="C2011"$data.get("selected")>기관사</option>
-																	<option value="C2012"$data.get("selected")>연료약품수급원</option>
-																	<option value="C2013"$data.get("selected")>우드펠릿설비제어원</option>
-																	<option value="C2014"$data.get("selected")>급탄기현장운전원</option>
-																	<option value="C2015"$data.get("selected")>옥내저탄장관리원</option>
-																	<option value="C2016"$data.get("selected")>연료컨베어운전원</option>
-																	<option value="C2017"$data.get("selected")>RDM현장운전원</option>
-																	<option value="C2018"$data.get("selected")>(저탄장)Silo현장운전원</option>
-																	<option value="C2019"$data.get("selected")>중기운전원(일근)</option>
-																	<option value="C2020"$data.get("selected")>중기운전원(교대)</option>
-																	<option value="C2021"$data.get("selected")>우드펠릿설비현장운전원</option>
-																	<option value="C2022"$data.get("selected")>연료시료채취원</option>
-																	<option value="C2023"$data.get("selected")>조차원</option>
-																	<option value="C2024"$data.get("selected")>컨베어운전보조원</option>
-																	<option value="C2025"$data.get("selected")>Silo현장보조원</option>
-																	<option value="C2026"$data.get("selected")>낙탄관리원</option>
-																	<option value="C2027"$data.get("selected")>혼탄설비원</option>
-																	<option value="C2028"$data.get("selected")>하역보조원</option>
-																	<option value="C2029"$data.get("selected")>동일항목삭제</option>
-																	<option value="C2030"$data.get("selected")>우드펠릿설비보조원</option>
-																	<option value="C2101"$data.get("selected")>탈황운영차장</option>
-																	<option value="C2102"$data.get("selected")>탈황작업통제전문가(SAP)</option>
-																	<option value="C2103"$data.get("selected")>탈황제어원</option>
-																	<option value="C2104"$data.get("selected")>탈황호기운전원</option>
-																	<option value="C2105"$data.get("selected")>공용설비운전원</option>
-																	<option value="C2106"$data.get("selected")>폐수현장운전원</option>
-																	<option value="C2107"$data.get("selected")>폐수처리원(교대)</option>
-																	<option value="C2108"$data.get("selected")>폐수처리원(일근)</option>
-																	<option value="C2109"$data.get("selected")>폐수처리분석원</option>
-																	<option value="C2110"$data.get("selected")>총질소제거설비운전원</option>
-																	<option value="C2111"$data.get("selected")>석회석/석고운전원(하역보조원)</option>
-																	<option value="C2112"$data.get("selected")>탈황시료채취원</option>
-																	<option value="C2201"$data.get("selected")>회처리운영차장</option>
-																	<option value="C2202"$data.get("selected")>회처리제어원</option>
-																	<option value="C2203"$data.get("selected")>유기성고형연료제어원</option>
-																	<option value="C2204"$data.get("selected")>회처리컨베어운전원</option>
-																	<option value="C2205"$data.get("selected")>회처리현장운전원</option>
-																	<option value="C2206"$data.get("selected")>석탄회반출관리원</option>
-																	<option value="C2207"$data.get("selected")>재순환설비운전원</option>
-																	<option value="C2208"$data.get("selected")>주유회처리원</option>
-																	<option value="C2209"$data.get("selected")>회사장관리원</option>
-																	<option value="C2210"$data.get("selected")>회처리시료채취원</option>
-																	<option value="C2211"$data.get("selected")>암모니아설비운전원</option>
-																	<option value="C2212"$data.get("selected")>유기성고형연료현장운전원</option>
-																	<option value="C2213"$data.get("selected")>회처리보조원</option>
-																	<option value="C2214"$data.get("selected")>유기성고형연료보조원</option>
-																	<option value="C2215"$data.get("selected")>석탄회반출보조원</option>
-																	<option value="C2301"$data.get("selected")>화학운영차장</option>
-																	<option value="C2302"$data.get("selected")>운전통제원</option>
-																	<option value="C2303"$data.get("selected")>석회석 및 석고분석원</option>
-																	<option value="C2304"$data.get("selected")>회정제분석원</option>
-																	<option value="C2305"$data.get("selected")>해수전해분석원</option>
-																	<option value="C2306"$data.get("selected")>수처리운전원</option>
-																	<option value="C2307"$data.get("selected")>수페수분석원</option>
-																	<option value="C2308"$data.get("selected")>복수탈염운전원</option>
-																	<option value="C2309"$data.get("selected")>복수탈염분석원</option>
-																	<option value="C2310"$data.get("selected")>PTW</option>
-																	<option value="C2311"$data.get("selected")>수폐수시료채취원</option>
-																	<option value="C2312"$data.get("selected")>해양소수력운전원</option>
-																	<option value="C2313"$data.get("selected")>수처리운전보조원</option>
-																	<option value="C2401"$data.get("selected")>생산팀장</option>
-																	<option value="C2402"$data.get("selected")>전기안전관리자</option>
-																	<option value="C2403"$data.get("selected")>전기안전보조원</option>
-																	<option value="C2404"$data.get("selected")>생산운전원</option>
-																	<option value="C3001"$data.get("selected")>정비실장</option>
-																	<option value="C3002"$data.get("selected")>기계정비부장</option>
-																	<option value="C3003"$data.get("selected")>전기정비부장</option>
-																	<option value="C3004"$data.get("selected")>(석탄설비)정비부장</option>
-																	<option value="C3005"$data.get("selected")>정비기술차장</option>
-																	<option value="C3006"$data.get("selected")>정비기술공무</option>
-																	<option value="C3007"$data.get("selected")>정비사무보조(6-2)</option>
-																	<option value="C3008"$data.get("selected")>정비사무보조(6-1)</option>
-																	<option value="C3101"$data.get("selected")>기계차장</option>
-																	<option value="C3102"$data.get("selected")>기계정비기술원</option>
-																	<option value="C3103"$data.get("selected")>기계정비기능원</option>
-																	<option value="C3104"$data.get("selected")>기계정비보조원</option>
-																	<option value="C3201"$data.get("selected")>전기차장</option>
-																	<option value="C3202"$data.get("selected")>전기정비기술원</option>
-																	<option value="C3203"$data.get("selected")>전기정비기능원</option>
-																	<option value="C3204"$data.get("selected")>전기정비보조원</option>
-																	<option value="C3301"$data.get("selected")>계측제어차장</option>
-																	<option value="C3302"$data.get("selected")>계측제어정비기술원</option>
-																	<option value="C3401"$data.get("selected")>석탄설비기계정비차장</option>
-																	<option value="C3402"$data.get("selected")>석탄설비기계정비기술원</option>
-																	<option value="C3403"$data.get("selected")>석탄설비기계정비기능원</option>
-																	<option value="C3404"$data.get("selected")>석탄설비기계정비보조원</option>
-																	<option value="C3405"$data.get("selected")>석탄설비전기정비차장</option>
-																	<option value="C3406"$data.get("selected")>석탄설비전기정비기술원</option>
-																	<option value="C3407"$data.get("selected")>석탄설비전기정비기능원</option>
-																	<option value="C3408"$data.get("selected")>석탄설비전기정비보조원</option>
-																	<option value="C4001"$data.get("selected")>주설비정비실장</option>
-																	<option value="C4002"$data.get("selected")>주설비(기계,운영)부장</option>
-																	<option value="C4003"$data.get("selected")>주설비전기부장</option>
-																	<option value="C4004"$data.get("selected")>주설비정비기술차장</option>
-																	<option value="C4005"$data.get("selected")>주설비정비기술공무</option>
-																	<option value="C4006"$data.get("selected")>주설비정비사무보조</option>
-																	<option value="C4101"$data.get("selected")>주설비기계차장</option>
-																	<option value="C4102"$data.get("selected")>주설비기계정비기술원</option>
-																	<option value="C4103"$data.get("selected")>주설비기계정비기능원</option>
-																	<option value="C4104"$data.get("selected")>주설비기계정비보조원</option>
-																	<option value="C4201"$data.get("selected")>주설비전기차장</option>
-																	<option value="C4202"$data.get("selected")>주설비전기정비기술원</option>
-																	<option value="C4203"$data.get("selected")>주설비전기정비기능원</option>
-																	<option value="C4204"$data.get("selected")>주설비전기정비보조원</option>
-																	<option value="C5001"$data.get("selected")>정제공장장</option>
-																	<option value="C5002"$data.get("selected")>정제기술부장</option>
-																	<option value="C5003"$data.get("selected")>정제정비부장</option>
-																	<option value="C5004"$data.get("selected")>정제기술차장</option>
-																	<option value="C5005"$data.get("selected")>정제기술공무</option>
-																	<option value="C5006"$data.get("selected")>정제현장지원(TSO)</option>
-																	<option value="C5101"$data.get("selected")>정제운영차장</option>
-																	<option value="C5102"$data.get("selected")>정제제어원</option>
-																	<option value="C5103"$data.get("selected")>정제현장운전원</option>
-																	<option value="C5104"$data.get("selected")>정제석탄회반출보조원</option>
-																	<option value="C5105"$data.get("selected")>낙회처리원</option>
-																	<option value="C5201"$data.get("selected")>정제정비차장</option>
-																	<option value="C5202"$data.get("selected")>정제기계정비기술원</option>
-																	<option value="C5203"$data.get("selected")>정제전기정비기술원</option>
-																	<option value="C5204"$data.get("selected")>정제기계정비기능원</option>
-																	<option value="C5205"$data.get("selected")>정제전기정비기능원</option>
-																	<option value="C5206"$data.get("selected")>정제기계정비보조원</option>
-																	<option value="C5207"$data.get("selected")>정제전기정비보조원</option>
-																	<option value="C5208"$data.get("selected")>사무국내파견(2)</option>
-																	<option value="C6001"$data.get("selected")>운전국내파견(2)</option>
-																	<option value="C6002"$data.get("selected")>정비국내파견(2)</option>
-																	<option value="C6003"$data.get("selected")>사무국내파견(3)</option>
-																	<option value="C6004"$data.get("selected")>운전국내파견(3)</option>
-																	<option value="C6005"$data.get("selected")>정비국내파견(3)</option>
-																	<option value="C6006"$data.get("selected")>사무국내파견(4)</option>
-																	<option value="C6007"$data.get("selected")>운전국내파견(4)</option>
-																	<option value="C6008"$data.get("selected")>정비국내파견(4)</option>
-																	<option value="C6009"$data.get("selected")>사무국내파견(5)</option>
-																	<option value="C6010"$data.get("selected")>운전국내파견(5)</option>
-																	<option value="C6011"$data.get("selected")>정비국내파견(5)</option>
-																	<option value="C6012"$data.get("selected")>사무국내파견(6-2)</option>
-																	<option value="C6013"$data.get("selected")>운전국내파견(6-2)</option>
-																	<option value="C6014"$data.get("selected")>정비국내파견(6-2)</option>
-																	<option value="C6015"$data.get("selected")>사무국내파견(6-1)</option>
-																	<option value="C6016"$data.get("selected")>운전국내파견(6-1)</option>
-																	<option value="C6017"$data.get("selected")>정비국내파견(6-1)</option>
-																	<option value="C6101"$data.get("selected")>운전해외파견(2)</option>
-																	<option value="C6102"$data.get("selected")>정비해외파견(2)</option>
-																	<option value="C6103"$data.get("selected")>운전해외파견(3)</option>
-																	<option value="C6104"$data.get("selected")>정비해외파견(3)</option>
-																	<option value="C6105"$data.get("selected")>운전해외파견(4)</option>
-																	<option value="C6106"$data.get("selected")>정비해외파견(4)</option>
-																	<option value="C6107"$data.get("selected")>운전해외파견(5)</option>
-																	<option value="C6108"$data.get("selected")>정비해외파견(5)</option>
-																	<option value="C6109"$data.get("selected")>운전해외파견(6-2)</option>
-																	<option value="C6110"$data.get("selected")>정비해외파견(6-2)</option>
-																	<option value="C6111"$data.get("selected")>운전해외파견(6-1)</option>
-																	<option value="C6112"$data.get("selected")>정비해외파견(6-1)</option>
-																	<option value="C7001"$data.get("selected")>사무휴직(1)</option>
-																	<option value="C7002"$data.get("selected")>운전휴직(1)</option>
-																	<option value="C7003"$data.get("selected")>정비휴직(1)</option>
-																	<option value="C7004"$data.get("selected")>사무휴직(2)</option>
-																	<option value="C7005"$data.get("selected")>운전휴직(2)</option>
-																	<option value="C7006"$data.get("selected")>정비휴직(2)</option>
-																	<option value="C7007"$data.get("selected")>사무휴직(3)</option>
-																	<option value="C7008"$data.get("selected")>운전휴직(3)</option>
-																	<option value="C7009"$data.get("selected")>정비휴직(3)</option>
-																	<option value="C7010"$data.get("selected")>사무휴직(4)</option>
-																	<option value="C7011"$data.get("selected")>운전휴직(4)</option>
-																	<option value="C7012"$data.get("selected")>정비휴직(4)</option>
-																	<option value="C7013"$data.get("selected")>사무휴직(5)</option>
-																	<option value="C7014"$data.get("selected")>운전휴직(5)</option>
-																	<option value="C7015"$data.get("selected")>정비휴직(5)</option>
-																	<option value="C7016"$data.get("selected")>사무휴직(6-2)</option>
-																	<option value="C7017"$data.get("selected")>운전휴직(6-2)</option>
-																	<option value="C7018"$data.get("selected")>정비휴직(6-2)</option>
-																	<option value="C7019"$data.get("selected")>사무휴직(6-1)</option>
-																	<option value="C7020"$data.get("selected")>운전휴직(6-1)</option>
-																	<option value="C7021"$data.get("selected")>정비휴직(6-1)</option>
-																	<option value="C9001"$data.get("selected")>기술전문원</option>
-																</select>
+												<option value="A2001"$data.get("selected")>고문</option>
+												<option value="A2002"$data.get("selected")>기술자문</option>
+												<option value="A2003"$data.get("selected")>정제회판매</option>
+												<option value="A2004"$data.get("selected")>옥내저탄장 안전품질과장</option>
+												<option value="A2005"$data.get("selected")>옥내저탄장 시공담당</option>
+												<option value="A2006"$data.get("selected")>옥내저탄장 사무소장</option>
+												<option value="A2007"$data.get("selected")>코레일태양광</option>
+												<option value="A2008"$data.get("selected")>재택근무(중증장애)</option>
+												<option value="A2009"$data.get("selected")>해외사업담당</option>
+												<option value="A1001"$data.get("selected")>해외사업담당</option>
+												<option value="A1002"$data.get("selected")>최고경영자(CEO)</option>
+												<option value="A1003"$data.get("selected")>감사(CIO)</option>
+												<option value="A1004"$data.get("selected")>경영본부장</option>
+												<option value="A1005"$data.get("selected")>스마트사업본부장</option>
+												<option value="A1006"$data.get("selected")>발전본부장</option>
+												<option value="A1007"$data.get("selected")>에너지사업본부장</option>
+												<option value="A1008"$data.get("selected")>그린사업팀장</option>
+												<option value="A1009"$data.get("selected")>그린사업담당</option>
+												<option value="A1010"$data.get("selected")>전산보안팀장</option>
+												<option value="A1011"$data.get("selected")>전산보안담당</option>
+												<option value="A1012"$data.get("selected")>스마트사업처장</option>
+												<option value="A1013"$data.get("selected")>안전품질담당</option>
+												<option value="A1014"$data.get("selected")>에너지1팀장</option>
+												<option value="A1015"$data.get("selected")>에너지2팀장</option>
+												<option value="A1016"$data.get("selected")>기획처장</option>
+												<option value="A1017"$data.get("selected")>경영처장</option>
+												<option value="A1018"$data.get("selected")>기획예산담당</option>
+												<option value="A1019"$data.get("selected")>재무팀장</option>
+												<option value="A1020"$data.get("selected")>법무팀장</option>
+												<option value="A1021"$data.get("selected")>기술연구담당</option>
+												<option value="A1022"$data.get("selected")>일상감사담당</option>
+												<option value="A1023"$data.get("selected")>종합감사담당</option>
+												<option value="A1024"$data.get("selected")>일상감사팀장</option>
+												<option value="A1025"$data.get("selected")>회계자금담당</option>
+												<option value="A1026"$data.get("selected")>회계담당</option>
+												<option value="A1027"$data.get("selected")>자금담당</option>
+												<option value="A1028"$data.get("selected")>주식담당</option>
+												<option value="A1029"$data.get("selected")>경영지원팀장</option>
+												<option value="A1030"$data.get("selected")>총무담당</option>
+												<option value="A1031"$data.get("selected")>빌딩관리담당</option>
+												<option value="A1032"$data.get("selected")>인사담당</option>
+												<option value="A1033"$data.get("selected")>교육담당</option>
+												<option value="A1034"$data.get("selected")>비서담당</option>
+												<option value="A1035"$data.get("selected")>차량운전담당</option>
+												<option value="A1036"$data.get("selected")>법무담당</option>
+												<option value="A1037"$data.get("selected")>법무팀장</option>
+												<option value="A1038"$data.get("selected")>경영지원담당</option>
+												<option value="A1039"$data.get("selected")>인사팀장</option>
+												<option value="A1040"$data.get("selected")>노무담당</option>
+												<option value="A1041"$data.get("selected")>노무팀장</option>
+												<option value="A1042"$data.get("selected")>급여담당</option>
+												<option value="A1043"$data.get("selected")>전산담당</option>
+												<option value="A1044"$data.get("selected")>빌링사업팀장</option>
+												<option value="A1045"$data.get("selected")>빌링사업담당</option>
+												<option value="A1046"$data.get("selected")>에너지사업담당</option>
+												<option value="A1047"$data.get("selected")>운전사업팀장</option>
+												<option value="A1048"$data.get("selected")>운전사업담당</option>
+												<option value="A1049"$data.get("selected")>정비사업팀장</option>
+												<option value="A1050"$data.get("selected")>정비사업담당</option>
+												<option value="A1051"$data.get("selected")>글로벌사업팀장</option>
+												<option value="A1052"$data.get("selected")>글로벌사업담당</option>
+												<option value="A1053"$data.get("selected")>안전품질팀장</option>
+												<option value="A1054"$data.get("selected")>안전보건담당</option>
+												<option value="A1055"$data.get("selected")>안전보건처장</option>
+												<option value="A1056"$data.get("selected")>안전보건실장</option>
+												<option value="A1057"$data.get("selected")>안전관리부장</option>
+												<option value="A1058"$data.get("selected")>안전보건팀장</option>
+												<option value="A1059"$data.get("selected")>안전기획과장</option>
+												<option value="A1060"$data.get("selected")>안전공정과장</option>
+												<option value="A1061"$data.get("selected")>품질과장</option>
+												<option value="A1062"$data.get("selected")>안전과장</option>
+												<option value="A1063"$data.get("selected")>품질담당</option>
+												<option value="A1064"$data.get("selected")>안전담당</option>
+												<option value="A1065"$data.get("selected")>안전기획담당</option>
+												<option value="A1066"$data.get("selected")>안전공정담당</option>
+												<option value="A1067"$data.get("selected")>사업개발팀장</option>
+												<option value="A1068"$data.get("selected")>사업개발담당</option>
+												<option value="A1069"$data.get("selected")>에스코담당</option>
+												<option value="A1070"$data.get("selected")>기술연구팀장</option>
+												<option value="A1071"$data.get("selected")>태양광사업담당</option>
+												<option value="A1072"$data.get("selected")>안전품질팀장</option>
+												<option value="A1073"$data.get("selected")>에너지솔루션담당</option>
+												<option value="A1074"$data.get("selected")>발전처장</option>
+												<option value="A1075"$data.get("selected")>감사실장</option>
+												<option value="A1076"$data.get("selected")>행정지원실장</option>
+												<option value="A1077"$data.get("selected")>기술연구원장</option>
+												<option value="A1078"$data.get("selected")>과장요원</option>
+												<option value="A1079"$data.get("selected")>특허사업파트</option>
+												<option value="A1080"$data.get("selected")>연구개발파트</option>
+												<option value="A1081"$data.get("selected")>종합감사담당</option>
+												<option value="A1082"$data.get("selected")>대외협력실장</option>
+												<option value="A1083"$data.get("selected")>대외협력담당</option>
+												<option value="A1084"$data.get("selected")>근로시간면제</option>
+												<option value="A1085"$data.get("selected")>운영계획팀장</option>
+												<option value="A1086"$data.get("selected")>운영계획담당</option>
+												<option value="A1087"$data.get("selected")>기획예산팀장</option>
+												<option value="A1088"$data.get("selected")>노무팀장</option>
+												<option value="AC001"$data.get("selected")>기타</option>
+												<option value="AC002"$data.get("selected")>관리역</option>
+												<option value="C1001"$data.get("selected")>사업처장(1-2)</option>
+												<option value="C1002"$data.get("selected")>사업처장(1-1)</option>
+												<option value="C1003"$data.get("selected")>행정지원실장(1-1)</option>
+												<option value="C1004"$data.get("selected")>사업처장(2)</option>
+												<option value="C1005"$data.get("selected")>행정지원실장(2)</option>
+												<option value="C1006"$data.get("selected")>총무부장</option>
+												<option value="C1007"$data.get("selected")>총무차장</option>
+												<option value="C1008"$data.get("selected")>발전사무원(5)</option>
+												<option value="C1009"$data.get("selected")>발전사무원(6-2)</option>
+												<option value="C1010"$data.get("selected")>사무보조원(6-2)</option>
+												<option value="C1011"$data.get("selected")>사무보조원(6-1)</option>
+												<option value="C1012"$data.get("selected")>경노무원</option>
+												<option value="C1101"$data.get("selected")>운영실장</option>
+												<option value="C1102"$data.get("selected")>연료설비부장</option>
+												<option value="C1103"$data.get("selected")>운영부장</option>
+												<option value="C1104"$data.get("selected")>(연료)기술차장</option>
+												<option value="C1105"$data.get("selected")>연료공무차장</option>
+												<option value="C1106"$data.get("selected")>(연료)기술공무</option>
+												<option value="C1107"$data.get("selected")>교육(기술)공무</option>
+												<option value="C1108"$data.get("selected")>연료현장지원(TSO)</option>
+												<option value="C1109"$data.get("selected")>품질공무</option>
+												<option value="C1201"$data.get("selected")>환경설비부장</option>
+												<option value="C1202"$data.get("selected")>탈황(환경)기술차장</option>
+												<option value="C1203"$data.get("selected")>회처리기술차장</option>
+												<option value="C1204"$data.get("selected")>화학기술차장</option>
+												<option value="C1205"$data.get("selected")>탈황(환경)기술공무</option>
+												<option value="C1206"$data.get("selected")>회처리기술공무</option>
+												<option value="C1207"$data.get("selected")>환경현장지원(TSO)</option>
+												<option value="C1301"$data.get("selected")>안전보건실장</option>
+												<option value="C1302"$data.get("selected")>안전관리부장</option>
+												<option value="C1303"$data.get("selected")>안전(기획)차장</option>
+												<option value="C1304"$data.get("selected")>안전공정차장</option>
+												<option value="C1305"$data.get("selected")>안전공무</option>
+												<option value="C1306"$data.get("selected")>보건관리자</option>
+												<option value="C1401"$data.get("selected")>품질차장</option>
+												<option value="C2001"$data.get("selected")>연료운영차장</option>
+												<option value="C2002"$data.get("selected")>연료작업통제전문가(SAP)</option>
+												<option value="C2003"$data.get("selected")>중기낙탄차장</option>
+												<option value="C2004"$data.get("selected")>연료현장대리(교대)</option>
+												<option value="C2005"$data.get("selected")>연료현장대리(일근)</option>
+												<option value="C2006"$data.get("selected")>연료제어원</option>
+												<option value="C2007"$data.get("selected")>급탄기제어원</option>
+												<option value="C2008"$data.get("selected")>하역설비제어원(카덤프)</option>
+												<option value="C2009"$data.get("selected")>RDM제어원</option>
+												<option value="C2010"$data.get("selected")>혼탄관리원</option>
+												<option value="C2011"$data.get("selected")>기관사</option>
+												<option value="C2012"$data.get("selected")>연료약품수급원</option>
+												<option value="C2013"$data.get("selected")>우드펠릿설비제어원</option>
+												<option value="C2014"$data.get("selected")>급탄기현장운전원</option>
+												<option value="C2015"$data.get("selected")>옥내저탄장관리원</option>
+												<option value="C2016"$data.get("selected")>연료컨베어운전원</option>
+												<option value="C2017"$data.get("selected")>RDM현장운전원</option>
+												<option value="C2018"$data.get("selected")>(저탄장)Silo현장운전원</option>
+												<option value="C2019"$data.get("selected")>중기운전원(일근)</option>
+												<option value="C2020"$data.get("selected")>중기운전원(교대)</option>
+												<option value="C2021"$data.get("selected")>우드펠릿설비현장운전원</option>
+												<option value="C2022"$data.get("selected")>연료시료채취원</option>
+												<option value="C2023"$data.get("selected")>조차원</option>
+												<option value="C2024"$data.get("selected")>컨베어운전보조원</option>
+												<option value="C2025"$data.get("selected")>Silo현장보조원</option>
+												<option value="C2026"$data.get("selected")>낙탄관리원</option>
+												<option value="C2027"$data.get("selected")>혼탄설비원</option>
+												<option value="C2028"$data.get("selected")>하역보조원</option>
+												<option value="C2029"$data.get("selected")>동일항목삭제</option>
+												<option value="C2030"$data.get("selected")>우드펠릿설비보조원</option>
+												<option value="C2101"$data.get("selected")>탈황운영차장</option>
+												<option value="C2102"$data.get("selected")>탈황작업통제전문가(SAP)</option>
+												<option value="C2103"$data.get("selected")>탈황제어원</option>
+												<option value="C2104"$data.get("selected")>탈황호기운전원</option>
+												<option value="C2105"$data.get("selected")>공용설비운전원</option>
+												<option value="C2106"$data.get("selected")>폐수현장운전원</option>
+												<option value="C2107"$data.get("selected")>폐수처리원(교대)</option>
+												<option value="C2108"$data.get("selected")>폐수처리원(일근)</option>
+												<option value="C2109"$data.get("selected")>폐수처리분석원</option>
+												<option value="C2110"$data.get("selected")>총질소제거설비운전원</option>
+												<option value="C2111"$data.get("selected")>석회석/석고운전원(하역보조원)</option>
+												<option value="C2112"$data.get("selected")>탈황시료채취원</option>
+												<option value="C2201"$data.get("selected")>회처리운영차장</option>
+												<option value="C2202"$data.get("selected")>회처리제어원</option>
+												<option value="C2203"$data.get("selected")>유기성고형연료제어원</option>
+												<option value="C2204"$data.get("selected")>회처리컨베어운전원</option>
+												<option value="C2205"$data.get("selected")>회처리현장운전원</option>
+												<option value="C2206"$data.get("selected")>석탄회반출관리원</option>
+												<option value="C2207"$data.get("selected")>재순환설비운전원</option>
+												<option value="C2208"$data.get("selected")>주유회처리원</option>
+												<option value="C2209"$data.get("selected")>회사장관리원</option>
+												<option value="C2210"$data.get("selected")>회처리시료채취원</option>
+												<option value="C2211"$data.get("selected")>암모니아설비운전원</option>
+												<option value="C2212"$data.get("selected")>유기성고형연료현장운전원</option>
+												<option value="C2213"$data.get("selected")>회처리보조원</option>
+												<option value="C2214"$data.get("selected")>유기성고형연료보조원</option>
+												<option value="C2215"$data.get("selected")>석탄회반출보조원</option>
+												<option value="C2301"$data.get("selected")>화학운영차장</option>
+												<option value="C2302"$data.get("selected")>운전통제원</option>
+												<option value="C2303"$data.get("selected")>석회석 및 석고분석원</option>
+												<option value="C2304"$data.get("selected")>회정제분석원</option>
+												<option value="C2305"$data.get("selected")>해수전해분석원</option>
+												<option value="C2306"$data.get("selected")>수처리운전원</option>
+												<option value="C2307"$data.get("selected")>수페수분석원</option>
+												<option value="C2308"$data.get("selected")>복수탈염운전원</option>
+												<option value="C2309"$data.get("selected")>복수탈염분석원</option>
+												<option value="C2310"$data.get("selected")>PTW</option>
+												<option value="C2311"$data.get("selected")>수폐수시료채취원</option>
+												<option value="C2312"$data.get("selected")>해양소수력운전원</option>
+												<option value="C2313"$data.get("selected")>수처리운전보조원</option>
+												<option value="C2401"$data.get("selected")>생산팀장</option>
+												<option value="C2402"$data.get("selected")>전기안전관리자</option>
+												<option value="C2403"$data.get("selected")>전기안전보조원</option>
+												<option value="C2404"$data.get("selected")>생산운전원</option>
+												<option value="C3001"$data.get("selected")>정비실장</option>
+												<option value="C3002"$data.get("selected")>기계정비부장</option>
+												<option value="C3003"$data.get("selected")>전기정비부장</option>
+												<option value="C3004"$data.get("selected")>(석탄설비)정비부장</option>
+												<option value="C3005"$data.get("selected")>정비기술차장</option>
+												<option value="C3006"$data.get("selected")>정비기술공무</option>
+												<option value="C3007"$data.get("selected")>정비사무보조(6-2)</option>
+												<option value="C3008"$data.get("selected")>정비사무보조(6-1)</option>
+												<option value="C3101"$data.get("selected")>기계차장</option>
+												<option value="C3102"$data.get("selected")>기계정비기술원</option>
+												<option value="C3103"$data.get("selected")>기계정비기능원</option>
+												<option value="C3104"$data.get("selected")>기계정비보조원</option>
+												<option value="C3201"$data.get("selected")>전기차장</option>
+												<option value="C3202"$data.get("selected")>전기정비기술원</option>
+												<option value="C3203"$data.get("selected")>전기정비기능원</option>
+												<option value="C3204"$data.get("selected")>전기정비보조원</option>
+												<option value="C3301"$data.get("selected")>계측제어차장</option>
+												<option value="C3302"$data.get("selected")>계측제어정비기술원</option>
+												<option value="C3401"$data.get("selected")>석탄설비기계정비차장</option>
+												<option value="C3402"$data.get("selected")>석탄설비기계정비기술원</option>
+												<option value="C3403"$data.get("selected")>석탄설비기계정비기능원</option>
+												<option value="C3404"$data.get("selected")>석탄설비기계정비보조원</option>
+												<option value="C3405"$data.get("selected")>석탄설비전기정비차장</option>
+												<option value="C3406"$data.get("selected")>석탄설비전기정비기술원</option>
+												<option value="C3407"$data.get("selected")>석탄설비전기정비기능원</option>
+												<option value="C3408"$data.get("selected")>석탄설비전기정비보조원</option>
+												<option value="C4001"$data.get("selected")>주설비정비실장</option>
+												<option value="C4002"$data.get("selected")>주설비(기계,운영)부장</option>
+												<option value="C4003"$data.get("selected")>주설비전기부장</option>
+												<option value="C4004"$data.get("selected")>주설비정비기술차장</option>
+												<option value="C4005"$data.get("selected")>주설비정비기술공무</option>
+												<option value="C4006"$data.get("selected")>주설비정비사무보조</option>
+												<option value="C4101"$data.get("selected")>주설비기계차장</option>
+												<option value="C4102"$data.get("selected")>주설비기계정비기술원</option>
+												<option value="C4103"$data.get("selected")>주설비기계정비기능원</option>
+												<option value="C4104"$data.get("selected")>주설비기계정비보조원</option>
+												<option value="C4201"$data.get("selected")>주설비전기차장</option>
+												<option value="C4202"$data.get("selected")>주설비전기정비기술원</option>
+												<option value="C4203"$data.get("selected")>주설비전기정비기능원</option>
+												<option value="C4204"$data.get("selected")>주설비전기정비보조원</option>
+												<option value="C5001"$data.get("selected")>정제공장장</option>
+												<option value="C5002"$data.get("selected")>정제기술부장</option>
+												<option value="C5003"$data.get("selected")>정제정비부장</option>
+												<option value="C5004"$data.get("selected")>정제기술차장</option>
+												<option value="C5005"$data.get("selected")>정제기술공무</option>
+												<option value="C5006"$data.get("selected")>정제현장지원(TSO)</option>
+												<option value="C5101"$data.get("selected")>정제운영차장</option>
+												<option value="C5102"$data.get("selected")>정제제어원</option>
+												<option value="C5103"$data.get("selected")>정제현장운전원</option>
+												<option value="C5104"$data.get("selected")>정제석탄회반출보조원</option>
+												<option value="C5105"$data.get("selected")>낙회처리원</option>
+												<option value="C5201"$data.get("selected")>정제정비차장</option>
+												<option value="C5202"$data.get("selected")>정제기계정비기술원</option>
+												<option value="C5203"$data.get("selected")>정제전기정비기술원</option>
+												<option value="C5204"$data.get("selected")>정제기계정비기능원</option>
+												<option value="C5205"$data.get("selected")>정제전기정비기능원</option>
+												<option value="C5206"$data.get("selected")>정제기계정비보조원</option>
+												<option value="C5207"$data.get("selected")>정제전기정비보조원</option>
+												<option value="C5208"$data.get("selected")>사무국내파견(2)</option>
+												<option value="C6001"$data.get("selected")>운전국내파견(2)</option>
+												<option value="C6002"$data.get("selected")>정비국내파견(2)</option>
+												<option value="C6003"$data.get("selected")>사무국내파견(3)</option>
+												<option value="C6004"$data.get("selected")>운전국내파견(3)</option>
+												<option value="C6005"$data.get("selected")>정비국내파견(3)</option>
+												<option value="C6006"$data.get("selected")>사무국내파견(4)</option>
+												<option value="C6007"$data.get("selected")>운전국내파견(4)</option>
+												<option value="C6008"$data.get("selected")>정비국내파견(4)</option>
+												<option value="C6009"$data.get("selected")>사무국내파견(5)</option>
+												<option value="C6010"$data.get("selected")>운전국내파견(5)</option>
+												<option value="C6011"$data.get("selected")>정비국내파견(5)</option>
+												<option value="C6012"$data.get("selected")>사무국내파견(6-2)</option>
+												<option value="C6013"$data.get("selected")>운전국내파견(6-2)</option>
+												<option value="C6014"$data.get("selected")>정비국내파견(6-2)</option>
+												<option value="C6015"$data.get("selected")>사무국내파견(6-1)</option>
+												<option value="C6016"$data.get("selected")>운전국내파견(6-1)</option>
+												<option value="C6017"$data.get("selected")>정비국내파견(6-1)</option>
+												<option value="C6101"$data.get("selected")>운전해외파견(2)</option>
+												<option value="C6102"$data.get("selected")>정비해외파견(2)</option>
+												<option value="C6103"$data.get("selected")>운전해외파견(3)</option>
+												<option value="C6104"$data.get("selected")>정비해외파견(3)</option>
+												<option value="C6105"$data.get("selected")>운전해외파견(4)</option>
+												<option value="C6106"$data.get("selected")>정비해외파견(4)</option>
+												<option value="C6107"$data.get("selected")>운전해외파견(5)</option>
+												<option value="C6108"$data.get("selected")>정비해외파견(5)</option>
+												<option value="C6109"$data.get("selected")>운전해외파견(6-2)</option>
+												<option value="C6110"$data.get("selected")>정비해외파견(6-2)</option>
+												<option value="C6111"$data.get("selected")>운전해외파견(6-1)</option>
+												<option value="C6112"$data.get("selected")>정비해외파견(6-1)</option>
+												<option value="C7001"$data.get("selected")>사무휴직(1)</option>
+												<option value="C7002"$data.get("selected")>운전휴직(1)</option>
+												<option value="C7003"$data.get("selected")>정비휴직(1)</option>
+												<option value="C7004"$data.get("selected")>사무휴직(2)</option>
+												<option value="C7005"$data.get("selected")>운전휴직(2)</option>
+												<option value="C7006"$data.get("selected")>정비휴직(2)</option>
+												<option value="C7007"$data.get("selected")>사무휴직(3)</option>
+												<option value="C7008"$data.get("selected")>운전휴직(3)</option>
+												<option value="C7009"$data.get("selected")>정비휴직(3)</option>
+												<option value="C7010"$data.get("selected")>사무휴직(4)</option>
+												<option value="C7011"$data.get("selected")>운전휴직(4)</option>
+												<option value="C7012"$data.get("selected")>정비휴직(4)</option>
+												<option value="C7013"$data.get("selected")>사무휴직(5)</option>
+												<option value="C7014"$data.get("selected")>운전휴직(5)</option>
+												<option value="C7015"$data.get("selected")>정비휴직(5)</option>
+												<option value="C7016"$data.get("selected")>사무휴직(6-2)</option>
+												<option value="C7017"$data.get("selected")>운전휴직(6-2)</option>
+												<option value="C7018"$data.get("selected")>정비휴직(6-2)</option>
+												<option value="C7019"$data.get("selected")>사무휴직(6-1)</option>
+												<option value="C7020"$data.get("selected")>운전휴직(6-1)</option>
+												<option value="C7021"$data.get("selected")>정비휴직(6-1)</option>
+												<option value="C9001"$data.get("selected")>기술전문원</option>
+											</select>
 									</li>
 									 <li><span>근로형태&nbsp;</span>
 											<select id="cboFgPersonM" name="fgPerson"  class="nsf-param nsf-status-lck" disabled=true>
@@ -1195,7 +1201,7 @@ function replaceAll(inputString, targetString, replacement)
 																	<option value="102"$data.get("selected")>사무소장</option>
 																</select>
 									</li>
-									<li class="nsf-form-li-2x"><span>직급&nbsp;</span>
+									<li><span>직급&nbsp;</span>
 											<select id="cboLvlPay1M" name="lvlPay1" class="nsf-param nsf-status-lck" disabled=true>
 												<option value=""></option>
 																	<option value="010"$data.get("selected")>상무이사대우</option>
@@ -1391,9 +1397,9 @@ function replaceAll(inputString, targetString, replacement)
 																	<option value="292"$data.get("selected")>엘아이지투자증권</option>
 																</select>
 									</li>
-									<li><span>계좌번호&nbsp;</span>
+									<li class="bb_none"><span>계좌번호&nbsp;</span><!-- 마자막 border-bottom 감추기: bb_none -->
 											<input type="text" id="txtNoBankAccnt1M" name="noBankAccnt1" class="nsf-param" ></li>
-									 <li><span>예금주&nbsp;</span>
+									<li class="bb_none"><span>예금주&nbsp;</span><!-- 마자막 border-bottom 감추기: bb_none -->
 										<input type="text" id="txtNmDepositor1M" name="nmDepositor1" class="nsf-param" ></li>
 									<li  class="nsf-status-hid"><input type="text" id="txtIdUpdateM" name="idLogin"  class="nsf-param nsf-status-lck"></li>
 									</ul>
@@ -1401,37 +1407,38 @@ function replaceAll(inputString, targetString, replacement)
 								</td>
 					</tr>
 					<tr>
-					<td colspan="3">
-					<div id="eEditFormM1" class="css-form">
-						<div class="ui-widget-header ui-corner-top">
-							<label>급여조정</label>
+					<td class="w10"></td>
+					<td colspan="5" class="va_top">
+						<div id="eEditFormM1" class="css-form">
+							<div class="ui-widget-header ui-corner-top">
+								<label>급여조정</label>
+							</div>
+							<div class="ui-widget-content ui-corner-bottom">
+								<div class="nsf-form">
+									<ul class="per33"> <!-- ul class 33% add -->
+										<li><span>세금계산&nbsp;</span>
+										<input type="checkBox" id="chkFgTaxYn" name="taxYn" class="nsf-param" checked value="1"></li>
+										<li><span>세금적용율&nbsp;</span>
+										<input type="text" id="numRateTax2" name="numRateTax2"  class="nsf-param nsf-number" ></li>
+										<li  class="nsf-status-hid"><span>고용보험계산&nbsp;</span>
+										<input type="checkBox" id="chkFgRetrHireYn" name="hirYn"  class="nsf-param nsf-status-lck" checked value="1"></li>
+										<li><span>지급총액&nbsp;</span>
+										<input type="text" id="numAmtSupplyTotal" name="amtSupplyTotal" class="nsf-param nsf-status-lck nsf-number"></li>
+										<li class="bb_none"><span>공제총액&nbsp;</span>
+										<input type="text" id="numAmtDeductTotal" name="amtDeductTotal" class="nsf-param nsf-status-lck nsf-number"></li>
+										<li class="bb_none"><span>실지급액&nbsp;</span>
+										<input type="text" id="numAmtRealSupply" name="amtRealSupply" class="nsf-param nsf-status-lck nsf-number"></li>
+										<li class="bb_none"><span>청년취업소득감면액&nbsp;</span>
+										<input type="text" id="numAmtYoungTaxCut" name="amtYoungTaxCut" class="nsf-param nsf-status-lck nsf-number"></li>
+									</ul>
+								</div>
+							</div>
 						</div>
-
-						<div class="ui-widget-content ui-corner-bottom">
-							<div class="nsf-form">
-								<ul>
-									<li><span>세금계산&nbsp;</span>
-									<input type="checkBox" id="chkFgTaxYn" name="taxYn" class="nsf-param" checked value="1"></li>
-									<li><span>세금적용율&nbsp;</span>
-									<input type="text" id="numRateTax2" name="numRateTax2"  class="nsf-param nsf-number" ></li>
-									<li  class="nsf-status-hid"><span>고용보험계산&nbsp;</span>
-									<input type="checkBox" id="chkFgRetrHireYn" name="hirYn"  class="nsf-param nsf-status-lck" checked value="1"></li>
-									<li><span>지급총액&nbsp;</span>
-									<input type="text" id="numAmtSupplyTotal" name="amtSupplyTotal" class="nsf-param nsf-status-lck nsf-number"></li>
-			 						<li><span>공제총액&nbsp;</span>
-									<input type="text" id="numAmtDeductTotal" name="amtDeductTotal" class="nsf-param nsf-status-lck nsf-number"></li>
-			 						<li><span>실지급액&nbsp;</span>
-									<input type="text" id="numAmtRealSupply" name="amtRealSupply" class="nsf-param nsf-status-lck nsf-number"></li>
-			 						<li><span>청년취업소득감면액&nbsp;</span>
-									<input type="text" id="numAmtYoungTaxCut" name="amtYoungTaxCut" class="nsf-param nsf-status-lck nsf-number"></li>
-		 						</ul>
-								</div></div>
-	 						</div>
-			 			</td>
+			 		</td>
 			 		</tr>
 					<tr>
-						<td valign="top" align="left" style="padding-left:0px>
-
+						<td class="w10"></td>
+						<td valign="top" align="left" style="padding-left:0px">
 							<div class="body">
 								<div class="nsf-btnbar">
 									<table><tr><td class="nsf-right">
@@ -1444,7 +1451,8 @@ function replaceAll(inputString, targetString, replacement)
 								<div id="jqGridnavD1"></div>
 							</div>
 						</td>
-						<td style="vertical-align:top;" style="padding-left:0px>
+						<td class="w10"></td>
+						<td style="vertical-align:top;" style="padding-left:0px">
 							<div class="body">
 								<div class="nsf-btnbar">
 									<table><tr><td class="nsf-right">
@@ -1457,10 +1465,11 @@ function replaceAll(inputString, targetString, replacement)
 								<div id="jqGridnavD2"></div>
 							</div>
 						</td>
+						<td class="w10"></td>
 						<td style="vertical-align:top;">
 							<div class="ui-widget-content ui-corner-bottom">
 								<div class="nsf-form">
-									<ul>
+									<ul class="per50">
 										<li><span>연장비과세&nbsp;</span>
 										<input type="text" id="numAmtTaxExemption1" name="amtTaxExemption1"  class="nsf-param nsf-status-lck nsf-number" disabled=true ></li>
 										<li><span>식대비과세&nbsp;</span>
@@ -1479,9 +1488,9 @@ function replaceAll(inputString, targetString, replacement)
 										<input type="text" id="numTotAmtTaxExemption" name="totAmtTaxExemption"  class="nsf-param nsf-status-lck nsf-number" disabled=true ></li>
 										<li><span>사용자비과세&nbsp;</span>
 										<input type="text" id="numTotAmtComp" name="numTotAmtComp"  class="nsf-param nsf-status-lck nsf-number" disabled=true ></li>
-										<li><span>과세총액&nbsp;</span>
+										<li class="bb_none"><span>과세총액&nbsp;</span>
 										<input type="text" id="numAmtTotTax" name="numAmtTotTax"   class="nsf-param nsf-status-lck nsf-number" disabled=true ></li>
-										<li  class="nsf-status-hid"><span>결정세액적용율&nbsp;</span>
+										<li class="nsf-status-hid"><span>결정세액적용율&nbsp;</span>
 										<input type="text" id="numRateTax1" name="numRateTax1"  class="nsf-param nsf-status-lck nsf-number" disabled=true></li>
 									</ul>
 								</div>
