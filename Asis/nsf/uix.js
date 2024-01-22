@@ -200,8 +200,13 @@ const testtab = () => {
   }
   for (const item of tabClose) {
     item.addEventListener("click", () => {
-      const target = item.closest("li").querySelector("button.tab-nav"); 
+      // const target = item.closest("li").querySelector("button.tab-nav");
+      const target = item.closest("li");
+      const target2 = document.querySelector(target.querySelector("button.tab-nav").dataset.tabTarget);
       console.log(`닫기 ${target.innerHTML}`);
+      console.log(target2);
+      target.classList.add("hide");
+      target2.classList.add("hide");
     })
   }
 }
