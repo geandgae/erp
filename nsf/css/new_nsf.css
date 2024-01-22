@@ -106,8 +106,9 @@ BODY, DIV, TABLE, TR, TD, UL, LI, SPAN, LABEL, INPUT, SELECT, BUTTON {
 .nsf-form-search li span{
     background-color: #f3f3f3 ;
     display: inline-block ;
-    padding: 4px 0 3px ;
+    padding: 4px 4px 3px ;
     height: 29px ;
+    width: 120px;
 }
 
 .nsf-form-search ul + ul{
@@ -218,7 +219,7 @@ BODY, DIV, TABLE, TR, TD, UL, LI, SPAN, LABEL, INPUT, SELECT, BUTTON {
 /* 버튼 에어리어 */
 .nsf-btnbar {
     padding: 4px 4px 2px 4px;
-    background-color: #f3f3f3;
+    background: #f3f3f3;
     border: 0;
     border-top: 1px solid #d9d9d9;
     border-left: 1px solid #d9d9d9;
@@ -292,4 +293,23 @@ BODY, DIV, TABLE, TR, TD, UL, LI, SPAN, LABEL, INPUT, SELECT, BUTTON {
     border: 1px solid #cccccc;
     background: #dbe7ff;
     color: #0552e6;
+}
+
+/* 타이틀 */
+.nsf-title {
+    float: none;
+    background: none;
+    display: inline-block;
+    width: 98%;
+    font-weight: bold;
+    font-size: 12px;
+    color: #393939;
+    padding-left: 16px;
+    margin-bottom: 0;
+    height: 25px;
+    padding-top: 18px;
+}
+/* 그리드 */
+#grid .nsf-btnbar{
+    border-top: none;
 }

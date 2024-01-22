@@ -23,6 +23,7 @@
     <link rel="stylesheet" type="text/css" href="./jquery/plugin/jqGrid/css/ui.jqgrid.css"/>
     <link rel="stylesheet" type="text/css" href="./jquery/plugin/jqGrid/plugins/ui.multiselect.css"/>
     <link rel="stylesheet" type="text/css" href="./nsf/css/nsf.css"/>
+    <link rel="stylesheet" type="text/css" href="./nsf/css/new_nsf.css"/>
     <!--<link rel="stylesheet" type="text/css" href="./ClipReport4/css/clipreport.css"/>-->
 
     <script type="text/javascript" src="./jquery/jquery.js"></script>
@@ -2086,7 +2087,7 @@
         <div class="nsf-panel">
             <div id="grid">
                 <div class="head nsf-form-search">
-                    <ul>
+                    <ul class="per33">
                         <li class="nsf-form-li-2x">
                             <span class="nsf-required">결의일자</span>
                             <input type="text" id="txtDtSlipFrH" name="dtSlipFr" class="nsf-param nsf-status-ess nsf-center">
@@ -2116,6 +2117,8 @@
                                 <option value="01">전기이월</option>
                             </select>
                         </li>
+                    </ul>
+                    <ul class="per33">
                         <li class="nsf-form-li-2x">
                             <span>결의부서</span>
                             <input type="text" id="txtCdDeptH1" name="cdDept" class="nsf-param">
@@ -2123,7 +2126,6 @@
                                 <a>&nbsp;</a>
                             </button>
                             <input type="text" id="txtNmDeptH1" name="nmDept" class="nsf-param nsf-status-lck" disabled=true>
-                        </li>
                         </li>
                         <li class="nsf-form-li-2x">
                             <span>결의등록자</span>
@@ -2133,12 +2135,12 @@
                             </button>
                             <input type="text" id="txtNmInsertH" name="nmInsert" class="nsf-param nsf-status-lck" disabled=true>
                         </li>
-                        </li>
-
                         <li class="nsf-form-li-2x">
                             <span>결의금액</span>
                             <input type="text" id="txtAmtH" name="amt" class="nsf-param nsf-right">
                         </li>
+                    </ul>
+                    <ul class="per33">
                         <li class="nsf-form-li-2x">
                             <span>결의전표채번번호</span>
                             <input type="text" id="txtNoSlipSerialH" name="noSlipSerialH" class="nsf-param nsf-resize">
@@ -2164,7 +2166,6 @@
                             </button>
                             <input type="text" id="nmCompany" name="nmCompany" class="nsf-param nsf-resize nsf-status-lck" disabled=true>
                         </li>
-
                     </ul>
                 </div>
 

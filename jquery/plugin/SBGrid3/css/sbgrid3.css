@@ -2100,8 +2100,9 @@ yx-axis
   outline: none;
 }
 
+/* 그리드 탑 수정*/
 #grid {
-  padding: 10px 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
@@ -3767,7 +3768,7 @@ span.badge a {
   box-sizing: border-box;
 }
 .sbgrid-panel.sbgrid-scroll {
-  border: 1px solid #cecece;
+  border: 0 !important;
   box-sizing: border-box;
 }
 
