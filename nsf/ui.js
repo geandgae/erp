@@ -37,8 +37,7 @@ class TreeNode {
     `;
   }
 }
-
-function generateTree(menu) {
+const generateTree = (menu) => {
   if (Array.isArray(menu)) {
     // console.log(menu)
     return menu.map(item => new TreeNode(item.label, item.idx, item.children));
@@ -51,7 +50,6 @@ function generateTree(menu) {
     throw new Error("Invalid menu format");
   }
 }
-
 const menuData = [
   { label: "depthA-1", idx:"a1", children: [
     { label: "depth2", idx:"a2", children: [
@@ -65,101 +63,216 @@ const menuData = [
     ]}
   ]},
   { label: "depthA-2", idx:"a9", children: [
-    { label: "공지사항_1", idx:"a10", },
+    { label: "공지사항_1", idx:"notice", },
     { label: "depth2", idx:"a12", children: [
       { label: "개인별급여내역조정", idx:"a13", },
       { label: "인사자료등록", idx:"a14", }
     ]}
   ]},
-  { label: "login", idx:"a15", },
+  { label: "login", idx:"login", },
 ];
 const tree = generateTree(menuData);
 const menuElement = document.querySelector(".nsf-tree");
-// menuElement.innerHTML = `<ul>${tree.map(item => item.render()).join("")}</ul>`;
 menuElement.innerHTML = `<ul>${tree.map((item) => {return item.render()}).join("")}</ul>`;
 
 
-
-// 탬생성
-const makeTab = (idx, label) => {
-  const tabs = document.querySelectorAll(".nsf-tab-panel");
-  const tabchk = document.querySelector(`.nsf-tab-panel#${idx}`);
-  for (const item of tabs) {
-    item.classList.add("hide");
+// 배열생성
+let tabArray = [];
+const makeArray = (idx, label) => {
+const index = tabArray.findIndex(i => i.id === idx);
+  if (index === -1) {
+    tabArray.push(
+      {
+        id : idx,
+        name : label,
+      }
+    )
   }
-  console.log(tabchk);
-  if (tabchk) {
-    tabchk.classList.remove("hide");
-    return
-  } else {
-    // 탭리스트 생성
-    const tabList = document.querySelector(".nsf-tablist");
-    let tabNav = document.createElement('li');
-    tabNav.innerHTML = `
-      <button type="button" class="tab-nav" id="tab-${idx}" data-tab-target="#panel-${idx}" role="tab"><span>${label}</span></button>
-      <button type="button" class="tab-nav-close">x</button>
-    `;
-    tabList.appendChild(tabNav);
-    // 탭패널 생성
-    const tabContents = document.querySelector(".nsf-main-tab-contents");
-    const tabPannel = document.createElement('div');
-    tabPannel.classList.add("nsf-tab-panel");
-    tabPannel.setAttribute("id", `panel-${idx}`);
-    tabPannel.setAttribute("aria-labelledby", `tab-${idx}`);
-    tabPannel.setAttribute("role", `tabpanel`);
-    // tabPannel.textContent = idx;
-    // tabPannel.innerHTML = `<iframe src="./${idx}.html" id="" name="" width="100%" height="100%"></iframe>`
-    tabPannel.innerHTML = `${label}`
-    tabContents.appendChild(tabPannel);
-  }
-
-
+  // console.log(tabArray);
+  makeTab(idx);
 }
 
-// 작동
+// 배열제거
+const deleteArray = (id) => {
+  tabArray.forEach((item, index)=> {
+    if(item.id === id) {
+      tabArray.splice(index, 1);
+    }
+  });
+  // console.log(tabArray);
+  makeTab();
+}
+
+// 탭생성
+const makeTab = () => {
+  const tabList = document.querySelector(".nsf-tablist");
+  const tabContents = document.querySelector(".nsf-main-tab-contents");
+  tabList.innerHTML = "";
+  tabList.innerHTML += `
+  <li class="active"><button type="button" class="tab-nav" id="tab-intro" data-tab-target="#panel-intro" role="tab"><span>intro</span></button></li>
+  `;
+  tabContents.innerHTML = "";
+  tabContents.innerHTML += 
+  `
+  <div class="nsf-tab-panel active" id="panel-intro" aria-labelledby="tab-intro" role="tabpanel" >
+    intro
+    <!-- <iframe src="./공지사항.html" id="" name="" width="100%" height="100%">
+    </iframe> -->
+  </div>
+  `;
+  for (const item of tabArray) {
+    // tabList
+    tabList.innerHTML += 
+    `
+    <li>
+      <button type="button" class="tab-nav" id="tab-${item.id}" data-tab-target="#panel-${item.id}" role="tab"><span>${item.name}</span></button>
+      <button type="button" class="tab-nav-close">x</button>
+    </li>
+    `;
+    // tabpanel
+    tabContents.innerHTML +=
+    `
+    <div class="nsf-tab-panel" id="panel-${item.id}" aria-labelledby="tab-${item.id}" role="tabpanel" >
+      ${item.name}
+    </div>
+    `;
+  }
+  makeEvent();
+}
+
+// 탭이벤트생성
+const makeEvent = () => {
+  const tabNavs = document.querySelectorAll(".nsf-tablist > li");
+  const tabPanels = document.querySelectorAll(".nsf-tab-panel");
+  for (const item of tabNavs) {
+    const btn = item.querySelector(".tab-nav");
+    const close = item.querySelector(".tab-nav-close");
+    if (btn) {
+      btn.addEventListener("click", () => {
+        tabNavs.forEach((el)=> {
+          el.classList.remove("active");
+        });
+        item.classList.add("active");
+        tabPanels.forEach((el)=> {
+          el.classList.remove("active");
+        });
+        const activePanel = document.querySelector(btn.dataset.tabTarget);
+        activePanel.classList.add("active");
+        tabScroll();
+      });
+    }
+    if(close) {
+      close.addEventListener("click", () => {
+        const val = close.closest("li").querySelector("button.tab-nav").id.split("-")[1];
+        const prev = close.closest("li");
+        const prevActive = close.closest("li").previousElementSibling.querySelector("button.tab-nav").id.split("-")[1];
+        const active = document.querySelector(".nsf-tablist li.active button.tab-nav").id.split("-")[1];
+        deleteArray(val);
+        if (prev.classList.contains("active")) {
+          updateState(prevActive);
+        } else {
+          updateState(active);
+        }
+      });
+    }
+  }
+}
+
+// 상태업데이트
+const updateState = (id) => {
+  const tabNavs = document.querySelectorAll(".nsf-tablist > li");
+  const tabPanels = document.querySelectorAll(".nsf-tab-panel");
+  tabNavs.forEach((el)=> {
+    el.classList.remove("active");
+  });
+  tabPanels.forEach((el)=> {
+    el.classList.remove("active");
+  });
+  const activeTabNav = document.querySelector(`#tab-${id}`).closest("li");
+  const activeTabPanel = document.querySelector(`#panel-${id}`);
+  activeTabNav.classList.add("active");
+  activeTabPanel.classList.add("active");
+}
+
+// 메뉴클릭
 const nav = menuElement.querySelector("ul")
 nav.addEventListener("click", (e) => {
-  console.log(e.target);
-  console.log(e.target.closest("li"));
-  console.log(e.target.closest("li").querySelector("ul"));
   const li = e.target.closest("li");
   const ul = e.target.closest("li").querySelector("ul");
   if (ul) {
     ul.classList.toggle("hide");
   }
   if (li.classList.contains("tree-page")) {
-    makeTab(e.target.id, e.target.textContent);
-    // makeTab(e.target.textContent);
-    console.log(e.target.id);
+    makeArray(e.target.id, e.target.textContent);
+    updateState(e.target.id);
+    tabScroll();
   }
 })
 
-
-// test
-const tabIntro = document.querySelector("#tab-intro");
-let tabButtons = document.querySelectorAll(".nsf-tablist button.tab-nav");
-let tabClose = document.querySelectorAll(".nsf-tablist button.tab-nav-close");
-tabIntro.addEventListener("click", () => {
-  tabButtons = document.querySelectorAll(".nsf-tablist button.tab-nav");
-  tabClose = document.querySelectorAll(".nsf-tablist button.tab-nav-close");
-  console.log(tabButtons);
-  testtab();
-})
-const testtab = () => {
-  for (const item of tabButtons) {
-    item.addEventListener("click", () => {
-      console.log(item.innerHTML);
+// tabCtrl
+const tabCtrl = () => {
+  const btnReset = document.querySelector(".nsf-tabctrl .tab-reset");
+  btnReset.addEventListener("click", () => {
+    if (tabArray.length > 0) {
+      tabArray = [];
+      makeTab();
+    }
+  })
+  const parent = document.querySelector(".nsf-tablist");
+  const btnPrev = document.querySelector(".nsf-tabctrl .tab-prev");
+  const btnNext = document.querySelector(".nsf-tabctrl .tab-next");
+  btnPrev.addEventListener("click", () => {
+    let pos = parent.scrollLeft;
+    pos -= 100
+    parent.scrollTo({
+      top: 0,
+      left: pos,
+      behavior: "smooth"
     })
-  }
-  for (const item of tabClose) {
+  })
+  btnNext.addEventListener("click", () => {
+    let pos = parent.scrollLeft;
+    pos += 100
+    parent.scrollTo({
+      top: 0,
+      left: pos,
+      behavior: "smooth"
+    })
+  })
+}
+tabCtrl();
+
+// tabScroll
+const tabScroll = () => {
+  const parent = document.querySelector(".nsf-tablist");
+  const target = document.querySelector(".nsf-tablist .active");
+  const parentLeft = parent.getBoundingClientRect().width;
+  const targetLeft = target.getBoundingClientRect().left;
+  const pos = Math.round((targetLeft - parentLeft) + parent.scrollLeft);
+
+  parent.scrollTo({
+    top: 0,
+    left: pos,
+    behavior: "smooth"
+  })
+}
+
+// gnbTabs
+const nsfGnbTabs = () => {
+  const gnbTabs = document.querySelectorAll(".nsf-gnb-tabs button");
+  const gnbPanel = document.querySelectorAll(".nsf-gnb-panel");
+  for (const item of gnbTabs) {
     item.addEventListener("click", () => {
-      // const target = item.closest("li").querySelector("button.tab-nav");
-      const target = item.closest("li");
-      const target2 = document.querySelector(target.querySelector("button.tab-nav").dataset.tabTarget);
-      console.log(`닫기 ${target.innerHTML}`);
-      console.log(target2);
-      // target.classList.add("hide");
-      // target2.classList.add("hide");
+      console.log(item.id);
+      gnbTabs.forEach(el => {
+        el.classList.remove("active");
+      });
+      item.classList.add("active");
+      gnbPanel.forEach(el => {
+        el.classList.add("hide");
+      });
+      document.querySelector(`.nsf-gnb-panel.${item.id}`).classList.remove("hide");
     })
   }
 }
+nsfGnbTabs();
