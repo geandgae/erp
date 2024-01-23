@@ -1,6 +1,7 @@
 @charset "utf-8";
+
 BODY, DIV, TABLE, TR, TD, UL, LI, SPAN, LABEL, INPUT, SELECT, BUTTON {
-    font-family: '맑은고딕', "Malgun Gothic", TAHOMA, Arial, Helvetica, sans-serif;
+    font-family: '맑은고딕', 'Malgun Gothic', TAHOMA, Arial, Helvetica, sans-serif;
 }
 
 .nst_new_main{
@@ -218,13 +219,13 @@ BODY, DIV, TABLE, TR, TD, UL, LI, SPAN, LABEL, INPUT, SELECT, BUTTON {
 
 /* 버튼 에어리어 */
 .nsf-btnbar {
-    padding: 4px 4px 2px 4px;
+    padding: 0;
     background: #f3f3f3;
     border: 0;
     border-top: 1px solid #d9d9d9;
     border-left: 1px solid #d9d9d9;
     border-right: 1px solid #d9d9d9;
-    height: 25px;
+    height: 29px;
     color: #181818;
 }
 .nsf-btnbar button {
@@ -234,9 +235,59 @@ BODY, DIV, TABLE, TR, TD, UL, LI, SPAN, LABEL, INPUT, SELECT, BUTTON {
 .nsf-btnbar-a { background: url(./images/icon/btn.png) no-repeat 100% top; }
 .nsf-btnbar-a-label { background: url(./images/icon/btn.png) no-repeat left top; }
 
+.nsf-btnbar button {
+    height: 29px;
+    border: 0 none;
+    /* padding: 0 3px; */
+}
+
+
+/* Rounded */
+/* @font-face {
+        font-family: 'Material Symbols Outlined';
+        font-style: normal;
+        font-weight: 400;
+        src: url(../css/ggicon/MaterialSymbolsOutlined.codepoints);
+        src: local('Material Symbols Outlined'),
+        local('Material Symbols Outlined Regular'),
+        url(../css/ggicon/MaterialSymbolsOutlined.woff2) format('woff2'),
+        url(../css/ggicon/MaterialSymbolsOutlined.ttf) format('truetype');
+    }
+
+    [class^="nsf-btn-"] {
+        font-family: 'Material Symbols Rounded';
+        font-weight: normal;
+        font-style: normal;
+        font-size: 24px;
+        display: inline-block;
+        line-height: 1;
+        text-transform: none;
+        letter-spacing: normal;
+        word-wrap: normal;
+        white-space: nowrap;
+        direction: ltr;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+        -moz-osx-font-smoothing: grayscale;
+        font-variation-settings:
+        'FILL' 0,
+        'wght' 300,
+        'GRAD' 0,
+        'opsz' 24
+    }
+.nsf-btn-search { background-image: none; padding-left: 18px; }
+.nsf-btn-search:before {
+    content: "\e8b6";
+}
+.nsf-btn-add { background-image: none; padding-left: 19px; }
+.nsf-btn-add:before {
+    content: "\e146";
+} */
+
+
 .nsf-btn-refresh { background-image: url(./images/icon/load.png); background-repeat: no-repeat; padding-left: 18px; }
-.nsf-btn-search { background-image: url(./images/icon/search.png); background-repeat: no-repeat; padding-left: 18px; }
-.nsf-btn-add { background-image: url(./images/icon/add.png); background-repeat: no-repeat; padding-left: 18px; }
+.nsf-btn-search { background-image: url(./images/icon/search-alt.svg); background-repeat: no-repeat; padding-left: 18px; }
+.nsf-btn-add { background-image: url(./images/icon/circle-plus.svg); background-repeat: no-repeat; padding-left: 19px; }
 .nsf-btn-delete { background-image: url(./images/icon/delete.png); background-repeat: no-repeat; padding-left: 18px; }
 .nsf-btn-save { background-image: url(./images/icon/save.png); background-repeat: no-repeat; padding-left: 18px; }
 

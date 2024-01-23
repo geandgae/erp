@@ -203,7 +203,6 @@ light color
 .nsf-btnbar a label { display: inline-block; letter-spacing: -1px; padding: 0px 0px 0px 3px; }
 .nsf-btnbar button { height: 23px; border: 0 none; background-position: left center; background-color: transparent; cursor: pointer; border-width: 1px; border-style: solid solid solid solid; border-color: transparent; color: #2f4f4f; }
 .nsf-btnbar button {
-	font-family: TAHOMA, Dotum Arial, Helvetica, sans-serif;
 	font-size: 9pt;
 	font-style: normal;
 }
