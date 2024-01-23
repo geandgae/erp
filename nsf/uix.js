@@ -325,13 +325,7 @@ gnbSearch();
 
 // favorite
 const favorite = () => {
-  let saveValue = [];
-  if (localStorage.length === 0) {
-    localStorage.setItem("key", JSON.stringify(saveValue));
-  }
-  let output = localStorage.getItem("key");		
-  localStorage.setItem("key", JSON.stringify(saveValue)); 
-  saveValue = JSON.parse(output);
+  let saveValue = [{ id : "login", name : "0login", }];
   const favoriteBtn = document.querySelector(".favorite-header button.gnb-favorite");
   const favoriteBody = document.querySelector(".favorite-body");
   const makeList = () => {
@@ -355,7 +349,6 @@ const favorite = () => {
       if (saveValue.findIndex(i => i.id === idx) === -1) {
         saveValue.push({ id : idx, name : text, });
       }
-      localStorage.setItem("key", JSON.stringify(saveValue)); 
       makeList();
     }
   })
@@ -368,7 +361,6 @@ const favorite = () => {
         }
       });
       favoriteBody.innerHTML = "";
-      localStorage.setItem("key", JSON.stringify(saveValue)); 
       makeList();
     } else {
       const folded = document.querySelectorAll(".nsf-gnb-menu .folded");
