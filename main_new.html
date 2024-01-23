@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test</title>
+  <link rel="stylesheet" type="text/css" href="./nsf/css/ui.css"/>
+  <script defer src="./nsf/uix.js"></script>
+</head>
+<body class="nsf-ui">
+  <!-- wrap -->
+  <div class="nsf-wrap">
+
+    <!-- header -->
+    <header class="nsf-header">
+      <h1 class="logo">
+        <!-- <img alt="logo" src="logo" /> -->
+      </h1>
+      <div class="hta">
+        <div class="hta-user">
+          <strong id="spanNmLogin">tester123</strong>님 좋은 하루 보내세요
+        </div>
+        <div class="hta-time" id="clock" title="12월 13일, 2023">12월 13일 수요일 2:30 오후</div>
+        <!-- 로그인 관련 버튼 -->
+        <button type="button" class="hta-login" id="btnLogin"><span>로그인</span></button>
+        <button type="button" class="hta-logout" id="btnLogout"><span>로그아웃</span></button>
+        <!-- 도울말 -->
+        <button type="button" class="hta-help" id="btnHelp"><span>도움말</span></button>
+      </div>
+    </header>
+    <!-- //header -->
+
+    <!-- main -->
+    <main class="nsf-main">
+      <!-- gnb -->
+      <section class="nsf-gnb">
+        <!-- gnb-tab -->
+        <div class="nsf-gnb-tabs">
+          <button type="button" id="nsf-tree" class="active">gnb1</button>
+          <button type="button" id="nsf-search">gnb2</button>
+          <button type="button" id="nsf-favorite">gnb3</button>
+        </div>
+        <!-- tree -->
+        <div class="nsf-gnb-panel nsf-tree">
+          <button type="button" class="gnb-intro">intro</button>
+          <nav class="nsf-gnb-menu"></nav>
+        </div>
+        <!-- search -->
+        <div class="nsf-gnb-panel nsf-search hide">
+          <div class="search-menu-header">
+            <input type="text" name="menuSearch" value="">
+            <button type="button" class="gnb-search">search</button>
+          </div>
+          <div class="search-menu-body"></div>
+        </div>
+        <!-- favorite -->
+        <div class="nsf-gnb-panel nsf-favorite hide">
+          <div class="favorite-header">
+            <button type="button" class="gnb-favorite">add</button>
+          </div>
+          <div class="favorite-body"></div>
+        </div>
+      </section>
+      <!-- //gnb -->
+
+      <!-- nsf-contents -->
+      <section class="nsf-contents">
+        <!-- main-tabs -->
+        <div class="nsf-main-tabs">
+					<!-- tablist -->
+					<ul class="nsf-tablist">
+						<li class="active"><button type="button" class="tab-nav" id="tab-intro" data-tab-target="#panel-intro" role="tab"><span>intro</span></button></li>
+          </ul>
+					<!-- tabctrl -->
+					<div class="nsf-tabctrl">
+						<button type="button" class="tab-prev"><span>이전</span></button>
+						<button type="button" class="tab-next"><span>다음</span></button>
+						<button type="button" class="tab-reset"><span>전부닫기</span></button>
+					</div>
+        </div>
+        <!-- //main-tabs -->
+        <!-- main-tab-contents -->
+        <div class="nsf-main-tab-contents">
+          <!-- nsf-tab-panel -->
+          <div class="nsf-tab-panel active" id="panel-intro" aria-labelledby="tab-intro" role="tabpanel" >
+						intro
+            <!-- <iframe src="./공지사항.html" id="" name="" width="100%" height="100%">
+            </iframe> -->
+          </div> 
+        </div>
+        <!-- //main-tab-contents -->
+      </section>
+      <!-- //nsf-contents -->
+    </main>
+    <!-- //main -->
+
+  </div>
+  <!-- wrap -->
+
+</body>
+</html>

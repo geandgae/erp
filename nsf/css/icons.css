@@ -1,0 +1,52 @@
+@charset "utf-8";
+
+/* google icon font */
+/* Rounded */
+@font-face {
+  font-family: 'Material Symbols Rounded';
+  font-style: normal;
+  font-weight: 400;
+  src: url(../css/ggicon/MaterialSymbolsRounded.codepoints); /* For IE6-8하려면 eot파일 필요... */
+  src: local('Material Symbols Rounded'),
+    local('Material Symbols Rounded Regular'),
+    url(../css/ggicon/MaterialSymbolsRounded.woff2) format('woff2'),
+    /* url(../iconfont/MaterialIcons-Regular.woff) format('woff'), */
+    url(../css/ggicon/MaterialSymbolsRounded.ttf) format('truetype');
+}
+
+[class^="mats-"] {
+  font-family: 'Material Symbols Rounded';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 300,
+  'GRAD' 0,
+  'opsz' 24
+}
+.mats-a0:before {
+  content: "\e1b2";
+}
+.mats-a1:before {
+  content: "\e2c7";
+}
+.mats-a2:before {
+  content: "\e2c8";
+}
+.mats-a3:before {
+  content: "\e873";
+}
+.mats-a4:before {
+  content: "\e1bd";
+}
