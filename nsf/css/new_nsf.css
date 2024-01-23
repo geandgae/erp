@@ -1,6 +1,6 @@
 @charset "utf-8";
 BODY, DIV, TABLE, TR, TD, UL, LI, SPAN, LABEL, INPUT, SELECT, BUTTON {
-    font-family: '맑은고딕', "Malgun Gothic", TAHOMA, Arial, Helvetica, sans-serif !important;
+    font-family: '맑은고딕', "Malgun Gothic", TAHOMA, Arial, Helvetica, sans-serif;
 }
 
 .nst_new_main{
@@ -310,6 +310,6 @@ BODY, DIV, TABLE, TR, TD, UL, LI, SPAN, LABEL, INPUT, SELECT, BUTTON {
     padding-top: 18px;
 }
 /* 그리드 */
-#grid .nsf-btnbar{
+/* #grid .nsf-btnbar{
     border-top: none;
-}
+} */
