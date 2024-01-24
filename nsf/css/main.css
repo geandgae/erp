@@ -1,21 +1,40 @@
 @charset "utf-8";
 
 :root {
-  --color-prm : #3281ff;
-  --color-2nd : #09532a;
-  --color-3rd : #ff6c27;
-  --color-4th : #fffc4d;
+  --color-prm : #536a97;
+  --color-2nd : #658de1;
+  --color-3rd : #e0eafe;
+  --color-4th : #d14242;
   --color-5th : #22031d;
 
   --color-black : #000;
   --color-white : #fff;
 
-  --color-dark : #111;
-  --color-dkgray : #414141;
-  --color-gray : #929292;
-  --color-ltgray : #ddd;
-  --color-light : #f9f9f9;
+  --color-ltgray : #f0f0f0;
+  --color-gray : #d6d6d6;
+  --color-dark : #181818;
+  --color-dkgray : #858585;
 }
+
+/* icons */
+.nsf-main .nsf-gnb .nsf-gnb-tabs  i.mats-icon-1::before{
+  content: "\e1bd";
+}
+.nsf-main .nsf-gnb .nsf-gnb-tabs  i.mats-icon-2::before{
+  content: "\e8b6";
+}
+.nsf-main .nsf-gnb .nsf-gnb-tabs  i.mats-icon-3::before{
+  content: "\e885";
+  font-variation-settings: 
+  'FILL' 1,
+  'wght' 300,
+  'GRAD' 0,
+  'opsz' 24
+}
+.nsf-gnb-title i.mats-icon::before{
+  content: "\e1b2";
+}
+
 
 .hide {
   display: none !important;
@@ -26,35 +45,100 @@
   height: 100%;
   display: flex;
   flex-direction: column;
+  font-size: 12px;
 }
 .nsf-main {
-  border: 1px solid #111;
   flex: 1;
   display: flex;
-  padding: 20px 0;
+  padding: 0;
   gap: 20px;
   overflow: hidden;
 }
 .nsf-main .nsf-gnb {
-  width: 200px;
+  width: 250px;
   display: flex;
   flex-direction: column;
+  position: relative;
+  /* transition: all 0.5s ease; */
+}
+.nsf-main .nsf-gnb .nsf-gnb-title{
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  height: 33px;
+  background-color: var(--color-ltgray);
+  color: var(--color-dark);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: -2px;
+  line-height: 33px;
+  padding: 0 6px;
+}
+.nsf-main .nsf-gnb .nsf-gnb-toggle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 24px;
+  height: 24px;
+  display: block;
+  z-index: 1;
+}
+.nsf-main .nsf-gnb.less {
+  width: 0;
+}
+.nsf-main .nsf-gnb.less .nsf-gnb-toggle {
+  right: -24px;
+}
+.nsf-main .nsf-gnb.less .nsf-gnb-tab-wrap {
+  display: none;
+  /* left: -200px; */
+}
+.nsf-main .nsf-gnb .nsf-gnb-tab-wrap {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--color-gray);
+  /* position: relative;
+  left: 0;
+  transition: all 0.5s ease; */
 }
 .nsf-main .nsf-gnb .nsf-gnb-tabs {
-  height: 50px;
-  border: 1px solid #111;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  background-color: var(--color-ltgray);
+  color: var(--color-dkgray);
+  box-sizing: border-box;
+  border-bottom: 1px solid var(--color-gray);
 }
+.nsf-main .nsf-gnb .nsf-gnb-tabs button{
+  width: 33.33%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.nsf-main .nsf-gnb .nsf-gnb-tabs button.active{
+  background-color: var(--color-prm);
+  color: var(--color-white);
+  pointer-events: none;
+}
+.nsf-main .nsf-gnb .nsf-gnb-tabs button:hover{
+  background-color: var(--color-3rd);
+}
+
 .nsf-main .nsf-gnb .nsf-gnb-panel {
   flex: 1;
   overflow-y: auto;
-  border: 1px solid #111;
+  padding: 10px 10px;
 }
 .nsf-main .nsf-contents {
   flex: 1;
   display: flex;
   flex-direction: column;
   width: calc(100% - 220px);
-  padding-right: 20px;
 }
 .nsf-main .nsf-main-tab-contents {
   flex: 1;
@@ -68,15 +152,25 @@
 
 /* nsf-header */
 .nsf-header {
-  height: 100px;
+  height: 52px;
   display: flex;
   align-items: center;
+  background-color: var(--color-prm);
+  padding: 0 20px;
+}
+.nsf-header h1.logo {
+  background-image: url(./images/login/wisen_logo.png);
+  background-size: 80%;
+  width: 100px;
+  height: 80%;
+  margin-top: 6px;
 }
 .nsf-header .hta {
   margin-left: auto;
   display: flex;
   align-items: center;
   gap: 10px;
+  color: var(--color-white);
 }
 
 /* nsf-tree */
@@ -86,7 +180,7 @@
 /* .nsf-tree ul li{
   display: none;
 } */
-.nsf-tree ul li span {
+/* .nsf-tree ul li span {
   display: block;
   width: 100%;
 }
@@ -94,25 +188,22 @@
   color: red;
   background-color: #eee;
   cursor: pointer;
-}
+} */
 
 /* nav */
+/* 
 .nsf-tree .depth-1 span{
-  font-size: 12px;
   font-weight: 700;
 }
 .nsf-tree .depth-2 span{
   padding-left: 10px;
-  font-size: 12px;
 }
 .nsf-tree .depth-3 span{
   padding-left: 20px;
-  font-size: 12px;
   font-weight: 400;
 }
 .nsf-tree .depth-4 span{
   padding-left: 30px;
-  font-size: 12px;
 }
 .nsf-tree .folded {
   display: none;
@@ -120,6 +211,22 @@
 .nsf-tree .active {
   font-weight: bold !important;
   color: red;
+} */
+
+.nsf-tree .tree-toggle {
+  font-weight: 700;
+}
+.nsf-tree .tree-page span{
+  font-weight: 400;
+  padding-left: 10px;
+}
+.nsf-tree .active{
+  font-weight: 700;
+  color: var(--color-4th);
+}
+.nsf-tree ul li:hover{
+  font-weight: 700;
+  background-color: var(--color-3rd);
 }
 
 /* nsf-main-tabs */
@@ -132,8 +239,7 @@
   display: flex;
   align-items: center;
   gap: 20px;
-  width: 500px !important;
-  /* width: calc(100% - 500px); */
+  width: calc(100% - 200px);
   /* flex: 1; */
   overflow-y: hidden;
   overflow-x: hidden;

@@ -325,7 +325,13 @@ gnbSearch();
 
 // favorite
 const favorite = () => {
-  let saveValue = [{ id : "login", name : "0login", }];
+  let saveValue = [];
+  if (window.localStorage.getItem("data")) {
+    let output = window.localStorage.getItem("data");
+    saveValue = JSON.parse(output);
+  } else {
+    window.localStorage.setItem("data", JSON.stringify(saveValue));
+  }
   const favoriteBtn = document.querySelector(".favorite-header button.gnb-favorite");
   const favoriteBody = document.querySelector(".favorite-body");
   const makeList = () => {
@@ -349,6 +355,7 @@ const favorite = () => {
       if (saveValue.findIndex(i => i.id === idx) === -1) {
         saveValue.push({ id : idx, name : text, });
       }
+      window.localStorage.setItem("data", JSON.stringify(saveValue));
       makeList();
     }
   })
@@ -361,6 +368,7 @@ const favorite = () => {
         }
       });
       favoriteBody.innerHTML = "";
+      window.localStorage.setItem("data", JSON.stringify(saveValue));
       makeList();
     } else {
       const folded = document.querySelectorAll(".nsf-gnb-menu .folded");
@@ -376,3 +384,13 @@ const favorite = () => {
   })
 }
 favorite();
+
+// gnbToggle
+const gnbToggle = () => {
+  const btn = document.querySelector(".nsf-gnb-toggle");
+  const gnb = document.querySelector(".nsf-gnb");
+  btn.addEventListener("click", () => {
+    gnb.classList.toggle("less");
+  })
+}
+gnbToggle();
