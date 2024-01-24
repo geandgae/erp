@@ -60,6 +60,9 @@ BODY, DIV, TABLE, TR, TD, UL, LI, SPAN, LABEL, INPUT, SELECT, BUTTON {
     font-weight: bold;
     font-size: 12px;
 }
+.ui-widget-header.noborder {
+    border: 0;
+}
 .nsf-widget-header label {
     background-image: url(./images/icon/ic_tit.png) ;
     background-position: 10px center ;
@@ -219,13 +222,13 @@ BODY, DIV, TABLE, TR, TD, UL, LI, SPAN, LABEL, INPUT, SELECT, BUTTON {
 
 /* 버튼 에어리어 */
 .nsf-btnbar {
-    padding: 0;
+    padding: 4px 4px 2px 4px;
     background: #f3f3f3;
     border: 0;
     border-top: 1px solid #d9d9d9;
     border-left: 1px solid #d9d9d9;
     border-right: 1px solid #d9d9d9;
-    height: 29px;
+    height: 25px;
     color: #181818;
 }
 .nsf-btnbar button {
@@ -235,11 +238,11 @@ BODY, DIV, TABLE, TR, TD, UL, LI, SPAN, LABEL, INPUT, SELECT, BUTTON {
 .nsf-btnbar-a { background: url(./images/icon/btn.png) no-repeat 100% top; }
 .nsf-btnbar-a-label { background: url(./images/icon/btn.png) no-repeat left top; }
 
-.nsf-btnbar button {
+/* .nsf-btnbar button {
     height: 29px;
     border: 0 none;
-    /* padding: 0 3px; */
-}
+    padding: 0 3px;
+} */
 
 
 /* Rounded */
@@ -286,8 +289,8 @@ BODY, DIV, TABLE, TR, TD, UL, LI, SPAN, LABEL, INPUT, SELECT, BUTTON {
 
 
 .nsf-btn-refresh { background-image: url(./images/icon/load.png); background-repeat: no-repeat; padding-left: 18px; }
-.nsf-btn-search { background-image: url(./images/icon/search-alt.svg); background-repeat: no-repeat; padding-left: 18px; }
-.nsf-btn-add { background-image: url(./images/icon/circle-plus.svg); background-repeat: no-repeat; padding-left: 19px; }
+.nsf-btn-search { background-image: url(./images/icon/search.png); background-repeat: no-repeat; padding-left: 18px; }
+.nsf-btn-add { background-image: url(./images/icon/add.png); background-repeat: no-repeat; padding-left: 17px; }
 .nsf-btn-delete { background-image: url(./images/icon/delete.png); background-repeat: no-repeat; padding-left: 18px; }
 .nsf-btn-save { background-image: url(./images/icon/save.png); background-repeat: no-repeat; padding-left: 18px; }
 
