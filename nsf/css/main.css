@@ -191,27 +191,12 @@
 } */
 
 /* nav */
-/* 
-.nsf-tree .depth-1 span{
-  font-weight: 700;
-}
-.nsf-tree .depth-2 span{
-  padding-left: 10px;
-}
-.nsf-tree .depth-3 span{
-  padding-left: 20px;
-  font-weight: 400;
-}
-.nsf-tree .depth-4 span{
-  padding-left: 30px;
+.nsf-tree ul li {
+  cursor: pointer;
 }
 .nsf-tree .folded {
   display: none;
 }
-.nsf-tree .active {
-  font-weight: bold !important;
-  color: red;
-} */
 
 .nsf-tree .tree-toggle {
   font-weight: 700;

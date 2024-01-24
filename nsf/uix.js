@@ -194,6 +194,7 @@ gnbNav.addEventListener("click", (e) => {
   const ul = e.target.closest("li").querySelector("ul");
   if (ul) {
     ul.classList.toggle("folded");
+    e.target.closest("li").classList.toggle("expanded");
   }
   if (li.classList.contains("tree-page")) {
     makeArray(e.target.id, e.target.textContent);
@@ -220,6 +221,7 @@ const tabCtrl = () => {
       });
       toggles.forEach(el => {
         el.classList.add("folded");
+        el.closest(".tree-toggle").classList.remove("expanded");
       });
     }
   })
@@ -312,6 +314,7 @@ const gnbSearch = () => {
         if (folded.length > 0) {
           folded.forEach(el => {
             el.classList.remove("folded");
+            el.closest(".tree-toggle").classList.add("expanded");
           });
         }
         makeArray(e.target.dataset.searchId, e.target.textContent);
@@ -375,6 +378,7 @@ const favorite = () => {
         if (folded.length > 0) {
           folded.forEach(el => {
             el.classList.remove("folded");
+            el.closest(".tree-toggle").classList.add("expanded");
           });
         }
         makeArray(e.target.dataset.favoritId, e.target.textContent);
