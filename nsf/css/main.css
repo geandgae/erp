@@ -17,13 +17,13 @@
 }
 
 /* icons */
-.nsf-main .nsf-gnb .nsf-gnb-tabs  i.mats-icon-1::before{
+.mats-icon-menu::before{
   content: "\e1bd";
 }
-.nsf-main .nsf-gnb .nsf-gnb-tabs  i.mats-icon-2::before{
+.mats-icon-search::before{
   content: "\e8b6";
 }
-.nsf-main .nsf-gnb .nsf-gnb-tabs  i.mats-icon-3::before{
+.mats-icon-star::before{
   content: "\e885";
   font-variation-settings: 
   'FILL' 1,
@@ -31,8 +31,17 @@
   'GRAD' 0,
   'opsz' 24
 }
-.nsf-gnb-title i.mats-icon::before{
+.mats-icon-view::before{
   content: "\e1b2";
+}
+.mats-icon-prev::before {
+  content: "\e5e0";
+}
+.mats-icon-next::before {
+  content: "\e5e1";
+}
+.mats-icon-close::before {
+  content: "\e5cd";
 }
 
 
@@ -51,7 +60,6 @@
   flex: 1;
   display: flex;
   padding: 0;
-  gap: 20px;
   overflow: hidden;
 }
 .nsf-main .nsf-gnb {
@@ -74,6 +82,7 @@
   letter-spacing: -2px;
   line-height: 33px;
   padding: 0 6px;
+  border-bottom: 1px solid var(--color-gray);
 }
 .nsf-main .nsf-gnb .nsf-gnb-toggle {
   position: absolute;
@@ -99,7 +108,7 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  border: 1px solid var(--color-gray);
+  border-right: 1px solid var(--color-gray);
   /* position: relative;
   left: 0;
   transition: all 0.5s ease; */
@@ -138,11 +147,15 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  width: calc(100% - 220px);
+  width: calc(100% - 240px);
+  background-color: var(--color-ltgray);
 }
 .nsf-main .nsf-main-tab-contents {
   flex: 1;
   overflow-y: auto;
+  margin: 0 20px 20px 20px;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-gray);
 }
 .nsf-main .nsf-main-tab-contents .nsf-tab-panel {
   height: 100%;
@@ -177,6 +190,47 @@
 .nsf-tree {
   padding: 0 10px;
 }
+.nsf-tree .folded {
+  display: none;
+}
+
+.nsf-tree ul li span{
+  line-height: 24px;
+}
+.nsf-tree ul li span::before {
+  display: none;
+}
+.nsf-tree ul li span:hover {
+  background-color: var(--color-3rd);
+  cursor: pointer;
+}
+
+.nsf-tree .tree-toggle {
+  font-weight: 700;
+}
+
+.nsf-tree .depth-2 span{
+  padding-left: 10px;
+}
+.nsf-tree .depth-3 span{
+  padding-left: 20px;
+}
+.nsf-tree .depth-4 span{
+  padding-left: 30px;
+}
+
+.nsf-tree .tree-page span{
+  font-weight: 400;
+}
+.nsf-tree .active{
+  font-weight: 700;
+  color: var(--color-4th);
+}
+/* .nsf-tree ul li:hover{
+  font-weight: 700;
+  background-color: var(--color-3rd);
+} */
+
 /* .nsf-tree ul li{
   display: none;
 } */
@@ -191,40 +245,44 @@
 } */
 
 /* nav */
-.nsf-tree ul li {
-  cursor: pointer;
-}
-.nsf-tree .folded {
-  display: none;
-}
-
-.nsf-tree .tree-toggle {
+/* 
+.nsf-tree .depth-1 span{
   font-weight: 700;
 }
-.nsf-tree .tree-page span{
-  font-weight: 400;
+.nsf-tree .depth-2 span{
   padding-left: 10px;
 }
-.nsf-tree .active{
-  font-weight: 700;
-  color: var(--color-4th);
+.nsf-tree .depth-3 span{
+  padding-left: 20px;
+  font-weight: 400;
 }
-.nsf-tree ul li:hover{
-  font-weight: 700;
-  background-color: var(--color-3rd);
+.nsf-tree .depth-4 span{
+  padding-left: 30px;
 }
+.nsf-tree .active {
+  font-weight: bold !important;
+  color: red;
+} */
+
+
 
 /* nsf-main-tabs */
 .nsf-main .nsf-main-tabs {
-  border: 1px solid #111;
+  border: 1px solid var(--color-gray);
+  border-bottom: none;
   display: flex;
+  align-content: space-between;
   align-items: center;
+  margin: 20px 20px 0 20px;
+  padding: 0;
+  line-height: 32px;
+  background-color: var(--color-white);
 }
 .nsf-main .nsf-main-tabs .nsf-tablist {
   display: flex;
   align-items: center;
-  gap: 20px;
-  width: calc(100% - 200px);
+  /* gap: 20px; */
+  width: calc(100% - 90px);
   /* flex: 1; */
   overflow-y: hidden;
   overflow-x: hidden;
@@ -233,15 +291,34 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  color: #ccc;
+  color: var(--color-dkgray);
+  background-color: var(--color-ltgray);
+  padding: 0 10px;
+  border-right: 1px solid var(--color-gray);
+  box-sizing: border-box;
 }
 .nsf-main .nsf-main-tabs .nsf-tablist > li.active {
-  color: #000;
+  color: var(--color-dark);
   font-weight: bold;
+  background-color: var(--color-prm);
+  color: var(--color-white);
+}
+
+.nsf-main .nsf-main-tabs .nsf-tablist > li:not(.active):hover {
+  color: var(--color-dkgray);
+  background-color: var(--color-3rd);
+  cursor: pointer;
 }
 .nsf-main .nsf-main-tabs .nsf-tabctrl {
-  width: 500px;
+  width: 90px;
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+.nsf-main .nsf-main-tabs .nsf-tabctrl button{
+  width: 30px;
+  display: flex;
+  align-items: center;
 }
 .nsf-main .nsf-main-tab-contents .nsf-tab-panel.active {
   display: block;

@@ -45,23 +45,26 @@ const generateTree = (menu) => {
 const menuData = [
   { label: "depthA-1", idx:"a1", children: [
     { label: "depth2", idx:"a2", children: [
-      { label: "0공통번호등록", idx:"a3", },
-      { label: "0부가세신고서작성", idx:"a4", },
-      { label: "0결의전표승인신규", idx:"a5", }
+      { label: "공통번호등록", idx:"a3", },
+      { label: "부가세신고서작성", idx:"a4", },
+      { label: "결의전표승인신규", idx:"a5", }
     ]},
     { label: "depth2", idx:"a6", children: [
-      { label: "0공지사항", idx:"a7", },
-      { label: "0국세청PDF자료등록2022", idx:"a8", }
+      { label: "공지사항", idx:"a7", },
+      { label: "국세청PDF자료등록2022", idx:"a8", }
     ]}
   ]},
   { label: "depthA-2", idx:"a9", children: [
-    { label: "0공지사항_1", idx:"notice", },
+    { label: "공지사항_1", idx:"notice", },
     { label: "depth2", idx:"a12", children: [
-      { label: "0개인별급여내역조정", idx:"a13", },
-      { label: "0인사자료등록", idx:"a14", }
+      { label: "개인별급여내역조정", idx:"a13", },
+      { label: "인사자료등록", idx:"a14", }
     ]}
   ]},
-  { label: "0login", idx:"login", },
+  { label: "login", idx:"login", },
+  { label: "error", idx:"error", },
+  { label: "code404", idx:"code404", },
+  { label: "code500", idx:"code500", },
 ];
 const tree = generateTree(menuData);
 const menuElement = document.querySelector(".nsf-tree .nsf-gnb-menu");
@@ -107,9 +110,7 @@ const makeTab = () => {
   tabContents.innerHTML += 
   `
   <div class="nsf-tab-panel active" id="panel-intro" aria-labelledby="tab-intro" role="tabpanel" >
-    intro
-    <!-- <iframe src="./공지사항.html" id="" name="" width="100%" height="100%">
-    </iframe> -->
+    <iframe src="./공지사항.html" id="" name="" width="100%" height="100%"></iframe>
   </div>
   `;
   for (const item of tabArray) {
@@ -125,7 +126,7 @@ const makeTab = () => {
     tabContents.innerHTML +=
     `
     <div class="nsf-tab-panel" id="panel-${item.id}" aria-labelledby="tab-${item.id}" role="tabpanel" >
-      ${item.name}
+      <iframe src="./${item.name}.html" id="" name="" width="100%" height="100%"></iframe>
     </div>
     `;
   }
