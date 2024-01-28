@@ -221,6 +221,14 @@ ul.tab100 li span{
     width: 140px !important;
 }
 
+ul.tab200 li {
+    width: 100%;
+}
+ul.tab200 li span{
+    width: 280px !important;
+}
+
+
 
 
 .nsf-form-li-2x {

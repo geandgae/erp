@@ -40,15 +40,17 @@
     #nsftab2_lis .nsf-form table td{border-collapse:collapse;border:1px black solid;}
     #nsftab2_lis .nsf-form table td li{width:100px} */
 
-    #nsftab_tax .nsf-form table{border-collapse:collapse;border:1px black solid; table-layout: fixed;}
-    #nsftab_tax .nsf-form table th{border-collapse:collapse;border:1px black solid;}
-    #nsftab_tax .nsf-form table td{border-collapse:collapse;border:1px black solid;}
+    #nsftab_tax .nsf-form table{border-collapse:collapse;border:1px solid #d9d9d9; table-layout: fixed;}
+    #nsftab_tax .nsf-form table th{border-collapse:collapse;border:1px solid #d9d9d9; background: #f3f3f3; text-align: center;}
+    #nsftab_tax .nsf-form table td{border-collapse:collapse;border:1px solid #d9d9d9;}
+    /* #nsftab_tax .nsf-form table td label{display: block; width: 100%; text-align: center;} */
     #nsftab_tax .nsf-form table tr{height:22px}
     #nsftab_tax .nsf-form table td li{width:100px}
 
     #nsftab_fam ul li span{width:190px}
     #nsftab_amtN ul li span{width:190px}
     #nsftab_amtS ul li span{width:190px}
+    #nsftab_amtS ul.max li span{width:450px}
     #nsftab_amtA ul li span{width:190px}
     #nsftab_amtD ul li span{width:190px}
 </style>
@@ -8397,7 +8399,7 @@ function fSetDataTax(data) {
                                                                 <input type="text" id="txtAmtUnivEtc" name="amtUnivEtc" title="amtUnivEtc" class="nsf-param nsf-status-lck" style="text-align: right; width: 100px;" onfocus="this.blur()" readonly="readonly" disabled>&nbsp;
                                                                 <input type="text" id="txtAmtDeformEtc" name="amtDeformEtc" title="amtDeformEtc" class="nsf-param nsf-status-lck" style="text-align: right; width: 100px;" onfocus="this.blur()" readonly="readonly" disabled>&nbsp;
                                                                 </li>
-                                                                <!-- =============================================================================================================================== -->
+                                                                =============================================================================================================================== -->
                                                                 <!-- <li style="width: 100%; height: 25px;">
                                                                     <p style="text-align: left; width: 900px;">&nbsp;<label><b>구분</b></label>
                                                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label>건강보험료</label>
@@ -8433,7 +8435,7 @@ function fSetDataTax(data) {
                                                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label>기부금</label>
                                                                     </p>
                                                                 </li>
-                                                                <!-- =============================================================================================================================== -->
+                                                                =============================================================================================================================== -->
                                                                 <!-- <li style="width: 100%; height: 19px;">
                                                                 <span style="display:inline-block;width:100px;text-align:left;">(국세청)</span>&nbsp;
                                                                 <input type="text" id="txtAmtMedTax" name="amtMedTax" title="amtMedTax" class="nsf-param nsf-status-lck" style="text-align: right; width: 100px;" onfocus="this.blur()" readonly="readonly"disabled>&nbsp;
@@ -8548,255 +8550,262 @@ function fSetDataTax(data) {
                                     </div>
                                     <div class="nsf-form" style="width:100%; height:600px; overflow:auto">
                                     <!-- --------1) 기본 --------- -->
-                                <table cellpadding="0" cellspacing="0" style="width: 600px; height: 175px; text-align: left">
-                                <tr>
-                                    <td style="width: 50%; vertical-align: top">
-                                    <table cellpadding="0" cellspacing="0">
+                                        <table cellpadding="0" cellspacing="0" style="width: 100%; height: 175px; text-align: left; border: 1px solid #d9d9d9;">
                                         <tr>
-                                        <td> <ul> </ul> </td>
+                                            <td style="width: 50%; vertical-align: top">
+                                            <table cellpadding="0" cellspacing="0">
+                                                <tr>
+                                                <td> <ul class="tab200"> <li class=""><span>급여&nbsp;</span> <input type="text" id="txtAmtN1Pay" name="amtN1Pay" title="amtN1Pay" class="nsf-param nsf-number" style="text-align: right; width:100px;"> <!-- <input type="text" id="txtAmtN1Pay" name="amtN1Pay" title="amtN1Pay" class="nsf-param nsf-status-lck" style="text-align:right; width:100px;ime-mode:disabled;"> --></li> </ul> </td>
+                                                </tr>
+                                                <tr>
+                                                <td> <ul class="tab200"> <li class=""><span>상여&nbsp;</span> <input type="text" id="txtAmtN1Bonus" name="amtN1Bonus" title="amtN1Bonus" class="nsf-param nsf-number" style="text-align:right; width:100px;"> <!-- <input type="text" id="txtAmtN1Bonus" name="amtN1Bonus" title="amtN1Bonus" class="nsf-param nsf-status-lck" style="text-align:right; width:100px;ime-mode:disabled;"> --> </li>                                    </ul> </td>
+                                                </tr>
+                                                <tr>
+                                                <td> <ul class="tab200"> <li class=""><span>인정상여&nbsp;</span> <input type="text" id="txtAmtN1Etc" name="amtN1Etc" title="amtN1Etc" class="nsf-param nsf-status-lck nsf-number" style="text-align:right; width:100px;ime-mode:disabled;"> </li> </ul> </td>
+                                                </tr>
+                                                <tr>
+                                                    <td> <ul class="tab200"><li class="">&nbsp;</li></ul></td>
+                                                </tr>
+                                            </table>
+                                            </td>
+                                            <td style="width: 50%; vertical-align: top">
+                                            <table cellpadding="0" cellspacing="0">
+                                                <tr>
+                                                <td> <ul class="tab200"> <li class=""><span>퇴직소득한도초과액&nbsp;</span> <input type="text" id="txtAmtN1Retpay" name="amtN1Retpay" title="amtN1Retpay" class="nsf-param nsf-status-lck nsf-number" style="text-align:right; width:100px;ime-mode:disabled;"> </li> </ul>                                  </td>
+                                                </tr>
+                                                <tr>
+                                                <td> <ul class="tab200"> <li class=""><span>주식매수선택권&nbsp;</span> <input type="text" id="txtAmtNStockopt" name="amtNStockopt" title="amtNStockopt" class="nsf-param nsf-status-lck nsf-number" style="text-align:right; width:100px;ime-mode:disabled;"> </li> </ul> </td>
+                                                </tr>
+                                                <tr>
+                                                <td> <ul class="tab200"> <li class=""><span>우리사주인출금&nbsp;</span> <input type="text" id="txtAmtNWrsaju" name="amtNWrsaju" title="amtNWrsaju" class="nsf-param nsf-status-lck nsf-number" style="text-align:right; width:100px;ime-mode:disabled;"> </li></ul>                                  </td>
+                                                </tr>
+                                                <!-- 2018.12.19kyr 직무발명보상금 추가 -->
+                                                <tr>
+                                                <td> <ul class="tab200"> <li class=""><span>직무발명보상금&nbsp;</span> <input type="text" id="txtAmtNInvention" name="amtNInvention" title="amtNInvention" class="nsf-param nsf-status-lck nsf-number" style="text-align:right; width:100px;ime-mode:disabled;"> </li> </ul>                                  </td>
+                                                </tr>
+                <!--                                 <tr> -->
+                <!--                                   <td> <ul> <li class=""><br/> </li></ul>                                  </td> -->
+                <!--                                 </tr> -->
+                                                
+                                            </table>
+                                            </td>
                                         </tr>
                                         <tr>
-                                        <td> <ul> <li class=""><span>급여&nbsp;</span> <input type="text" id="txtAmtN1Pay" name="amtN1Pay" title="amtN1Pay" class="nsf-param nsf-number" style="text-align: right; width:100px;"> <!-- <input type="text" id="txtAmtN1Pay" name="amtN1Pay" title="amtN1Pay" class="nsf-param nsf-status-lck" style="text-align:right; width:100px;ime-mode:disabled;"> --></li> </ul> </td>
+                                        <!-- <td style="width:100%; vertical-align: top" colspan="2"><hr></td> -->
                                         </tr>
-                                        <tr>
-                                        <td> <ul> <li class=""><span>상여&nbsp;</span> <input type="text" id="txtAmtN1Bonus" name="amtN1Bonus" title="amtN1Bonus" class="nsf-param nsf-number" style="text-align:right; width:100px;"> <!-- <input type="text" id="txtAmtN1Bonus" name="amtN1Bonus" title="amtN1Bonus" class="nsf-param nsf-status-lck" style="text-align:right; width:100px;ime-mode:disabled;"> --> </li>                                    </ul> </td>
-                                        </tr>
-                                        <tr>
-                                        <td> <ul> <li class=""><span>인정상여&nbsp;</span> <input type="text" id="txtAmtN1Etc" name="amtN1Etc" title="amtN1Etc" class="nsf-param nsf-status-lck nsf-number" style="text-align:right; width:100px;ime-mode:disabled;"> </li> </ul> </td>
-                                        </tr>
-                                    </table>
-                                    </td>
-                                    <td style="width: 50%; vertical-align: top">
-                                    <table cellpadding="0" cellspacing="0">
-                                        <tr>
-                                        <td> <ul> </ul> </td>
-                                        </tr>
-                                        <tr>
-                                        <td> <ul> <li class=""><span>퇴직소득한도초과액&nbsp;</span> <input type="text" id="txtAmtN1Retpay" name="amtN1Retpay" title="amtN1Retpay" class="nsf-param nsf-status-lck nsf-number" style="text-align:right; width:100px;ime-mode:disabled;"> </li> </ul>                                  </td>
-                                        </tr>
-                                        <tr>
-                                        <td> <ul> <li class=""><span>주식매수선택권&nbsp;</span> <input type="text" id="txtAmtNStockopt" name="amtNStockopt" title="amtNStockopt" class="nsf-param nsf-status-lck nsf-number" style="text-align:right; width:100px;ime-mode:disabled;"> </li> </ul> </td>
-                                        </tr>
-                                        <tr>
-                                        <td> <ul> <li class=""><span>우리사주인출금&nbsp;</span> <input type="text" id="txtAmtNWrsaju" name="amtNWrsaju" title="amtNWrsaju" class="nsf-param nsf-status-lck nsf-number" style="text-align:right; width:100px;ime-mode:disabled;"> </li></ul>                                  </td>
-                                        </tr>
-                                        <!-- 2018.12.19kyr 직무발명보상금 추가 -->
-                                        <tr>
-                                        <td> <ul> <li class=""><span>직무발명보상금&nbsp;</span> <input type="text" id="txtAmtNInvention" name="amtNInvention" title="amtNInvention" class="nsf-param nsf-status-lck nsf-number" style="text-align:right; width:100px;ime-mode:disabled;"> </li> </ul>                                  </td>
-                                        </tr>
-        <!--                                 <tr> -->
-        <!--                                   <td> <ul> <li class=""><br/> </li></ul>                                  </td> -->
-        <!--                                 </tr> -->
-                                    </table>
-                                    </td>
-                                </tr>
-                                <tr>
-                                <td style="width:100%; vertical-align: top" colspan="2"><hr></td>
-                                </tr>
-                                <!-- --------2) 세액감면 --------- -->
-                                <tr  style="overflow-y: scroll;">
-                                    <td style="width: 50%; vertical-align: top">
-                                    <table cellpadding="0" cellspacing="0">
-                                        <tr>
-                                        <td> <ul><li><span style="display:inline-block;width:140px;text-align:left;"><label><b>세액감면&nbsp;</b></label></span><label id="lblPensionBase" title="pensionBase"></label></li></ul> </td>
-                                        </tr>
-                                        <tr>
-                                        <td><ul><li class=""><span>중소기업취업감면소득금액_50%&nbsp;</span> <input type="text" id="txtAmtTaxdec3_50" name="amtTaxdec350" title="amtTaxdec350" class="nsf-param nsf-number" style="text-align:right; width:100px;ime-mode:disabled;"> </li> </ul></td>
-                                        </tr>
-                                        <tr>
-                                        <td><ul><li class=""><span>중소기업취업감면소득금액_70%&nbsp;</span> <input type="text" id="txtAmtTaxdec3_70" name="amtTaxdec370" title="amtTaxdec370" class="nsf-param nsf-number" style="text-align:right; width:100px;ime-mode:disabled;"> </li> </ul></td>
-                                        </tr>
-                                        <tr>
-                                        <td><ul><li class=""><span>중소기업취업감면소득금액_90%&nbsp;</span> <input type="text" id="txtAmtTaxdec3_90" name="amtTaxdec390" title="amtTaxdec390" class="nsf-param nsf-number" style="text-align:right; width:100px;ime-mode:disabled;"> </li> </ul></td>
-                                        </tr>
-                                        <!-- 성과공유중소기업경영성과급감면_50% 2019.12.12추가-->
-                                        <tr>
-                                        <td><ul><li class=""><span>성과공유중소기업경영성과급_50% &nbsp;&nbsp;&nbsp;</span>  <input type="text" id="txtAmtBonusManage" name="amtBonusManage" title="amtBonusManage" class="nsf-param nsf-number" style="text-align:right; width:100px;ime-mode:disabled;"></li>  </ul></td>
+                                        <!-- --------2) 세액감면 --------- -->
+                                        <tr style="overflow-y: scroll;">
+                                            <td style="width: 50%; vertical-align: top">
+                                            <label id="lblPensionBase" title="pensionBase" class="nsf-title">세액감면</label>
+                                            <table cellpadding="0" cellspacing="0">
+                                                <tr>
+                                                <td><ul class="tab200"><li class="first"><span>중소기업취업감면소득금액_50%&nbsp;</span> <input type="text" id="txtAmtTaxdec3_50" name="amtTaxdec350" title="amtTaxdec350" class="nsf-param nsf-number" style="text-align:right; width:100px;ime-mode:disabled;"> </li> </ul></td>
+                                                </tr>
+                                                <tr>
+                                                <td><ul class="tab200"><li class=""><span>중소기업취업감면소득금액_70%&nbsp;</span> <input type="text" id="txtAmtTaxdec3_70" name="amtTaxdec370" title="amtTaxdec370" class="nsf-param nsf-number" style="text-align:right; width:100px;ime-mode:disabled;"> </li> </ul></td>
+                                                </tr>
+                                                <tr>
+                                                <td><ul class="tab200"><li class=""><span>중소기업취업감면소득금액_90%&nbsp;</span> <input type="text" id="txtAmtTaxdec3_90" name="amtTaxdec390" title="amtTaxdec390" class="nsf-param nsf-number" style="text-align:right; width:100px;ime-mode:disabled;"> </li> </ul></td>
+                                                </tr>
+                                                <!-- 성과공유중소기업경영성과급감면_50% 2019.12.12추가-->
+                                                <tr>
+                                                <td><ul class="tab200"><li class=""><span>성과공유중소기업경영성과급_50%&nbsp;</span> <input type="text" id="txtAmtBonusManage" name="amtBonusManage" title="amtBonusManage" class="nsf-param nsf-number" style="text-align:right; width:100px;ime-mode:disabled;"></li>  </ul></td>
 
+                                                </tr>
+                                                <!-- 중소기업핵심인력성과보상기금감면_50% 2019.12.12추가-->
+                                                <tr>
+                                                <td><ul class="tab200"><li class=""><span>중소기업핵심인력성과보상기금_50%&nbsp;</span> <input type="text" id="txtAmtBonusReward" name="amtBonusReward" title="amtBonusReward" class="nsf-param nsf-number" style="text-align:right; width:100px;ime-mode:disabled;"> </li> </ul></td>
+                                                </tr>
+                                                <!-- 중소기업핵심인력성과보상기금감면_30%-->
+                                                <tr>
+                                                <td><ul class="tab200"><li class=""><span>중소기업핵심인력성과보상기금_30%&nbsp;</span> <input type="text" id="txtAmtMiddleBonusReward" name="amtMiddleBonusReward" title="amtMiddleBonusReward" class="nsf-param nsf-number" style="text-align:right; width:100px;ime-mode:disabled;"> </li> </ul></td>
+                                                </tr>
+                                                <!-- 중소기업(청년)핵심인력성과보상기금감면_90%-->
+                                                <tr>
+                                                <td><ul class="tab200"><li class=""><span>중소기업(청년)핵심인력성과보상기금감면_90%&nbsp;</span> <input type="text" id="txtAmtBonusRewardYoung" name="amtBonusRewardYoung" title="amtBonusRewardYoung" class="nsf-param nsf-number" style="text-align:right; width:100px;ime-mode:disabled;"> </li> </ul></td>
+                                                </tr>
+                                                <!-- 중견기업(청년)핵심인력성과보상기금감면_50%-->
+                                                <tr>
+                                                <td><ul class="tab200"><li class=""><span>중견기업(청년)핵심인력성과보상기금감면_50%&nbsp;</span> <input type="text" id="txtAmtMiddleBonusRewardYoung" name="amtMiddleBonusRewardYoung" title="amtMiddleBonusRewardYoung" class="nsf-param nsf-number" style="text-align:right; width:100px;ime-mode:disabled;"> </li> </ul></td>
+                                                </tr>
+                                            </table>
+                                            </td>
+                                            <td style="width: 50%; vertical-align: top">
+                                            <label id="lblPensionBase" title="pensionBase" class="nsf-title">&nbsp;</label>
+                                            <table cellpadding="0" cellspacing="0">
+                                                <tr>
+                                                <td> <ul class="tab200"> <li class="first"><span>조세특례제한법감면소득금액&nbsp;</span> <input type="text" id="txtAmtTaxdec2" name="amtTaxdec2" title="amtTaxdec2" class="nsf-param nsf-number" style="text-align:right; width:100px;ime-mode:disabled;"> </li> </ul> </td>
+                                                </tr>
+                                                <tr>
+                                                <td> <ul class="tab200"> <li class=""><span>외국인기술자 소득세감면_70%&nbsp;</span> <input type="text" id="txtAmtTaxdec2_70" name="amtTaxdec2_70" title="amtTaxdec2_70" class="nsf-param nsf-number" style="text-align:right; width:100px;ime-mode:disabled;"> </li> </ul> </td>
+                                                </tr>
+                                                <tr>
+                                                <td> <ul class="tab200"> <li class=" "><span>소득세법감면소득금액&nbsp;</span> <input type="text" id="txtAmtTaxdec1" name="amtTaxdec1" title="amtTaxdec1" class="nsf-param nsf-number" style="text-align:right; width:100px;ime-mode:disabled;"> </li></ul></td>
+                                                </tr>
+                                                <tr>
+                                                <td><ul class="tab200"><li class=""><span>조세조약감면소득금액&nbsp;</span> <input type="text" id="txtAmtTaxdec4" name="amtTaxdec4" title="amtTaxdec4" class="nsf-param nsf-number" style="text-align:right; width:100px;ime-mode:disabled;"> </li></ul></td>
+                                                </tr>
+                                                <tr>
+                                                <td><ul class="tab200"><li class=""><span>내국인우수인력국내복귀감면_50%&nbsp;</span> <input type="text" id="txtAmtLocalReturnCut" name="amtLocalReturnCut" title="amtLocalReturnCut" class="nsf-param nsf-number" style="text-align:right; width:100px;ime-mode:disabled;"> </li></ul></td>
+                                                </tr>
+                                                <tr>
+                                                    <td> <ul class="tab200"><li class="">&nbsp;</li></ul></td>
+                                                </tr>
+                                                <tr>
+                                                    <td> <ul class="tab200"><li class="">&nbsp;</li></ul></td>
+                                                </tr>
+                                                <tr>
+                                                    <td> <ul class="tab200"><li class="">&nbsp;</li></ul></td>
+                                                </tr>
+                                            </table>
+                                            </td>
                                         </tr>
-                                        <!-- 중소기업핵심인력성과보상기금감면_50% 2019.12.12추가-->
+                                        <!-- --------3) 연금보험료공제 & 비과세 --------- -->
                                         <tr>
-                                        <td><ul><li class=""><span>중소기업핵심인력성과보상기금_50%&nbsp;</span> <input type="text" id="txtAmtBonusReward" name="amtBonusReward" title="amtBonusReward" class="nsf-param nsf-number" style="text-align:right; width:100px;ime-mode:disabled;"> </li> </ul></td>
+                                            <td style="width: 50%; vertical-align: top">
+                                                <label id="lblPensionBase" title="pensionBase" class="nsf-title">연금보험료공제</label>
+                                            <table cellpadding="0" cellspacing="0">
+                                                <tr>
+                                                <td> <ul class="tab200">
+                                                            <li class="first"><span>국민연금보험&nbsp;</span> <input type="text" id="txtAmtNPensionBase" name="amtNPensionBase" title="amtNPensionBase" class="nsf-param nsf-number" style="text-align:right; width:100px;ime-mode:disabled;"> </li>
+                                                </ul></td>
+                                                </tr>
+                                                <tr>
+                                                <td><ul class="tab200">
+                                                            <li class=""><span>공무원연금&nbsp;</span> <input type="text" id="txtAmtNExpension" name="amtNExpension" title="amtNExpension" class="nsf-param nsf-number" style="text-align:right; width:100px;ime-mode:disabled;"> </li>
+                                                </ul></td>
+                                                </tr>
+                                                <tr>
+                                                <td><ul class="tab200">
+                                                            <li class=""><span>군인연금&nbsp;</span> <input type="text" id="txtAmtNExpension1" name="amtNExpension1" title="amtNExpension1" class="nsf-param nsf-number" style="text-align:right; width:100px;ime-mode:disabled;"> </li>
+                                                </ul></td>
+                                                </tr>
+                                                <tr>
+                                                <td><ul class="tab200">
+                                                            <li class=""><span>사립학교교직원연금</span> <input type="text" id="txtAmtNExpension2" name="amtNExpension2" title="amtNExpension2" class="nsf-param nsf-number" style="text-align:right; width:100px;ime-mode:disabled;"> </li>
+                                                </ul></td>
+                                                </tr>
+                                                <tr>
+                                                <td><ul class="tab200">
+                                                            <li class=""><span>별정우체국연금&nbsp;</span> <input type="text" id="txtAmtNExpension3" name="amtNExpension3" title="amtNExpension3" class="nsf-param nsf-number" style="text-align:right; width:100px;ime-mode:disabled;"> </li>
+                                                </ul></td>
+                                                </tr>
+                                                <tr>
+                                                    <td> <ul class="tab200"><li class="">&nbsp;</li></ul></td>
+                                                </tr>
+                                                <tr>
+                                                    <td> <ul class="tab200"><li class="">&nbsp;</li></ul></td>
+                                                </tr>
+                                                <tr>
+                                                    <td> <ul class="tab200"><li class="">&nbsp;</li></ul></td>
+                                                </tr>
+                                                <tr>
+                                                    <td> <ul class="tab200"><li class="">&nbsp;</li></ul></td>
+                                                </tr>
+                                            </table>
+                                            </td>
+                                            <td style="width: 50%; vertical-align: top">
+                                                <label id="lblPensionBase" title="pensionBase" class="nsf-title">비과세</label>
+                                            <table cellpadding="0" cellspacing="0">
+                                                <tr>
+                                                <td><ul class="tab200">
+                                                    <li class="first"><span>연장근로비과세&nbsp;</span> <input type="text" id="txtAmtTaxExemption1" name="amtTaxExemption1" title="amtTaxExemption1" class="nsf-param nsf-number" style="text-align:right; width:100px;ime-mode:disabled;"> </li>
+                                                </ul></td>
+                                                </tr>
+                                                <tr>
+                                                <td><ul class="tab200">
+                                                    <li class=""><span>식대비과세&nbsp;</span> <input type="text" id="txtAmtTaxExemption2" name="amtTaxExemption2" title="amtTaxExemption2" class="nsf-param nsf-number" style="text-align:right; width:100px;ime-mode:disabled;"> </li>
+                                                </ul></td>
+                                                </tr>
+                                                <tr>
+                                                <td><ul class="tab200">
+                                                    <li class=""><span>기타비과세&nbsp;</span> <input type="text" id="txtAmtTaxExemption3" name="amtTaxExemption3" title="amtTaxExemption3" class="nsf-param nsf-number" style="text-align:right; width:100px;ime-mode:disabled;"> </li>
+                                                </ul></td>
+                                                </tr>
+                                                <tr>
+                                                <td><ul class="tab200">
+                                                            <li class=""><span>국외근로비과세&nbsp;</span> <input type="text" id="txtAmtTaxExemption4" name="amtTaxExemption4" title="amtTaxExemption4" class="nsf-param nsf-number" style="text-align:right; width:100px;ime-mode:disabled;"> </li>
+                                                </ul></td>
+                                                </tr>
+                                                <tr>
+                                                <td><ul class="tab200">
+                                                            <li class=""><span>사용자비과세&nbsp;</span> <input type="text" id="txtAmtTaxExemption5" name="amtTaxExemption5" title="amtTaxExemption5" class="nsf-param nsf-number" style="text-align:right; width:100px;ime-mode:disabled;"> </li>
+                                                </ul></td>
+                                                </tr>
+                                                <tr>
+                                                <td><ul class="tab200">
+                                                            <li class=""><span>연구활동비과세&nbsp;</span> <input type="text" id="txtAmtTaxExemption6" name="amtTaxExemption6" title="amtTaxExemption6" class="nsf-param nsf-number" style="text-align:right; width:100px;ime-mode:disabled;"> </li>
+                                                </ul></td>
+                                                </tr>
+                                                <tr>
+                                                <td><ul class="tab200">
+                                                            <li class=""><span>외국인비과세&nbsp;</span> <input type="text" id="txtAmtTaxExemption7" name="amtTaxExemption7" title="amtTaxExemption7" class="nsf-param nsf-number" style="text-align:right; width:100px;ime-mode:disabled;"> </li>
+                                                </ul></td>
+                                                </tr>
+                                                <tr>
+                                                <td><ul class="tab200">
+                                                            <li class=""><span>출산보육비과세&nbsp;</span> <input type="text" id="txtAmtTaxExemption8" name="amtTaxExemption8" title="amtTaxExemption8" class="nsf-param nsf-number" style="text-align:right; width:100px;ime-mode:disabled;"> </li>
+                                                </ul></td>
+                                                </tr>
+                                                <tr>
+                                                <td><ul class="tab200">
+                                                            <li class=""><span>직무발명보상비과세&nbsp;</span> <input type="text" id="txtAmtTaxExemption9" name="amtTaxExemption9" title="amtTaxExemption9" class="nsf-param nsf-number" style="text-align:right; width:100px;ime-mode:disabled;"> </li>
+                                                </ul></td>
+                                                </tr>
+                                                <tr>
+                                                </tr>
+                                            </table>
+                                            </td>
                                         </tr>
-                                        <!-- 중소기업핵심인력성과보상기금감면_30%-->
+                                        <!-- --------4) 납세 & 납부특례세액--------- -->
                                         <tr>
-                                        <td><ul><li class=""><span>중소기업핵심인력성과보상기금_30%&nbsp;</span> <input type="text" id="txtAmtMiddleBonusReward" name="amtMiddleBonusReward" title="amtMiddleBonusReward" class="nsf-param nsf-number" style="text-align:right; width:100px;ime-mode:disabled;"> </li> </ul></td>
-                                        </tr>
-                                        <!-- 중소기업(청년)핵심인력성과보상기금감면_90%-->
-                                        <tr>
-                                        <td><ul><li class=""><span>중소기업(청년)핵심인력성과보상기금감면_90%&nbsp;</span> <input type="text" id="txtAmtBonusRewardYoung" name="amtBonusRewardYoung" title="amtBonusRewardYoung" class="nsf-param nsf-number" style="text-align:right; width:100px;ime-mode:disabled;"> </li> </ul></td>
-                                        </tr>
-                                        <!-- 중견기업(청년)핵심인력성과보상기금감면_50%-->
-                                        <tr>
-                                        <td><ul><li class=""><span>중견기업(청년)핵심인력성과보상기금감면_50%&nbsp;</span> <input type="text" id="txtAmtMiddleBonusRewardYoung" name="amtMiddleBonusRewardYoung" title="amtMiddleBonusRewardYoung" class="nsf-param nsf-number" style="text-align:right; width:100px;ime-mode:disabled;"> </li> </ul></td>
-                                        </tr>
-                                    </table>
-                                    </td>
-                                    <td style="width: 50%; vertical-align: top">
-                                    <table cellpadding="0" cellspacing="0">
-                                        <tr>
-                                        <td> <ul><li><span style="display:inline-block;width:140px;text-align:left;"><label><b>&nbsp;</b><br/></label></span><label id="lblPensionBase" title="pensionBase"></label></li></ul> </td>
-                                        </tr>
-                                        <tr>
-                                        <td> <ul> <li class=""><span>조세특례제한법감면소득금액&nbsp;</span> <input type="text" id="txtAmtTaxdec2" name="amtTaxdec2" title="amtTaxdec2" class="nsf-param nsf-number" style="text-align:right; width:100px;ime-mode:disabled;"> </li> </ul> </td>
-                                        </tr>
-                                        <tr>
-                                        <td> <ul> <li class=""><span>외국인기술자 소득세감면_70%&nbsp;</span> <input type="text" id="txtAmtTaxdec2_70" name="amtTaxdec2_70" title="amtTaxdec2_70" class="nsf-param nsf-number" style="text-align:right; width:100px;ime-mode:disabled;"> </li> </ul> </td>
-                                        </tr>
-                                        <tr>
-                                        <td> <ul> <li class=" "><span>소득세법감면소득금액&nbsp;</span> <input type="text" id="txtAmtTaxdec1" name="amtTaxdec1" title="amtTaxdec1" class="nsf-param nsf-number" style="text-align:right; width:100px;ime-mode:disabled;"> </li></ul></td>
-                                        </tr>
-                                        <tr>
-                                        <td><ul><li class=""><span>조세조약감면소득금액&nbsp;</span> <input type="text" id="txtAmtTaxdec4" name="amtTaxdec4" title="amtTaxdec4" class="nsf-param nsf-number" style="text-align:right; width:100px;ime-mode:disabled;"> </li></ul></td>
-                                        </tr>
-                                        <tr>
-                                        <td><ul><li class=""><span>내국인우수인력국내복귀감면_50%&nbsp;</span> <input type="text" id="txtAmtLocalReturnCut" name="amtLocalReturnCut" title="amtLocalReturnCut" class="nsf-param nsf-number" style="text-align:right; width:100px;ime-mode:disabled;"> </li></ul></td>
-                                        </tr>
-                                    </table>
-                                    </td>
-                                </tr>
-                                <!-- --------3) 연금보험료공제 & 비과세 --------- -->
-                                <tr>
-                                    <td style="width: 50%; vertical-align: top">
-                                    <table cellpadding="0" cellspacing="0">
-                                        <tr>
-                                        <td> <ul><li><span style="display:inline-block;width:140px;text-align:left;"><label><b>연금보험료공제&nbsp;</b></label></span><label id="lblPensionBase" title="pensionBase"></label></li></ul> </td>
-                                        </tr>
-                                        <tr>
-                                        <td> <ul>
-                                                    <li class=""><span>국민연금보험&nbsp;</span> <input type="text" id="txtAmtNPensionBase" name="amtNPensionBase" title="amtNPensionBase" class="nsf-param nsf-number" style="text-align:right; width:100px;ime-mode:disabled;"> </li>
-                                        </ul></td>
-                                        </tr>
-                                        <tr>
-                                        <td><ul>
-                                                    <li class=""><span>공무원연금&nbsp;</span> <input type="text" id="txtAmtNExpension" name="amtNExpension" title="amtNExpension" class="nsf-param nsf-number" style="text-align:right; width:100px;ime-mode:disabled;"> </li>
-                                        </ul></td>
-                                        </tr>
-                                        <tr>
-                                        <td><ul>
-                                                    <li class=""><span>군인연금&nbsp;</span> <input type="text" id="txtAmtNExpension1" name="amtNExpension1" title="amtNExpension1" class="nsf-param nsf-number" style="text-align:right; width:100px;ime-mode:disabled;"> </li>
-                                        </ul></td>
-                                        </tr>
-                                        <tr>
-                                        <td><ul>
-                                                    <li class=""><span>사립학교교직원연금</span> <input type="text" id="txtAmtNExpension2" name="amtNExpension2" title="amtNExpension2" class="nsf-param nsf-number" style="text-align:right; width:100px;ime-mode:disabled;"> </li>
-                                        </ul></td>
-                                        </tr>
-                                        <tr>
-                                        <td><ul>
-                                                    <li class=""><span>별정우체국연금&nbsp;</span> <input type="text" id="txtAmtNExpension3" name="amtNExpension3" title="amtNExpension3" class="nsf-param nsf-number" style="text-align:right; width:100px;ime-mode:disabled;"> </li>
-                                        </ul></td>
-                                        </tr>
-                                    </table>
-                                    </td>
-                                    <td style="width: 50%; vertical-align: top">
-                                    <table cellpadding="0" cellspacing="0">
-                                    <tr>
-                                        <td> <ul><li><span style="display:inline-block;width:140px;text-align:left;"><label><b>비과세&nbsp;</b></label></span><label id="lblPensionBase" title="pensionBase"></label></li></ul> </td>
-                                        </tr>
-                                        <tr>
-                                        <td><ul>
-                                            <li class=""><span>연장근로비과세&nbsp;</span> <input type="text" id="txtAmtTaxExemption1" name="amtTaxExemption1" title="amtTaxExemption1" class="nsf-param nsf-number" style="text-align:right; width:100px;ime-mode:disabled;"> </li>
-                                        </ul></td>
-                                        </tr>
-                                        <tr>
-                                        <td><ul>
-                                            <li class=""><span>식대비과세&nbsp;</span> <input type="text" id="txtAmtTaxExemption2" name="amtTaxExemption2" title="amtTaxExemption2" class="nsf-param nsf-number" style="text-align:right; width:100px;ime-mode:disabled;"> </li>
-                                        </ul></td>
-                                        </tr>
-                                        <tr>
-                                        <td><ul>
-                                            <li class=""><span>기타비과세&nbsp;</span> <input type="text" id="txtAmtTaxExemption3" name="amtTaxExemption3" title="amtTaxExemption3" class="nsf-param nsf-number" style="text-align:right; width:100px;ime-mode:disabled;"> </li>
-                                        </ul></td>
-                                        </tr>
-                                        <tr>
-                                        <td><ul>
-                                                    <li class=""><span>국외근로비과세&nbsp;</span> <input type="text" id="txtAmtTaxExemption4" name="amtTaxExemption4" title="amtTaxExemption4" class="nsf-param nsf-number" style="text-align:right; width:100px;ime-mode:disabled;"> </li>
-                                        </ul></td>
-                                        </tr>
-                                        <tr>
-                                        <td><ul>
-                                                    <li class=""><span>사용자비과세&nbsp;</span> <input type="text" id="txtAmtTaxExemption5" name="amtTaxExemption5" title="amtTaxExemption5" class="nsf-param nsf-number" style="text-align:right; width:100px;ime-mode:disabled;"> </li>
-                                        </ul></td>
-                                        </tr>
-                                        <tr>
-                                        <td><ul>
-                                                    <li class=""><span>연구활동비과세&nbsp;</span> <input type="text" id="txtAmtTaxExemption6" name="amtTaxExemption6" title="amtTaxExemption6" class="nsf-param nsf-number" style="text-align:right; width:100px;ime-mode:disabled;"> </li>
-                                        </ul></td>
-                                        </tr>
-                                        <tr>
-                                        <td><ul>
-                                                    <li class=""><span>외국인비과세&nbsp;</span> <input type="text" id="txtAmtTaxExemption7" name="amtTaxExemption7" title="amtTaxExemption7" class="nsf-param nsf-number" style="text-align:right; width:100px;ime-mode:disabled;"> </li>
-                                        </ul></td>
-                                        </tr>
-                                        <tr>
-                                        <td><ul>
-                                                    <li class=""><span>출산보육비과세&nbsp;</span> <input type="text" id="txtAmtTaxExemption8" name="amtTaxExemption8" title="amtTaxExemption8" class="nsf-param nsf-number" style="text-align:right; width:100px;ime-mode:disabled;"> </li>
-                                        </ul></td>
-                                        </tr>
-                                        <tr>
-                                        <td><ul>
-                                                    <li class=""><span>직무발명보상비과세&nbsp;</span> <input type="text" id="txtAmtTaxExemption9" name="amtTaxExemption9" title="amtTaxExemption9" class="nsf-param nsf-number" style="text-align:right; width:100px;ime-mode:disabled;"> </li>
-                                        </ul></td>
-                                        </tr>
-                                        <tr>
-                                        </tr>
-                                    </table>
-                                    </td>
-                                </tr>
-                                <!-- --------4) 납세 & 납부특례세액--------- -->
-                                <tr>
-                                <!-- *************** 납세 시작 ************** -->
-                                    <td style="width: 50%; vertical-align: top">
-                                    <table cellpadding="0" cellspacing="0">
-                                        <tr>
-                                        <td> <ul><li><span style="display:inline-block;width:140px;text-align:left; "><label><b>납세&nbsp;</b></label></span><label id="lblPensionBase" title="pensionBase"></label></li></ul> </td>
-                                        </tr>
-                                        <tr>
-                                        <td> <ul>
-                                                    <li class=""><span>소득세&nbsp;</span> <input type="text" id="txtAmtInTax" name="amtInTax" title="amtInTax" class="nsf-param nsf-number" style="text-align:right; width:100px;ime-mode:disabled;"> </li>
-                                        </ul></td>
-                                        </tr>
-                                        <tr>
-                                        <td><ul>
-                                                    <li class=""><span>주민세&nbsp;</span> <input type="text" id="txtAmtLocalTax" name="amtLocalTax" title="amtLocalTax" class="nsf-param nsf-number" style="text-align:right; width:100px;ime-mode:disabled;"> </li>
-                                        </ul></td>
-                                        </tr>
-                                        <tr>
-                                        <td><ul>
-                                                    <li class=""><span>농특세&nbsp;</span> <input type="text" id="txtAmtSpTax" name="amtSpTax" title="amtSpTax" class="nsf-param nsf-number" style="text-align:right; width:100px;ime-mode:disabled;"> </li>
-                                        </ul></td>
-                                        </tr>
-                                    </table>
-                                    </td>
-                                <!-- *************** 납세 끝 ************** -->
+                                        <!-- *************** 납세 시작 ************** -->
+                                            <td style="width: 50%; vertical-align: top">
+                                                <label id="lblPensionBase" title="pensionBase" class="nsf-title">납세</label>
+                                            <table cellpadding="0" cellspacing="0">
+                                                <tr>
+                                                <td> <ul class="tab200">
+                                                            <li class="first"><span>소득세&nbsp;</span> <input type="text" id="txtAmtInTax" name="amtInTax" title="amtInTax" class="nsf-param nsf-number" style="text-align:right; width:100px;ime-mode:disabled;"> </li>
+                                                </ul></td>
+                                                </tr>
+                                                <tr>
+                                                <td><ul class="tab200">
+                                                            <li class=""><span>주민세&nbsp;</span> <input type="text" id="txtAmtLocalTax" name="amtLocalTax" title="amtLocalTax" class="nsf-param nsf-number" style="text-align:right; width:100px;ime-mode:disabled;"> </li>
+                                                </ul></td>
+                                                </tr>
+                                                <tr>
+                                                <td><ul class="tab200">
+                                                            <li class=""><span>농특세&nbsp;</span> <input type="text" id="txtAmtSpTax" name="amtSpTax" title="amtSpTax" class="nsf-param nsf-number" style="text-align:right; width:100px;ime-mode:disabled;"> </li>
+                                                </ul></td>
+                                                </tr>
+                                            </table>
+                                            </td>
+                                        <!-- *************** 납세 끝 ************** -->
 
-                                <!-- *************** 납부특례세액 시작 ************** -->
-                                    <td style="width: 50%; vertical-align: top">
-                                    <table cellpadding="0" cellspacing="0">
-                                    <tr>
-                                        <td> <ul><li><span style="display:inline-block;width:140px;text-align:left;"><label><b>납부특례세액&nbsp;</b></label></span><label id="lblPensionBase" title="pensionBase"></label></li></ul> </td>
+                                        <!-- *************** 납부특례세액 시작 ************** -->
+                                            <td style="width: 50%; vertical-align: top">
+                                                <label id="lblPensionBase" title="pensionBase" class="nsf-title">납부특례세액</label>
+                                            <table cellpadding="0" cellspacing="0">
+                                                <tr>
+                                                <td><ul class="tab200">
+                                                    <li class="first"><span>소득세&nbsp;</span> <input type="text" id="txtAmtSpecialInTax" name="amtSpecialInTax" title="amtSpecialInTax" class="nsf-param nsf-number" style="text-align:right; width:100px;ime-mode:disabled;"> </li>
+                                                </ul></td>
+                                                </tr>
+                                                <tr>
+                                                <td><ul class="tab200">
+                                                    <li class=""><span>주민세&nbsp;</span> <input type="text" id="txtAmtSpecialLocalTax" name="amtSpecialLocalTax" title="amtSpecialLocalTax" class="nsf-param nsf-number" style="text-align:right; width:100px;ime-mode:disabled;"> </li>
+                                                </ul></td>
+                                                </tr>
+                                                <tr>
+                                                <td><ul class="tab200">
+                                                    <li class=""><span>농특세&nbsp;</span> <input type="text" id="txtAmtSpecialSpTax" name="amtSpecialSpTax" title="amtSpecialSpTax" class="nsf-param nsf-number" style="text-align:right; width:100px;ime-mode:disabled;"> </li>
+                                                </ul></td>
+                                                </tr>
+                                            </table>
+                                            </td>
+                                        <!-- *************** 납부특례세액 끝 ************** -->
                                         </tr>
-                                        <tr>
-                                        <td><ul>
-                                            <li class=""><span>소득세&nbsp;</span> <input type="text" id="txtAmtSpecialInTax" name="amtSpecialInTax" title="amtSpecialInTax" class="nsf-param nsf-number" style="text-align:right; width:100px;ime-mode:disabled;"> </li>
-                                        </ul></td>
-                                        </tr>
-                                        <tr>
-                                        <td><ul>
-                                            <li class=""><span>주민세&nbsp;</span> <input type="text" id="txtAmtSpecialLocalTax" name="amtSpecialLocalTax" title="amtSpecialLocalTax" class="nsf-param nsf-number" style="text-align:right; width:100px;ime-mode:disabled;"> </li>
-                                        </ul></td>
-                                        </tr>
-                                        <tr>
-                                        <td><ul>
-                                            <li class=""><span>농특세&nbsp;</span> <input type="text" id="txtAmtSpecialSpTax" name="amtSpecialSpTax" title="amtSpecialSpTax" class="nsf-param nsf-number" style="text-align:right; width:100px;ime-mode:disabled;"> </li>
-                                        </ul></td>
-                                        </tr>
-                                    </table>
-                                    </td>
-                                <!-- *************** 납부특례세액 끝 ************** -->
-                                </tr>
-                                </table>
+                                        </table>
                                     </div>
                                 </div>
 
@@ -8812,82 +8821,70 @@ function fSetDataTax(data) {
                                         </div>
                                     </div>
                                     <div class="nsf-form" >
-                                        <table cellpadding="0" cellspacing="0">
+                                        <table cellpadding="0" cellspacing="0" style="border: 1px solid #d9d9d9;">
                                             <tr><td>
-                                                <ul>
-                                                    <li><span style="display:inline-block;width:900px;text-align:left;"><b>특별공제(보험료)&nbsp;</b></span>
-                                                        <label id="lblPensionBase" title="pensionBase"></label>
+                                                <label id="lblPensionBase" title="pensionBase" class="nsf-title">특별공제(보험료)</label>
+                                            </td></tr>
+                                            <tr><td>
+                                                <ul class="per25">
+                                                    <li class="first"><span >건강보험&nbsp;</span>
+                                                        <input type="text" id="txtAmtNMedins" name="amtNMedins" title="amtNMedins" class="nsf-param nsf-number" style="text-align:right; ime-mode:disabled;">
+                                                    </li>
+                                                    <li class="first"><span >기타건강보험&nbsp;</span>
+                                                        <input type="text" id="txtAmtNMedinsEtc" name="amtNMedinsEtc" title="amtNMedinsEtc" class="nsf-param nsf-number" style="text-align:right; ime-mode:disabled;">
+                                                    </li>
+                                                    <li class="first"><span >고용보험&nbsp;</span>
+                                                        <input type="text" id="txtAmtNEmpins" name="amtNEmpins" title="amtNEmpins" class="nsf-param nsf-number" style="text-align:right; ime-mode:disabled;">
+                                                    </li>
+                                                    <li class="first"><span >고용보험(정산)&nbsp;</span>
+                                                        <input type="text" id="txtAmtNEmpinsBase" name="amtNEmpinsBase" title="amtNEmpinsBase" class="nsf-param nsf-number" style="text-align:right; ime-mode:disabled;">
                                                     </li>
                                                 </ul>
                                             </td></tr>
                                             <tr><td>
-                                                <ul>
-                                                    <li class=""><span >건강보험&nbsp;</span>
-                                                        <input type="text" id="txtAmtNMedins" name="amtNMedins" title="amtNMedins" class="nsf-param nsf-number" style="text-align:right; width:100px;ime-mode:disabled;">
-                                                    </li>
-                                                    <li class=""><span >기타건강보험&nbsp;</span>
-                                                        <input type="text" id="txtAmtNMedinsEtc" name="amtNMedinsEtc" title="amtNMedinsEtc" class="nsf-param nsf-number" style="text-align:right; width:100px;ime-mode:disabled;">
-                                                    </li>
-                                                    <li class=""><span >고용보험&nbsp;</span>
-                                                        <input type="text" id="txtAmtNEmpins" name="amtNEmpins" title="amtNEmpins" class="nsf-param nsf-number" style="text-align:right; width:100px;ime-mode:disabled;">
-                                                    </li>
-                                                    <li class=""><span >고용보험(정산)&nbsp;</span>
-                                                        <input type="text" id="txtAmtNEmpinsBase" name="amtNEmpinsBase" title="amtNEmpinsBase" class="nsf-param nsf-number" style="text-align:right; width:100px;ime-mode:disabled;">
-                                                    </li>
-                                                </ul>
+                                                <label id="lblPensionBase" title="pensionBase" class="nsf-title">특별공제(주택자금)</label>
                                             </td></tr>
                                             <tr><td>
-                                                <ul>
-                                                    <li><span style="display:inline-block;width:900px;text-align:left;"><b>특별공제(주택자금)&nbsp;</b></span>
-                                                        <label id="lblPensionBase" title="pensionBase"></label>
-                                                    </li>
-                                                </ul>
-                                            </td></tr>
-                                            <tr><td>
-                                                <ul>
-                                                    <li class=""><span >원리금상환액(대출기관)&nbsp;</span>
+                                                <ul class="per50">
+                                                    <li class="first"><span >원리금상환액(대출기관)&nbsp;</span>
                                                         <input type="text" id="txtAmtNHouse2" name="amtNHouse2" title="amtNHouse2" class="nsf-param nsf-number" style="text-align:right; width:100px;ime-mode:disabled;">
                                                     </li>
-                                                    <li class=""><span >원리금상환액(거주자)&nbsp;</span>
+                                                    <li class="first"><span >원리금상환액(거주자)&nbsp;</span>
                                                         <input type="text" id="txtAmtNHouse21" name="amtNHouse21" title="amtNHouse21" class="nsf-param nsf-status-lck nsf-number" style="text-align:right; width:100px;ime-mode:disabled;" onfocus="this.blur()" readonly="readonly">
                                                     </li>
                                                 </ul>
                                             </td></tr>
                                             <tr><td>
-                                            <br/>
-                                                <ul>
-                                                    <li><span style="display:inline-block;width:900px;text-align:left;"><b>특별소득공제(장기주택저당차임금이자상환액)&nbsp;</b></span>
-                                                        <label id="lblPensionBase" title="pensionBase"></label>
-                                                    </li>
-                                                </ul>
+                                                <label id="lblPensionBase" title="pensionBase" class="nsf-title">특별소득공제(장기주택저당차임금이자상환액)</label>
                                             </td></tr>
                                             <tr><td>
-                                                <ul>
-                                                    <li class="nsf-form-item-10x"><span >2011년이전차입분 15년미만 (600만원 한도)</span><span></span><span></span>
+                                                <ul class="per100 max">
+                                                    <li class="first">
+                                                        <span >2011년이전차입분 15년미만 (600만원 한도)</span>
                                                         <input type="text" id="txtAmtNHouse41" name="amtNHouse41" title="amtNHouse41" class="nsf-param nsf-number" style="text-align:right; width:100px;ime-mode:disabled;">
                                                     </li>
-                                                    <li class="nsf-form-item-10x"><span >2011년이전차입분 15~29년 (1,000만원 한도)</span><span></span><span></span>
+                                                    <li><span >2011년이전차입분 15~29년 (1,000만원 한도)</span>
                                                         <input type="text" id="txtAmtNHouse42" name="amtNHouse42" title="amtNHouse42" class="nsf-param nsf-number" style="text-align:right; width:100px;ime-mode:disabled;">
                                                     </li>
-                                                    <li class="nsf-form-item-10x"><span >2011년이전차입분 30년이상 (1,500만원 한도)</span><span></span><span></span>
+                                                    <li><span >2011년이전차입분 30년이상 (1,500만원 한도)</span>
                                                         <input type="text" id="txtAmtNHouse43" name="amtNHouse43" title="amtNHouse43" class="nsf-param nsf-number" style="text-align:right; width:100px;ime-mode:disabled;">
                                                     </li>
-                                                    <li class="nsf-form-item-10x"><span >2012년이후차입분 고정금리이면서, 비거치상환대출 (1,500만원 한도)</span><span></span><span></span>
+                                                    <li><span >2012년이후차입분 고정금리이면서, 비거치상환대출 (1,500만원 한도)</span>
                                                         <input type="text" id="txtAmtNHouse44" name="amtNHouse44" title="amtNHouse44" class="nsf-param nsf-number" style="text-align:right; width:100px;ime-mode:disabled;">
                                                     </li>
-                                                    <li class="nsf-form-item-10x"><span >2012년이후차입분 기타대출 (500만원 한도)</span><span></span><span></span>
+                                                    <li><span >2012년이후차입분 기타대출 (500만원 한도)</span>
                                                         <input type="text" id="txtAmtNHouse45" name="amtNHouse45" title="amtNHouse45" class="nsf-param nsf-number" style="text-align:right; width:100px;ime-mode:disabled;">
                                                     </li>
-                                                    <li class="nsf-form-item-10x"><span >2015년이후차입분 15년이상 고정금리이면서, 비거치상환대출 (1,800만원 한도)</span><span></span><span></span>
+                                                    <li><span >2015년이후차입분 15년이상 고정금리이면서, 비거치상환대출 (1,800만원 한도)</span>
                                                         <input type="text" id="txtAmtNHouse46" name="amtNHouse46" title="amtNHouse46" class="nsf-param nsf-number" style="text-align:right; width:100px;ime-mode:disabled;">
                                                     </li>
-                                                    <li class="nsf-form-item-10x"><span >2015년이후차입분 15년이상 고정금리이거나, 비거치상환대출 (1,500만원 한도)</span><span></span><span></span>
+                                                    <li><span >2015년이후차입분 15년이상 고정금리이거나, 비거치상환대출 (1,500만원 한도)</span>
                                                         <input type="text" id="txtAmtNHouse47" name="amtNHouse47" title="amtNHouse47" class="nsf-param nsf-number" style="text-align:right; width:100px;ime-mode:disabled;">
                                                     </li>
-                                                    <li class="nsf-form-item-10x"><span >2015년이후차입분 15년이상 그밖의 대출 (500만원 한도)</span><span></span><span></span>
+                                                    <li><span >2015년이후차입분 15년이상 그밖의 대출 (500만원 한도)</span>
                                                         <input type="text" id="txtAmtNHouse48" name="amtNHouse48" title="amtNHouse48" class="nsf-param nsf-number" style="text-align:right; width:100px;ime-mode:disabled;">
                                                     </li>
-                                                    <li class="nsf-form-item-10x"><span >2015년이후차입분 10~15년 고정금리이거나, 비거치상환대출 (300만원 한도)</span><span></span><span></span>
+                                                    <li><span >2015년이후차입분 10~15년 고정금리이거나, 비거치상환대출 (300만원 한도)</span>
                                                         <input type="text" id="txtAmtNHouse49" name="amtNHouse49" title="amtNHouse49" class="nsf-param nsf-number" style="text-align:right; width:100px;ime-mode:disabled;">
                                                     </li>
                                                 </ul>
@@ -8916,60 +8913,48 @@ function fSetDataTax(data) {
                                         </div>
                                     </div>
                                     <div class="nsf-form" >
-                                        <table cellpadding="0" cellspacing="0">
+                                        <table cellpadding="0" cellspacing="0" style="border: 1px solid #d9d9d9;">
                                             <tr><td>
-                                                <ul>
-                                                    <li><span style="display:inline-block;width:900px;text-align:left;"><b>그밖의공제(연금저축)&nbsp;</b></span>
-                                                        <label id="lblPensionBase" title="pensionBase"></label>
-                                                    </li>
-                                                </ul>
+                                                <label id="lblPensionBase" title="pensionBase" class="nsf-title">그밖의공제(연금저축)</label>
                                             </td></tr>
                                             <tr><td>
-                                                <ul>
-                                                    <li class=""><span >개인연금저축&nbsp;</span>
+                                                <ul class="per100">
+                                                    <li class="first"><span>개인연금저축&nbsp;</span>
                                                         <input type="text" id="txtAmtNAnnu" name="amtNAnnu" title="amtNAnnu" class="nsf-param nsf-status-lck nsf-number" style="text-align:right; width:100px;ime-mode:disabled;" onfocus="this.blur()" readonly="readonly">
                                                     </li>
                                                 </ul>
                                             </td></tr>
                                             <tr><td>
-                                                <ul>
-                                                    <li><span style="display:inline-block;width:900px;text-align:left;"><b>그밖의공제(주택마련저축)&nbsp;</b></span>
-                                                        <label id="lblPensionBase" title="pensionBase"></label>
-                                                    </li>
-                                                </ul>
+                                                <label id="lblPensionBase" title="pensionBase" class="nsf-title">그밖의공제(주택마련저축)</label>
                                             </td></tr>
                                             <tr><td>
-                                                <ul>
-                                                    <li class=""><span >청약저축&nbsp;</span>
+                                                <ul class="per33">
+                                                    <li class="first"><span >청약저축&nbsp;</span>
                                                         <input type="text" id="txtAmtNHouse1" name="amtNHouse1" title="amtNHouse1" class="nsf-param nsf-status-lck nsf-number" style="text-align:right; width:100px;ime-mode:disabled;" onfocus="this.blur()" readonly="readonly">
                                                     </li>
-                                                    <li class=""><span >근로자주택마련저축&nbsp;</span>
+                                                    <li class="first"><span >근로자주택마련저축&nbsp;</span>
                                                         <input type="text" id="txtAmtNHouse11" name="amtNHouse11" title="amtNHouse11" class="nsf-param nsf-status-lck nsf-number" style="text-align:right; width:100px;ime-mode:disabled;" onfocus="this.blur()" readonly="readonly">
                                                     </li>
                                                     <li class=" nsf-status-hid"><span >장기주택마련저축&nbsp;</span>
                                                         <input type="text" id="txtAmtNHouse12" name="amtNHouse12" title="amtNHouse12" class="nsf-param nsf-status-lck nsf-number" style="text-align:right; width:100px;ime-mode:disabled;" onfocus="this.blur()" readonly="readonly">
                                                     </li>
-                                                    <li class=""><span >주택청약종합저축&nbsp;</span>
+                                                    <li class="first"><span >주택청약종합저축&nbsp;</span>
                                                         <input type="text" id="txtAmtNHouse13" name="amtNHouse13" title="amtNHouse13" class="nsf-param nsf-status-lck nsf-number" style="text-align:right; width:100px;ime-mode:disabled;" onfocus="this.blur()" readonly="readonly">
                                                     </li>
                                                 </ul>
                                             </td></tr>
                                             <tr><td>
-                                                <ul>
-                                                    <li><span style="display:inline-block;width:900px;text-align:left;"><b>그밖의공제(신용카드 등 사용금액)&nbsp;</b></span>
-                                                        <label id="lblPensionBase" title="pensionBase"></label>
-                                                    </li>
-                                                </ul>
+                                                <label id="lblPensionBase" title="pensionBase" class="nsf-title">그밖의공제(신용카드 등 사용금액)</label>
                                             </td></tr>
                                             <tr><td>
                                                 <ul>
-                                                    <li class=""><span >신용카드&nbsp;</span>
+                                                    <li class="first"><span >신용카드&nbsp;</span>
                                                         <input type="text" id="txtAmtNCard" name="amtNCard" title="amtNCard" class="nsf-param nsf-status-lck nsf-number" style="text-align:right; width:100px;ime-mode:disabled;" onfocus="this.blur()" readonly="readonly">
                                                     </li>
-                                                    <li class=""><span >현금영수증&nbsp;</span>
+                                                    <li class="first"><span >현금영수증&nbsp;</span>
                                                         <input type="text" id="txtAmtNCash" name="amtNCash" title="amtNCash" class="nsf-param nsf-status-lck nsf-number" style="text-align:right; width:100px;ime-mode:disabled;" onfocus="this.blur()" readonly="readonly">
                                                     </li>
-                                                    <li class=""><span >직불카드&nbsp;</span>
+                                                    <li class="first"><span >직불카드&nbsp;</span>
                                                         <input type="text" id="txtAmtNDebitCard" name="amtNDebitCard" title="amtNDebitCard" class="nsf-param nsf-status-lck nsf-number" style="text-align:right; width:100px;ime-mode:disabled;" onfocus="this.blur()" readonly="readonly">
                                                     </li>
                                                     <!-- 2019.12.13추가. 제로페이 -->
@@ -8983,7 +8968,7 @@ function fSetDataTax(data) {
                                                         <input type="text" id="txtAmtNZiro" name="amtNZiro" title="amtNZiro" class="nsf-param nsf-status-lck nsf-number" style="text-align:right; width:100px;ime-mode:disabled;" onfocus="this.blur()" readonly="readonly">
                                                     </li>
                                                     <!-- 2018.12.19 kyr추가.신용카드등 도서/공연  -->
-                                                    <li class=""><span >도서/공연등(신용카드)&nbsp;</span>
+                                                    <li class="first"><span >도서/공연등(신용카드)&nbsp;</span>
                                                         <input type="text" id="txtAmtNCultureCard" name="amtNCultureCard" title="amtNCultureCard" class="nsf-param nsf-status-lck nsf-number" style="text-align:right; width:100px;ime-mode:disabled;" onfocus="this.blur()" readonly="readonly">
                                                     </li>
                                                     <li class=""><span >도서/공연등(직불카드)&nbsp;</span>
@@ -9034,11 +9019,7 @@ function fSetDataTax(data) {
                                                     </div>
                                             </td></tr>
                                             <tr><td>
-                                                <ul>
-                                                    <li><span style="display:inline-block;width:900px;text-align:left;"><b>그밖의공제(기타)&nbsp;</b></span>
-                                                        <label id="lblPensionBase" title="pensionBase"></label>
-                                                    </li>
-                                                </ul>
+                                                <label id="lblPensionBase" title="pensionBase" class="nsf-title">그밖의공제(기타)</label>
                                             </td></tr>
                                             <tr><td>
                                                 <ul>
@@ -9141,67 +9122,55 @@ function fSetDataTax(data) {
                                         </div>
                                     </div>
                                     <div class="nsf-form" >
-                                        <table cellpadding="0" cellspacing="0">
+                                        <table cellpadding="0" cellspacing="0" style="border: 1px solid #d9d9d9;">
                                             <tr><td>
-                                                <ul>
-                                                    <li><span style="display:inline-block;width:900px;text-align:left;"><b>세액공제(연금계좌)&nbsp;</b></span>
-                                                        <label id="lblPensionBase" title="pensionBase"></label>
-                                                    </li>
-                                                </ul>
+                                                <label id="lblPensionBase" title="pensionBase" class="nsf-title">세액공제(연금계좌)</label>
                                             </td></tr>
                                             <tr><td>
                                                 <ul>
-                                                    <li class=""><span >과학기술인공제&nbsp;</span>
+                                                    <li class="first"><span >과학기술인공제&nbsp;</span>
                                                         <input type="text" id="txtAmtNRetPension" name="amtNRetPension" title="amtNRetPension" class="nsf-param nsf-status-lck nsf-number" style="text-align:right; width:100px;ime-mode:disabled;" readonly="readonly">
                                                     </li>
-                                                    <li class=""><span >근로자퇴직급여보장법&nbsp;</span>
+                                                    <li class="first"><span >근로자퇴직급여보장법&nbsp;</span>
                                                         <input type="text" id="txtAmtNRetPension1" name="amtNRetPension1" title="amtNRetPension1" class="nsf-param nsf-status-lck nsf-number" style="text-align:right; width:100px;ime-mode:disabled;" readonly="readonly">
                                                     </li>
-                                                    <li class=""><span >연금저축&nbsp;</span>
+                                                    <li class="first"><span >연금저축&nbsp;</span>
                                                         <input type="text" id="txtAmtNPensSave" name="amtNPensSave" title="amtNPensSave" class="nsf-param nsf-status-lck nsf-number" style="text-align:right; width:100px;ime-mode:disabled;" readonly="readonly">
                                                     </li>
-                                                    <li class=""><span >ISA계좌 연금계좌 전환&nbsp;</span>
+                                                    <li class="first"><span >ISA계좌 연금계좌 전환&nbsp;</span>
                                                         <input type="text" id="txtAmtNPensSaveIsa" name="amtNPensSaveIsa" title="amtNPensSaveIsa" class="nsf-param nsf-status-lck nsf-number" style="text-align:right; width:100px;ime-mode:disabled;" readonly="readonly">
                                                     </li>
                                                 </ul>
                                             </td></tr>
                                             <tr><td>
-                                                <ul>
-                                                    <li><span style="display:inline-block;width:900px;text-align:left;"><b>세액공제(보험료)&nbsp;</b></span>
-                                                        <label id="lblPensionBase" title="pensionBase"></label>
-                                                    </li>
-                                                </ul>
+                                                <label id="lblPensionBase" title="pensionBase" class="nsf-title">세액공제(보험료)</label>
                                             </td></tr>
                                             <tr><td>
-                                                <ul>
-                                                    <li class=""><span >일반보장&nbsp;</span>
+                                                <ul class="per50">
+                                                    <li class="first"><span >일반보장&nbsp;</span>
                                                         <input type="text" id="txtAmtNEtcins" name="amtNEtcins" title="amtNEtcins" class="nsf-param nsf-status-lck nsf-number" style="text-align:right; width:100px;ime-mode:disabled;" readonly="readonly">
                                                     </li>
-                                                    <li class=""><span >장애전용&nbsp;</span>
+                                                    <li class="first"><span >장애전용&nbsp;</span>
                                                         <input type="text" id="txtAmtNEtcinsHandi" name="amtNEtcinsHandi" title="amtNEtcinsHandi" class="nsf-param nsf-status-lck nsf-number" style="text-align:right; width:100px;ime-mode:disabled;" readonly="readonly">
                                                     </li>
                                                 </ul>
                                             </td></tr>
 
                                             <tr><td>
-                                                <ul>
-                                                    <li><span style="display:inline-block;width:900px;text-align:left;"><b>세액공제(의료비)&nbsp;</b></span>
-                                                        <label id="lblPensionBase" title="pensionBase"></label>
-                                                    </li>
-                                                </ul>
+                                                <label id="lblPensionBase" title="pensionBase" class="nsf-title">세액공제(의료비)</label>
                                             </td></tr>
                                             <tr><td>
                                                 <ul>
-                                                    <li class=""><span >본인&nbsp;</span>
+                                                    <li class="first"><span >본인&nbsp;</span>
                                                         <input type="text" id="txtAmtNMed1" name="amtNMed1" title="amtNMed1" class="nsf-param nsf-status-lck nsf-number" style="text-align:right; width:100px;ime-mode:disabled;" onfocus="this.blur()" readonly="readonly">
                                                     </li>
-                                                    <li class=""><span >일반&nbsp;</span>
+                                                    <li class="first"><span >일반&nbsp;</span>
                                                         <input type="text" id="txtAmtNMed2" name="amtNMed2" title="amtNMed2" class="nsf-param nsf-status-lck nsf-number" style="text-align:right; width:100px;ime-mode:disabled;" onfocus="this.blur()" readonly="readonly">
                                                     </li>
-                                                    <li class=""><span >경로/장애의료비&nbsp;</span>
+                                                    <li class="first"><span >경로/장애의료비&nbsp;</span>
                                                         <input type="text" id="txtAmtNMed3" name="amtNMed3" title="amtNMed3" class="nsf-param nsf-status-lck nsf-number" style="text-align:right; width:100px;ime-mode:disabled;" onfocus="this.blur()" readonly="readonly">
                                                     </li>
-                                                    <li class=""><span >난임의료비&nbsp;</span>
+                                                    <li class="first"><span >난임의료비&nbsp;</span>
                                                         <input type="text" id="txtAmtNMed4" name="amtNMed4" title="amtNMed4" class="nsf-param nsf-status-lck nsf-number" style="text-align:right; width:100px;ime-mode:disabled;" onfocus="this.blur()" readonly="readonly">
                                                     </li>
                                                     <li class=""><span >건강보험산정의료비&nbsp;</span>
@@ -9213,22 +9182,20 @@ function fSetDataTax(data) {
                                                     <li class=""><span >실손의료보험금&nbsp;</span>
                                                         <input type="text" id="txtAmtNMedLoss" name="amtNMedLoss" title="amtNMedLoss" class="nsf-param nsf-status-lck nsf-number" style="text-align:right; width:100px;ime-mode:disabled;" onfocus="this.blur()" readonly="readonly">
                                                     </li>
+                                                    <li class="">&nbsp;
+                                                    </li>
                                                 </ul>
                                             </td></tr>
 
                                             <tr><td>
-                                                <ul>
-                                                    <li><span style="display:inline-block;width:900px;text-align:left;"><b>세액공제(기부금)&nbsp;</b></span>
-                                                        <label id="lblPensionBase" title="pensionBase"></label>
-                                                    </li>
-                                                </ul>
+                                                <label id="lblPensionBase" title="pensionBase" class="nsf-title">세액공제(기부금)</label>
                                             </td></tr>
                                             <tr><td>
                                                 <ul>
-                                                    <li class=""><span >법정기부금&nbsp;</span>
+                                                    <li class="first"><span >법정기부금&nbsp;</span>
                                                         <input type="text" id="txtAmtNLawConti" name="amtNLawConti" title="amtNLawConti" class="nsf-param nsf-status-lck nsf-number" style="text-align:right; width:100px;ime-mode:disabled;" onfocus="this.blur()" readonly="readonly">
                                                     </li>
-                                                    <li class=""><span >정치자금&nbsp;</span>
+                                                    <li class="first"><span >정치자금&nbsp;</span>
                                                         <input type="text" id="txtAmtNGovernmentConti" name="amtNGovernmentConti" title="amtNGovernmentConti" class="nsf-param nsf-status-lck nsf-number" style="text-align:right; width:100px;ime-mode:disabled;" onfocus="this.blur()" readonly="readonly">
                                                     </li>
                                                     <li class=" nsf-status-hid"><span >50%한도적용특례기부금&nbsp;</span>
@@ -9237,68 +9204,72 @@ function fSetDataTax(data) {
                                                     <li class=" nsf-status-hid"><span >50%한도공익법인신탁기부&nbsp;</span>
                                                         <input type="text" id="txtAmtNLimConti2" name="amtNLimConti2" title="amtNLimConti2" class="nsf-param nsf-status-lck nsf-number" style="text-align:right; width:100px;ime-mode:disabled;" onfocus="this.blur()" readonly="readonly">
                                                     </li>
-                                                    <li class=""><span >우리사주기부금&nbsp;</span>
+                                                    <li class="first"><span >우리사주기부금&nbsp;</span>
                                                         <input type="text" id="txtAmtNWrsajuConti" name="amtNWrsajuConti" title="amtNWrsajuConti" class="nsf-param nsf-status-lck nsf-number" style="text-align:right; width:100px;ime-mode:disabled;" onfocus="this.blur()" readonly="readonly">
                                                     </li>
-                                                    <li class=""><span >종교단체외지정기부&nbsp;</span>
+                                                    <li class="first"><span >종교단체외지정기부&nbsp;</span>
                                                         <input type="text" id="txtAmtNPerjijungConti" name="amtNPerjijungConti" title="amtNPerjijungConti" class="nsf-param nsf-status-lck nsf-number" style="text-align:right; width:100px;ime-mode:disabled;" onfocus="this.blur()" readonly="readonly">
                                                     </li>
                                                     <li class=""><span >종교단체 기부금&nbsp;</span>
                                                         <input type="text" id="txtAmtNAppConti" name="amtNAppConti" title="amtNAppConti" class="nsf-param nsf-status-lck nsf-number" style="text-align:right; width:100px;ime-mode:disabled;" onfocus="this.blur()" readonly="readonly">
                                                     </li>
-                                                </ul>
-                                            </td></tr>
-                                            <tr><td>
-                                                <ul>
-                                                    <li><span style="display:inline-block;width:900px;text-align:left;"><b>세액공제(기타)&nbsp;</b></span>
-                                                        <label id="lblPensionBase" title="pensionBase"></label>
+                                                    <li class="">&nbsp;
+                                                    </li>
+                                                    <li class="">&nbsp;
+                                                    </li>
+                                                    <li class="">&nbsp;
                                                     </li>
                                                 </ul>
                                             </td></tr>
                                             <tr><td>
+                                                <label id="lblPensionBase" title="pensionBase" class="nsf-title">세액공제(기타)</label>
+                                            </td></tr>
+                                            <tr><td>
                                                 <ul>
-                                                    <li class=""><span >주택차입금이자&nbsp;</span>
+                                                    <li class="first"><span >주택차입금이자&nbsp;</span>
                                                         <input type="text" id="txtAmtNHouse3" name="amtNHouse3" title="amtNHouse3" class="nsf-param nsf-number" style="text-align:right; width:100px;ime-mode:disabled;">
                                                     </li>
-                                                    <li class=""><span >외국납부소득금액&nbsp;</span>
+                                                    <li class="first"><span >외국납부소득금액&nbsp;</span>
                                                         <input type="text" id="txtAmtNFor" name="amtNFor" title="amtNFor" class="nsf-param nsf-number" style="text-align:right; width:100px;ime-mode:disabled;">
                                                     </li>
-                                                    <li class=""><span >외국납부납부세액&nbsp;</span>
+                                                    <li class="first"><span >외국납부납부세액&nbsp;</span>
                                                         <input type="text" id="txtAmtNForTax" name="amtNForTax" title="amtNForTax" class="nsf-param nsf-number" style="text-align:right; width:100px;ime-mode:disabled;">
                                                     </li>
-                                                    <li class=""><span >월세액&nbsp;</span>
+                                                    <li class="first"><span >월세액&nbsp;</span>
                                                         <input type="text" id="txtAmtNHouseRent" name="amtNHouseRent" title="amtNHouseRent" class="nsf-param nsf-status-lck nsf-number" style="text-align:right; width:100px;ime-mode:disabled;" onfocus="this.blur()" readonly="readonly">
                                                     </li>
                                                 </ul>
                                             </td></tr>
 
                                             <tr><td>
-                                                <ul>
-                                                    <li><span style="display:inline-block;width:900px;text-align:left;"><b>특별소득공제(교육비)&nbsp;</b></span>
-                                                        <label id="lblPensionBase" title="pensionBase"></label>
-                                                    </li>
-                                                </ul>
+                                                <label id="lblPensionBase" title="pensionBase" class="nsf-title">특별소득공제(교육비)</label>
                                             </td></tr>
                                             <tr><td>
                                                 <ul>
-                                                    <li class=""><span >본인교육&nbsp;</span>
+                                                    <li class="first"><span >본인교육&nbsp;</span>
                                                         <input type="text" id="txtAmtNEdu1" name="amtNEdu1" title="amtNEdu1" class="nsf-param nsf-status-lck nsf-number" style="text-align:right; width:100px;ime-mode:disabled;" onfocus="this.blur()" readonly="readonly">
                                                     </li>
-                                                    <li class=""><span >취학전아동&nbsp;</span>
+                                                    <li class="first"><span >취학전아동&nbsp;</span>
                                                         <input type="text" id="txtCntEdu3Cnt" name="cntEdu3Cnt" title="cntEdu3Cnt" class="nsf-param nsf-status-lck nsf-number" style="text-align:right; width:100px;ime-mode:disabled;width:20px;" onfocus="this.blur()" readonly="readonly">
                                                         <input type="text" id="txtAmtNEdu3" name="amtNEdu3" title="amtNEdu3" class="nsf-param nsf-status-lck" style="text-align:right; width:100px;ime-mode:disabled;width:70px;" onfocus="this.blur()" readonly="readonly">
                                                     </li>
-                                                    <li class=""><span >초·중·고&nbsp;</span>
+                                                    <li class="first"><span >초·중·고&nbsp;</span>
                                                         <input type="text" id="txtCntEdu4Cnt" name="cntEdu4Cnt" title="cntEdu4Cnt" class="nsf-param nsf-status-lck nsf-number" style="text-align:right; width:100px;ime-mode:disabled;width:20px;" onfocus="this.blur()" readonly="readonly">
                                                         <input type="text" id="txtAmtNEdu4" name="amtNEdu4" title="amtNEdu4" class="nsf-param nsf-status-lck" style="text-align:right; width:100px;ime-mode:disabled;width:70px;" onfocus="this.blur()" readonly="readonly">
                                                     </li>
-                                                    <li class=""><span >대학생&nbsp;</span>
+                                                    <li class="first"><span >대학생&nbsp;</span>
                                                         <input type="text" id="txtCntEdu5Cnt" name="cntEdu5Cnt" title="cntEdu5Cnt" class="nsf-param nsf-status-lck nsf-number" style="text-align:right; width:100px;ime-mode:disabled;width:20px;" onfocus="this.blur()" readonly="readonly">
                                                         <input type="text" id="txtAmtNEdu5" name="amtNEdu5" title="amtNEdu5" class="nsf-param nsf-status-lck" style="text-align:right; width:100px;ime-mode:disabled;width:70px;" onfocus="this.blur()" readonly="readonly">
                                                     </li>
                                                     <li class=""><span >장애인교육&nbsp;</span>
                                                         <input type="text" id="txtCntEdu6Cnt" name="cntEdu6Cnt" title="cntEdu6Cnt" class="nsf-param nsf-status-lck nsf-number" style="text-align:right; width:100px;ime-mode:disabled;width:20px;" onfocus="this.blur()" readonly="readonly">
                                                         <input type="text" id="txtAmtNEdu6" name="amtNEdu6" title="amtNEdu6" class="nsf-param nsf-status-lck" style="text-align:right; width:100px;ime-mode:disabled;width:70px;" onfocus="this.blur()" readonly="readonly">
+                                                    </li>
+                                                    <li class="">&nbsp;
+                                                    </li>
+                                                    <li class="">&nbsp;
+                                                    </li>
+                                                    <li class="">&nbsp;
                                                     </li>
                                                 </ul>
                                             </td></tr>
