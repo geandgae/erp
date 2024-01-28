@@ -23,6 +23,7 @@
 <link rel="stylesheet" type="text/css" href="./jquery/plugin/jqGrid/plugins/ui.multiselect.css"/>
 
 <link rel="stylesheet" type="text/css" href="./nsf/css/nsf.css"/>
+<link rel="stylesheet" type="text/css" href="./nsf/css/new_nsf.css"/>
 
 <style type="text/css">
 	.css-form .ui-widget-header label { position: relative; top: 3px; left: 3px; }
@@ -1468,7 +1469,7 @@ function fSetData(data) {
 </head>
 <body>
 
-<div style="height:5px;"></div>
+<!-- <div style="height:5px;"></div>  삭제-->
 
 
 <div id="sectionA1" class="nsf-section nsf-widget-header ui-widget-header">
@@ -1482,44 +1483,40 @@ function fSetData(data) {
 	<div class="nsf-panel">
 		<div id="grid">
 			<div class="head nsf-form-search">
-				<ul>
+				<ul class="per50"><!-- 신규 상단 클래스 추가 li 50% -->
 					<li class="nsf-form-li-2x" style="display: none;"><span class="nsf-required">법인번호&nbsp;</span>
 						<input type="text" id="txtCdCompanyH" name="cdCompany" class="nsf-param nsf-status-ess">
 						<button id="popCdCompanyH" class="nsf-btn-popup"><a>&nbsp;</a></button>
 						<input type="text" id="txtNmCompanyH" name="nmCompany" class="nsf-param nsf-status-lck nsf-form-item-2x" >
 					</li>
-
 					<li class="nsf-form-li-2x"><span class="nsf-required">사번/성명&nbsp;</span>
 						<input type="text" id="txtNoPersonH" name="noPersonH" class="nsf-input nsf-param nsf-status-ess">
 						<button id="popNoPersonH" class="nsf-btn-popup"><a>&nbsp;</a></button>
 						<input type="text" id="txtNmPersonH" name="nmPersonH" class="nsf-param nsf-status-lck nsf-form-item-2x" readonly="true">
 						<input type="text" id="txtNoRepreH" name="noRepreH" class="nsf-param nsf-status-lck nsf-form-item-2x" readonly="true" style="display: none;">
 					</li>
-
 					<li class="nsf-form-li-2x"><span class="nsf-required">정산년도&nbsp;</span>
-		    	    	<input type="text" id="txtYyYearH" name="yyYear" class="nsf-input nsf-param nsf-status-ess" style="text-align:center;">
-		            </li>
-
+                        <input type="text" id="txtYyYearH" name="yyYear" class="nsf-input nsf-param nsf-status-ess" style="text-align:center;">
+                    </li>
+                </ul>
+                <ul class="per50"><!-- 신규 상단 클래스 추가 li 50% -->
 					<li style="display:none;"><span>editFlag&nbsp;</span>
 						<input type="text" id="eTempFileName" name="tempFileName" class="nsf-param">
 						<input type="text" id="eFileName" name="fileName" class="nsf-param">
 						<input type="text" id="eFolderName" name="folderName" class="nsf-param">
 						<input type="text" id="eRealFolderName" name="realFolderName" class="nsf-param">
 					</li>
-					<li class="nsf-form-li-2x">
+					<li>
 						<form id="eUpload" action="./webApp/wisen/hu/yer/control/HuYer450SC_2022" method="post" enctype="multipart/form-data">
 							<input type="hidden" name="methodName" value="upload">
 							<span>PDF검색&nbsp;</span>
                             <input class="nsf-button-upload nsf-file" type="file" id="eFile" name="file" accept=".pdf" onchange="fGetFileExtension()" > <!--20180928 accept, onchange추가   -->
-                       		<font color="blue"><u>업로드 가능한 파일 크기는 5MB까지 입니다.</u>
+                            <u class ="point">업로드 가능한 파일 크기는 5MB까지 입니다.</u>
                         </form>
                     </li>
-
-
-
-
-					<li class="nsf-form-li-4x">
-						<label><font color="blue"><u>PDF를 저장하기 전에 근로소득대상자 확정, 연말정산 기초자료 생성이 되어있어야 합니다. 자료는 추출후 저장하실 수 있습니다.</u></font></label>
+					<li>
+                        <u class ="point" style="height: 29px;line-height: 2.8;">PDF를 저장하기 전에 근로소득대상자 확정, 연말정산 기초자료 생성이 되어있어야 합니다. 자료는 추출후 저장하실 수 있습니다.</u>
+						<!-- <label><font color="blue"><u>PDF를 저장하기 전에 근로소득대상자 확정, 연말정산 기초자료 생성이 되어있어야 합니다. 자료는 추출후 저장하실 수 있습니다.</u></font></label> -->
 					</li>
 
 					<li style="display: none;">
@@ -1539,97 +1536,79 @@ function fSetData(data) {
                     </td></tr></table>
 				</div>
             <div class="nsf-formM1">
-                <div class="nsf-form">
-                    <table cellpadding="0" cellspacing="0">
-                        <tr>
-                            <td>
-                                <ul>
-                                    <li class="nsf-form-li-2x" style="display: none;"><span class="nsf-required">법인번호&nbsp;</span>
-                                        <input type="text" id="txtCdCompanyM1" name="cdCompanyM1" class="nsf-param nsf-status-ess">
-                                    </li>
-                                    <li class="nsf-form-li-2x" style="display: none;"><span>정산년도&nbsp;</span>
-                                        <input type="text" id="txtYyYearM1" name="yyYearM1" class="nsf-input nsf-param" style="text-align: center;" disabled>
-                                    </li>
-                                    <li class="nsf-form-li-2x" style="display: none;"><span>사번&nbsp;</span>
-                                        <input type="text" id="txtNoPersonM1" name="noPersonM1" class="nsf-input nsf-param" style="text-align: left;" disabled>
-                                    </li>
-                                    <li class="nsf-form-li-2x" style="display: none;"><span>성명&nbsp;</span>
-                                        <input type="text" id="txtNmPersonM1" name="nmPersonM1" class="nsf-input nsf-param" style="text-align: left;" disabled>
-                                    </li>
-                                </ul>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <font color="black"><b>특별공제(주택자금)&nbsp;</b></font>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <ul><!-- 2016-01-03 수정 -->
-                                    <li class="nsf-form-li-2xx"><span class="nsf-form-item-2x">주택임차차입금원리금상환액(대출기관)&nbsp;</span>
-                                        <input type="text" id="txtAmtNHouse2M1" name="amtNHouse2M1" class="nsf-input nsf-param" style="text-align: right;" disabled>
-                                    </li>
+                
+                    <ul style="display: none;">
+                        <li class="nsf-form-li-2x"><span class="nsf-required">법인번호&nbsp;</span>
+                            <input type="text" id="txtCdCompanyM1" name="cdCompanyM1" class="nsf-param nsf-status-ess">
+                        </li>
+                        <li class="nsf-form-li-2x" style="display: none;"><span>정산년도&nbsp;</span>
+                            <input type="text" id="txtYyYearM1" name="yyYearM1" class="nsf-input nsf-param" style="text-align: center;" disabled>
+                        </li>
+                        <li class="nsf-form-li-2x" style="display: none;"><span>사번&nbsp;</span>
+                            <input type="text" id="txtNoPersonM1" name="noPersonM1" class="nsf-input nsf-param" style="text-align: left;" disabled>
+                        </li>
+                        <li class="nsf-form-li-2x" style="display: none;"><span>성명&nbsp;</span>
+                            <input type="text" id="txtNmPersonM1" name="nmPersonM1" class="nsf-input nsf-param" style="text-align: left;" disabled>
+                        </li>
+                    </ul>
+                    <label class="nsf-title">특별공제(주택자금)</label>
+                    <div class="ui-widget-content ui-corner-bottom">
+                        <div class="nsf-form">
+                        <ul class="per33"><!-- 2016-01-03 수정 -->
+                            <li ><span class="nsf-form-item-2xx">주택임차차입금원리금상환액(대출기관)&nbsp;</span>
+                                <input type="text" id="txtAmtNHouse2M1" name="amtNHouse2M1" class="nsf-input nsf-param" style="text-align: right;" disabled>
+                            </li>
 
-                                    <li class="nsf-form-li-2xx"><span class="nsf-form-item-2x">2011년이전차입분 15년미만&nbsp;</span>
-                                        <input type="text" id="txtAmtNHouse41M1" name="amtNHouse41M1" class="nsf-input nsf-param" style="text-align: right;" disabled>
-                                    </li>
-                                    <li class="nsf-form-li-2xx"><span class="nsf-form-item-2x">2011년이전차입분 15년~29년&nbsp;</span>
-                                        <input type="text" id="txtAmtNHouse42M1" name="amtNHouse42M1" class="nsf-input nsf-param" style="text-align: right;" disabled>
-                                    </li>
-                                    <li class="nsf-form-li-2xx"><span class="nsf-form-item-2x">2011년이전차입분 30년이상&nbsp;</span>
-                                        <input type="text" id="txtAmtNHouse43M1" name="amtNHouse43M1" class="nsf-input nsf-param" style="text-align: right;" disabled>
-                                    </li>
-                                    <li class="nsf-form-li-2xx"><span class="nsf-form-item-2x">2012년이후차입분 고정금리이면서, 비거치상환&nbsp;</span>
-                                        <input type="text" id="txtAmtNHouse44M1" name="amtNHouse44M1" class="nsf-input nsf-param" style="text-align: right;" disabled>
-                                    </li>
-                                    <li class="nsf-form-li-2xx"><span class="nsf-form-item-2x">2012년이후차입분 기타대출&nbsp;</span>
-                                        <input type="text" id="txtAmtNHouse45M1" name="amtNHouse45M1" class="nsf-input nsf-param" style="text-align: right;" disabled>
-                                    </li>
-                                    <li class="nsf-form-li-2xx"><span class="nsf-form-item-2x">2015년이후차입분 15년이상 고정금리이면서, 비거치상환대출&nbsp;</span>
-                                        <input type="text" id="txtAmtNHouse46M1" name="amtNHouse46M1" class="nsf-input nsf-param" style="text-align: right;" disabled>
-                                    </li>
-                                    <li class="nsf-form-li-2xx"><span class="nsf-form-item-2x">2015년이후차입분 15년이상 고정금리이면서, 비거치상환대출&nbsp;</span>
-                                        <input type="text" id="txtAmtNHouse47M1" name="amtNHouse47M1" class="nsf-input nsf-param" style="text-align: right;" disabled>
-                                    </li>
-                                    <li class="nsf-form-li-2xx"><span class="nsf-form-item-2x">2015년이후차입분 15년이상 그밖의 대출&nbsp;</span>
-                                        <input type="text" id="txtAmtNHouse48M1" name="amtNHouse48M1" class="nsf-input nsf-param" style="text-align: right;" disabled>
-                                    </li>
-                                    <li class="nsf-form-li-2xx"><span class="nsf-form-item-2x">2015년이후차입분 10~15년 고정금리이면서, 비거치상환대출&nbsp;</span>
-                                        <input type="text" id="txtAmtNHouse49M1" name="amtNHouse49M1" class="nsf-input nsf-param" style="text-align: right;" disabled>
-                                    </li>
-                                </ul>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <font color="black"><b>그밖의공제(기타)&nbsp;</b></font>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <ul>
-                                    <li class="nsf-form-li-2xx"><span class="nsf-form-item-2x">소기업소상공인공제부금&nbsp;</span>
-                                        <input type="text" id="txtAmtNSbdcdM1" name="amtNSbdcdM1" class="nsf-input nsf-param" style="text-align: right;" disabled>
-						            </li>						          
-<!-- 						            <li class="nsf-form-li-2xx"><span class="nsf-form-item-2x">투자조합출자(2019)&nbsp;</span> -->
-<!-- 						    	    	<input type="text" id="txtAmtNInvest9M1" name="amtNInvest9M1" class="nsf-input nsf-param" style="text-align: right;" disabled> -->
-<!-- 						            </li> -->
-						            <li class="nsf-form-li-2xx"><span class="nsf-form-item-2x">투자조합출자(2020)&nbsp;</span>
-						    	    	<input type="text" id="txtAmtNInvest10M1" name="amtNInvest10M1" class="nsf-input nsf-param" style="text-align: right;" disabled>
-						            </li>
-						            <li class="nsf-form-li-2xx"><span class="nsf-form-item-2x">투자조합출자(2021)&nbsp;</span>
-						    	    	<input type="text" id="txtAmtNInvest11M1" name="amtNInvest11M1" class="nsf-input nsf-param" style="text-align: right;" disabled>
-						            </li>
-						            <li class="nsf-form-li-2xx"><span class="nsf-form-item-2x">투자조합출자(2022)&nbsp;</span>
-						    	    	<input type="text" id="txtAmtNInvest12M1" name="amtNInvest12M1" class="nsf-input nsf-param" style="text-align: right;" disabled>
-						            </li>
-                                </ul>
-                            </td>
-                        </tr>
-                    </table>
+                            <li ><span class="nsf-form-item-2xx">2011년이전차입분 15년미만&nbsp;</span>
+                                <input type="text" id="txtAmtNHouse41M1" name="amtNHouse41M1" class="nsf-input nsf-param" style="text-align: right;" disabled>
+                            </li>
+                            <li ><span class="nsf-form-item-2xx">2011년이전차입분 15년~29년&nbsp;</span>
+                                <input type="text" id="txtAmtNHouse42M1" name="amtNHouse42M1" class="nsf-input nsf-param" style="text-align: right;" disabled>
+                            </li>
+                            <li ><span class="nsf-form-item-2xx">2011년이전차입분 30년이상&nbsp;</span>
+                                <input type="text" id="txtAmtNHouse43M1" name="amtNHouse43M1" class="nsf-input nsf-param" style="text-align: right;" disabled>
+                            </li>
+                            <li ><span class="nsf-form-item-2xx">2012년이후차입분 고정금리이면서, 비거치상환&nbsp;</span>
+                                <input type="text" id="txtAmtNHouse44M1" name="amtNHouse44M1" class="nsf-input nsf-param" style="text-align: right;" disabled>
+                            </li>
+                            <li ><span class="nsf-form-item-2xx">2012년이후차입분 기타대출&nbsp;</span>
+                                <input type="text" id="txtAmtNHouse45M1" name="amtNHouse45M1" class="nsf-input nsf-param" style="text-align: right;" disabled>
+                            </li>
+                            <li ><span class="nsf-form-item-2xx">2015년이후차입분 15년이상 고정금리이면서, 비거치상환대출&nbsp;</span>
+                                <input type="text" id="txtAmtNHouse46M1" name="amtNHouse46M1" class="nsf-input nsf-param" style="text-align: right;" disabled>
+                            </li>
+                            <li ><span class="nsf-form-item-2xx">2015년이후차입분 15년이상 고정금리이면서, 비거치상환대출&nbsp;</span>
+                                <input type="text" id="txtAmtNHouse47M1" name="amtNHouse47M1" class="nsf-input nsf-param" style="text-align: right;" disabled>
+                            </li>
+                            <li ><span class="nsf-form-item-2xx">2015년이후차입분 15년이상 그밖의 대출&nbsp;</span>
+                                <input type="text" id="txtAmtNHouse48M1" name="amtNHouse48M1" class="nsf-input nsf-param" style="text-align: right;" disabled>
+                            </li>
+                            <li class="bb_none"><span class="nsf-form-item-2xx">2015년이후차입분 10~15년 고정금리이면서, 비거치상환대출&nbsp;</span>
+                                <input type="text" id="txtAmtNHouse49M1" name="amtNHouse49M1" class="nsf-input nsf-param" style="text-align: right;" disabled>
+                            </li>
+                        </ul>
+                        </div>
+                    </div>
+                    <label class="nsf-title">그밖의공제(기타)</label>
+                    <div class="ui-widget-content ui-corner-bottom">
+                        <div class="nsf-form">
+                            <ul>
+                                <li class="bb_none"><span class="nsf-form-item-2x">소기업소상공인공제부금&nbsp;</span>
+                                    <input type="text" id="txtAmtNSbdcdM1" name="amtNSbdcdM1" class="nsf-input nsf-param" style="text-align: right;" disabled>
+                                </li>						          
+                                <li class="bb_none"><span class="nsf-form-item-2x">투자조합출자(2020)&nbsp;</span>
+                                    <input type="text" id="txtAmtNInvest10M1" name="amtNInvest10M1" class="nsf-input nsf-param" style="text-align: right;" disabled>
+                                </li>
+                                <li class="bb_none"><span class="nsf-form-item-2x">투자조합출자(2021)&nbsp;</span>
+                                    <input type="text" id="txtAmtNInvest11M1" name="amtNInvest11M1" class="nsf-input nsf-param" style="text-align: right;" disabled>
+                                </li>
+                                <li class="bb_none"><span class="nsf-form-item-2x">투자조합출자(2022)&nbsp;</span>
+                                    <input type="text" id="txtAmtNInvest12M1" name="amtNInvest12M1" class="nsf-input nsf-param" style="text-align: right;" disabled>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-            </div>
             </div>
         </div>
     </div>
@@ -1641,12 +1620,12 @@ function fSetData(data) {
 </div>
 <div  class="css-form">
 <div class="ui-tabs">
-<div id="sectionB2" class="nsf-section-resize nsf-widget-content">
-    <table cellpadding="0" cellspacing="0">
+<div id="sectionB2" class="nsf-section-resize">
+    <table cellpadding="0" cellspacing="0" width="100%">
         <tr>
             <td>
-                <div id="divTab">
-                   <ul id="ulTab" style="display:none">
+                <div id="divTab" style="border: 0;">
+                   <ul id="ulTab" style="display:none;padding-bottom: 3px;">
                       <li><a href="#tabsD1">부양가족소득공제</a></li>
                       <li><a href="#tabsD7">신용카드등록</a></li>
                       <li><a href="#tabsD2">연금저축소득공제</a></li>
@@ -1679,7 +1658,7 @@ function fSetData(data) {
 
                    <div id="tabsD3">
                        <div class="nsf-form">
-                            <div style="height:5px;"></div>
+                            <div style="height:10px;"></div>
                             <table id="jqGridD3"></table>
                              <div id="jqGridnavD3"></div>
                        </div>
@@ -1687,7 +1666,7 @@ function fSetData(data) {
 
                    <div id="tabsD4">
                        <div class="nsf-form">
-                            <div style="height:5px;"></div>
+                            <div style="height:10px;"></div>
                             <table id="jqGridD4"></table>
                              <div id="jqGridnavD4"></div>
                        </div>
@@ -1695,7 +1674,7 @@ function fSetData(data) {
 
                    <div id="tabsD5">
                        <div class="nsf-form">
-                            <div style="height:5px;"></div>
+                            <div style="height:10px;"></div>
                             <table id="jqGridD5"></table>
                              <div id="jqGridnavD5"></div>
                        </div>
@@ -1703,7 +1682,7 @@ function fSetData(data) {
 
                    <div id="tabsD6">
                        <div class="nsf-form">
-                            <div style="height:5px;"></div>
+                            <div style="height:10px;"></div>
                             <table id="jqGridD6"></table>
                              <div id="jqGridnavD6"></div>
                        </div>
@@ -1711,7 +1690,7 @@ function fSetData(data) {
 
                    <div id="tabsD7">
                        <div class="nsf-form">
-                            <div style="height:5px;"></div>
+                            <div style="height:10px;"></div>
                             <table id="jqGridD7"></table>
                              <div id="jqGridnavD7"></div>
                        </div>
@@ -1719,7 +1698,7 @@ function fSetData(data) {
 
                    <div id="tabsD8">
                        <div class="nsf-form">
-                            <div style="height:5px;"></div>
+                            <div style="height:10px;"></div>
                             <table id="jqGridD8"></table>
                              <div id="jqGridnavD8"></div>
                        </div>
@@ -1727,28 +1706,28 @@ function fSetData(data) {
 
                    <div id="tabsD9">
                        <div class="nsf-form">
-                            <div style="height:5px;"></div>
+                            <div style="height:10px;"></div>
                             <table id="jqGridD9"></table>
                              <div id="jqGridnavD9"></div>
                        </div>
                    </div>
                    <div id="tabsD10"> <!-- 2019.12.02추가 -->
 					   <div class="nsf-form">
-							<div style="height:5px;"></div>
+							<div style="height:10px;"></div>
 							<table id="jqGridD10"></table>
 							 <div id="jqGridnavD10"></div>
 					   </div>
 				   </div>
 				   <div id="tabsD11"> <!-- 2020.12.31추가 -->
 					   <div class="nsf-form">
-							<div style="height:5px;"></div>
+							<div style="height:10px;"></div>
 							<table id="jqGridD11"></table>
 							 <div id="jqGridnavD11"></div>
 					   </div>
 				   </div>
 					<div id="tabsD12"> <!-- 2022.12.22추가 -->
 					   <div class="nsf-form">
-							<div style="height:5px;"></div>
+							<div style="height:10px;"></div>
 							<table id="jqGridD12"></table>
 							 <div id="jqGridnavD12"></div>
 					   </div>

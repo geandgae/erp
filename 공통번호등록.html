@@ -103,18 +103,18 @@ function fInitPage() {
         var data = {cbowhereFlagFr:"H", cdSearch:jQuery("#txtCdMasterH").val()};
 
         NsfRequest.ajax.doPost(url,
-                               [{name: "methodName", value: "find"},
-                                {name: "params", value: JSON.stringify(data)}],
-                               function(data) {
-                                   if(data.grid.rows.length == 1){
-                                       data.rtn = data.grid.rows[0];
-                                       jQuery("#txtCdMasterH").val(data.rtn.cdMaster);
-                                       jQuery("#txtNmMasterH").val(data.rtn.nmMaster);
-                                   }
+                [{name: "methodName", value: "find"},
+                {name: "params", value: JSON.stringify(data)}],
+                function(data) {
+                    if(data.grid.rows.length == 1){
+                        data.rtn = data.grid.rows[0];
+                        jQuery("#txtCdMasterH").val(data.rtn.cdMaster);
+                        jQuery("#txtNmMasterH").val(data.rtn.nmMaster);
+                    }
                     else{
-                                       jQuery("#popCdMasterH").click();
-                                   }
-                               }
+                            jQuery("#popCdMasterH").click();
+                        }
+                    }
         );
     });
 
@@ -434,14 +434,14 @@ function fProcessM1() {
         if(arrM1.length === 0){ NsfMessage.alert("저장할 데이터가 없습니다."); return; }
 
         NsfRequest.ajax.doPost(	appUri,
-                                   [{name: "methodName", value: "processM1"},
-                                    {name: "params", value: JSON.stringify(arrM1.data)}],
-                                   function(data) {
-                                       /** Grid교체 - Save Data Grid Reload 202311 */
-                                       SBGrid3.reload(sbGridM1, false); // 현재 page 유지 Reload
-                                       SBGrid3.setClientData(sbGridD1, []);
-                                       NsfMessage.alert(data.message);
-                                   }
+            [{name: "methodName", value: "processM1"},
+            {name: "params", value: JSON.stringify(arrM1.data)}],
+            function(data) {
+                /** Grid교체 - Save Data Grid Reload 202311 */
+                SBGrid3.reload(sbGridM1, false); // 현재 page 유지 Reload
+                SBGrid3.setClientData(sbGridD1, []);
+                NsfMessage.alert(data.message);
+            }
         );
     }
 }
@@ -576,12 +576,12 @@ function fProcessD1() {
     } else {
         if(arrD1.data.length === 0){ NsfMessage.alert("저장할 데이터가 없습니다."); return; }
         NsfRequest.ajax.doPost(	url,
-                                   [{name: "methodName", value: "processD1"},
-                                    {name: "params", value: JSON.stringify(arrD1.data)}],
-                                   function(data) {
-                                       SBGrid3.reload(sbGridD1, false); // 현재 page 유지 Reload
-                                       NsfMessage.alert(data.message);
-                                   }
+        [{name: "methodName", value: "processD1"},
+        {name: "params", value: JSON.stringify(arrD1.data)}],
+        function(data) {
+            SBGrid3.reload(sbGridD1, false); // 현재 page 유지 Reload
+            NsfMessage.alert(data.message);
+        }
         );
     }
 }
@@ -601,8 +601,7 @@ function fProcessD1() {
 		</table>
 	</div>
 
-	<div id="sectionA2" class="nsf-section-resize nsf-widget-content"
-		additionHeight="-100">
+	<div id="sectionA2" class="nsf-section-resize nsf-widget-content">
 		<div class="nsf-panel">
 			<div id="grid">
 				<div class="head nsf-form-search">
@@ -622,7 +621,7 @@ function fProcessD1() {
 				</div>
 				<div class="nsf-border-top">
 					<center>
-						<img class="nsf-mini-vertical"></img>
+						<img class="nsf-mini-vertical" />
 					</center>
 				</div>
 				<div class="body">
@@ -649,8 +648,7 @@ function fProcessD1() {
 
 	<div class="nsf-space-vertical nsf-section"></div>
 
-	<div id="sectionB1"
-		class="nsf-section nsf-widget-header ui-widget-header noborder">
+	<div id="sectionB1" class="nsf-section nsf-widget-header ui-widget-header">
 		<table>
 			<tr>
 				<td><label>공통번호 Detail</label></td>
@@ -665,7 +663,7 @@ function fProcessD1() {
 		<div class="nsf-panel">
 			<div id="grid">
 				<div class="body">
-					<div class="nsf-btnbar">
+					<div class="nsf-btnbar notop">
 						<table>
 							<tr>
 								<td class="nsf-right">

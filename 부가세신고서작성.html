@@ -26,6 +26,7 @@
 <link rel="stylesheet" type="text/css" href="./jquery/plugin/jqGrid/plugins/ui.multiselect.css"/>
 
 <link rel="stylesheet" type="text/css" href="./nsf/css/nsf.css"/>
+<link rel="stylesheet" type="text/css" href="./nsf/css/new_nsf.css"/>
 
 <style type="text/css">
 	.css-form { display:none; }
@@ -106,18 +107,18 @@ function fInitPage() {
         var data = {cbowhereFlagFr:"A", cdSearch:jQuery("#txtCdBizAreaH").val(), cdCompany: jQuery("#txtCdCompanyH").val()};
 
         NsfRequest.ajax.doPost(url,
-                               [{name: "methodName", value: "find"},
-                                {name: "params", value: JSON.stringify(data)}],
-                               function(data) {
-                                   if(data.grid.rows.length == 1){
-                                       data.rtn = data.grid.rows[0];
-                                       jQuery("#txtCdBizAreaH").val(data.rtn.cdBizArea);
-                                       jQuery("#txtNmBizAreaH").val(data.rtn.nmBizArea);
-                                   }
-                        else{
-                                       jQuery("#popBizAreaPopupH").click();
-                                   }
-                               });
+                    [{name: "methodName", value: "find"},
+                    {name: "params", value: JSON.stringify(data)}],
+                    function(data) {
+                        if(data.grid.rows.length == 1){
+                            data.rtn = data.grid.rows[0];
+                            jQuery("#txtCdBizAreaH").val(data.rtn.cdBizArea);
+                            jQuery("#txtNmBizAreaH").val(data.rtn.nmBizArea);
+                        }
+            else{
+                            jQuery("#popBizAreaPopupH").click();
+                        }
+                    });
     });
 
     //과세자구분
@@ -2732,10 +2733,6 @@ function replaceAll(inputString, targetString, replacement){
     return v_ret;
 }
 
- 
-
-
-  
 </script>
 </head>
 <body>
@@ -2752,7 +2749,7 @@ function replaceAll(inputString, targetString, replacement){
 <div id="sectionA2" class="nsf-section-resize nsf-widget-content" >
 	<div class="nsf-panel">
 		<div class="head nsf-form-search">
-			<ul>
+			<ul class="per33"><!-- 신규 상단 클래스 추가 li 33% -->
 				<li class="nsf-form-li-2x" style="display: none;"><span>법인코드&nbsp;</span>
 					<input type="text" id="txtCdCompanyH" name="cdCompany" class="nsf-param nsf-status-ess " >
 					<button id="popCdCompanyH" class="nsf-btn-popup" ><a>&nbsp;</a></button>					    
@@ -2767,17 +2764,17 @@ function replaceAll(inputString, targetString, replacement){
 
 				<li class="nsf-form-li-2x"><span class="nsf-required">과세자구분&nbsp;</span>						
 					<select id="cboTpReturnH" name="tpReturn" title="과세자구분" class="nsf-param nsf-status-ess"  >	
-													<option value="0">일반과세자</option>
-													<option value="5">사업자단위과세</option>
-											</select>
+                            <option value="0">일반과세자</option>
+                            <option value="5">사업자단위과세</option>
+                    </select>
 				</li>
-
-				<li class="nsf-form-li-2x"><span class="nsf-required">귀속일자&nbsp;</span>
+                <li class="nsf-form-li-2x"><span class="nsf-required">귀속일자&nbsp;</span>
 					<input type="text" id="txtDtBelongFrH" name="dtBelongFr"   class="nsf-param nsf-status-ess nsf-center" >
 					<label>~</label>
 					<input type="text" id="txtDtBelongToH" name="dtBelongTo" class="nsf-param nsf-status-ess nsf-center" >
 				</li>
-
+            </ul>
+            <ul class="per50"><!-- 신규 상단 클래스 추가 li 50% -->
 				<li class="nsf-form-li-2x"><span>예정누락기간&nbsp;</span>
 <!-- 				<li class="nsf-form-li-2x"><span>계산서 미포함기간(1~9월)&nbsp;</span> -->
 					<input type="text" id="txtDtOmissionFrH" name="dtOmissionFr"  class="nsf-param nsf-center" >
@@ -2792,9 +2789,10 @@ function replaceAll(inputString, targetString, replacement){
 				</li>
 
 				<li>
-					<span><font size="2" color="#FF0000">
+                    <u class ="point" style="height: 29px;line-height: 2.8;">신규 작성은 '생성'을 해야 합니다.</u>
+					<!-- <span><font size="2" color="#FF0000">
 						&nbsp;<b>신규 작성은 '생성'을 해야 합니다.</b></font>
-					</span> 
+					</span>  삭제-->
 				</li>
 
 			</ul>		
@@ -2820,7 +2818,7 @@ function replaceAll(inputString, targetString, replacement){
 			</div>
 
 		<div id="divTabM">
-			<ul id="ulTabM" style="display:none">
+			<ul id="ulTabM" style="display:none;margin-top: 5px;">
 				<li ><a href="#tabM1">신고내용</a></li>
 				<li ><a href="#tabM2">상세내용1</a></li>
 				<li ><a href="#tabM3">상세내용2</a></li>
@@ -2830,707 +2828,722 @@ function replaceAll(inputString, targetString, replacement){
 				<div id="frmEditFormM1" >	
 				    <div class="ui-widget-content ui-corner-bottom"> 
 						<div class="nsf-form">
-							<table cellpadding="4" cellspacing="1" class="test nsf-center" style="border-collapse: collapse; border:1px gray solid;"  bgcolor="#F5F5F5"  >
+							<table cellpadding="0" cellspacing="0" class="new_table" style="border-collapse: collapse; border:0;">
 								<tr>
-									<td colspan="8"  class="test" style="width: 35%; border:1px gray solid;"  >
-									<a>구분</a>
-
-									</td>
-									<td colspan="6" class="test" style="width: 30%; border:1px gray solid;" >
-									<a>금액</a>
-
-									</td>
-									<td colspan="1" class="test" style="width: 5%; border:1px gray solid;" >
-									<a>세율</a>
-
-									</td>
-									<td colspan="6" class="test" style="width: 30%; border:1px gray solid;" >
-									<a>세액</a>
-
-									</td>
+                                    <th colspan="8" class="top1" style="width: 5%;">
+                                        <span>구분</span>
+                                    </th>
+                                    <th colspan="6" class="top1" style="width: 30%;">
+                                        <span>금액</span>
+                                    </th>
+                                    <th  class="top1" style="width: 5%;">
+                                        <span>세율</span>
+                                    </th>
+                                    <th colspan="6" class="top1" style="width: 30%;" >
+                                        <span>세액</span>
+                                    </th>
 								</tr>
-
-
-								<tr><!-- 1 -->
-									<td colspan="1" rowspan="9" class="test"  style="width: 5%; border:1px gray solid;" >
-									<a>과세표준 및 매출세액</a>
-
-		 							</td>
-									<td colspan="1" rowspan="4" class="test"style="width: 5%; border:1px gray solid;" >
-									<a>과세</a>
-
+								<tr>
+									<th  rowspan="9" class="left1"  style="width: 5%;" >
+                                        <span>과세표준 및 <br>매출세액</span>
+                                    </th>
+									<th  rowspan="4" class="left2" style="width: 5%;">
+									    <span>과세</span>
+									</th>
+									<th colspan="5" class="left3" style="width: 25%;" >
+									<span>세금계산서 발급분</span>
+									</th>
+									<th   class="left3" style="width: 3%;" >
+									<span>(1)</span>
+									</th>
+									<td colspan="6"  style="width: 30%;" >							  
+										<input  type="text"  id="txtAmtNo1"  name="amtNo1" class="nsf-input nsf-param " maxlength="35" style="width: 98%; text-align: right;">
 									</td>
-									<td colspan="5"class="test" style="width: 25%; border:1px gray solid;" >
-									<a>세금계산서 발급분</a>
-									</td>
-									<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-									<a>(1)</a>
-									</td>
-									<td colspan="6"class="test" style="width: 30%; border:1px gray solid;" >							  
-										<input  type="text"  id="txtAmtNo1"  name="amtNo1" class="nsf-input nsf-param " maxlength="35" style="width: 90%; text-align: right;">
-
-									</td>
-									<td colspan="1"class="test" style="width: 5%; border:1px gray solid;">
+									<th   style="width: 5%;">
 										<a>10/100</a>
-									</td>
-									<td colspan="6"class="test" style="width: 30%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtVat1"  name="amtVat1" class="nsf-input nsf-param " maxlength="35" style="width: 90%; text-align: right;">
+									</th>
+									<td colspan="6"  style="width: 30%;" >
+										<input type="text"  id="txtAmtVat1"  name="amtVat1" class="nsf-input nsf-param " maxlength="35" style="width: 98%; text-align: right;">
 									</td>
 								</tr>
 
 								<tr><!-- 2 -->
 
-									<td colspan="5"class="test"  style="width: 25%; border:1px gray solid;" >
-									<a>매입자 발행 세금계산서</a>
+									<th colspan="5"  style="width: 25%;" >
+									    <span>매입자 발행 세금계산서</span>
+									</th>
+									<th    style="width: 3%;" >
+									    <span>(2)</span>
+									</th>
+									<td colspan="6" style="width: 30%;" >
+										<input type="text"  id="txtAmtNo2"  name="amtNo2" class="nsf-input nsf-param " maxlength="35" style="width: 98%; text-align: right;">
 									</td>
-									<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-									<a>(2)</a>
-									</td>
-									<td colspan="6"class="test" style="width: 30%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtNo2"  name="amtNo2" class="nsf-input nsf-param " maxlength="35" style="width: 90%; text-align: right;">
-									</td>
-									<td colspan="1"class="test" style="width: 5%; border:1px gray solid;">
+									<th  style="width: 5%;">
 										<a>10/100</a>
-									</td>
-									<td colspan="6"class="test" style="width: 30%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtVat2"  name="amtVat2" class="nsf-input nsf-param " maxlength="35" style="width: 90%; text-align: right;">
+									</th>
+									<td colspan="6" style="width: 30%;" >
+										<input type="text"  id="txtAmtVat2"  name="amtVat2" class="nsf-input nsf-param " maxlength="35" style="width: 98%; text-align: right;">
 									</td>
 								</tr>
 
 								<tr><!-- 3 -->
 
-									<td colspan="5"class="test" style="width: 25%; border:1px gray solid;" >
-										<a>신용카드·현금영수증 발행분</a>
+									<th colspan="5" style="width: 25%;" >
+										<span>신용카드·현금영수증 발행분</span>
+									</th>
+									<th    style="width: 3%; " >
+									    <span>(3)</span>
+									</th>
+									<td colspan="6" style="width: 30%; " >
+										<input type="text"  id="txtAmtNo3"  name="amtNo3" class="nsf-input nsf-param " maxlength="35" style="width: 98%; text-align: right;">
 									</td>
-									<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-									<a>(3)</a>
-									</td>
-									<td colspan="6"class="test" style="width: 30%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtNo3"  name="amtNo3" class="nsf-input nsf-param " maxlength="35" style="width: 90%; text-align: right;">
-									</td>
-									<td colspan="1"class="test" style="width: 5%; border:1px gray solid;">
+									<th  style="width: 5%; ">
 										<a>10/100</a>
-									</td>
-									<td colspan="6"class="test" style="width: 30%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtVat3"  name="amtVat3" class="nsf-input nsf-param " maxlength="35" style="width: 90%; text-align: right;">
+									</th>
+									<td colspan="6" style="width: 30%; " >
+										<input type="text"  id="txtAmtVat3"  name="amtVat3" class="nsf-input nsf-param " maxlength="35" style="width: 98%; text-align: right;">
 									</td>
 								</tr>
 
 								<tr><!-- 4 -->
 
-									<td colspan="5" class="test" style="width: 25%; border:1px gray solid;" >
-										<a>기타(정규영수증외 매출분)</a>
+									<th colspan="5"  style="width: 25%; " >
+										<span>기타(정규영수증외 매출분)</span>
+									</th>
+									<th    style="width: 3%; " >
+									    <span>(4)</span>
+									</th>
+									<td colspan="6"  style="width: 30%; " >
+										<input type="text"  id="txtAmtNo4"  name="amtNo4" class="nsf-input nsf-param " maxlength="35" style="width: 98%; text-align: right;">
 									</td>
-									<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-									<a>(4)</a>
-									</td>
-									<td colspan="6" class="test" style="width: 30%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtNo4"  name="amtNo4" class="nsf-input nsf-param " maxlength="35" style="width: 90%; text-align: right;">
-									</td>
-									<td colspan="1" class="test" style="width: 5%; border:1px gray solid;">
-										<a>10/100</a>
-									</td>
-									<td colspan="6" class="test" style="width: 30%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtVat4"  name="amtVat4" class="nsf-input nsf-param " maxlength="35" style="width: 90%; text-align: right;">
+									<th   style="width: 5%; ">
+										<span>10/100</span>
+									</th>
+									<td colspan="6"  style="width: 30%; " >
+										<input type="text"  id="txtAmtVat4"  name="amtVat4" class="nsf-input nsf-param " maxlength="35" style="width: 98%; text-align: right;">
 									</td>
 								</tr>
 
 								<tr><!-- 5 -->
 
-									<td colspan="1" rowspan="2"class="test" style="width: 5%; border:1px gray solid;" >
-										<a>영세율</a>
+									<th  rowspan="2" style="width: 5%; " >
+										<span>영세율</span>
+									</th>
+									<th colspan="5" style="width: 25%; " >
+										<span>세금계산서 발급분</span>
+									</th>
+									<th    style="width: 3%; " >
+									<span>(5)</span>
+									</th>
+									<td colspan="6" style="width: 30%; " >
+										<input type="text"  id="txtAmtNo5"  name="amtNo5" class="nsf-input nsf-param " maxlength="35" style="width: 98%; text-align: right;">
 									</td>
-									<td colspan="5"class="test" style="width: 25%; border:1px gray solid;" >
-										<a>세금계산서 발급분</a>
-									</td>
-									<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-									<a>(5)</a>
-									</td>
-									<td colspan="6"class="test" style="width: 30%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtNo5"  name="amtNo5" class="nsf-input nsf-param " maxlength="35" style="width: 90%; text-align: right;">
-									</td>
-									<td colspan="1"class="test" style="width: 5%; border:1px gray solid;">
-										<a>0/100</a>
-									</td>
-									<td colspan="6" class="test" style="width: 30%; border:1px gray solid;" >
+									<th  style="width: 5%; ">
+										<span>0/100</span>
+									</th>
+									<td class="empty" colspan="6"  style="width: 30%; " >
+                                        &nbsp;
 									</td>
 								</tr>
 
 								<tr><!-- 6 -->
 
-									<td colspan="5"class="test"style="width: 25%; border:1px gray solid;" >
-										<a>기타</a>
+									<th colspan="5" style="width: 25%; " >
+										<span>기타</span>
+									</th>
+									<th    style="width: 3%; " >
+									<span>(6)</span>
+									</th>
+									<td colspan="6" style="width: 30%; " > 
+										<input type="text"  id="txtAmtNo6"  name="amtNo6" class="nsf-input nsf-param " maxlength="35" style="width: 98%; text-align: right;">
 									</td>
-									<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-									<a>(6)</a>
-									</td>
-									<td colspan="6"class="test"style="width: 30%; border:1px gray solid;" > 
-										<input type="text"  id="txtAmtNo6"  name="amtNo6" class="nsf-input nsf-param " maxlength="35" style="width: 90%; text-align: right;">
-									</td>
-									<td colspan="1"class="test" style="width: 5%; border:1px gray solid;" >
-										<a>0/100</a>
-									</td>
-									<td colspan="6"class="test" style="width: 30%; border:1px gray solid;" >
+									<th  style="width: 5%; " >
+										<span>0/100</span>
+									</th>
+									<td class="empty" colspan="6" style="width: 30%; " >
+                                        &nbsp;
 									</td>
 								</tr>
 
 								<tr><!-- 7 -->
 
-									<td colspan="6"class="test" style="width: 30%; border:1px gray solid;" >
-										<a>예정신고누락분</a>
+									<th colspan="6" style="width: 30%; " >
+										<span>예정신고누락분</span>
+									</th>
+									<th    style="width: 3%; " >
+									<span>(7)</span>
+									</th>
+									<td colspan="6" style="width: 30%; " >
+										<input type="text" id="txtAmtNo7"  name="amtNo7" class="nsf-input nsf-param nsf-status-lck" disabled="disabled" maxlength="35" style="width: 98%; text-align: right;">
 									</td>
-									<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-									<a>(7)</a>
-									</td>
-									<td colspan="6"class="test" style="width: 30%; border:1px gray solid;" >
-										<input type="text" id="txtAmtNo7"  name="amtNo7" class="nsf-input nsf-param nsf-status-lck" disabled="disabled" maxlength="35" style="width: 90%; text-align: right;">
-									</td>
-									<td colspan="1"class="test" style="width: 5%; border:1px gray solid;" >
-
-									</td>
-									<td colspan="6"class="test" style="width: 30%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtVat7"  name="amtVat7" class="nsf-input nsf-param nsf-status-lck" disabled="disabled"  maxlength="35" style="width: 90%; text-align: right;">
+									<th  style="width: 5%; " >
+                                        &nbsp;
+									</th>
+									<td colspan="6" style="width: 30%; " >
+										<input type="text"  id="txtAmtVat7"  name="amtVat7" class="nsf-input nsf-param nsf-status-lck" disabled="disabled"  maxlength="35" style="width: 98%; text-align: right;">
 									</td>
 								</tr>
 
 								<tr><!-- 8 -->
 
-									<td colspan="6"class="test"  style="width: 30%; border:1px gray solid;" >
-										<a>대손세액가감</a>
+									<th colspan="6"  style="width: 30%; " >
+										<span>대손세액가감</span>
+									</th>
+									<th    style="width: 3%; " >
+									<span>(8)</span>
+									</th>
+									<td class="empty" colspan="6"  style="width: 30%; " >
+                                        &nbsp;
 									</td>
-									<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-									<a>(8)</a>
-									</td>
-									<td colspan="6"class="test"  style="width: 30%; border:1px gray solid;" >
-
-									</td>
-									<td colspan="1"class="test"  style="width: 5%; border:1px gray solid;" >
-
-									</td>
-									<td colspan="6"class="test"  style="width: 30%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtVat8"  name="amtVat8" class="nsf-input nsf-param " maxlength="35" style="width: 90%; text-align: right;">
+									<th   style="width: 5%; " >
+                                        &nbsp;
+									</th>
+									<td colspan="6"  style="width: 30%; " >
+										<input type="text"  id="txtAmtVat8"  name="amtVat8" class="nsf-input nsf-param " maxlength="35" style="width: 98%; text-align: right;">
 									</td>
 								</tr>
 
 								<tr><!-- 9 -->
 
-									<td colspan="6"class="test"  style="width: 30%; border:1px gray solid;" >
-										<a>합계</a>
-									</td>
-									<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
+									<th colspan="6"  style="width: 30%; " >
+										<span>합계</span>
+									</th>
+									<th    style="width: 3%; " >
 									<a>(9)</a>
+									</th>
+									<td colspan="6"  style="width: 30%; " >
+										<input type="text"  id="txtAmtNo9Tot"  name="amtNo9Tot" class="nsf-input nsf-param nsf-status-lck" disabled="disabled" maxlength="35" style="width: 98%; text-align: right;">
 									</td>
-									<td colspan="6"class="test"  style="width: 30%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtNo9Tot"  name="amtNo9Tot" class="nsf-input nsf-param nsf-status-lck" disabled="disabled" maxlength="35" style="width: 90%; text-align: right;">
-									</td>
-									<td colspan="1"class="test"  style="width: 5%; border:1px gray solid;" >
-										<a>(가)</a>
-									</td>
-									<td colspan="6"class="test"  style="width: 30%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtVat9Tot"  name="amtVat9Tot" class="nsf-input nsf-param nsf-status-lck" disabled="disabled" maxlength="35" style="width: 90%; text-align: right;">
+									<th   style="width: 5%; " >
+										<span>(가)</span>
+									</th>
+									<td colspan="6"  style="width: 30%; " >
+										<input type="text"  id="txtAmtVat9Tot"  name="amtVat9Tot" class="nsf-input nsf-param nsf-status-lck" disabled="disabled" maxlength="35" style="width: 98%; text-align: right;">
 									</td>
 								</tr>
 
 								<tr><!-- 10 -->
-									<td colspan="1" rowspan="9"  class="test"  style="width: 5%; border:1px gray solid;" >
-										<a>매입세액</a>
+									<th  rowspan="9"    style="width: 5%; " >
+										<span>매입세액</span>
+									</th>
+									<th colspan="2" rowspan="3"    style="width: 10%; " >
+										<span>세금계산서 수취분</span>
+									</th>
+									<th colspan="4"  style="width: 20%; " >
+										<span>일반매입</span>
+									</th>
+									<th    style="width: 3%; " >
+									<span>(10)</span>
+									</th>
+									<td colspan="6"  style="width: 30%; " >
+										<input type="text"  id="txtAmtNo10"  name="amtNo10" class="nsf-input nsf-param " maxlength="35" style="width: 98%; text-align: right;">
 									</td>
-									<td colspan="2" rowspan="3"  class="test"  style="width: 10%; border:1px gray solid;" >
-										<a>세금계산서 수취분</a>
-									</td>
-									<td colspan="4"class="test"  style="width: 20%; border:1px gray solid;" >
-										<a>일반매입</a>
-									</td>
-									<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-									<a>(10)</a>
-									</td>
-									<td colspan="6"class="test"  style="width: 30%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtNo10"  name="amtNo10" class="nsf-input nsf-param " maxlength="35" style="width: 90%; text-align: right;">
-									</td>
-									<td colspan="1"class="test"  style="width: 5%; border:1px gray solid;" >
-
-									</td>
-									<td colspan="6"class="test"  style="width: 30%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtVat10"  name="amtVat10" class="nsf-input nsf-param " maxlength="35" style="width: 90%; text-align: right;">
+									<th   style="width: 5%; " >
+                                        &nbsp;
+									</th>
+									<td colspan="6"  style="width: 30%; " >
+										<input type="text"  id="txtAmtVat10"  name="amtVat10" class="nsf-input nsf-param " maxlength="35" style="width: 98%; text-align: right;">
 									</td>
 								</tr>
 								<tr><!-- 11 -->
-									<td colspan="4"class="test"  style="width: 20%; border:1px gray solid;" >
-										<a>수출기업 수입분 납부유예</a>
+									<th colspan="4"  style="width: 20%; " >
+										<span>수출기업 수입분 납부유예</span>
+									</th>
+									<th    style="width: 3%; " >
+									<span>(10-1)</span>
+									</th>
+									<td class="empty" colspan="6"  style="width: 30%; " >
+                                        &nbsp;
 									</td>
-									<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-									<a>(10-1)</a>
-									</td>
-									<td colspan="6"class="test"  style="width: 30%; border:1px gray solid;" >
-									</td>
-									<td colspan="1"class="test"  style="width: 5%; border:1px gray solid;" >
-									</td>
-									<td colspan="6"class="test"  style="width: 30%; border:1px gray solid;" >
-										<input type="text" id="txtAmtVat101"  name="amtVat101" class="nsf-input nsf-param " maxlength="35" style="width: 90%; text-align: right;">
+									<th   style="width: 5%; " >
+                                        &nbsp;
+									</th>
+									<td colspan="6"  style="width: 30%; " >
+										<input type="text" id="txtAmtVat101"  name="amtVat101" class="nsf-input nsf-param " maxlength="35" style="width: 98%; text-align: right;">
 									</td>
 								</tr>
 								<tr><!-- 12 -->
-									<td colspan="4"class="test"  style="width: 20%; border:1px gray solid;" >
-										<a>고정자산매입</a>
+									<th colspan="4"  style="width: 20%; " >
+                                        <span>고정자산매입</span>
+									</th>
+									<th    style="width: 3%; " >
+										<span>(11)</span>
+									</th>
+									<td colspan="6"  style="width: 30%; " >
+										<input type="text" id="txtAmtNo11"  name="amtNo11" class="nsf-input nsf-param " maxlength="35" style="width: 98%; text-align: right;">
 									</td>
-									<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-										<a>(11)</a>
-									</td>
-									<td colspan="6"class="test"  style="width: 30%; border:1px gray solid;" >
-										<input type="text" id="txtAmtNo11"  name="amtNo11" class="nsf-input nsf-param " maxlength="35" style="width: 90%; text-align: right;">
-									</td>
-									<td colspan="1"class="test"  style="width: 5%; border:1px gray solid;" >
-
-									</td>
-									<td colspan="6"class="test"  style="width: 30%; border:1px gray solid;" >
-										<input type="text" id="txtAmtVat11"  name="amtVat11" class="nsf-input nsf-param " maxlength="35" style="width: 90%; text-align: right;">
+									<th   style="width: 5%; " >
+                                        &nbsp;
+									</th>
+									<td colspan="6"  style="width: 30%; " >
+										<input type="text" id="txtAmtVat11"  name="amtVat11" class="nsf-input nsf-param " maxlength="35" style="width: 98%; text-align: right;">
 									</td>
 								</tr>
 
 								<tr><!-- 12 -->
 
-									<td colspan="6"class="test"  style="width: 30%; border:1px gray solid;" >
-										<a>예정신고누락분</a>
+									<th colspan="6"  style="width: 30%; " >
+										<span>예정신고누락분</span>
+									</th>
+									<th    style="width: 3%; " >
+										<span>(12)</span>
+									</th>
+									<td colspan="6"  style="width: 30%; " >
+										<input type="text"  id="txtAmtNo12"  name="amtNo12" class="nsf-input nsf-param nsf-status-lck" disabled="disabled" maxlength="35" style="width: 98%; text-align: right;">
 									</td>
-									<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-										<a>(12)</a>
-									</td>
-									<td colspan="6"class="test"  style="width: 30%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtNo12"  name="amtNo12" class="nsf-input nsf-param nsf-status-lck" disabled="disabled" maxlength="35" style="width: 90%; text-align: right;">
-									</td>
-									<td colspan="1"class="test"  style="width: 5%; border:1px gray solid;" >
-
-									</td>
-									<td colspan="6"class="test"  style="width: 30%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtVat12"  name="amtVat12" class="nsf-input nsf-param nsf-status-lck" disabled="disabled" maxlength="35" style="width: 90%; text-align: right;">
+									<th   style="width: 5%; " >
+                                        &nbsp;
+									</th>
+									<td colspan="6"  style="width: 30%; " >
+										<input type="text"  id="txtAmtVat12"  name="amtVat12" class="nsf-input nsf-param nsf-status-lck" disabled="disabled" maxlength="35" style="width: 98%; text-align: right;">
 									</td>
 								</tr>
 
 								<tr><!-- 13 -->
-									<td colspan="6"class="test"  style="width: 30%; border:1px gray solid;" >
-										<a>매입자발행세금계산서</a>
+									<th colspan="6"  style="width: 30%; " >
+										<span>매입자발행세금계산서</span>
+									</th>
+									<th    style="width: 3%; " >
+										<span>(13)</span>
+									</th>
+									<td colspan="6"  style="width: 30%; " >
+										<input type="text"  id="txtAmtNo13"  name="amtNo13" class="nsf-input nsf-param " maxlength="35" style="width: 98%; text-align: right;">
 									</td>
-									<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-										<a>(13)</a>
-									</td>
-									<td colspan="6"class="test"  style="width: 30%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtNo13"  name="amtNo13" class="nsf-input nsf-param " maxlength="35" style="width: 90%; text-align: right;">
-									</td>
-									<td colspan="1"class="test"  style="width: 5%; border:1px gray solid;" >
-
-									</td>
-									<td colspan="6"class="test"  style="width: 30%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtVat13"  name="amtVat13" class="nsf-input nsf-param " maxlength="35" style="width: 90%; text-align: right;">
+									<th   style="width: 5%; " >
+                                        &nbsp;
+									</th>
+									<td colspan="6"  style="width: 30%; " >
+										<input type="text"  id="txtAmtVat13"  name="amtVat13" class="nsf-input nsf-param " maxlength="35" style="width: 98%; text-align: right;">
 									</td>
 								</tr>
 								<tr><!-- 14 -->
-									<td colspan="6"class="test"  style="width: 30%; border:1px gray solid;" >
-										<a>그밖의 공제매입세액</a>
+									<th colspan="6"  style="width: 30%; " >
+										<span>그밖의 공제매입세액</span>
+									</th>
+									<th    style="width: 3%; " >
+										<span>(14)</span>
+									</th>
+									<td colspan="6"  style="width: 30%; " >
+										<input type="text"  id="txtAmtNo14"  name="amtNo14" class="nsf-input nsf-param nsf-status-lck" disabled="disabled" maxlength="35" style="width: 98%; text-align: right;">
 									</td>
-									<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-										<a>(14)</a>
-									</td>
-									<td colspan="6"class="test"  style="width: 30%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtNo14"  name="amtNo14" class="nsf-input nsf-param nsf-status-lck" disabled="disabled" maxlength="35" style="width: 90%; text-align: right;">
-									</td>
-									<td colspan="1"class="test"  style="width: 5%; border:1px gray solid;" >
-
-									</td>
-									<td colspan="6"class="test"  style="width: 30%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtVat14"  name="amtVat14" class="nsf-input nsf-param nsf-status-lck" disabled="disabled" maxlength="35" style="width: 90%; text-align: right;">
+									<th   style="width: 5%; " >
+                                        &nbsp;
+									</th>
+									<td colspan="6"  style="width: 30%; " >
+										<input type="text"  id="txtAmtVat14"  name="amtVat14" class="nsf-input nsf-param nsf-status-lck" disabled="disabled" maxlength="35" style="width: 98%; text-align: right;">
 									</td>
 								</tr>
 								<tr><!-- 15-->
-									<td colspan="6"class="test"  style="width: 30%; border:1px gray solid;" >
-										<a>합계 (10)-(10-1)+(11)+(12)+(13)+(14)</a>
+									<th colspan="6"  style="width: 30%; " >
+										<span>합계 (10)-(10-1)+(11)+(12)+(13)+(14)</span>
+									</th>
+									<th    style="width: 3%; " >
+										<span>(15)</span>
+									</th>
+									<td colspan="6"  style="width: 30%; " >
+										<input type="text"  id="txtAmtNo15Tot"  name="amtNo15Tot" class="nsf-input nsf-param nsf-status-lck" disabled="disabled" maxlength="35" style="width: 98%; text-align: right;">
 									</td>
-									<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-										<a>(15)</a>
-									</td>
-									<td colspan="6"class="test"  style="width: 30%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtNo15Tot"  name="amtNo15Tot" class="nsf-input nsf-param nsf-status-lck" disabled="disabled" maxlength="35" style="width: 90%; text-align: right;">
-									</td>
-									<td colspan="1"class="test"  style="width: 5%; border:1px gray solid;" >
-
-									</td>
-									<td colspan="6"class="test"  style="width: 30%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtVat15Tot"  name="amtVat15Tot" class="nsf-input nsf-param nsf-status-lck" disabled="disabled" maxlength="35" style="width: 90%; text-align: right;">
+									<th   style="width: 5%; " >
+                                        &nbsp;
+									</th>
+									<td colspan="6"  style="width: 30%; " >
+										<input type="text"  id="txtAmtVat15Tot"  name="amtVat15Tot" class="nsf-input nsf-param nsf-status-lck" disabled="disabled" maxlength="35" style="width: 98%; text-align: right;">
 									</td>
 								</tr>
 								<tr><!-- 16 -->
-									<td colspan="6"class="test"  style="width: 30%; border:1px gray solid;" >
-										<a>공제받지 못할 세액</a>
+									<th colspan="6"  style="width: 30%; " >
+										<span>공제받지 못할 세액</span>
+									</th>
+									<th    style="width: 3%; " >
+										<span>(16)</span>
+									</th>
+									<td colspan="6"  style="width: 30%; " >
+										<input type="text"  id="txtAmtNo16"  name="amtNo16" class="nsf-input nsf-param nsf-status-lck" disabled="disabled" maxlength="35" style="width: 98%; text-align: right;">
 									</td>
-									<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-										<a>(16)</a>
-									</td>
-									<td colspan="6"class="test"  style="width: 30%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtNo16"  name="amtNo16" class="nsf-input nsf-param nsf-status-lck" disabled="disabled" maxlength="35" style="width: 90%; text-align: right;">
-									</td>
-									<td colspan="1"class="test"  style="width: 5%; border:1px gray solid;" >
-
-									</td>
-									<td colspan="6"class="test"  style="width: 30%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtVat16"  name="amtVat16" class="nsf-input nsf-param nsf-status-lck" disabled="disabled" maxlength="35" style="width: 90%; text-align: right;">
+									<th   style="width: 5%; " >
+                                        &nbsp;
+									</th>
+									<td colspan="6"  style="width: 30%; " >
+										<input type="text"  id="txtAmtVat16"  name="amtVat16" class="nsf-input nsf-param nsf-status-lck" disabled="disabled" maxlength="35" style="width: 98%; text-align: right;">
 									</td>
 								</tr>
 								<tr><!-- 17 -->
-									<td colspan="6"class="test"  style="width: 30%; border:1px gray solid;" >
-										<a>차감계 (15)-(16)</a>
+									<th colspan="6"  style="width: 30%; " >
+										<span>차감계 (15)-(16)</span>
+									</th>
+									<th    style="width: 3%; " >
+										<span>(17)</span>
+									</th>
+									<td colspan="6"  style="width: 30%; " >
+										<input type="text"  id="txtAmtNo17Tot"  name="amtNo17Tot" class="nsf-input nsf-param nsf-status-lck" disabled="disabled" maxlength="35" style="width: 98%; text-align: right;">
 									</td>
-									<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-										<a>(17)</a>
-									</td>
-									<td colspan="6"class="test"  style="width: 30%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtNo17Tot"  name="amtNo17Tot" class="nsf-input nsf-param nsf-status-lck" disabled="disabled" maxlength="35" style="width: 90%; text-align: right;">
-									</td>
-									<td colspan="1"class="test"  style="width: 5%; border:1px gray solid;" >
-										<a>(나)</a>
-									</td>
-									<td colspan="6"class="test"  style="width: 30%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtVat17Tot"  name="amtVat17Tot" class="nsf-input nsf-param nsf-status-lck" disabled="disabled" maxlength="35" style="width: 90%; text-align: right;">
+									<th   style="width: 5%; " >
+										<span>(나)</span>
+									</th>
+									<td colspan="6"  style="width: 30%; " >
+										<input type="text"  id="txtAmtVat17Tot"  name="amtVat17Tot" class="nsf-input nsf-param nsf-status-lck" disabled="disabled" maxlength="35" style="width: 98%; text-align: right;">
 									</td>
 								</tr>
 								<tr><!-- 18 -->
 
-									<td colspan="14"class="test" style="width: 65%; border:1px gray solid;" >
-										<a>납부(환급)세액 (매출세액(가) - 매입세액(나))</a>
+									<th colspan="7" style="width: 65%; " >
+										<span>납부(환급)세액 (매출세액(가) - 매입세액(나))</span>
+									</th>
+                                    <th    style="width: 3%; " >
+										&nbsp;
+									</th>
+                                    <td class="empty" colspan="6"  style="width: 30%; " >
+                                        &nbsp;
 									</td>
-
-									<td colspan="1"class="test" style="width: 5%; border:1px gray solid;" >
-										<a>(다)</a>
-									</td>
-									<td colspan="6"class="test" style="width: 30%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtVat18"  name="amtVat18" class="nsf-input nsf-param nsf-status-lck" disabled="disabled" maxlength="35" style="width: 90%; text-align: right;">
+									<th  style="width: 5%; " >
+										<span>(다)</span>
+									</th>
+									<td colspan="6" style="width: 30%; " >
+										<input type="text"  id="txtAmtVat18"  name="amtVat18" class="nsf-input nsf-param nsf-status-lck" disabled="disabled" maxlength="35" style="width: 98%; text-align: right;">
 									</td>
 								</tr>
 								<tr><!-- 19 -->
-									<td colspan="1" rowspan="3"  class="test"   style="width: 5%; border:1px gray solid;" >
-										<a>경감·공제세액</a>
-		 							</td>
+									<th  rowspan="3"     style="width: 5%; " >
+										<span>경감·공제세액</span>
+		 							</th>
 
-									<td colspan="6"class="test"  style="width: 30%; border:1px gray solid;" >
-										<a>그 밖의경감·공제세액</a>
+									<th colspan="6"  style="width: 30%; " >
+										<span>그 밖의경감·공제세액</span>
+									</th>
+									<th    style="width: 3%; " >
+										<span>(18)</span>
+									</th>
+									<td class="empty" colspan="6"  style="width: 30%; " >
+                                        &nbsp;
 									</td>
-									<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-										<a>(18)</a>
-									</td>
-									<td colspan="6"class="test"  style="width: 30%; border:1px gray solid;" >
-
-									</td>
-									<td colspan="1"class="test"  style="width: 5%; border:1px gray solid;" >
-
-									</td>
-									<td colspan="6"class="test"  style="width: 30%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtVat19"  name="amtVat19" class="nsf-input nsf-param nsf-status-lck" disabled="disabled" maxlength="35" style="width: 90%; text-align: right;">
+									<th   style="width: 5%; " >
+                                        &nbsp;
+									</th>
+									<td colspan="6"  style="width: 30%; " >
+										<input type="text"  id="txtAmtVat19"  name="amtVat19" class="nsf-input nsf-param nsf-status-lck" disabled="disabled" maxlength="35" style="width: 98%; text-align: right;">
 									</td>
 								</tr>
 								<tr><!-- 20 -->
-									<td colspan="6"class="test" style="width: 30%; border:1px gray solid;" >
-										<a>신용카드 매출전표등 발행공제등</a>
+									<th colspan="6" style="width: 30%; " >
+										<span>신용카드 매출전표등 발행공제등</span>
+									</th>
+									<th    style="width: 3%; " >
+										<span>(19)</span>
+									</th>
+									<td colspan="6" style="width: 30%; " >
+										<input type="text"  id="txtAmtNo20"  name="amtNo20" class="nsf-input nsf-param " maxlength="35" style="width: 98%; text-align: right;">
 									</td>
-									<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-										<a>(19)</a>
-									</td>
-									<td colspan="6"class="test" style="width: 30%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtNo20"  name="amtNo20" class="nsf-input nsf-param " maxlength="35" style="width: 90%; text-align: right;">
-									</td>
-									<td colspan="1"class="test"  style="width: 5%; border:1px gray solid;" >
-
-									</td>
-									<td colspan="6"class="test"  style="width: 30%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtVat20"  name="amtVat20" class="nsf-input nsf-param " maxlength="35" style="width: 90%; text-align: right;">
+									<th   style="width: 5%; " >
+                                        &nbsp;
+									</th>
+									<td colspan="6"  style="width: 30%; " >
+										<input type="text"  id="txtAmtVat20"  name="amtVat20" class="nsf-input nsf-param " maxlength="35" style="width: 98%; text-align: right;">
 									</td>
 								</tr>
 								<tr><!-- 21 -->
-									<td colspan="6"class="test"  style="width: 30%; border:1px gray solid;" >
-										<a>합계</a>
+									<th colspan="6"  style="width: 30%; " >
+										<span>합계</span>
+									</th>
+									<th    style="width: 3%; " >
+										<span>(20)</span>
+									</th>
+									<td class="empty" colspan="6"  style="width: 30%; " >
+                                        &nbsp;
 									</td>
-									<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-										<a>(20)</a>
-									</td>
-									<td colspan="6"class="test"  style="width: 30%; border:1px gray solid;" >
-									</td>
-									<td colspan="1"class="test"  style="width: 5%; border:1px gray solid;" >
-										<a>(라)</a>
-									</td>
-									<td colspan="6"class="test"  style="width: 30%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtVat21Tot"  name="amtVat21Tot" class="nsf-input nsf-param nsf-status-lck" disabled="disabled" maxlength="35" style="width: 90%; text-align: right;">
+									<th   style="width: 5%; " >
+										<span>(라)</span>
+									</th>
+									<td colspan="6"  style="width: 30%; " >
+										<input type="text"  id="txtAmtVat21Tot"  name="amtVat21Tot" class="nsf-input nsf-param nsf-status-lck" disabled="disabled" maxlength="35" style="width: 98%; text-align: right;">
 									</td>
 								</tr>
 								<tr>
 									<!-- 21 -->
-									<td colspan="7"class="test"  style="width: 35%; border:1px gray solid;" >
-										<a>소규모 개인사업자 부가가치세 감면세액</a>
+									<th colspan="7"  style="width: 35%; " >
+										<span>소규모 개인사업자 부가가치세 감면세액</span>
+									</th>
+									<th    style="width: 3%; " >
+										<span>(20-1)</span>
+									</th>
+									<td class="empty" colspan="6"  style="width: 30%; " >
+                                        &nbsp;
 									</td>
-									<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-										<a>(20-1)</a>
-									</td>
-									<td colspan="6"class="test"  style="width: 30%; border:1px gray solid;" >
-									</td>
-									<td colspan="1"class="test"  style="width: 5%; border:1px gray solid;" >
-										<a>(마)</a>
-									</td>
-									<td colspan="6"class="test"  style="width: 30%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtVat20_1"  name="amtVat201" class="nsf-input nsf-param " maxlength="35" style="width: 90%; text-align: right;">
+									<th   style="width: 5%; " >
+										<span>(마)</span>
+									</th>
+									<td colspan="6"  style="width: 30%; " >
+										<input type="text"  id="txtAmtVat20_1"  name="amtVat201" class="nsf-input nsf-param " maxlength="35" style="width: 98%; text-align: right;">
 									</td>
 								</tr>						
 								<tr>
 									<!-- 21 -->
-									<td colspan="7"class="test"  style="width: 35%; border:1px gray solid;" >
-										<a>예정신고 미환급세액</a>
+									<th colspan="7"  style="width: 35%; " >
+										<span>예정신고 미환급세액</span>
+									</th>
+									<th    style="width: 3%; " >
+										<span>(21)</span>
+									</th>
+									<td class="empty" colspan="6"  style="width: 30%; " >
+                                        &nbsp;
 									</td>
-									<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-										<a>(21)</a>
-									</td>
-									<td colspan="6"class="test"  style="width: 30%; border:1px gray solid;" >
-									</td>
-									<td colspan="1"class="test"  style="width: 5%; border:1px gray solid;" >
-										<a>(바)</a>
-									</td>
-									<td colspan="6"class="test"  style="width: 30%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtVat22"  name="amtVat22" class="nsf-input nsf-param " maxlength="35" style="width: 90%; text-align: right;">
+									<th   style="width: 5%; " >
+										<span>(바)</span>
+									</th>
+									<td colspan="6"  style="width: 30%; " >
+										<input type="text"  id="txtAmtVat22"  name="amtVat22" class="nsf-input nsf-param " maxlength="35" style="width: 98%; text-align: right;">
 									</td>
 								</tr>
 								<tr><!-- 22 -->
-									<td colspan="7"class="test"  style="width: 35%; border:1px gray solid;" >
-										<a>예정고지세액</a>
+									<th colspan="7"  style="width: 35%; " >
+										<span>예정고지세액</span>
+									</th>
+									<th    style="width: 3%; " >
+										<span>(22)</span>
+									</th>
+									<td class="empty" colspan="6"  style="width: 30%; " >
+                                        &nbsp;
 									</td>
-									<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-										<a>(22)</a>
+									<th   style="width: 5%; " >
+										<span>(사)</span>
+									</th>
+									<td colspan="6"  style="width: 30%; " >
+										<input type="text"  id="txtAmtVat23"  name="amtVat23" class="nsf-input nsf-param " maxlength="35" style="width: 98%; text-align: right;">
 									</td>
-									<td colspan="6"class="test"  style="width: 30%; border:1px gray solid;" >
-									</td>
-									<td colspan="1"class="test"  style="width: 5%; border:1px gray solid;" >
-										<a>(사)</a>
-									</td>
-									<td colspan="6"class="test"  style="width: 30%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtVat23"  name="amtVat23" class="nsf-input nsf-param " maxlength="35" style="width: 90%; text-align: right;">
-									</td>
-
-
-
-
-
 								</tr>
 								<tr><!-- 23 -->
-									<td colspan="7"class="test"  style="width: 35%; border:1px gray solid;" >
-										<a>사업양수자의 대리납부 기납부세액</a>
+									<th colspan="7"  style="width: 35%; " >
+										<span>사업양수자의 대리납부 기납부세액</span>
+									</th>
+									<th    style="width: 3%; " >
+										<span>(23)</span>
+									</th>
+									<td class="empty" colspan="6"  style="width: 30%; " >
+                                        &nbsp;
 									</td>
-									<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-										<a>(23)</a>
-									</td>
-									<td colspan="6"class="test"  style="width: 30%; border:1px gray solid;" >
-									</td>
-									<td colspan="1"class="test"  style="width: 5%; border:1px gray solid;" >
-										<a>(아)</a>
-									</td>
-									<td colspan="6"class="test"  style="width: 30%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtVat82"  name="amtVat82" class="nsf-input nsf-param " maxlength="35" style="width: 90%; text-align: right;">
+									<th   style="width: 5%; " >
+										<span>(아)</span>
+									</th>
+									<td colspan="6"  style="width: 30%; " >
+										<input type="text"  id="txtAmtVat82"  name="amtVat82" class="nsf-input nsf-param " maxlength="35" style="width: 98%; text-align: right;">
 									</td>
 								</tr>
 								<tr><!-- 24 -->
-									<td colspan="7"class="test"  style="width: 35%; border:1px gray solid;" >
-										<a>매입자 납부특례 기납부세액</a>
+									<th colspan="7"  style="width: 35%; " >
+										<span>매입자 납부특례 기납부세액</span>
+									</th>
+									<th    style="width: 3%; " >
+										<span>(24)</span>
+									</th>
+									<td class="empty" colspan="6"  style="width: 30%; " >
+                                        &nbsp;
 									</td>
-									<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-										<a>(24)</a>
-									</td>
-									<td colspan="6"class="test"  style="width: 30%; border:1px gray solid;" >
-									</td>
-									<td colspan="1"class="test"  style="width: 5%; border:1px gray solid;" >
-										<a>(자)</a>
-									</td>
-									<td colspan="6"class="test"  style="width: 30%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtVat24"  name="amtVat24" class="nsf-input nsf-param " maxlength="35" style="width: 90%; text-align: right;">
-									</td>
-								</tr>
-								<tr><!-- 25 -->
-									<td colspan="7"class="test"  style="width: 35%; border:1px gray solid;" >
-										<a>신용카드업자의 대리납부 기납부세액</a>
-									</td>
-									<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-										<a>(25)</a>
-									</td>
-									<td colspan="6"class="test"  style="width: 30%; border:1px gray solid;" >
-									</td>
-									<td colspan="1"class="test"  style="width: 5%; border:1px gray solid;" >
-										<a>(차)</a>
-									</td>
-									<td colspan="6"class="test"  style="width: 30%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtVat26"  name="amtVat26" class="nsf-input nsf-param nsf-status-lck" disabled="disabled" maxlength="35" style="width: 90%; text-align: right;">
+									<th   style="width: 5%; " >
+										<span>(자)</span>
+									</th>
+									<td colspan="6"  style="width: 30%; " >
+										<input type="text"  id="txtAmtVat24"  name="amtVat24" class="nsf-input nsf-param " maxlength="35" style="width: 98%; text-align: right;">
 									</td>
 								</tr>
 								<tr><!-- 25 -->
-									<td colspan="7"class="test"  style="width: 35%; border:1px gray solid;" >
-										<a>가산세액계</a>
+									<th colspan="7"  style="width: 35%; " >
+										<span>신용카드업자의 대리납부 기납부세액</span>
+									</th>
+									<th    style="width: 3%; " >
+										<span>(25)</span>
+									</th>
+									<td class="empty" colspan="6"  style="width: 30%; " >
+                                        &nbsp;
 									</td>
-									<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-										<a>(26)</a>
+									<th   style="width: 5%; " >
+										<span>(차)</span>
+									</th>
+									<td colspan="6"  style="width: 30%; " >
+										<input type="text"  id="txtAmtVat26"  name="amtVat26" class="nsf-input nsf-param nsf-status-lck" disabled="disabled" maxlength="35" style="width: 98%; text-align: right;">
 									</td>
-									<td colspan="6"class="test"  style="width: 30%; border:1px gray solid;" >
+								</tr>
+								<tr><!-- 25 -->
+									<th colspan="7"  style="width: 35%; " >
+										<span>가산세액계</span>
+									</th>
+									<th    style="width: 3%; " >
+										<span>(26)</span>
+									</th>
+									<td class="empty" colspan="6"  style="width: 30%; " >
+                                        &nbsp;
 									</td>
-									<td colspan="1"class="test"  style="width: 5%; border:1px gray solid;" >
-										<a>(카)</a>
-									</td>
-									<td colspan="6"class="test"  style="width: 30%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtVat25Tot"  name="amtVat25Tot" class="nsf-input nsf-param nsf-status-lck" disabled="disabled" maxlength="35" style="width: 90%; text-align: right;">
+									<th   style="width: 5%; " >
+										<span>(카)</span>
+									</th>
+									<td colspan="6"  style="width: 30%; " >
+										<input type="text"  id="txtAmtVat25Tot"  name="amtVat25Tot" class="nsf-input nsf-param nsf-status-lck" disabled="disabled" maxlength="35" style="width: 98%; text-align: right;">
 									</td>
 								</tr>
 								<tr>
 									<!-- 26 -->
-									<td colspan="14"class="test"  style="width: 65%; border:1px gray solid;" >
-										<a>차가감하여 납부할 세액(환급받을 세액)(다-라-마-바-사+아+자)</a>
-									</td>
-									<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-										<a>(27)</a>
-									</td>
-									<td colspan="6"class="test"  style="width: 30%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtVat26Tot"  name="amtVat26Tot" class="nsf-input nsf-param nsf-status-lck" disabled="disabled" maxlength="35" style="width: 90%; text-align: right;">
+									<th colspan="7"  style="width: 35%; " >
+										<span>차가감하여 납부할 세액(환급받을 세액)(다-라-마-바-사+아+자)</span>
+									</th>
+									<th    style="width: 3%; " >
+										<span>(27)</span>
+									</th>
+                                    <th colspan="6"  style="width: 30%; " >
+									</th>
+									<th   style="width: 5%; " >
+										&nbsp;
+									</th>
+									<td colspan="6"  style="width: 30%; " >
+										<input type="text"  id="txtAmtVat26Tot"  name="amtVat26Tot" class="nsf-input nsf-param nsf-status-lck" disabled="disabled" maxlength="35" style="width: 98%; text-align: right;">
 									</td>
 								</tr>
 								<tr><!-- 27 -->
-
-									<td colspan="15"class="test"  style="width: 70%; border:1px gray solid;" >
-										<a>총괄납부사업자 납부할 세액(환급받을 세액)</a>
-									</td>
-
-									<td colspan="6"class="test"  style="width: 30%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtVat27Tot"  name="amtVat27Tot" class="nsf-input nsf-param " maxlength="35" style="width: 90%; text-align: right;">
-									</td>
+									<th colspan="7" class="total"  style="width: 35%; " >
+										<span>총괄납부사업자 납부할 세액(환급받을 세액)</span>
+									</th>
+                                    <th   class="total" style="width: 3%;" >
+										&nbsp;
+									</th>
+                                    <th colspan="6"  class="total" style="width: 30%; " >
+                                        &nbsp;
+									</th>
+									<th   class="total" style="width: 5%; " >
+										&nbsp;
+									</th>
+									<th class="total" colspan="6"  style="width: 30%; " >
+										<input type="text"  id="txtAmtVat27Tot"  name="amtVat27Tot" class="nsf-input nsf-param " maxlength="35" style="width: 98%; text-align: right;">
+									</th>
 								</tr>
 								<tr>
-									<td colspan="3" class="test" style="width: 15%; border:1px gray solid;" >
-										<a>국세환급금계좌번호</a>
-		 							</td>
-									<td colspan="2" class="test" style="width: 10%; border:1px gray solid;" >
-										<a>거래은행</a>
-									</td>
-									<td colspan="4"class="test" style="width: 15%; border:1px gray solid;" >
-										<select id="txtCboCdBank" name="cdBank"  class="nsf-input nsf-param" style="width:90%;" maxlength="1">		
+									<th colspan="3"  style="width: 15%; " >
+										<span>국세환급금계좌번호</span>
+		 							</th>
+									<th colspan="2"  style="width: 10%; " >
+										<span>거래은행</span>
+									</th>
+									<td colspan="4" style="width: 15%; " >
+										<select id="txtCboCdBank" name="cdBank"  class="nsf-input nsf-param" style="width:99%;" maxlength="1">		
 											<option value=""></option>			
-																						<option value="001">한국은행</option>
-																						<option value="002">산업은행</option>
-																						<option value="003">기업은행</option>
-																						<option value="004">국민은행</option>
-																						<option value="005">외환은행</option>
-																						<option value="007">수협중앙회</option>
-																						<option value="008">수출입은행</option>
-																						<option value="011">농협은행</option>
-																						<option value="012">지역농ㆍ축협</option>
-																						<option value="020">우리은행</option>
-																						<option value="023">SC은행</option>
-																						<option value="027">한국씨티은행</option>
-																						<option value="031">대구은행</option>
-																						<option value="032">부산은행</option>
-																						<option value="034">광주은행</option>
-																						<option value="035">제주은행</option>
-																						<option value="037">전북은행</option>
-																						<option value="039">경남은행</option>
-																						<option value="041">우리카드</option>
-																						<option value="044">외환카드</option>
-																						<option value="045">새마을금고중앙회</option>
-																						<option value="048">신협중앙회</option>
-																						<option value="050">상호저축은행</option>
-																						<option value="051">기타 외국계은행</option>
-																						<option value="052">모간스탠리은행</option>
-																						<option value="054">HSBC은행</option>
-																						<option value="055">도이치은행</option>
-																						<option value="056">알비에스은행</option>
-																						<option value="057">제이피모간체이스은행</option>
-																						<option value="058">미즈호은행</option>
-																						<option value="059">미쓰비시도쿄UFJ은행</option>
-																						<option value="060">BOA은행</option>
-																						<option value="061">비엔피파리바은행</option>
-																						<option value="064">산림조합중앙회</option>
-																						<option value="071">우체국</option>
-																						<option value="076">신용보증기금</option>
-																						<option value="077">기술보증기금</option>
-																						<option value="081">하나은행</option>
-																						<option value="088">신한은행</option>
-																						<option value="092">한국정책금융공사</option>
-																						<option value="093">한국주택금융공사</option>
-																						<option value="094">서울보증보험</option>
-																						<option value="095">경찰청</option>
-																						<option value="096">한국전자금융(주)</option>
-																						<option value="099">금융결제원</option>
-																						<option value="209">동양증권</option>
-																						<option value="218">현대증권</option>
-																						<option value="230">미래에셋증권</option>
-																						<option value="238">대우증권</option>
-																						<option value="240">삼성증권</option>
-																						<option value="243">한국투자증권</option>
-																						<option value="247">우리투자증권</option>
-																						<option value="261">교보증권</option>
-																						<option value="262">하이투자증권</option>
-																						<option value="263">HMC투자증권</option>
-																						<option value="264">키움증권</option>
-																						<option value="265">이트레이드증권</option>
-																						<option value="266">에스케이증권</option>
-																						<option value="267">대신증권</option>
-																						<option value="268">아이엠투자증권</option>
-																						<option value="269">한화투자증권</option>
-																						<option value="270">하나대투증권</option>
-																						<option value="278">신한금융투자</option>
-																						<option value="279">동부증권</option>
-																						<option value="280">유진투자증권</option>
-																						<option value="287">메리츠종합금융증권</option>
-																						<option value="289">엔에이치농협증권</option>
-																						<option value="290">부국증권</option>
-																						<option value="291">신영증권</option>
-																						<option value="292">엘아이지투자증권</option>
-																					</select>
+                                            <option value="001">한국은행</option>
+                                            <option value="002">산업은행</option>
+                                            <option value="003">기업은행</option>
+                                            <option value="004">국민은행</option>
+                                            <option value="005">외환은행</option>
+                                            <option value="007">수협중앙회</option>
+                                            <option value="008">수출입은행</option>
+                                            <option value="011">농협은행</option>
+                                            <option value="012">지역농ㆍ축협</option>
+                                            <option value="020">우리은행</option>
+                                            <option value="023">SC은행</option>
+                                            <option value="027">한국씨티은행</option>
+                                            <option value="031">대구은행</option>
+                                            <option value="032">부산은행</option>
+                                            <option value="034">광주은행</option>
+                                            <option value="035">제주은행</option>
+                                            <option value="037">전북은행</option>
+                                            <option value="039">경남은행</option>
+                                            <option value="041">우리카드</option>
+                                            <option value="044">외환카드</option>
+                                            <option value="045">새마을금고중앙회</option>
+                                            <option value="048">신협중앙회</option>
+                                            <option value="050">상호저축은행</option>
+                                            <option value="051">기타 외국계은행</option>
+                                            <option value="052">모간스탠리은행</option>
+                                            <option value="054">HSBC은행</option>
+                                            <option value="055">도이치은행</option>
+                                            <option value="056">알비에스은행</option>
+                                            <option value="057">제이피모간체이스은행</option>
+                                            <option value="058">미즈호은행</option>
+                                            <option value="059">미쓰비시도쿄UFJ은행</option>
+                                            <option value="060">BOA은행</option>
+                                            <option value="061">비엔피파리바은행</option>
+                                            <option value="064">산림조합중앙회</option>
+                                            <option value="071">우체국</option>
+                                            <option value="076">신용보증기금</option>
+                                            <option value="077">기술보증기금</option>
+                                            <option value="081">하나은행</option>
+                                            <option value="088">신한은행</option>
+                                            <option value="092">한국정책금융공사</option>
+                                            <option value="093">한국주택금융공사</option>
+                                            <option value="094">서울보증보험</option>
+                                            <option value="095">경찰청</option>
+                                            <option value="096">한국전자금융(주)</option>
+                                            <option value="099">금융결제원</option>
+                                            <option value="209">동양증권</option>
+                                            <option value="218">현대증권</option>
+                                            <option value="230">미래에셋증권</option>
+                                            <option value="238">대우증권</option>
+                                            <option value="240">삼성증권</option>
+                                            <option value="243">한국투자증권</option>
+                                            <option value="247">우리투자증권</option>
+                                            <option value="261">교보증권</option>
+                                            <option value="262">하이투자증권</option>
+                                            <option value="263">HMC투자증권</option>
+                                            <option value="264">키움증권</option>
+                                            <option value="265">이트레이드증권</option>
+                                            <option value="266">에스케이증권</option>
+                                            <option value="267">대신증권</option>
+                                            <option value="268">아이엠투자증권</option>
+                                            <option value="269">한화투자증권</option>
+                                            <option value="270">하나대투증권</option>
+                                            <option value="278">신한금융투자</option>
+                                            <option value="279">동부증권</option>
+                                            <option value="280">유진투자증권</option>
+                                            <option value="287">메리츠종합금융증권</option>
+                                            <option value="289">엔에이치농협증권</option>
+                                            <option value="290">부국증권</option>
+                                            <option value="291">신영증권</option>
+                                            <option value="292">엘아이지투자증권</option>
+                                        </select>
 									</td>
-									<td colspan="2"class="test" style="width: 10%; border:1px gray solid;" >
-										<a>지점</a>
+									<th colspan="2" style="width: 10%; " >
+										<span>지점</span>
+									</th>
+									<td colspan="3" style="width: 15%; " >
+										<input type="text"  id="txtNmBranch" name="nmBranch"  class="nsf-input nsf-param" style="width: 98%;">
 									</td>
-									<td colspan="3"class="test" style="width: 15%; border:1px gray solid;" >
-										<input type="text"  id="txtNmBranch" name="nmBranch"  class="nsf-input nsf-param" style="width: 90%; ">
-									</td>
-									<td colspan="2"class="test" style="width: 10%; border:1px gray solid;" >
-										<a>계좌번호</a>
-									</td>
-									<td colspan="5"class="test" style="width: 25%; border:1px gray solid;" >
-										<input  type="text"  id="txtNoBankAccount" name="noBankAccount"  class="nsf-input nsf-param"  style="width: 90%; ">
+									<th colspan="2" style="width: 10%; " >
+										<span>계좌번호</span>
+									</th>
+									<td colspan="5" style="width: 25%; " >
+										<input  type="text"  id="txtNoBankAccount" name="noBankAccount"  class="nsf-input nsf-param"  style="width: 98%;">
 									</td>
 								</tr>
 								<tr>
-									<td colspan="3" class="test"  style="width: 15%; border:1px gray solid;" >
-										<a>폐업신고</a>
-		 							</td>
-									<td colspan="2" class="test"  style="width: 10%; border:1px gray solid;" >
-										<a>폐업일자</a>
-									</td>
+									<th colspan="3"   style="width: 15%; " >
+										<span>폐업신고</span>
+		 							</th>
+									<th colspan="2"   style="width: 10%; " >
+										<span>폐업일자</span>
+									</th>
 
-									<td colspan="4"class="test"  style="width: 15%; border:1px gray solid;" >
-										<input type="text"  id="txtDtClose" name="dtClose"  class="nsf-input nsf-param" style="width: 80%; text-align: cemter;">
+									<td colspan="4"  style="width: 15%; " >
+										<input type="text"  id="txtDtClose" name="dtClose"  class="nsf-input nsf-param" style="width: 97.5%; text-align: cemter;">
 									</td>
-									<td colspan="2"class="test"  style="width: 10%; border:1px gray solid;" >
-										<a>폐업사유</a>
-									</td>
-									<td colspan="10"class="test"  style="width: 50%; border:1px gray solid;" >
-										<input type="text"  id="txtClose" name="txtClose"  class="nsf-input nsf-param" style="width: 95%; ">
+									<th colspan="2"  style="width: 10%; " >
+										<span>폐업사유</span>
+									</th>
+									<td colspan="10"  style="width: 50%; " >
+										<input type="text"  id="txtClose" name="txtClose"  class="nsf-input nsf-param" style="width: 99.5%; ">
 									</td>
 								</tr>
  								<tr>
-									<td colspan="3" class="test"  style="width: 10%; border:1px gray solid;" >
-										<a>영세율 상호주의</a>
-		 							</td>
-									<td colspan="2" class="test"  style="width: 10%; border:1px gray solid;" >
-										<a>여/부</a>
-									</td>
-									<td colspan="4"class="test" style="width: 10%; border:1px gray solid;" >
-										<select id="txtCboYnZeroTaxReciprocity" name="ynZeroTaxReciprocity"  class="nsf-input nsf-param" style="width:90%;" maxlength="1">		
+									<th colspan="3"   style="width: 10%; " >
+										<span>영세율 상호주의</span>
+		 							</th>
+									<th colspan="2"   style="width: 10%; " >
+										<span>여/부</span>
+									</th>
+									<td colspan="4" style="width: 10%; " >
+										<select id="txtCboYnZeroTaxReciprocity" name="ynZeroTaxReciprocity"  class="nsf-input nsf-param" style="width:99%;" maxlength="1">		
 											<option value=""></option>			
-																						<option value="Y">Y</option>
-																						<option value="N">N</option>
-																					</select>
+                                            <option value="Y">Y</option>
+                                            <option value="N">N</option>
+                                        </select>
 									</td>
-									<td colspan="2" class="test"  style="width: 10%; border:1px gray solid;" >
-										<a>적용구분</a>
-									</td>
-									<td colspan="2"class="test" style="width: 10%; border:1px gray solid;" >
-										<select id="txtCboFgZeroTaxReciprocity" name="fgZeroTaxReciprocity"  class="nsf-input nsf-param" style="width:90%;" maxlength="1">		
+									<th colspan="2"   style="width: 10%; " >
+										<span>적용구분</span>
+									</th>
+									<td colspan="2" style="width: 10%; " >
+										<select id="txtCboFgZeroTaxReciprocity" name="fgZeroTaxReciprocity"  class="nsf-input nsf-param" style="width:99.5%;" maxlength="1">		
 											<option value=""></option>			
 																						<option value="01">「부가가치세법」 제21조</option>
 																						<option value="02">「부가가치세법」 제22조</option>
@@ -3541,164 +3554,155 @@ function replaceAll(inputString, targetString, replacement){
 																						<option value="07">「부가가치세법」시행령 제33조제2항제2호</option>
 																					</select>
 									</td>
-									<td colspan="2" class="test"  style="width: 10%; border:1px gray solid;" >
-										<a>업종</a>
+									<th colspan="2"   style="width: 10%; " >
+										<span>업종</span>
+									</th>
+									<td colspan="3"  style="width: 10%; " >
+										<input type="text"  id="txtCdBizZeroTaxReciprocity" name="cdBizZeroTaxReciprocity"  class="nsf-input nsf-param" style="width: 98%; text-align: cemter;">
 									</td>
-									<td colspan="3"class="test"  style="width: 10%; border:1px gray solid;" >
-										<input type="text"  id="txtCdBizZeroTaxReciprocity" name="cdBizZeroTaxReciprocity"  class="nsf-input nsf-param" style="width: 80%; text-align: cemter;">
-									</td>
-									<td colspan="2" class="test"  style="width: 10%; border:1px gray solid;" >
-										<a>해당국가</a>
-									</td>
-									<td colspan="3"class="test" style="width: 10%; border:1px gray solid;" >
-										<select id="txtCboCdNationZeroTaxReciprocity" name="cdNationZeroTaxReciprocity"  class="nsf-input nsf-param" style="width:90%;" maxlength="1">		
+									<th colspan="2"   style="width: 10%; " >
+										<span>해당국가</span>
+									</th>
+									<td colspan="3" style="width: 10%; " >
+										<select id="txtCboCdNationZeroTaxReciprocity" name="cdNationZeroTaxReciprocity"  class="nsf-input nsf-param" style="width:99.5%;" maxlength="1">		
 											<option value=""></option>			
-																						<option value="US">미국</option>
-																						<option value="JP">일본</option>
-																						<option value="CN">중국</option>
-																						<option value="HK">홍콩</option>
-																					</select>
+                                            <option value="US">미국</option>
+                                            <option value="JP">일본</option>
+                                            <option value="CN">중국</option>
+                                            <option value="HK">홍콩</option>
+                                        </select>
 									</td>
 								</tr>
 								<tr>
-									<td colspan="21" class="test" style="width: 100%; border:1px gray solid;" >
-										<a>과세표준명세</a>
-		 							</td>
-
+									<th colspan="21"  style="width: 98%;" >
+										<span>과세표준명세</span>
+		 							</th>
 								</tr>
 								<tr>
-									<td colspan="6" class="test" style="width: 25% ; border:1px gray solid;">
-										<a>업태</a>
-		 							</td>
-									<td colspan="5" class="test" style="width: 25%; border:1px gray solid;">
-										<a>종목</a>
-									</td>
-
-									<td colspan="5" class="test" style="width: 25%; border:1px gray solid;">
-										<a>업종코드</a>
-									</td>
-									<td colspan="5" class="test" style="width: 25%; border:1px gray solid;">
-										<a>금액</a>
-									</td>
-
-
+									<th colspan="6"  style="width: 25% ; ">
+										<span>업태</span>
+		 							</th>
+									<th colspan="5"  style="width: 25%; ">
+										<span>종목</span>
+									</th>
+									<th colspan="5"  style="width: 25%; ">
+										<span>업종코드</span>
+									</th>
+									<th colspan="5"  style="width: 25%; ">
+										<span>금액</span>
+									</th>
 								</tr>
 								<tr>
-									<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-										<a>(28)</a>
-									</td>
-									<td colspan="5" class="test" style="width: 25%; border:1px gray solid;">
-										<input type="text"  id="txtTpBizClass1" name="tpBizClass1"  class="nsf-input nsf-param" style="width: 90%; ">
+									<th    style="width: 3%; " >
+										<span>(28)</span>
+									</th>
+									<td colspan="5"  style="width: 25%; ">
+										<input type="text"  id="txtTpBizClass1" name="tpBizClass1"  class="nsf-input nsf-param" style="width: 98%;">
 		 							</td>
-									<td colspan="5" class="test" style="width: 25%; border:1px gray solid;">
-										<input type="text"  id="txtTpItemClass1" name="tpItemClass1"  class="nsf-input nsf-param" style="width: 90%; ">
+									<td colspan="5"  style="width: 25%; ">
+										<input type="text"  id="txtTpItemClass1" name="tpItemClass1"  class="nsf-input nsf-param" style="width: 98%;">
 									</td>
-
-									<td colspan="5"class="test" style="width: 25%; border:1px gray solid;">
-										<input type="text"  id="txtCdBiz1" name="cdBiz1"  class="nsf-input nsf-param" style="width: 90%; ">
+									<td colspan="5" style="width: 25%; ">
+										<input type="text"  id="txtCdBiz1" name="cdBiz1"  class="nsf-input nsf-param" style="width: 98%;">
 									</td>
-									<td colspan="5"class="test" style="width: 25%; border:1px gray solid;">
-										<input type="text"  id="txtAmtNo28" name="amtNo28"  class="nsf-input nsf-param" style="width: 90%; text-align: right;">
+									<td colspan="5" style="width: 25%; ">
+										<input type="text"  id="txtAmtNo28" name="amtNo28"  class="nsf-input nsf-param" style="width: 98%; text-align: right;">
 									</td>
-
 								</tr>
 								<tr>
-									<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-										<a>(29)</a>
-									</td>
-									<td colspan="5" class="test" style="width: 25%; border:1px gray solid;">
-										<input type="text"  id="txtTpBizClass2" name="tpBizClass2"  class="nsf-input nsf-param" style="width: 90%; ">
+									<th    style="width: 3%; " >
+										<span>(29)</span>
+									</th>
+									<td colspan="5"  style="width: 25%; ">
+										<input type="text"  id="txtTpBizClass2" name="tpBizClass2"  class="nsf-input nsf-param" style="width: 98%;">
 		 							</td>
-									<td colspan="5" class="test" style="width: 25%; border:1px gray solid;">
-										<input type="text"  id="txtTpItemClass2" name="tpItemClass2"  class="nsf-input nsf-param" style="width: 90%; ">
+									<td colspan="5"  style="width: 25%; ">
+										<input type="text"  id="txtTpItemClass2" name="tpItemClass2"  class="nsf-input nsf-param" style="width: 98%;">
 									</td>
 
-									<td colspan="5"class="test" style="width: 25%; border:1px gray solid;">
-										<input type="text"  id="txtCdBiz2" name="cdBiz2"  class="nsf-input nsf-param" style="width: 90%; ">
+									<td colspan="5" style="width: 25%; ">
+										<input type="text"  id="txtCdBiz2" name="cdBiz2"  class="nsf-input nsf-param" style="width: 98%;">
 									</td>
-									<td colspan="5"class="test" style="width: 25%; border:1px gray solid;">
-										<input  type="text"  id="txtAmtNo29" name="amtNo29"  class="nsf-input nsf-param" style="width: 90%; text-align: right;">
+									<td colspan="5" style="width: 25%; ">
+										<input  type="text"  id="txtAmtNo29" name="amtNo29"  class="nsf-input nsf-param" style="width: 98%; text-align: right;">
 									</td>
-
 								</tr>
 								<tr>
-									<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-										<a>(30)</a>
-									</td>
-									<td colspan="5" class="test" style="width: 25%; border:1px gray solid;">
-										<input type="text"  id="txtTpBizClass3" name="tpBizClass3"  class="nsf-input nsf-param" style="width: 90%; ">
+									<th    style="width: 3%; " >
+										<span>(30)</span>
+									</th>
+									<td colspan="5"  style="width: 25%; ">
+										<input type="text"  id="txtTpBizClass3" name="tpBizClass3"  class="nsf-input nsf-param" style="width: 98%;">
 		 							</td>
-									<td colspan="5" class="test" style="width: 25%; border:1px gray solid;">
-										<input type="text"  id="txtTpItemClass3" name="tpItemClass3"  class="nsf-input nsf-param" style="width: 90%; ">
+									<td colspan="5"  style="width: 25%; ">
+										<input type="text"  id="txtTpItemClass3" name="tpItemClass3"  class="nsf-input nsf-param" style="width: 98%;">
 									</td>
 
-									<td colspan="5"class="test" style="width: 25%; border:1px gray solid;">
-										<input type="text"  id="txtCdBiz3" name="cdBiz3"  class="nsf-input nsf-param" style="width: 90%; ">
+									<td colspan="5" style="width: 25%; ">
+										<input type="text"  id="txtCdBiz3" name="cdBiz3"  class="nsf-input nsf-param" style="width: 98%;">
 									</td>
-									<td colspan="5"class="test" style="width: 25%; border:1px gray solid;">
-										<input type="text"  id="txtAmtNo30" name="amtNo30"  class="nsf-input nsf-param" style="width: 90%; text-align: right;">
+									<td colspan="5" style="width: 25%; ">
+										<input type="text"  id="txtAmtNo30" name="amtNo30"  class="nsf-input nsf-param" style="width: 98%; text-align: right;">
 									</td>
-
 								</tr>
 								<tr>
-									<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-										<a>(31)</a>
-									</td>
-									<td colspan="5" class="test" style="width: 25%; border:1px gray solid;">
-										<a>수입금액제외</a>
-		 							</td>
-									<td colspan="5" class="test" style="width: 25%; border:1px gray solid;">
-										<input type="text"  id="txtTpItemClass4" name="tpItemClass4"  class="nsf-input nsf-param" style="width: 90%; ">
-									</td>
-
-									<td colspan="5"class="test" style="width: 25%; border:1px gray solid;">
-										<input type="text"  id="txtCdBiz4" name="cdBiz4"  class="nsf-input nsf-param" style="width: 90%; ">
-									</td>
-									<td colspan="5"class="test" style="width: 25%; border:1px gray solid;">
-										<input type="text"  id="txtAmtNo31" name="amtNo31"  class="nsf-input nsf-param" style="width: 90%; text-align: right;">
+									<th    style="width: 3%; " >
+										<span>(31)</span>
+									</th>
+									<th colspan="5"  style="width: 25%; ">
+										<span>수입금액제외</span>
+		 							</th>
+									<td colspan="5"  style="width: 25%; ">
+										<input type="text"  id="txtTpItemClass4" name="tpItemClass4"  class="nsf-input nsf-param" style="width: 98%;">
 									</td>
 
+									<td colspan="5" style="width: 25%; ">
+										<input type="text"  id="txtCdBiz4" name="cdBiz4"  class="nsf-input nsf-param" style="width: 98%;">
+									</td>
+									<td colspan="5" style="width: 25%; ">
+										<input type="text"  id="txtAmtNo31" name="amtNo31"  class="nsf-input nsf-param" style="width: 98%; text-align: right;">
+									</td>
 								</tr>
 								<tr>
-									<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-										<a>(32)</a>
-									</td>
-									<td colspan="5" class="test" style="width: 25%; border:1px gray solid;">
-										<a>합계</a>
-		 							</td>
-									<td colspan="5" class="test" style="width: 25%; border:1px gray solid;">
-		<!-- 								<input type="text"  id="txtTpItemClass5" name="tpItemClass5"  class="nsf-input nsf-param" style="width: 90%; text-align: right;"> -->
+									<th style="width: 3%; " >
+										<span>(32)</span>
+									</th>
+									<th colspan="5"  style="width: 25%; ">
+										<span>합계</span>
+		 							</th>
+									<td colspan="5"  style="width: 25%; ">
+		<!-- 								<input type="text"  id="txtTpItemClass5" name="tpItemClass5"  class="nsf-input nsf-param" style="width: 98%; text-align: right;"> -->
 									</td>
 
-									<td colspan="5"class="test" style="width: 25%; border:1px gray solid;">
-		<!-- 								<input type="text"  id="txtCdBiz5" name="cdBiz5"  class="nsf-input nsf-param" style="width: 90%; text-align: right;"> -->
+									<td colspan="5" style="width: 25%; ">
+		<!-- 								<input type="text"  id="txtCdBiz5" name="cdBiz5"  class="nsf-input nsf-param" style="width: 98%; text-align: right;"> -->
 									</td>
-									<td colspan="5"class="test" style="width: 25%; border:1px gray solid;">
-										<input type="text"  id="txtAmtNo32Tot" name="amtNo32Tot"  class="nsf-input nsf-param" style="width: 90%; text-align: right;">
+									<td colspan="5" style="width: 25%; ">
+										<input type="text"  id="txtAmtNo32Tot" name="amtNo32Tot"  class="nsf-input nsf-param" style="width: 98%; text-align: right;">
 									</td>
 
 								</tr>
 								<tr>
-									<td colspan="2" class="test" style="width: 10%; border:1px gray solid;" >
-										<a>세무대리인</a>
-		 							</td>
-		 							<td colspan="1" class="test" style="width: 5% ; border:1px gray solid;" >
-									<a>성명</a>
-		 							</td>
-									<td colspan="4" class="test" style="width: 15%; border:1px gray solid;" >
-										<input type="text"  id="txtRepreMan" name="txtRepreMan"  class="nsf-input nsf-param"  style="width: 90%; ">
+									<th colspan="2"  style="width: 10%; " >
+										<span>세무대리인</span>
+		 							</th>
+		 							<th   style="width: 5% ; " >
+									<span>성명</span>
+		 							</th>
+									<td colspan="4"  style="width: 15%; " >
+										<input type="text"  id="txtRepreMan" name="txtRepreMan"  class="nsf-input nsf-param"  style="width: 98%;">
 									</td>
-									<td colspan="2" class="test" style="width: 10%; border:1px gray solid;" >
-									<a>사업자등록번호</a>
-		 							</td>
-									<td colspan="5"class="test" style="width: 25%; border:1px gray solid;" >
-										<input type="text"  id="txtRepreNoCompany" name="txtRepreNoCompany"  class="nsf-input nsf-param" style="width: 90%; text-align: right;">
+									<th colspan="2"  style="width: 10%; " >
+									<span>사업자등록번호</span>
+		 							</th>
+									<td colspan="5" style="width: 25%; " >
+										<input type="text"  id="txtRepreNoCompany" name="txtRepreNoCompany"  class="nsf-input nsf-param" style="width: 98%; text-align: right;">
 									</td>
-									<td colspan="2" class="test" style="width: 10%; border:1px gray solid;" >
-									<a>전화번호</a>
-		 							</td>
-									<td colspan="5"class="test"  style="width: 25%; border:1px gray solid;" >
-										<input type="text"  id="txtRepreTelephone" name="txtRepreTelephone"  class="nsf-input nsf-param" style="width: 90%; ">
+									<th colspan="2"  style="width: 10%; " >
+									<span>전화번호</span>
+		 							</th>
+									<td colspan="5"  style="width: 25%; " >
+										<input type="text"  id="txtRepreTelephone" name="txtRepreTelephone"  class="nsf-input nsf-param" style="width: 98%;">
 									</td>							
 								</tr>
 
@@ -3726,588 +3730,583 @@ function replaceAll(inputString, targetString, replacement){
 				<div id="frmEditFormM2" >			
 					<div class="ui-widget-content ui-corner-bottom">
 						<div class="nsf-form">
-							<table cellpadding="1" cellspacing="1" class="test nsf-center" style="border-collapse: collapse; border:1px gray solid; " bgcolor="#F5F5F5" >
+							<table cellpadding="0" cellspacing="0" class="new_table" style="border-collapse: collapse;" >
 								<tr><!-- 0 -->
-									<td colspan="2" rowspan="9" class="test"  style="width: 8%; border:1px gray solid;" >
-										<a>예정신고 누락분 명세</a>
-		 							</td>
-									<td colspan="1" rowspan="6" class="test"style="width: 4%; border:1px gray solid;" >
-										<a>매출</a>
-									</td>
-									<td colspan="9"class="test" style="width: 32%; border:1px gray solid;" >
-										<a>구분</a>
-									</td>
-									<td colspan="6"class="test" style="width: 24%; border:1px gray solid;" >
-										<a>금액</a>
-									</td>
-									<td colspan="2"class="test" style="width: 8%; border:1px gray solid;">
-										<a>세율</a>
-									</td>
-									<td colspan="6"class="test" style="width: 24%; border:1px gray solid;" >
-										<a>세액</a>
-									</td>
+									<th rowspan="9"   style="width: 8%; " >
+										<span>예정신고 누락분 명세</span>
+		 							</th>
+									<th rowspan="6" style="width: 4%; " >
+										<span>매출</span>
+									</th>
+									<th colspan="9" style="width: 30%; " >
+										<span>구분</span>
+									</th>
+									<th colspan="6" style="width: 24%; " >
+										<span>금액</span>
+									</th>
+									<th colspan="2" style="width: 8%; ">
+										<span>세율</span>
+									</th>
+									<th colspan="6" style="width: 24%; " >
+										<span>세액</span>
+									</th>
 								</tr>
 
 								<tr><!-- 32 -->
-
-									<td colspan="2" rowspan="2" class="test" style="width: 8%; border:1px gray solid;" >
-										<a>과세</a>
+									<th colspan="2" rowspan="2"  style="width: 8%; " >
+										<span>과세</span>
+									</th>
+									<th colspan="6" style="width: 24%; " >
+										<span>세금계산서</span>
+									</th>
+									<th    style="width: 3%; " >
+										<span>(33)</span>
+									</th>
+									<td colspan="6" style="width: 24%; " >
+										<input type="text"  id="txtAmtNo33"  name="amtNo33" class="nsf-input nsf-param" maxlength="35" style="width: 98%; text-align: right;">
 									</td>
-									<td colspan="6"class="test" style="width: 24%; border:1px gray solid;" >
-										<a>세금계산서</a>
-									</td>
-									<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-										<a>(33)</a>
-									</td>
-									<td colspan="6"class="test" style="width: 24%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtNo33"  name="amtNo33" class="nsf-input nsf-param" maxlength="35" style="width: 90%; text-align: right;">
-									</td>
-									<td colspan="2"class="test" style="width: 8%; border:1px gray solid;">
+									<th colspan="2" style="width: 8%; ">
 										<a>10/100</a>
-									</td>
-									<td colspan="6"class="test" style="width: 24%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtVat33"  name="amtVat33" class="nsf-input nsf-param" maxlength="35" style="width: 90%; text-align: right;">
+									</th>
+									<td colspan="6" style="width: 24%; " >
+										<input type="text"  id="txtAmtVat33"  name="amtVat33" class="nsf-input nsf-param" maxlength="35" style="width: 98%; text-align: right;">
 									</td>
 								</tr>
 
 								<tr><!-- 33 -->
 
-									<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-									<a>기타</a>
+									<th colspan="6"  style="width: 24%; " >
+									<span>기타</span>
+									</th>
+									<th    style="width: 3%; " >
+										<span>(34)</span>
+									</th>
+									<td colspan="6" style="width: 24%; " >
+										<input type="text"  id="txtAmtNo34"  name="amtNo34" class="nsf-input nsf-param" maxlength="35" style="width: 98%; text-align: right;">
 									</td>
-									<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-										<a>(34)</a>
-									</td>
-									<td colspan="6"class="test" style="width: 24%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtNo34"  name="amtNo34" class="nsf-input nsf-param" maxlength="35" style="width: 90%; text-align: right;">
-									</td>
-									<td colspan="2"class="test" style="width: 8%; border:1px gray solid;">
+									<th colspan="2" style="width: 8%; ">
 										<a>10/100</a>
-									</td>
-									<td colspan="6"class="test" style="width: 24%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtVat34"  name="amtVat34" class="nsf-input nsf-param" maxlength="35" style="width: 90%; text-align: right;">
+									</th>
+									<td colspan="6" style="width: 24%; " >
+										<input type="text"  id="txtAmtVat34"  name="amtVat34" class="nsf-input nsf-param" maxlength="35" style="width: 98%; text-align: right;">
 									</td>
 								</tr>
 
 								<tr><!-- 34 -->
-									<td colspan="2" rowspan="2" class="test" style="width: 8%; border:1px gray solid;" >
-										<a>영세율</a>
+									<th colspan="2" rowspan="2"  style="width: 8%; " >
+										<span>영세율</span>
+									</th>
+									<th colspan="6" style="width: 24%; " >
+										<span>세금계산서</span>
+									</th>
+									<th    style="width: 3%; " >
+										<span>(35)</span>
+									</th>
+									<td colspan="6" style="width: 24%; " >
+										<input type="text"  id="txtAmtNo35"  name="amtNo35" class="nsf-input nsf-param" maxlength="35" style="width: 98%; text-align: right;">
 									</td>
-									<td colspan="6"class="test" style="width: 24%; border:1px gray solid;" >
-										<a>세금계산서</a>
-									</td>
-									<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-										<a>(35)</a>
-									</td>
-									<td colspan="6"class="test" style="width: 24%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtNo35"  name="amtNo35" class="nsf-input nsf-param" maxlength="35" style="width: 90%; text-align: right;">
-									</td>
-									<td colspan="2"class="test" style="width: 8%; border:1px gray solid;">
-										<a>0/100</a>
-									</td>
-									<td colspan="6"class="test" style="width: 24%; border:1px gray solid;" >
+									<th colspan="2" style="width: 8%; ">
+										<span>0/100</span>
+									</th>
+									<td colspan="6" style="width: 24%; " >
 									</td>
 								</tr>
 
 								<tr><!-- 35 -->
 
-									<td colspan="6" class="test" style="width: 24%; border:1px gray solid;" >
-										<a>기타</a>
+									<th colspan="6"  style="width: 24%; " >
+										<span>기타</span>
+									</th>
+									<th    style="width: 3%; " >
+										<span>(36)</span>
+									</th>
+									<td colspan="6"  style="width: 24%; " >
+										<input type="text"  id="txtAmtNo36"  name="amtNo36" class="nsf-input nsf-param " maxlength="35" style="width: 98%; text-align: right;">
 									</td>
-									<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-										<a>(36)</a>
-									</td>
-									<td colspan="6" class="test" style="width: 24%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtNo36"  name="amtNo36" class="nsf-input nsf-param " maxlength="35" style="width: 90%; text-align: right;">
-									</td>
-									<td colspan="2" class="test" style="width: 8%; border:1px gray solid;">
-										<a>0/100</a>
-									</td>
-									<td colspan="6" class="test" style="width: 24%; border:1px gray solid;" >
+									<th colspan="2"  style="width: 8%; ">
+										<span>0/100</span>
+									</th>
+									<td colspan="6"  style="width: 24%; " >
 									</td>
 								</tr>
 
 								<tr><!-- 36 -->
-									<td colspan="8"class="test" style="width: 32%; border:1px gray solid;" >
-										<a>합계</a>
+									<th colspan="8" style="width: 32%; " >
+										<span>합계</span>
+									</th>
+									<th    style="width: 3%; " >
+										<span>(37)</span>
+									</th>
+									<td colspan="6" style="width: 24%; " >
+										<input type="text"  id="txtAmtNo37Tot"  name="amtNo37Tot" class="nsf-input nsf-param nsf-status-lck" disabled="disabled" maxlength="35" style="width: 98%; text-align: right;">
 									</td>
-									<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-										<a>(37)</a>
-									</td>
-									<td colspan="6"class="test" style="width: 24%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtNo37Tot"  name="amtNo37Tot" class="nsf-input nsf-param nsf-status-lck" disabled="disabled" maxlength="35" style="width: 90%; text-align: right;">
-									</td>
-									<td colspan="2"class="test" style="width: 8%; border:1px gray solid;">
-
-									</td>
-									<td colspan="6" class="test" style="width: 24%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtVat37Tot"  name="amtVat37Tot" class="nsf-input nsf-param nsf-status-lck" disabled="disabled" maxlength="35" style="width: 90%; text-align: right;">
+									<th colspan="2" style="width: 8%; ">
+                                        &nbsp;
+									</th>
+									<td colspan="6"  style="width: 24%; " >
+										<input type="text"  id="txtAmtVat37Tot"  name="amtVat37Tot" class="nsf-input nsf-param nsf-status-lck" disabled="disabled" maxlength="35" style="width: 98%; text-align: right;">
 									</td>
 								</tr>
 
 								<tr><!-- 37 -->
-									<td colspan="1" rowspan="3" class="test"style="width: 4%; border:1px gray solid;" >
-										<a>매입</a>
+									<th rowspan="3" style="width: 4%; " >
+										<span>매입</span>
+									</th>
+									<th colspan="8" style="width: 32%; " >
+										<span>세금계산서</span>
+									</th>
+									<th   style="width: 3%; " >
+										<span>(38)</span>
+									</th>
+									<td colspan="6" style="width: 24%; " >
+										<input type="text"  id="txtAmtNo38"  name="amtNo38" class="nsf-input nsf-param " maxlength="35" style="width: 98%; text-align: right;">
 									</td>
-									<td colspan="8"class="test"style="width: 32%; border:1px gray solid;" >
-										<a>세금계산서</a>
-									</td>
-									<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-										<a>(38)</a>
-									</td>
-									<td colspan="6"class="test"style="width: 24%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtNo38"  name="amtNo38" class="nsf-input nsf-param " maxlength="35" style="width: 90%; text-align: right;">
-									</td>
-									<td colspan="2"class="test" style="width: 8%; border:1px gray solid;" >
-
-									</td>
-									<td colspan="6"class="test" style="width: 24%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtVat38"  name="amtVat38" class="nsf-input nsf-param " maxlength="35" style="width: 90%; text-align: right;">
+									<th colspan="2" style="width: 8%; " >
+                                        &nbsp;
+									</th>
+									<td colspan="6" style="width: 24%; " >
+										<input type="text"  id="txtAmtVat38"  name="amtVat38" class="nsf-input nsf-param " maxlength="35" style="width: 98%; text-align: right;">
 									</td>
 								</tr>
 
 								<tr><!-- 38 -->
 
-									<td colspan="8"class="test" style="width: 32%; border:1px gray solid;" >
-										<a>그밖의 공제매입세액</a>
+									<th colspan="8" style="width: 32%; " >
+										<span>그밖의 공제매입세액</span>
+									</th>
+									<th  style="width: 3%; " >
+										<span>(39)</span>
+									</th>
+									<td colspan="6" style="width: 24%; " >
+										<input type="text"  id="txtAmtNo39"  name="amtNo39" class="nsf-input nsf-param " maxlength="35" style="width: 98%; text-align: right;">
 									</td>
-									<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-										<a>(39)</a>
-									</td>
-									<td colspan="6"class="test" style="width: 24%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtNo39"  name="amtNo39" class="nsf-input nsf-param " maxlength="35" style="width: 90%; text-align: right;">
-									</td>
-									<td colspan="2"class="test" style="width: 8%; border:1px gray solid;" >
-
-									</td>
-									<td colspan="6"class="test" style="width: 24%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtVat39"  name="amtVat39" class="nsf-input nsf-param " maxlength="35" style="width: 90%; text-align: right;">
+									<th colspan="2" style="width: 8%; " >
+                                        &nbsp;
+									</th>
+									<td colspan="6" style="width: 24%; " >
+										<input type="text"  id="txtAmtVat39"  name="amtVat39" class="nsf-input nsf-param " maxlength="35" style="width: 98%; text-align: right;">
 									</td>
 								</tr>
 
 								<tr><!-- 39 -->
 
-									<td colspan="8"class="test"  style="width: 32%; border:1px gray solid;" >
-										<a>합계</a>
+									<th colspan="8"  style="width: 32%; " >
+										<span>합계</span>
+									</th>
+									<th  style="width: 3%; " >
+										<span>(40)</span>
+									</th>
+									<td colspan="6"  style="width: 24%; " >
+										<input type="text"  id="txtAmtNo40Tot"  name="amtNo40Tot" class="nsf-input nsf-param nsf-status-lck" disabled="disabled" maxlength="35" style="width: 98%; text-align: right;">
 									</td>
-									<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-										<a>(40)</a>
-									</td>
-									<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtNo40Tot"  name="amtNo40Tot" class="nsf-input nsf-param nsf-status-lck" disabled="disabled" maxlength="35" style="width: 90%; text-align: right;">
-									</td>
-									<td colspan="2"class="test"  style="width: 8%; border:1px gray solid;" >
-
-									</td>
-									<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtVat40Tot"  name="amtVat40Tot" class="nsf-input nsf-param nsf-status-lck" disabled="disabled" maxlength="35" style="width: 90%; text-align: right;">
+									<th colspan="2"  style="width: 8%; " >
+                                        &nbsp;
+									</th>
+									<td colspan="6"  style="width: 24%; " >
+										<input type="text"  id="txtAmtVat40Tot"  name="amtVat40Tot" class="nsf-input nsf-param nsf-status-lck" disabled="disabled" maxlength="35" style="width: 98%; text-align: right;">
 									</td>
 								</tr>
 
 								<tr><!-- M14 -->
-									<td colspan="3" rowspan="10" class="test"style="width: 12%; border:1px gray solid;" >
-										<a>(14) 그밖의 공제 매입세액 명세</a>
-									</td>
-									<td colspan="9"class="test"  style="width: 32%; border:1px gray solid;" >
-										<a>구분</a>
-									</td>
-									<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-										<a>금액</a>
-									</td>
-									<td colspan="2"class="test"  style="width: 8%; border:1px gray solid;" >
-										<a>세율</a>
-									</td>
-									<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-										<a>세액</a>
-									</td>
+									<th colspan="2" rowspan="10" style="width: 12%; " >
+										<span>(14) 그밖의 공제 매입세액 명세</span>
+									</th>
+									<th colspan="9"  style="width: 32%; " >
+										<span>구분</span>
+									</th>
+									<th colspan="6"  style="width: 24%; " >
+										<span>금액</span>
+									</th>
+									<th colspan="2"  style="width: 8%; " >
+										<span>세율</span>
+									</th>
+									<th colspan="6"  style="width: 24%; " >
+										<span>세액</span>
+									</th>
 								</tr>
 
 								<tr><!-- 40 -->
-									<td colspan="4" rowspan="2"  class="test"  style="width: 16%; border:1px gray solid;" >
-										<a>신용카드매출전표등 수취금액합계표제출분</a>
+									<th colspan="4" rowspan="2"    style="width: 16%; " >
+										<span>신용카드매출전표등 수취금액합계표제출분</span>
+									</th>
+									<th colspan="4"   style="width: 10%; " >
+										<span>일반매입</span>
+									</th>
+									<th style="width: 3%; " >
+										<span>(41)</span>
+									</th>
+									<td colspan="6"  style="width: 24%; " >
+										<input type="text"  id="txtAmtNo41"  name="amtNo41" class="nsf-input nsf-param" maxlength="35" style="width: 98%; text-align: right;">
 									</td>
-									<td colspan="4" class="test"  style="width: 10%; border:1px gray solid;" >
-										<a>일반매입</a>
-									</td>
-									<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-										<a>(41)</a>
-									</td>
-									<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtNo41"  name="amtNo41" class="nsf-input nsf-param" maxlength="35" style="width: 90%; text-align: right;">
-									</td>
-									<td colspan="2"class="test"  style="width: 8%; border:1px gray solid;" >
-
-									</td>
-									<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtVat41"  name="amtVat41" class="nsf-input nsf-param " maxlength="35" style="width: 90%; text-align: right;">
+									<th colspan="2"  style="width: 8%; " >
+                                        &nbsp;
+									</th>
+									<td colspan="6"  style="width: 24%; " >
+										<input type="text"  id="txtAmtVat41"  name="amtVat41" class="nsf-input nsf-param " maxlength="35" style="width: 98%; text-align: right;">
 									</td>
 								</tr>
 
 								<tr><!-- 41 -->
 
-									<td colspan="4"class="test"  style="width: 16%; border:1px gray solid;" >
-										<a>고정자산매입</a>
+									<th colspan="4"  style="width: 16%; " >
+										<span>고정자산매입</span>
+									</th>
+									<th style="width: 3%; " >
+										<span>(42)</span>
+									</th>
+									<td colspan="6"  style="width: 24%; " >
+										<input type="text"  id="txtAmtNo42"  name="amtNo42" class="nsf-input nsf-param " maxlength="35" style="width: 98%; text-align: right;">
 									</td>
-									<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-										<a>(42)</a>
-									</td>
-									<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtNo42"  name="amtNo42" class="nsf-input nsf-param " maxlength="35" style="width: 90%; text-align: right;">
-									</td>
-									<td colspan="2"class="test"  style="width: 8%; border:1px gray solid;" >
-
-									</td>
-									<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtVat42"  name="amtVat42" class="nsf-input nsf-param " maxlength="35" style="width: 90%; text-align: right;">
+									<th colspan="2"  style="width: 8%; " >
+                                        &nbsp;
+									</th>
+									<td colspan="6"  style="width: 24%; " >
+										<input type="text"  id="txtAmtVat42"  name="amtVat42" class="nsf-input nsf-param " maxlength="35" style="width: 98%; text-align: right;">
 									</td>
 								</tr>
 
 								<tr><!-- 42 -->
 
-									<td colspan="8"class="test"  style="width: 32%; border:1px gray solid;" >
-										<a>의제매입세액</a>
+									<th colspan="8"  style="width: 32%; " >
+										<span>의제매입세액</span>
+									</th>
+									<th style="width: 3%; " >
+										<span>(43)</span>
+									</th>
+									<td colspan="6"  style="width: 24%; " >
+										<input type="text"  id="txtAmtNo43"  name="amtNo43" class="nsf-input nsf-param " maxlength="35" style="width: 98%; text-align: right;">
 									</td>
-									<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-										<a>(43)</a>
-									</td>
-									<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtNo43"  name="amtNo43" class="nsf-input nsf-param " maxlength="35" style="width: 90%; text-align: right;">
-									</td>
-									<td colspan="2"class="test"  style="width: 8%; border:1px gray solid;" >
-
-									</td>
-									<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtVat43"  name="amtVat43" class="nsf-input nsf-param " maxlength="35" style="width: 90%; text-align: right;">
+									<th colspan="2"  style="width: 8%; " >
+                                        &nbsp;
+									</th>
+									<td colspan="6"  style="width: 24%; " >
+										<input type="text"  id="txtAmtVat43"  name="amtVat43" class="nsf-input nsf-param " maxlength="35" style="width: 98%; text-align: right;">
 									</td>
 								</tr>
 
 								<tr><!-- 43 -->
-									<td colspan="8"class="test"  style="width: 32%; border:1px gray solid;" >
-										<a>재활용폐자원등매입세액</a>
+									<th colspan="8"  style="width: 32%; " >
+										<span>재활용폐자원등매입세액</span>
+									</th>
+									<th style="width: 3%; " >
+										<span>(44)</span>
+									</th>
+									<td colspan="6"  style="width: 24%; " >
+										<input type="text"  id="txtAmtNo44"  name="amtNo44" class="nsf-input nsf-param " maxlength="35" style="width: 98%; text-align: right;">
 									</td>
-									<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-										<a>(44)</a>
+									<th colspan="2"  style="width: 8%; " >
+                                        &nbsp;
+									</th>
+									<td colspan="6"  style="width: 24%; " >
+										<input type="text"  id="txtAmtVat44"  name="amtVat44" class="nsf-input nsf-param " maxlength="35" style="width: 98%; text-align: right;">
 									</td>
-									<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtNo44"  name="amtNo44" class="nsf-input nsf-param " maxlength="35" style="width: 90%; text-align: right;">
-									</td>
-									<td colspan="2"class="test"  style="width: 8%; border:1px gray solid;" >
-
-									</td>
-									<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtVat44"  name="amtVat44" class="nsf-input nsf-param " maxlength="35" style="width: 90%; text-align: right;">
-									</td>
-
-
 								</tr>
 									<tr><!-- 44-->
-									<td colspan="8"class="test"  style="width: 32%; border:1px gray solid;" >
+									<th colspan="8"  style="width: 32%; " >
 <!-- 										<a>금액란=>총괄납부용(공제세액합계)  세액란=>과세사업전환매입세액</a> -->
-										<a>과세사업전환 매입세액 </a>
+										<span>과세사업전환 매입세액 </span>
+									</th>
+									<th style="width: 3%; " >
+										<span>(45)</span>
+									</th>
+									<td colspan="6"  style="width: 24%; " >
+									    <input type="text"  id="txtAmtVat45"  name="amtVat45" class="nsf-input nsf-param " maxlength="35" style="width: 98%; text-align: right;">
 									</td>
-									<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-										<a>(45)</a>
+									<th colspan="2"  style="width: 8%; " >
+                                        &nbsp;
+									</th>
+									<td colspan="6"  style="width: 24%; " >
+										<input type="text"  id="txtAmtVat46"  name="amtVat46" class="nsf-input nsf-param " maxlength="35" style="width: 98%; text-align: right;">
 									</td>
-									<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-
-									<input type="text"  id="txtAmtVat45"  name="amtVat45" class="nsf-input nsf-param " maxlength="35" style="width: 90%; text-align: right;">
-
-									</td>
-
-
-
-									<td colspan="2"class="test"  style="width: 8%; border:1px gray solid;" >
-
-									</td>
-									<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtVat46"  name="amtVat46" class="nsf-input nsf-param " maxlength="35" style="width: 90%; text-align: right;">
-									</td>
-
-
 								</tr>
 								<tr><!-- 45 -->
-									<td colspan="8"class="test"  style="width: 32%; border:1px gray solid;" >
-										<a>재고매입세액</a>
+									<th colspan="8"  style="width: 32%; " >
+										<span>재고매입세액</span>
+									</th>
+									<th style="width: 3%; " >
+										<span>(46)</span>
+									</th>
+									<td class="empty" colspan="6"  style="width: 24%; " >
+                                        &nbsp;
 									</td>
-									<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-										<a>(46)</a>
-									</td>
-									<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-									</td>
-									<td colspan="2"class="test"  style="width: 8%; border:1px gray solid;" >
-
-									</td>
-									<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtVat47"  name="amtVat47" class="nsf-input nsf-param " maxlength="35" style="width: 90%; text-align: right;">
+									<th colspan="2"  style="width: 8%; " > 
+                                        &nbsp;
+									</th>
+									<td colspan="6"  style="width: 24%; " >
+										<input type="text"  id="txtAmtVat47"  name="amtVat47" class="nsf-input nsf-param " maxlength="35" style="width: 98%; text-align: right;">
 									</td>
 								</tr>
 								<tr><!-- 46 -->
-									<td colspan="8"class="test"  style="width: 32%; border:1px gray solid;" >
-										<a>변제대손세액</a>
+									<th colspan="8"  style="width: 32%; " >
+										<span>변제대손세액</span>
+									</th>
+									<th style="width: 3%; " >
+										<span>(47)</span>
+									</th>
+									<td class="empty" colspan="6"  style="width: 24%; " >
 									</td>
-									<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-										<a>(47)</a>
-									</td>
-									<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-									</td>
-									<td colspan="2"class="test"  style="width: 8%; border:1px gray solid;" >
-
-									</td>
-									<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtVat48"  name="amtVat48" class="nsf-input nsf-param " maxlength="35" style="width: 90%; text-align: right;">
+									<th colspan="2"  style="width: 8%; " >
+                                        &nbsp;
+									</th>
+									<td colspan="6"  style="width: 24%; " >
+										<input type="text"  id="txtAmtVat48"  name="amtVat48" class="nsf-input nsf-param " maxlength="35" style="width: 98%; text-align: right;">
 									</td>
 								</tr>
 								<tr><!-- 47 -->
-									<td colspan="8"class="test"  style="width: 32%; border:1px gray solid;" >
-										<a>외국인 관광객에 대한 환급세액</a>
+									<th colspan="8"  style="width: 32%; " >
+										<span>외국인 관광객에 대한 환급세액</span>
+									</th>
+									<th style="width: 3%; " >
+										<span>(48)</span>
+									</th>
+									<td class="empty" colspan="6"  style="width: 24%; " >
+                                        &nbsp;
 									</td>
-									<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-										<a>(48)</a>
-									</td>
-									<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-									</td>
-									<td colspan="2"class="test"  style="width: 8%; border:1px gray solid;" >
-
-									</td>
-									<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-										<input type="text" id="txtAmtVat83"  name="amtVat83" class="nsf-input nsf-param " maxlength="35" style="width: 90%; text-align: right;">
+									<th colspan="2"  style="width: 8%; " >
+                                        &nbsp;
+									</th>
+									<td colspan="6"  style="width: 24%; " >
+										<input type="text" id="txtAmtVat83"  name="amtVat83" class="nsf-input nsf-param " maxlength="35" style="width: 98%; text-align: right;">
 									</td>
 								</tr>
 								<tr><!-- 48 -->
-									<td colspan="8"class="test" style="width: 32%; border:1px gray solid;" >
-										<a>합계</a>
+									<th colspan="8" style="width: 32%; " >
+										<span>합계</span>
+									</th>
+									<th style="width: 3%; " >
+										<span>(49)</span>
+									</th>
+									<td colspan="6"  style="width: 24%; " >
+										<input type="text"  id="txtAmtNo49Tot"  name="amtNo49Tot" class="nsf-input nsf-param nsf-status-lck" disabled="disabled" maxlength="35" style="width: 98%; text-align: right;">
 									</td>
-									<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-										<a>(49)</a>
-									</td>
-									<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtNo49Tot"  name="amtNo49Tot" class="nsf-input nsf-param nsf-status-lck" disabled="disabled" maxlength="35" style="width: 90%; text-align: right;">
-									</td>
-									<td colspan="2"class="test" style="width: 8%; border:1px gray solid;" >
-
-									</td>
-									<td colspan="6"class="test" style="width: 24%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtVat49Tot"  name="amtVat49Tot" class="nsf-input nsf-param nsf-status-lck" disabled="disabled" maxlength="35" style="width: 90%; text-align: right;">
+									<th colspan="2" style="width: 8%; " >
+                                        &nbsp;
+									</th>
+									<td colspan="6" style="width: 24%; " >
+										<input type="text"  id="txtAmtVat49Tot"  name="amtVat49Tot" class="nsf-input nsf-param nsf-status-lck" disabled="disabled" maxlength="35" style="width: 98%; text-align: right;">
 									</td>
 								</tr>
 								<tr><!-- M16 -->
-									<td colspan="3" rowspan="5"  class="test"   style="width: 12%; border:1px gray solid;" >
-										<a>(16) 공제받지 못할 매입세액 명세</a>
-			 						</td>
-
-									<td colspan="9"class="test"  style="width: 32%; border:1px gray solid;" >
-										<a>구분</a>
-									</td>
-									<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-										<a>금액</a>
-									</td>
-									<td colspan="2"class="test"  style="width: 8%; border:1px gray solid;" >
-										<a>세율</a>
-									</td>
-									<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-										<a>세액</a>
-									</td>
+									<th colspan="2" rowspan="5"     style="width: 12%; " >
+										<span>(16) 공제받지 못할 매입세액 명세</span>
+			 						</th>
+									<th colspan="9"  style="width: 32%; " >
+										<span>구분</span>
+									</th>
+									<th colspan="6"  style="width: 24%; " >
+										<span>금액</span>
+									</th>
+									<th colspan="2"  style="width: 8%; " >
+										<span>세율</span>
+									</th>
+									<th colspan="6"  style="width: 24%; " >
+										<span>세액</span>
+									</th>
 								</tr>
 								<tr><!-- 49 -->
-									<td colspan="8"class="test" style="width: 32%; border:1px gray solid;" >
-										<a>공제받지 못할 매입세액</a>
+									<th colspan="8" style="width: 32%; " >
+										<span>공제받지 못할 매입세액</span>
+									</th>
+									<th style="width: 3%; " >
+										<span>(50)</span>
+									</th>
+									<td colspan="6" style="width: 24%; " >
+										<input type="text"  id="txtAmtNo50"  name="amtNo50" class="nsf-input nsf-param" maxlength="35" style="width: 98%; text-align: right;">
 									</td>
-									<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-										<a>(50)</a>
-									</td>
-									<td colspan="6"class="test" style="width: 24%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtNo50"  name="amtNo50" class="nsf-input nsf-param" maxlength="35" style="width: 90%; text-align: right;">
-									</td>
-									<td colspan="2"class="test"  style="width: 8%; border:1px gray solid;" >
-
-									</td>
-									<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtVat50"  name="amtVat50" class="nsf-input nsf-param " maxlength="35" style="width: 90%; text-align: right;">
+									<th colspan="2"  style="width: 8%; " >
+                                        &nbsp;
+									</th>
+									<td colspan="6"  style="width: 24%; " >
+										<input type="text"  id="txtAmtVat50"  name="amtVat50" class="nsf-input nsf-param " maxlength="35" style="width: 98%; text-align: right;">
 									</td>
 								</tr>
 								<tr><!-- 50 -->
-									<td colspan="8"class="test"  style="width: 32%; border:1px gray solid;" >
-										<a>공통매입세액면세사업분</a>
+									<th colspan="8"  style="width: 32%; " >
+										<span>공통매입세액면세사업분</span>
+									</th>
+									<th style="width: 3%; " >
+										<span>(51)</span>
+									</th>
+									<td colspan="6"  style="width: 24%; " >
+										<input type="text"  id="txtAmtNo51"  name="amtNo51" class="nsf-input nsf-param " maxlength="35" style="width: 98%; text-align: right;">
 									</td>
-									<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-										<a>(51)</a>
-									</td>
-									<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtNo51"  name="amtNo51" class="nsf-input nsf-param " maxlength="35" style="width: 90%; text-align: right;">
-									</td>
-									<td colspan="2"class="test"  style="width: 8%; border:1px gray solid;" >
-
-									</td>
-									<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtVat51"  name="amtVat51" class="nsf-input nsf-param " maxlength="35" style="width: 90%; text-align: right;">
+									<th colspan="2"  style="width: 8%; " >
+                                        &nbsp;
+									</th>
+									<td colspan="6"  style="width: 24%; " >
+										<input type="text"  id="txtAmtVat51"  name="amtVat51" class="nsf-input nsf-param " maxlength="35" style="width: 98%; text-align: right;">
 									</td>
 								</tr>
 
 								<tr>
 									<!-- 51 -->
-									<td colspan="8"class="test"  style="width: 32%; border:1px gray solid;" >
-										<a>대손처분받은세액</a>
+									<th colspan="8"  style="width: 32%; " >
+										<span>대손처분받은세액</span>
+									</th>
+									<th style="width: 3%; " >
+										<span>(52)</span>
+									</th>
+									<td colspan="6"  style="width: 24%; " >
+										<input type="text"  id="txtAmtNo52"  name="amtNo52" class="nsf-input nsf-param " maxlength="35" style="width: 98%; text-align: right;">
 									</td>
-									<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-										<a>(52)</a>
-									</td>
-									<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtNo52"  name="amtNo52" class="nsf-input nsf-param " maxlength="35" style="width: 90%; text-align: right;">
-									</td>
-									<td colspan="2"class="test"  style="width: 8%; border:1px gray solid;" >
-
-									</td>
-									<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtVat52"  name="amtVat52" class="nsf-input nsf-param " maxlength="35" style="width: 90%; text-align: right;">
+									<th colspan="2"  style="width: 8%; " >
+                                        &nbsp;
+									</th>
+									<td colspan="6"  style="width: 24%; " >
+										<input type="text"  id="txtAmtVat52"  name="amtVat52" class="nsf-input nsf-param " maxlength="35" style="width: 98%; text-align: right;">
 									</td>
 								</tr>
 								<tr><!-- 52 -->
-									<td colspan="8"class="test"  style="width: 32%; border:1px gray solid;" >
-										<a>합계</a>
+									<th colspan="8"  style="width: 32%; " >
+										<span>합계</span>
+									</th>
+									<th style="width: 3%; " >
+										<span>(52)</span>
+									</th>
+									<td colspan="6"  style="width: 24%; " >
+										<input type="text"  id="txtAmtNo53Tot"  name="amtNo53Tot" class="nsf-input nsf-param nsf-status-lck" disabled="disabled" maxlength="35" style="width: 98%; text-align: right;">
 									</td>
-									<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-										<a>(52)</a>
-									</td>
-									<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtNo53Tot"  name="amtNo53Tot" class="nsf-input nsf-param nsf-status-lck" disabled="disabled" maxlength="35" style="width: 90%; text-align: right;">
-									</td>
-									<td colspan="2"class="test"  style="width: 8%; border:1px gray solid;" >
-
-									</td>
-									<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtVat53Tot"  name="amtVat53Tot" class="nsf-input nsf-param nsf-status-lck" disabled="disabled" maxlength="35" style="width: 90%; text-align: right;">
+									<th colspan="2"  style="width: 8%; " >
+                                        &nbsp;
+									</th>
+									<td colspan="6"  style="width: 24%; " >
+										<input type="text"  id="txtAmtVat53Tot"  name="amtVat53Tot" class="nsf-input nsf-param nsf-status-lck" disabled="disabled" maxlength="35" style="width: 98%; text-align: right;">
 									</td>
 								</tr>
 								<tr>
-									<td colspan="3" rowspan="7" class="test"  style="width: 12%; border:1px gray solid;" >
-										<a>(18) 그밖의 경감·공제세액명세</a>
-									</td>
-									<td colspan="9"class="test"  style="width: 32%; border:1px gray solid;" >
-										<a>구분</a>
-									</td>
-									<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-										<a>금액</a>
-									</td>
-									<td colspan="2"class="test"  style="width: 8%; border:1px gray solid;" >
-										<a>세율</a>
-									</td>
-									<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-										<a>세액</a>
-									</td>
+									<th colspan="2" rowspan="7"   style="width: 12%; " >
+										<span>(18) 그밖의 경감·공제세액명세</span>
+									</th>
+									<th colspan="9" style="width: 32%; " >
+										<span>구분</span>
+									</th>
+									<th colspan="6" style="width: 24%; " >
+										<span>금액</span>
+									</th>
+									<th colspan="2" style="width: 8%; " >
+										<span>세율</span>
+									</th>
+									<th colspan="6" style="width: 24%; " >
+										<span>세액</span>
+									</th>
 								</tr>
 								<tr><!-- 53 -->
-									<td colspan="8" class="test"  style="width: 32%; border:1px gray solid;" >
-										<a>전자신고세액공제</a>
+									<th colspan="8" style="width: 32%; " >
+										<span>전자신고세액공제</span>
+									</th>
+									<th style="width: 3%; " >
+										<span>(54)</span>
+									</th>
+									<td class="empty" colspan="6"  style="width: 24%; ">
+                                        &nbsp;
 									</td>
-									<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-										<a>(54)</a>
-									</td>
-									<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-									</td>
-									<td colspan="2"class="test"  style="width: 8%; border:1px gray solid;" >
-
-									</td>
-									<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtVat54"  name="amtVat54" class="nsf-input nsf-param" maxlength="35" style="width: 90%; text-align: right;">
+									<th colspan="2"  style="width: 8%; " >
+                                        &nbsp
+									</th>
+									<td colspan="6"  style="width: 24%; " >
+										<input type="text"  id="txtAmtVat54"  name="amtVat54" class="nsf-input nsf-param" maxlength="35" style="width: 98%; text-align: right;">
 									</td>
 								</tr>
 								<tr><!-- 54 -->
-									<td colspan="8" class="test"  style="width: 32%; border:1px gray solid;" >
-										<a>전자세금계산서 발급세액 공제</a>
+									<th colspan="8"   style="width: 32%; " >
+										<span>전자세금계산서 발급세액 공제</span>
+									</th>
+									<th style="width: 3%; " >
+										<span>(55)</span>
+									</th>
+									<td class="empty" colspan="6"  style="width: 24%; " >
+                                        &nbsp;
 									</td>
-									<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-										<a>(55)</a>
-									</td>
-									<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-									</td>
-									<td colspan="2"class="test"  style="width: 8%; border:1px gray solid;" >
-
-									</td>
-									<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtVat55"  name="amtVat55" class="nsf-input nsf-param" maxlength="35" style="width: 90%; text-align: right;">
+									<th colspan="2"  style="width: 8%; " >
+                                        &nbsp;
+									</th>
+									<td colspan="6"  style="width: 24%; " >
+										<input type="text"  id="txtAmtVat55"  name="amtVat55" class="nsf-input nsf-param" maxlength="35" style="width: 98%; text-align: right;">
 									</td>
 			                 	</tr>
 								<tr><!-- 55 -->
-									<td colspan="8"class="test"  style="width: 32%; border:1px gray solid;" >
-										<a>택시운송사업자 경감 세액</a>
+									<th colspan="8"  style="width: 32%; " >
+										<span>택시운송사업자 경감 세액</span>
+									</th>
+									<th style="width: 3%; " >
+										<span>(56)</span>
+									</th>
+									<td class="empty" colspan="6"  style="width: 24%; " >
+                                        &nbsp;
 									</td>
-									<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-										<a>(56)</a>
-									</td>
-									<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-									</td>
-									<td colspan="2"class="test"  style="width: 8%; border:1px gray solid;" >
-
-									</td>
-									<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtVat56"  name="amtVat56" class="nsf-input nsf-param " maxlength="35" style="width: 90%; text-align: right;">
+									<th colspan="2"  style="width: 8%; " >
+                                        &nbsp;
+									</th>
+									<td colspan="6"  style="width: 24%; " >
+										<input type="text"  id="txtAmtVat56"  name="amtVat56" class="nsf-input nsf-param " maxlength="35" style="width: 98%; text-align: right;">
 									</td>
 								</tr>
 								<tr>
-									<td colspan="8"class="test"  style="width: 32%; border:1px gray solid;" >
-										<a>대리납부 세액공제</a>
+									<th colspan="8"  style="width: 32%; " >
+										<span>대리납부 세액공제</span>
+									</th>
+									<th style="width: 3%; " >
+										<span>(57)</span>
+									</th>
+									<td class="empty" colspan="6"  style="width: 24%; " >
+                                        &nbsp;
 									</td>
-									<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-										<a>(57)</a>
-									</td>
-									<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-									</td>
-									<td colspan="2"class="test"  style="width: 8%; border:1px gray solid;" >
-
-									</td>
-									<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtVat571"  name="amtVat571" class="nsf-input nsf-param " maxlength="35" style="width: 90%; text-align: right;">
+									<th colspan="2"  style="width: 8%; " >
+                                        &nbsp;
+									</th>
+									<td colspan="6"  style="width: 24%; " >
+										<input type="text"  id="txtAmtVat571"  name="amtVat571" class="nsf-input nsf-param " maxlength="35" style="width: 98%; text-align: right;">
 									</td>
 								</tr>
 								<tr><!-- 56 -->
-									<td colspan="8"class="test"  style="width: 32%; border:1px gray solid;" >
-										<a>현금영수증 사업자 세액 공제</a>
+									<th colspan="8"  style="width: 32%; " >
+										<span>현금영수증 사업자 세액 공제</span>
+									</th>
+									<th style="width: 3%; " >
+										<span>(58)</span>
+									</th>
+									<td class="empty" colspan="6"  style="width: 24%; " >
+                                        &nbsp;
 									</td>
-									<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-										<a>(58)</a>
-									</td>
-									<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-									</td>
-									<td colspan="2"class="test"  style="width: 8%; border:1px gray solid;" >
-
-									</td>
-									<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtVat57"  name="amtVat57" class="nsf-input nsf-param " maxlength="35" style="width: 90%; text-align: right;">
+									<th colspan="2"  style="width: 8%; " >
+                                        &nbsp;
+									</th>
+									<td colspan="6"  style="width: 24%; " >
+										<input type="text"  id="txtAmtVat57"  name="amtVat57" class="nsf-input nsf-param " maxlength="35" style="width: 98%; text-align: right;">
 									</td>
 								</tr>
 								<tr><!-- 57 -->
-
-									<td colspan="8"class="test"  style="width: 32%; border:1px gray solid;" >
-										<a>기타</a>
+									<th colspan="8"  style="width: 32%; " >
+										<span>기타</span>
+									</th>
+									<th style="width: 3%; " >
+										<span>(59)</span>
+									</th>
+									<td class="empty" colspan="6"  style="width: 24%; ">
+                                        &nbsp;
 									</td>
-									<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-										<a>(59)</a>
-									</td>
-									<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-									</td>
-									<td colspan="2"class="test"  style="width: 8%; border:1px gray solid;" >
-
-									</td>
-									<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtVat58"  name="amtVat58" class="nsf-input nsf-param " maxlength="35" style="width: 90%; text-align: right;">
+									<th colspan="2"  style="width: 8%; " >
+                                        &nbsp;
+									</th>
+									<td colspan="6"  style="width: 24%; " >
+										<input type="text"  id="txtAmtVat58"  name="amtVat58" class="nsf-input nsf-param " maxlength="35" style="width: 98%; text-align: right;">
 									</td>
 								</tr>
 								<tr><!-- 58 -->
 
-									<td colspan="8"class="test"  style="width: 32%; border:1px gray solid;" >
-										<a>합계</a>
-									</td>
-									<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-										<a>(60)</a>
-									</td>
-									<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-									</td>
-									<td colspan="2"class="test"  style="width: 8%; border:1px gray solid;" >
-
-									</td>
-									<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtVat59Tot"  name="amtVat59Tot" class="nsf-input nsf-param nsf-status-lck" disabled="disabled" maxlength="35" style="width: 90%; text-align: right;">
-									</td>
+									<th class="total" colspan="10"  style="width: 32%; " >
+										<span>합계</span>
+									</th>
+									<th class="total" style="width: 3%; " >
+										<span>(60)</span>
+									</th>
+									<th class="total" colspan="6"  style="width: 24%; " >
+									</th>
+									<th class="total" colspan="2"  style="width: 8%; " >
+									</th>
+									<th class="total" colspan="6"  style="width: 24%; " >
+										<input type="text"  id="txtAmtVat59Tot"  name="amtVat59Tot" class="nsf-input nsf-param nsf-status-lck" disabled="disabled" maxlength="35" style="width: 98%; text-align: right;">
+									</th>
 								</tr>
 							</table>
 						</div>
@@ -4316,491 +4315,491 @@ function replaceAll(inputString, targetString, replacement){
 			</div>
 			<div id="tabM3">
 				<div id="frmEditFormM3" >
-					<div class="ui-widget-content ui-corner-bottom" style="border-collapse: collapse; border:1px gray solid;">
+					<div class="ui-widget-content ui-corner-bottom" style="border-collapse: collapse; ">
 						<div class="nsf-form">
-							<table class = "nsf-center"  bgcolor="#F5F5F5">
+							<table class = "new_table">
 								<tr><!-- M24 -->
-									<td colspan="3" rowspan="20" class="test"  style="width: 12%; border:1px gray solid;" >
-										<a>(24) 가산세명세</a>
-									</td>
-									<td colspan="9"class="test"  style="width: 32%; border:1px gray solid;" >
-										<a>구분</a>
-									</td>
-									<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-										<a>금액</a>
-									</td>
-									<td colspan="2"class="test"  style="width: 8%; border:1px gray solid;" >
-										<a>세율</a>
-									</td>
-									<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-										<a>세액</a>
-									</td>
+									<th rowspan="20" style="width: 12%; ">
+										<span>(24) 가산세명세</span>
+									</th>
+									<th colspan="3"  style="width: 30%; ">
+										<span>구분</span>
+									</th>
+									<th style="width: 30%; " >
+										<span>금액</span>
+									</th>
+									<th style="width: 8%; " >
+										<span>세율</span>
+									</th>
+									<th style="width: 30%; ">
+										<span>세액</span>
+									</th>
 								</tr>
 								<tr><!-- 59 -->
-									<td colspan="8"class="test"  style="width: 32%; border:1px gray solid;" >
-										<a>사업자미등록등</a>
+									<th colspan="2" style="width: 30%; " >
+										<span>사업자미등록등</span>
+									</th>
+									<th style="width: 3%; " >
+										<span>(61)</span>
+									</th>
+									<td style="width: 30%; " >
+										<input type="text"  id="txtAmtNo60"  name="amtNo60" class="nsf-input nsf-param" maxlength="35" style="width: 98%; text-align: right;">
 									</td>
-									<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-										<a>(61)</a>
-									</td>
-									<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtNo60"  name="amtNo60" class="nsf-input nsf-param" maxlength="35" style="width: 90%; text-align: right;">
-									</td>
-									<td colspan="2"class="test"  style="width: 8%; border:1px gray solid;" >
-										<a>1/100</a>
-									</td>
-									<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtVat60"  name="amtVat60" class="nsf-input nsf-param " maxlength="35" style="width: 90%; text-align: right;">
+									<th style="width: 8%; " >
+										<span>1/100</span>
+									</th>
+									<td style="width: 30%; ">
+										<input type="text"  id="txtAmtVat60"  name="amtVat60" class="nsf-input nsf-param " maxlength="35" style="width: 98%; text-align: right;">
 									</td>
 								</tr>
 
 		                        <tr><!-- 60 -->
-		                            <td colspan="4" rowspan="3"  class="test"  style="width: 16%; border:1px gray solid;" >
-			                      		<a>세금계산서</a>
-			                  		</td>
-			               			<td colspan="4" class="test"  style="width: 10%; border:1px gray solid;" >
-			                    		<a>지연발급 등</a>
-			                   		</td>
-			                   		<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-										<a>(62)</a>
-									</td>
-			                   		<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-			                 			<input type="text"  id="txtAmtNo611"  name="amtNo611" class="nsf-input nsf-param" maxlength="35" style="width: 90%; text-align: right;">
+		                            <th rowspan="3" style="width: 16%; " >
+			                      		<span>세금계산서</span>
+			                  		</th>
+			               			<th style="width: 10%; " >
+			                    		<span>지연발급 등</span>
+			                   		</th>
+			                   		<th style="width: 3%; " >
+										<span>(62)</span>
+									</th>
+			                   		<td style="width: 24%; " >
+			                 			<input type="text"  id="txtAmtNo611"  name="amtNo611" class="nsf-input nsf-param" maxlength="35" style="width: 98%; text-align: right;">
 			                    	</td>
-			                    	<td colspan="2"class="test"  style="width: 8%; border:1px gray solid;" >
-			                    		<a>1/100</a>
-			                  		</td>
-			                		<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-			                     		<input type="text"  id="txtAmtVat611"  name="amtVat611" class="nsf-input nsf-param " maxlength="35" style="width: 90%; text-align: right;">
+			                    	<th style="width: 8%; " >
+			                    		<span>1/100</span>
+			                  		</th>
+			                		<td style="width: 24%; " >
+			                     		<input type="text"  id="txtAmtVat611"  name="amtVat611" class="nsf-input nsf-param " maxlength="35" style="width: 98%; text-align: right;">
 			                  		</td>
 			              		</tr>
 			               		<tr><!-- 61 -->
-			                		<td colspan="4" class="test"  style="width: 10%; border:1px gray solid;" >
-			                     		<a>지연수취</a>
-			               			</td>
-			               			<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-										<a>(63)</a>
-									</td>
-			                  		<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-			               				<input type="text"  id="txtAmtNo612"  name="amtNo612" class="nsf-input nsf-param" maxlength="35" style="width: 90%; text-align: right;">
+			                		<th style="width: 10%; " >
+			                     		<span>지연수취</span>
+			               			</th>
+			               			<th style="width: 3%; ">
+										<span>(63)</span>
+									</th>
+			                  		<td style="width: 24%; " >
+			               				<input type="text"  id="txtAmtNo612"  name="amtNo612" class="nsf-input nsf-param" maxlength="35" style="width: 98%; text-align: right;">
 			                 		</td>
-			                 		<td colspan="2"class="test"  style="width: 8%; border:1px gray solid;" >
-			                  			<a>5/1000</a>
-			                 		</td>
-			                     	<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-			                     		<input type="text"  id="txtAmtVat612"  name="amtVat612" class="nsf-input nsf-param " maxlength="35" style="width: 90%; text-align: right;">
+			                 		<th style="width: 8%; " >
+			                  			<span>5/1000</span>
+			                 		</th>
+			                     	<td style="width: 30%;">
+			                     		<input type="text"  id="txtAmtVat612"  name="amtVat612" class="nsf-input nsf-param " maxlength="35" style="width: 98%; text-align: right;">
 			                     	</td>
 			                 	</tr>
 			                	<tr><!-- 62 -->
-			                  		<td colspan="4" class="test"  style="width: 10%; border:1px gray solid;" >
-			                        	<a>미발급 등</a>
-			                    	</td>
-			                    	<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-										<a>(64)</a>
-									</td>
-			                    	<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-			                     		<input type="text"  id="txtAmtNo61"  name="amtNo61" class="nsf-input nsf-param" maxlength="35" style="width: 90%; text-align: right;">
+			                  		<th style="width: 10%;" >
+			                        	<span>미발급 등</span>
+			                    	</th>
+			                    	<th style="width: 3%;" >
+										<span>(64)</span>
+									</th>
+			                    	<td style="width: 24%; " >
+			                     		<input type="text"  id="txtAmtNo61"  name="amtNo61" class="nsf-input nsf-param" maxlength="35" style="width: 98%; text-align: right;">
 			                   		</td>
-			                    	<td colspan="2"class="test"  style="width: 8%; border:1px gray solid;" >
-			                      		<a>2/100</a>
-			                   		</td>
-			                    	<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-			                    		<input type="text"  id="txtAmtVat61"  name="amtVat61" class="nsf-input nsf-param " maxlength="35" style="width: 90%; text-align: right;">
+			                    	<th style="width: 8%; " >
+			                      		<span>2/100</span>
+			                   		</th>
+			                    	<td style="width: 30%; ">
+			                    		<input type="text"  id="txtAmtVat61"  name="amtVat61" class="nsf-input nsf-param " maxlength="35" style="width: 98%; text-align: right;">
 			                   		</td>
 			                  	</tr>
 
 			              		<tr><!-- 63 -->
-			               			<td colspan="4" rowspan="2"  class="test"  style="width: 16%; border:1px gray solid;" >
-			                        	<a>전자세금계산서 발급명세 전송</a>
+			               			<th rowspan="2" style="width: 16%; " >
+			                        	<span>전자세금계산서 발급명세 전송</span>
+			                    	</th>
+			                  		<th style="width: 10%;" >
+			       						<span>지연전송</span>
+			                    	</th>
+			                    	<th style="width: 3%;" >
+										<span>(65)</span>
+									</th>
+			                   		<td style="width: 24%; " >
+			                   			<input type="text"  id="txtAmtNo62"  name="amtNo62" class="nsf-input nsf-param" maxlength="35" style="width: 98%; text-align: right;">
 			                    	</td>
-			                  		<td colspan="4" class="test"  style="width: 10%; border:1px gray solid;" >
-			       						<a>지연전송</a>
-			                    	</td>
-			                    	<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-										<a>(65)</a>
-									</td>
-			                   		<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-			                   			<input type="text"  id="txtAmtNo62"  name="amtNo62" class="nsf-input nsf-param" maxlength="35" style="width: 90%; text-align: right;">
-			                    	</td>
-			                   		<td colspan="2"class="test"  style="width: 8%; border:1px gray solid;" >
-			                      		<a>5/1000</a>
-			                    	</td>
-			                  		<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-			                  			<input type="text"  id="txtAmtVat62"  name="amtVat62" class="nsf-input nsf-param " maxlength="35" style="width: 90%; text-align: right;">
+			                   		<th style="width: 8%; " >
+			                      		<span>5/1000</span>
+			                    	</th>
+			                  		<td style="width: 30%; ">
+			                  			<input type="text"  id="txtAmtVat62"  name="amtVat62" class="nsf-input nsf-param " maxlength="35" style="width: 98%; text-align: right;">
 			                    	</td>
 			               		</tr>
 			                	<tr><!-- 64 -->
-			                  		<td colspan="4" class="test"  style="width: 10%; border:1px gray solid;" >
-			                        	<a> 미전송</a>
-			                   		</td>
-			                   		<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-										<a>(66)</a>
-									</td>
-			                    	<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-			                 			<input type="text"  id="txtAmtNo621"  name="amtNo621" class="nsf-input nsf-param" maxlength="35" style="width: 90%; text-align: right;">
+			                  		<th style="width: 10%; " >
+			                        	<span>미전송</span>
+			                   		</th>
+			                   		<th style="width: 3%; " >
+										<span>(66)</span>
+									</th>
+			                    	<td style="width: 24%; " >
+			                 			<input type="text"  id="txtAmtNo621"  name="amtNo621" class="nsf-input nsf-param" maxlength="35" style="width: 98%; text-align: right;">
 			                      	</td>
-			                    	<td colspan="2"class="test"  style="width: 8%; border:1px gray solid;" >
-			                     		<a>1/100</a>
-			                    	</td>
-			                    	<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-			                     		<input type="text"  id="txtAmtVat621"  name="amtVat621" class="nsf-input nsf-param " maxlength="35" style="width: 90%; text-align: right;">
+			                    	<th style="width: 8%; " >
+			                     		<span>1/100</span>
+			                    	</th>
+			                    	<td style="width: 30%; ">
+			                     		<input type="text"  id="txtAmtVat621"  name="amtVat621" class="nsf-input nsf-param " maxlength="35" style="width: 98%; text-align: right;">
 			                      	</td>
 			                   	</tr>
 			                   	<tr><!-- 65 -->
-			               			<td colspan="4" rowspan="2"  class="test"  style="width: 16%; border:1px gray solid;" >
-			                        	<a>세금계산서 합계표</a>
+			               			<th rowspan="2" style="width: 16%; " >
+			                        	<span>세금계산서 합계표</span>
+			                    	</th>
+			                  		<th style="width: 10%; " >
+			       						<span>제출 불성실</span>
+			                    	</th>
+			                    	<th style="width: 3%; " >
+										<span>(67)</span>
+									</th>
+			                   		<td style="width: 24%; " >
+			                   			<input type="text"  id="txtAmtNo63"  name="amtNo63" class="nsf-input nsf-param" maxlength="35" style="width: 98%; text-align: right;">
 			                    	</td>
-			                  		<td colspan="4" class="test"  style="width: 10%; border:1px gray solid;" >
-			       						<a>제출 불성실</a>
-			                    	</td>
-			                    	<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-										<a>(67)</a>
-									</td>
-			                   		<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-			                   			<input type="text"  id="txtAmtNo63"  name="amtNo63" class="nsf-input nsf-param" maxlength="35" style="width: 90%; text-align: right;">
-			                    	</td>
-			                   		<td colspan="2"class="test"  style="width: 8%; border:1px gray solid;" >
-			                      		<a>5/1000</a>
-			                    	</td>
-			                  		<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-			                  			<input type="text"  id="txtAmtVat63"  name="amtVat63" class="nsf-input nsf-param " maxlength="35" style="width: 90%; text-align: right;">
+			                   		<th style="width: 8%; " >
+			                      		<span>5/1000</span>
+			                    	</th>
+			                  		<td style="width: 30%; ">
+			                  			<input type="text"  id="txtAmtVat63"  name="amtVat63" class="nsf-input nsf-param " maxlength="35" style="width: 98%; text-align: right;">
 			                    	</td>
 			               		</tr>
 			                	<tr><!-- 66 -->
-			                  		<td colspan="4" class="test"  style="width: 10%; border:1px gray solid;" >
-			                        	<a>지연제출</a>
-			                   		</td>
-			                   		<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-										<a>(68)</a>
-									</td>
-			                    	<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-			                 			<input type="text"  id="txtAmtNo76"  name="amtNo76" class="nsf-input nsf-param" maxlength="35" style="width: 90%; text-align: right;">
+			                  		<th style="width: 10%; " >
+			                        	<span>지연제출</span>
+			                   		</th>
+			                   		<th style="width: 3%; " >
+										<span>(68)</span>
+									</th>
+			                    	<td style="width: 24%; " >
+			                 			<input type="text"  id="txtAmtNo76"  name="amtNo76" class="nsf-input nsf-param" maxlength="35" style="width: 98%; text-align: right;">
 			                      	</td>
-			                    	<td colspan="2"class="test"  style="width: 8%; border:1px gray solid;" >
-			                     		<a>3/1000</a>
-			                    	</td>
-			                    	<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-			                     		<input type="text"  id="txtAmtVat76"  name="amtVat76" class="nsf-input nsf-param " maxlength="35" style="width: 90%; text-align: right;">
+			                    	<th style="width: 8%; " >
+			                     		<span>3/1000</span>
+			                    	</th>
+			                    	<td style="width: 30%; ">
+			                     		<input type="text"  id="txtAmtVat76"  name="amtVat76" class="nsf-input nsf-param " maxlength="35" style="width: 98%; text-align: right;">
 			                      	</td>
 			                   	</tr>
 
 			                   	<tr><!-- 67 -->
-			               			<td colspan="4" rowspan="4"  class="test"  style="width: 16%; border:1px gray solid;" >
-			                        	<a>신고 불성실</a>
+			               			<th rowspan="4"    style="width: 16%; " >
+			                        	<span>신고 불성실</span>
+			                    	</th>
+			                  		<th style="width: 10%; " >
+			       						<span>무신고(일반)</span>
+			                    	</th>
+			                    	<th style="width: 3%; " >
+										<span>(69)</span>
+									</th>
+			                   		<td style="width: 24%; " >
+			                   			<input type="text"  id="txtAmtNo77"  name="amtNo77" class="nsf-input nsf-param" maxlength="35" style="width: 98%; text-align: right;">
 			                    	</td>
-			                  		<td colspan="4" class="test"  style="width: 10%; border:1px gray solid;" >
-			       						<a>무신고(일반)</a>
-			                    	</td>
-			                    	<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-										<a>(69)</a>
-									</td>
-			                   		<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-			                   			<input type="text"  id="txtAmtNo77"  name="amtNo77" class="nsf-input nsf-param" maxlength="35" style="width: 90%; text-align: right;">
-			                    	</td>
-			                   		<td colspan="2"class="test"  style="width: 8%; border:1px gray solid;" >
-			                    	</td>
-			                  		<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-			                  			<input type="text"  id="txtAmtVat77"  name="amtVat77" class="nsf-input nsf-param " maxlength="35" style="width: 90%; text-align: right;">
+			                   		<th style="width: 8%;" >
+			                    	</th>
+			                  		<td style="width: 30%; ">
+			                  			<input type="text"  id="txtAmtVat77"  name="amtVat77" class="nsf-input nsf-param " maxlength="35" style="width: 98%; text-align: right;">
 			                    	</td>
 			               		</tr>
 			                	<tr><!-- 68 -->
-			                  		<td colspan="4" class="test"  style="width: 10%; border:1px gray solid;" >
-			                        	<a>무신고(부당)</a>
-			                   		</td>
-			                   		<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-										<a>(70)</a>
-									</td>
-			                    	<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-			                 			<input type="text"  id="txtAmtNo78"  name="amtNo78" class="nsf-input nsf-param" maxlength="35" style="width: 90%; text-align: right;">
+			                  		<th style="width: 10%; " >
+			                        	<span>무신고(부당)</span>
+			                   		</th>
+			                   		<th  style="width: 3%; " >
+										<span>(70)</span>
+									</th>
+			                    	<td style="width: 24%; ">
+			                 			<input type="text"  id="txtAmtNo78"  name="amtNo78" class="nsf-input nsf-param" maxlength="35" style="width: 98%; text-align: right;">
 			                      	</td>
-			                    	<td colspan="2"class="test"  style="width: 8%; border:1px gray solid;" >
-			                    	</td>
-			                    	<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-			                     		<input type="text"  id="txtAmtVat78"  name="amtVat78" class="nsf-input nsf-param " maxlength="35" style="width: 90%; text-align: right;">
+			                    	<th style="width: 8%; ">
+                                        &nbsp;
+			                    	</th>
+			                    	<td style="width: 30%; ">
+			                     		<input type="text"  id="txtAmtVat78"  name="amtVat78" class="nsf-input nsf-param " maxlength="35" style="width: 98%; text-align: right;">
 			                      	</td>
 			                   	</tr>
 			                	<tr><!-- 69 -->
-			                  		<td colspan="4" class="test"  style="width: 10%; border:1px gray solid;" >
-			                        	<a>과소, 초과환급신고(일반)</a>
-			                   		</td>
-			                   		<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-										<a>(71)</a>
-									</td>
-			                    	<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-			                 			<input type="text"  id="txtAmtNo79"  name="amtNo79" class="nsf-input nsf-param" maxlength="35" style="width: 90%; text-align: right;">
+			                  		<th style="width: 10%; " >
+			                        	<span>과소, 초과환급신고(일반)</span>
+			                   		</th>
+			                   		<th style="width: 3%; " >
+										<span>(71)</span>
+									</th>
+			                    	<td style="width: 24%; " >
+			                 			<input type="text"  id="txtAmtNo79"  name="amtNo79" class="nsf-input nsf-param" maxlength="35" style="width: 98%; text-align: right;">
 			                      	</td>
-			                    	<td colspan="2"class="test"  style="width: 8%; border:1px gray solid;" >
-			                    	</td>
-			                    	<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-			                     		<input type="text"  id="txtAmtVat79"  name="amtVat79" class="nsf-input nsf-param " maxlength="35" style="width: 90%; text-align: right;">
+			                    	<th style="width: 8%; " >
+                                        &nbsp;
+			                    	</th>
+			                    	<td style="width: 30%; ">
+			                     		<input type="text"  id="txtAmtVat79"  name="amtVat79" class="nsf-input nsf-param " maxlength="35" style="width: 98%; text-align: right;">
 			                      	</td>
 			                   	</tr>
 			                	<tr><!-- 70 -->
-			                  		<td colspan="4" class="test"  style="width: 10%; border:1px gray solid;" >
-			                        	<a>과소, 초과환급신고(부당)</a>
-			                   		</td>
-			                   		<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-										<a>(72)</a>
-									</td>
-			                    	<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-			                 			<input type="text"  id="txtAmtNo80"  name="amtNo80" class="nsf-input nsf-param" maxlength="35" style="width: 90%; text-align: right;">
+			                  		<th style="width: 10%; " >
+			                        	<span>과소, 초과환급신고(부당)</span>
+			                   		</th>
+			                   		<th style="width: 3%; " >
+										<span>(72)</span>
+									</th>
+			                    	<td style="width: 24%; ">
+			                 			<input type="text"  id="txtAmtNo80"  name="amtNo80" class="nsf-input nsf-param" maxlength="35" style="width: 98%; text-align: right;">
 			                      	</td>
-			                    	<td colspan="2"class="test"  style="width: 8%; border:1px gray solid;" >
-			                    	</td>
-			                    	<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-			                     		<input type="text"  id="txtAmtVat80"  name="amtVat80" class="nsf-input nsf-param " maxlength="35" style="width: 90%; text-align: right;">
+			                    	<th style="width: 8%; ">
+                                        &nbsp;
+			                    	</th>
+			                    	<td colspan="2" style="width: 24%; ">
+			                     		<input type="text"  id="txtAmtVat80"  name="amtVat80" class="nsf-input nsf-param " maxlength="35" style="width: 98%; text-align: right;">
 			                      	</td>
 			                   	</tr>
 
 
 								<tr><!-- 71 -->
-									<td colspan="8"class="test"  style="width: 32%; border:1px gray solid;" >
-										<a>납부불성실</a>
+									<th colspan="2" style="width: 30%; ">
+										<span>납부불성실</span>
+									</th>
+									<th style="width: 3%; ">
+										<span>(73)</span>
+									</th>
+									<td style="width: 24%; ">
+										<input type="text"  id="txtAmtNo65"  name="amtNo65" class="nsf-input nsf-param " maxlength="35" style="width: 98%; text-align: right;">
 									</td>
-									<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-										<a>(73)</a>
-									</td>
-									<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtNo65"  name="amtNo65" class="nsf-input nsf-param " maxlength="35" style="width: 90%; text-align: right;">
-									</td>
-									<td colspan="2"class="test"  style="width: 8%; border:1px gray solid;" >
+									<td style="width: 8%; ">
 
 									</td>
-									<td colspan="6"class="test"  style="width: 25%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtVat65"  name="amtVat65" class="nsf-input nsf-param " maxlength="35" style="width: 90%; text-align: right;">
+									<td colspan="2" style="width: 25%; " >
+										<input type="text"  id="txtAmtVat65"  name="amtVat65" class="nsf-input nsf-param " maxlength="35" style="width: 98%; text-align: right;">
 									</td>
 								</tr>
 								<tr><!-- 72 -->
-									<td colspan="8"class="test"  style="width: 32%; border:1px gray solid;" >
-										<a>영세율 과세표준신고 불성실</a>
+									<th colspan="2" style="width: 30%; " >
+										<span>영세율 과세표준신고 불성실</span>
+									</th>
+									<th style="width: 3%; " >
+										<span>(74)</span>
+									</th>
+									<td style="width: 24%; " >
+										<input type="text"  id="txtAmtNo66"  name="amtNo66" class="nsf-input nsf-param " maxlength="35" style="width: 98%; text-align: right;">
 									</td>
-									<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-										<a>(74)</a>
-									</td>
-									<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtNo66"  name="amtNo66" class="nsf-input nsf-param " maxlength="35" style="width: 90%; text-align: right;">
-									</td>
-									<td colspan="2"class="test"  style="width: 8%; border:1px gray solid;" >
-										<a>5/1000</a>
-									</td>
-									<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtVat66"  name="amtVat66" class="nsf-input nsf-param " maxlength="35" style="width: 90%; text-align: right;">
+									<th style="width: 8%; " >
+										<span>5/1000</span>
+									</th>
+									<td style="width: 30%; ">
+										<input type="text"  id="txtAmtVat66"  name="amtVat66" class="nsf-input nsf-param " maxlength="35" style="width: 98%; text-align: right;">
 									</td>
 								</tr>
 								<tr><!-- 73 -->
-									<td colspan="8"class="test"  style="width: 32%; border:1px gray solid;" >
-										<a>현금매출명세서 불성실</a>
+									<th colspan="2" style="width: 30%; " >
+										<span>현금매출명세서 불성실</span>
+									</th>
+									<th style="width: 3%; " >
+										<span>(75)</span>
+									</th>
+									<td style="width: 24%; " >
+										<input type="text"  id="txtAmtNo67"  name="amtNo67" class="nsf-input nsf-param " maxlength="35" style="width: 98%; text-align: right;">
 									</td>
-									<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-										<a>(75)</a>
-									</td>
-									<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtNo67"  name="amtNo67" class="nsf-input nsf-param " maxlength="35" style="width: 90%; text-align: right;">
-									</td>
-									<td colspan="2"class="test"  style="width: 8%; border:1px gray solid;" >
-										<a>1/100</a>
-									</td>
-									<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtVat67"  name="amtVat67" class="nsf-input nsf-param " maxlength="35" style="width: 90%; text-align: right;">
+									<th style="width: 8%; " >
+										<span>1/100</span>
+									</th>
+									<td style="width: 30%; ">
+										<input type="text"  id="txtAmtVat67"  name="amtVat67" class="nsf-input nsf-param " maxlength="35" style="width: 98%; text-align: right;">
 									</td>
 								</tr>
 								<tr><!-- 74 -->
-									<td colspan="8"class="test"  style="width: 32%; border:1px gray solid;" >
-										<a>부동산임대공급가액명세서 불성실</a>
+									<th colspan="2" style="width: 30%; " >
+										<span>부동산임대공급가액명세서 불성실</span>
+									</th>
+									<th style="width: 3%; " >
+										<span>(76)</span>
+									</th>
+									<td style="width: 24%; " >
+										<input type="text"  id="txtAmtNo81"  name="amtNo81" class="nsf-input nsf-param " maxlength="35" style="width: 98%; text-align: right;">
 									</td>
-									<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-										<a>(76)</a>
-									</td>
-									<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtNo81"  name="amtNo81" class="nsf-input nsf-param " maxlength="35" style="width: 90%; text-align: right;">
-									</td>
-									<td colspan="2"class="test"  style="width: 8%; border:1px gray solid;" >
-										<a>1/100</a>
-									</td>
-									<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtVat81"  name="amtVat81" class="nsf-input nsf-param " maxlength="35" style="width: 90%; text-align: right;">
+									<th style="width: 8%; " >
+										<span>1/100</span>
+									</th>
+									<td style="width: 30%; ">
+										<input type="text"  id="txtAmtVat81"  name="amtVat81" class="nsf-input nsf-param " maxlength="35" style="width: 98%; text-align: right;">
 									</td>
 								</tr>
 
 								<tr><!-- 75 -->
-			               			<td colspan="4" rowspan="2"  class="test"  style="width: 16%; border:1px gray solid;" >
-			                        	<a>매입자 납부특례</a>
-			                    	</td>
-			                  		<td colspan="4" class="test"  style="width: 10%; border:1px gray solid;" >
-			       						<a>거래계좌 미사용</a>
-			                    	</td>
-			                    	<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-										<a>(77)</a>
-									</td>
-			                   		<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-			                   			<input type="text"  id="txtAmtNo84"  name="amtNo84" class="nsf-input nsf-param" maxlength="35" style="width: 90%; text-align: right;">
-			                    	</td>
-			                   		<td colspan="2"class="test"  style="width: 8%; border:1px gray solid;" >
-			                    	</td>
-			                  		<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-			                  			<input type="text"  id="txtAmtVat84"  name="amtVat84" class="nsf-input nsf-param " maxlength="35" style="width: 90%; text-align: right;">
-			                    	</td>
-			               		</tr>
-			                	<tr><!-- 76 -->
-			                  		<td colspan="4" class="test"  style="width: 10%; border:1px gray solid;" >
-			                        	<a>거래계좌 지연입금</a>
-			                   		</td>
-			                   		<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-										<a>(78)</a>
-									</td>
-			                    	<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-			                 			<input type="text"  id="txtAmtNo85"  name="amtNo85" class="nsf-input nsf-param" maxlength="35" style="width: 90%; text-align: right;">
-			                      	</td>
-			                    	<td colspan="2"class="test"  style="width: 8%; border:1px gray solid;" >
-			                    	</td>
-			                    	<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-			                     		<input type="text"  id="txtAmtVat85"  name="amtVat85" class="nsf-input nsf-param " maxlength="35" style="width: 90%; text-align: right;">
-			                      	</td>
-			                   	</tr>
+                                    <th rowspan="2" style="width: 16%; " >
+                                        <span>매입자 납부특례</span>
+                                    </th>
+                                    <th style="width: 10%; " >
+                                        <span>거래계좌 미사용</span>
+                                    </th>
+                                    <th style="width: 3%; " >
+                                        <span>(77)</span>
+                                    </th>
+                                    <td style="width: 24%; " >
+                                        <input type="text"  id="txtAmtNo84"  name="amtNo84" class="nsf-input nsf-param" maxlength="35" style="width: 98%; text-align: right;">
+                                    </td>
+                                    <th style="width: 8%; " >
+                                        &nbsp;
+                                    </th>
+                                    <td style="width: 30%; ">
+                                        <input type="text"  id="txtAmtVat84"  name="amtVat84" class="nsf-input nsf-param " maxlength="35" style="width: 98%; text-align: right;">
+                                    </td>
+                                </tr>
+                                <tr><!-- 76 -->
+                                    <th style="width: 10%; " >
+                                        <span>거래계좌 지연입금</span>
+                                    </th>
+                                    <th style="width: 3%; " >
+                                        <span>(78)</span>
+                                    </th>
+                                    <td style="width: 24%; " >
+                                        <input type="text"  id="txtAmtNo85"  name="amtNo85" class="nsf-input nsf-param" maxlength="35" style="width: 98%; text-align: right;">
+                                    </td>
+                                    <th style="width: 8%; " >
+                                        &nbsp;
+                                    </th>
+                                    <td style="width: 30%; ">
+                                        <input type="text"  id="txtAmtVat85"  name="amtVat85" class="nsf-input nsf-param " maxlength="35" style="width: 98%; text-align: right;">
+                                    </td>
+                                </tr>
 								<tr><!-- 74 -->
-									<td colspan="8"class="test"  style="width: 32%; border:1px gray solid;" >
-										<a>신용카드매출전표 등 수령명세서 미제출·과다기재</a>
+									<th colspan="2" style="width: 30%; " >
+										<span>신용카드매출전표 등 수령명세서 미제출·과다기재</span>
+									</th>
+									<th style="width: 3%; " >
+										<span>(79)</span>
+									</th>
+									<td style="width: 24%; " >
+										<input type="text"  id="txtAmtNo87"  name="amtNo87" class="nsf-input nsf-param " maxlength="35" style="width: 98%; text-align: right;">
 									</td>
-									<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-										<a>(79)</a>
-									</td>
-									<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtNo87"  name="amtNo87" class="nsf-input nsf-param " maxlength="35" style="width: 90%; text-align: right;">
-									</td>
-									<td colspan="2"class="test"  style="width: 8%; border:1px gray solid;" >
+									<th style="width: 8%; " >
 										<a>5/1000</a>
-									</td>
-									<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtVat87"  name="amtVat87" class="nsf-input nsf-param " maxlength="35" style="width: 90%; text-align: right;">
+									</th>
+									<td style="width: 30%; ">
+										<input type="text"  id="txtAmtVat87"  name="amtVat87" class="nsf-input nsf-param " maxlength="35" style="width: 98%; text-align: right;">
 									</td>
 								</tr>
 								<tr><!-- 77 -->
-									<td colspan="8"class="test"  style="width: 32%; border:1px gray solid;" >
-										<a>합계</a>
-									</td>
-									<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-										<a>(80)</a>
-									</td>
-									<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-									</td>
-									<td colspan="2"class="test"  style="width: 8%; border:1px gray solid;" >
-
-									</td>
-									<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtVat68Tot"  name="amtVat68Tot" class="nsf-input nsf-param nsf-status-lck" disabled="disabled" maxlength="35" style="width: 90%; text-align: right;"	>	
-									</td>				
+									<th class="total" colspan="3"  style="width: 30%; " >
+										<span>합계</span>
+									</th>
+									<th class="total" style="width: 3%; " >
+										<span>(80)</span>
+									</th>
+									<th class="total" style="width: 24%; " >
+									</th>
+									<th class="total" style="width: 8%; " >
+                                        &nbsp;
+									</th>
+									<th colspan="2" class="total" style="width: 24%; " >
+										<input type="text"  id="txtAmtVat68Tot"  name="amtVat68Tot" class="nsf-input nsf-param nsf-status-lck" disabled="disabled" maxlength="35" style="width: 98%; text-align: right;"	>	
+									</th>				
 								</tr>
 
 								<tr>
-									<td colspan="3" rowspan="4" class="test"  style="width: 12%; border:1px gray solid;" >
-										<a>면세사업수입금액</a>
-									</td>
-									<td colspan="7"class="test"  style="width: 24%; border:1px gray solid;" >
-										<a>업태</a>
-									</td>
-									<td colspan="5"class="test"  style="width: 20%; border:1px gray solid;" >
-										<a>종목</a>
-									</td>
-									<td colspan="5"class="test"  style="width: 20%; border:1px gray solid;" >
-										<a>코드번호</a>
-									</td>
-									<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-										<a>금액</a>
-									</td>
-
+									<th rowspan="4"   style="width: 12%; " >
+										<span>면세사업수입금액</span>
+									</th>
+									<th colspan="3" style="width: 24%; " >
+										<span>업태</span>
+									</th>
+									<th style="width: 20%; " >
+										<span>종목</span>
+									</th>
+									<th style="width: 20%; " >
+										<span>코드번호</span>
+									</th>
+									<th style="width: 24%; " >
+										<span>금액</span>
+									</th>
 								</tr>
 								<tr><!-- 78 -->
-									<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-										<a>(81)</a>
+                                    <td colspan="2" style="width: 21%; " >
+										<input type="text"  id="txtTpBizClass1Free"  name="tpBizClass1Free" class="nsf-input nsf-param " maxlength="35" style="width: 98%;">
 									</td>
-									<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-										<input type="text"  id="txtTpBizClass1Free"  name="tpBizClass1Free" class="nsf-input nsf-param " maxlength="35" style="width: 90%; ">
+									<th style="width: 3%; " >
+										<span>(81)</span>
+									</th>
+									<td style="width: 20%; " >
+										<input type="text"  id="txtTpItemClass1Free"  name="tpItemClass1Free" class="nsf-input nsf-param " maxlength="35" style="width: 98%;">
 									</td>
-									<td colspan="5"class="test"  style="width: 20%; border:1px gray solid;" >
-										<input type="text"  id="txtTpItemClass1Free"  name="tpItemClass1Free" class="nsf-input nsf-param " maxlength="35" style="width: 90%; ">
+									<td style="width: 20%; " >
+										<input type="text"  id="txtCdBiz1Free"  name="cdBiz1Free" class="nsf-input nsf-param " maxlength="35" style="width: 98%;">
 									</td>
-									<td colspan="5"class="test"  style="width: 20%; border:1px gray solid;" >
-										<input type="text"  id="txtCdBiz1Free"  name="cdBiz1Free" class="nsf-input nsf-param " maxlength="35" style="width: 90%; ">
-									</td>
-									<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtNo69Free"  name="amtNo69Free" class="nsf-input nsf-param  freeTax" maxlength="35" style="width: 90%; text-align: right;">
+									<td style="width: 24%; " >
+										<input type="text"  id="txtAmtNo69Free"  name="amtNo69Free" class="nsf-input nsf-param  freeTax" maxlength="35" style="width: 98%; text-align: right;">
 									</td>
 								</tr>
 								<tr>
 									<!-- 79 -->
-									<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-										<a>(82)</a>
+									<td colspan="2" style="width: 21%; " >
+										<input type="text"  id="txtTpBizClass2Free"  name="tpBizClass2Free" class="nsf-input nsf-param " maxlength="35" style="width: 98%;">
 									</td>
-									<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-										<input type="text"  id="txtTpBizClass2Free"  name="tpBizClass2Free" class="nsf-input nsf-param " maxlength="35" style="width: 90%; ">
+                                    <th style="width: 3%; " >
+										<span>(82)</span>
+									</th>
+									<td style="width: 20%; " >
+										<input type="text"  id="txtTpItemClass2Free"  name="tpItemClass2Free" class="nsf-input nsf-param " maxlength="35" style="width: 98%;">
 									</td>
-									<td colspan="5"class="test"  style="width: 20%; border:1px gray solid;" >
-										<input type="text"  id="txtTpItemClass2Free"  name="tpItemClass2Free" class="nsf-input nsf-param " maxlength="35" style="width: 90%; ">
+									<td style="width: 20%; " >
+										<input type="text"  id="txtCdBiz2Free"  name="cdBiz2Free" class="nsf-input nsf-param " maxlength="35" style="width: 98%;">
 									</td>
-									<td colspan="5"class="test"  style="width: 20%; border:1px gray solid;" >
-										<input type="text"  id="txtCdBiz2Free"  name="cdBiz2Free" class="nsf-input nsf-param " maxlength="35" style="width: 90%;">
-									</td>
-									<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtNo70Free"  name="amtNo70Free" class="nsf-input nsf-param freeTax" maxlength="35" style="width: 90%; text-align: right;">
+									<td style="width: 24%; " >
+										<input type="text"  id="txtAmtNo70Free"  name="amtNo70Free" class="nsf-input nsf-param freeTax" maxlength="35" style="width: 98%; text-align: right;">
 									</td>
 								</tr>
 								<tr><!-- 80 -->
-									<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-										<a>(83)</a>
+                                    <td class="empty" colspan="2" style="width: 21%; " >
+										<span>수입금액제외</span>
 									</td>
-									<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-										<a>수입금액제외</a>
+									<th style="width: 3%; " >
+										<span>(83)</span>
+									</th>
+									<td style="width: 20%; " >
+										<input type="text"  id="txtTpItemClass3Free"  name="tpItemClass3Free" class="nsf-input nsf-param " maxlength="35" style="width: 98%;">
 									</td>
-									<td colspan="5"class="test"  style="width: 20%; border:1px gray solid;" >
-										<input type="text"  id="txtTpItemClass3Free"  name="tpItemClass3Free" class="nsf-input nsf-param " maxlength="35" style="width: 90%;">
+									<td style="width: 20%; " >
+										<input type="text"  id="txtCdBiz3Free"  name="cdBiz3Free" class="nsf-input nsf-param " maxlength="35" style="width: 98%;">
 									</td>
-									<td colspan="5"class="test"  style="width: 20%; border:1px gray solid;" >
-										<input type="text"  id="txtCdBiz3Free"  name="cdBiz3Free" class="nsf-input nsf-param " maxlength="35" style="width: 90%;">
-									</td>
-									<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtNo71Free"  name="amtNo71Free" class="nsf-input nsf-param freeTax" maxlength="35" style="width: 90%; text-align: right; text-align: right;" >
+									<td style="width: 24%; " >
+										<input type="text"  id="txtAmtNo71Free"  name="amtNo71Free" class="nsf-input nsf-param freeTax" maxlength="35" style="width: 98%; text-align: right; text-align: right;" >
 									</td>
 								</tr>
 								<tr><!-- 81 -->
-									<td colspan="3" rowspan="3" class="test"  style="width: 12%; border:1px gray solid;" >
-										<a>계산서 교부 및 수취명세</a>
+									<th colspan="3" rowspan="3"   style="width: 21%; " >
+										<span>계산서 교부 및 수취명세</span>
+									</th>
+									<th style="width:3%; " >
+										<span>(84)합계</span>
+									</th>
+                                    <td colspan="2" class="empty" style="width: 40%; " >
 									</td>
-									<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-
-									</td>
-									<td colspan="5"class="test"  style="width: 20%; border:1px gray solid;" >
-
-									</td>
-									<td colspan="5"class="test"  style="width: 20%; border:1px gray solid;" >
-										<a>(84)합계</a>
-									</td>
-									<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtNo72Free"  name="amtNo72Free" class="nsf-input nsf-param nsf-status-lck" disabled="disabled" maxlength="35" style="width: 90%; text-align: right;">
+									<td style="width: 24%; " >
+										<input type="text"  id="txtAmtNo72Free"  name="amtNo72Free" class="nsf-input nsf-param nsf-status-lck" disabled="disabled" maxlength="35" style="width: 98%; text-align: right;">
 									</td>
 								</tr>
 								<tr><!-- 82 -->
-									<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-										<a>(85)</a>
-									</td>
-									<td colspan="16"class="test"  style="width: 64%; border:1px gray solid;" >
-										<a>계산서 발급금액</a>
+									<th style="width: 3%; " >
+										<span>(85)</span>
+									</th>
+									<td class="empty" colspan="2"  style="width: 40%; " >
+										<span>계산서 발급금액</span>
 									</td>
 
-									<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtNo73"  name="amtNo73" class="nsf-input nsf-param " maxlength="35" style="width: 90%; text-align: right;">
+									<td style="width: 24%; " >
+										<input type="text"  id="txtAmtNo73"  name="amtNo73" class="nsf-input nsf-param " maxlength="35" style="width: 98%; text-align: right;">
 									</td>
 
 								</tr>
 								<tr><!-- 83 -->
-									<td colspan="1" rowspan="1" class="test" style="width: 3%; border:1px gray solid;" >
-										<a>(86)</a>
-									</td>
-									<td colspan="16" rowspan="5" class="test"  style="width: 64%; border:1px gray solid;" >
-										<a>계산서 수취 금액</a>
+									<th  style="width: 3%; " >
+										<span>(86)</span>
+									</th>
+									<td class="empty" colspan="2" style="width: 40%; " >
+										<span>계산서 수취 금액</span>
 									</td>
 
-									<td colspan="6"class="test"  style="width: 24%; border:1px gray solid;" >
-										<input type="text"  id="txtAmtNo74"  name="amtNo74" class="nsf-input nsf-param " maxlength="35" style="width: 90%; text-align: right;">
+									<td style="width: 24%; " >
+										<input type="text"  id="txtAmtNo74"  name="amtNo74" class="nsf-input nsf-param " maxlength="35" style="width: 98%; text-align: right;">
 									</td>
 								</tr>
 							</table>
