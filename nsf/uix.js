@@ -191,16 +191,29 @@ const updateState = (id) => {
 // 메뉴클릭
 const gnbNav = document.querySelector(".nsf-tree .nsf-gnb-menu ul");
 gnbNav.addEventListener("click", (e) => {
+  // console.log(e.target);
+  // console.log(e.target.closest("li"));
+  // console.log(e.target.closest("li").querySelector("ul"));
   const li = e.target.closest("li");
-  const ul = e.target.closest("li").querySelector("ul");
-  if (ul) {
-    ul.classList.toggle("folded");
-    e.target.closest("li").classList.toggle("expanded");
-  }
   if (li.classList.contains("tree-page")) {
+    // makeTab(e.target.id, e.target.textContent);
+    // makeTab(e.target.textContent);
     makeArray(e.target.id, e.target.textContent);
     updateState(e.target.id);
     tabScroll();
+  } else {
+    const ul = e.target.closest("li").querySelector("ul");
+    ul.classList.toggle("folded");
+    e.target.closest("li").classList.toggle("expanded");
+    e.target.closest("li").querySelector("i:first-child").classList.toggle("mats-icon-arrRight")
+    e.target.closest("li").querySelector("i:last-child").classList.toggle("mats-icon-opfolder")
+    if(e.target.closest("li").className.includes("expanded")) {
+      e.target.closest("li").querySelector("i:first-child").classList.remove("mats-icon-arrDown")
+      e.target.closest("li").querySelector("i:last-child").classList.remove("mats-icon-folder")
+    } else {
+      e.target.closest("li").querySelector("i:first-child").classList.add("mats-icon-arrDown")
+      e.target.closest("li").querySelector("i:last-child").classList.add("mats-icon-folder")
+    }
   }
 })
 const gnbIntro = document.querySelector(".nsf-tree .gnb-intro");
@@ -344,8 +357,9 @@ const favorite = () => {
       list.classList.add("favorit-list");
       list.innerHTML = `
         <span data-favorit-id="${item.id}">${item.name}</span>
-        <button type="button" class="del-favorite">del</button>
-      `;
+        <button type="button" class="mats-icon-close del-favorite"></button>
+        `;
+        // <i class="mats-icon-close"></i>
       favoriteBody.appendChild(list);
     }
   }
@@ -393,9 +407,43 @@ favorite();
 // gnbToggle
 const gnbToggle = () => {
   const btn = document.querySelector(".nsf-gnb-toggle");
+  const btni = btn.querySelector("i");
   const gnb = document.querySelector(".nsf-gnb");
   btn.addEventListener("click", () => {
     gnb.classList.toggle("less");
+    if(btni.className.includes("rightArrow")) {
+      btni.classList.remove("mats-icon-rightArrow")
+      btni.classList.add("mats-icon-leftArrow")
+    } else {
+      btni.classList.add("mats-icon-rightArrow")
+      btni.classList.remove("mats-icon-leftArrow")
+    }
   })
 }
 gnbToggle();
+
+// menu icon
+const menuIcon = () => {
+  const allToggle = document.querySelectorAll(".tree-toggle")
+  const allpage = document.querySelectorAll(".tree-page")
+  if(allToggle) {
+    allToggle.forEach(toggle => {
+      const aaa = (e) => {
+        const pi = document.createElement("i")
+        pi.classList.add(e)
+        toggle.querySelector("span").prepend(pi)
+      }
+      aaa("mats-icon-folder")
+      aaa("mats-icon-arrDown")
+    })
+  }
+  if (allpage) {
+    allpage.forEach(page => {
+      const pi = document.createElement("i")
+      pi.classList.add("mats-icon-page")
+      page.querySelector("span").prepend(pi)
+    })
+  }
+}
+
+menuIcon();
