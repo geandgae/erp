@@ -2,6 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>test</title>
   <link rel="stylesheet" type="text/css" href="./nsf/css/ui.css"/>
@@ -34,32 +35,38 @@
     <main class="nsf-main">
       <!-- gnb -->
       <section class="nsf-gnb">
-        <!-- gnb-tab -->
-        <div class="nsf-gnb-tabs">
-          <button type="button" id="nsf-tree" class="active">gnb1</button>
-          <button type="button" id="nsf-search">gnb2</button>
-          <button type="button" id="nsf-favorite">gnb3</button>
-        </div>
-        <!-- tree -->
-        <div class="nsf-gnb-panel nsf-tree">
-          <button type="button" class="gnb-intro">intro</button>
-          <nav class="nsf-gnb-menu"></nav>
-        </div>
-        <!-- search -->
-        <div class="nsf-gnb-panel nsf-search hide">
-          <div class="search-menu-header">
-            <input type="text" name="menuSearch" value="">
-            <button type="button" class="gnb-search">search</button>
+        <button type="button" class="nsf-gnb-toggle">X</button>
+        <!-- nsf-gnb-tab-wrap -->
+        <div class="nsf-gnb-tab-wrap">
+          <div class="nsf-gnb-title"><i class="mats-icon-view"></i>통합경영정보시스템</div>
+          <!-- gnb-tab -->
+          <div class="nsf-gnb-tabs">
+            <button type="button" id="nsf-tree" class="active"><i class="mats-icon-menu"></i>업무메뉴</button>
+            <button type="button" id="nsf-search"><i class="mats-icon-search"></i>찾기</button>
+            <button type="button" id="nsf-favorite"><i class="mats-icon-star"></i>즐겨찾기</button>
           </div>
-          <div class="search-menu-body"></div>
-        </div>
-        <!-- favorite -->
-        <div class="nsf-gnb-panel nsf-favorite hide">
-          <div class="favorite-header">
-            <button type="button" class="gnb-favorite">add</button>
+          <!-- tree -->
+          <div class="nsf-gnb-panel nsf-tree">
+            <button type="button" class="gnb-intro">intro</button>
+            <nav class="nsf-gnb-menu"></nav>
           </div>
-          <div class="favorite-body"></div>
+          <!-- search -->
+          <div class="nsf-gnb-panel nsf-search hide">
+            <div class="search-menu-header">
+              <input type="text" name="menuSearch" value="" />
+              <button type="button" class="gnb-search">search</button>
+            </div>
+            <div class="search-menu-body"></div>
+          </div>
+          <!-- favorite -->
+          <div class="nsf-gnb-panel nsf-favorite hide">
+            <div class="favorite-header">
+              <button type="button" class="gnb-favorite">add</button>
+            </div>
+            <div class="favorite-body"></div>
+          </div>
         </div>
+        <!-- //nsf-gnb-tab-wrap -->
       </section>
       <!-- //gnb -->
 
@@ -67,26 +74,26 @@
       <section class="nsf-contents">
         <!-- main-tabs -->
         <div class="nsf-main-tabs">
-					<!-- tablist -->
-					<ul class="nsf-tablist">
-						<li class="active"><button type="button" class="tab-nav" id="tab-intro" data-tab-target="#panel-intro" role="tab"><span>intro</span></button></li>
+          <!-- tablist -->
+          <ul class="nsf-tablist">
+            <li class="active">
+              <button type="button" class="tab-nav" id="tab-intro" data-tab-target="#panel-intro" role="tab"><span>intro</span></button>
+            </li>
           </ul>
-					<!-- tabctrl -->
-					<div class="nsf-tabctrl">
-						<button type="button" class="tab-prev"><span>이전</span></button>
-						<button type="button" class="tab-next"><span>다음</span></button>
-						<button type="button" class="tab-reset"><span>전부닫기</span></button>
-					</div>
+          <!-- tabctrl -->
+          <div class="nsf-tabctrl">
+            <button type="button" class="tab-prev"><i class="mats-icon-prev"></i></button>
+            <button type="button" class="tab-next"><i class="mats-icon-next"></i></button>
+            <button type="button" class="tab-reset"><i class="mats-icon-close"></i></button>
+          </div>
         </div>
         <!-- //main-tabs -->
         <!-- main-tab-contents -->
         <div class="nsf-main-tab-contents">
           <!-- nsf-tab-panel -->
-          <div class="nsf-tab-panel active" id="panel-intro" aria-labelledby="tab-intro" role="tabpanel" >
-						intro
-            <!-- <iframe src="./공지사항.html" id="" name="" width="100%" height="100%">
-            </iframe> -->
-          </div> 
+          <div class="nsf-tab-panel active" id="panel-intro" aria-labelledby="tab-intro" role="tabpanel">
+            <iframe src="./공지사항.html" id="" name="" width="100%" height="100%"></iframe>
+          </div>
         </div>
         <!-- //main-tab-contents -->
       </section>
