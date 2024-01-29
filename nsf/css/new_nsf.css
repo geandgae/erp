@@ -167,9 +167,11 @@ BODY, DIV, TABLE, TR, TD, UL, LI, SPAN, LABEL, INPUT, SELECT, BUTTON {
 .border{
     border: 1px solid #d6d6d6;
 }
-
-
-
+.nsf-form ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
 .nsf-form ul li {
     overflow: hidden;
     white-space: nowrap;
