@@ -206,15 +206,6 @@ gnbNav.addEventListener("click", (e) => {
     const ul = e.target.closest("li").querySelector("ul");
     ul.classList.toggle("folded");
     e.target.closest("li").classList.toggle("expanded");
-    e.target.closest("li").querySelector("i:first-child").classList.toggle("mats-icon-arrRight")
-    e.target.closest("li").querySelector("i:last-child").classList.toggle("mats-icon-opfolder")
-    if(e.target.closest("li").className.includes("expanded")) {
-      e.target.closest("li").querySelector("i:first-child").classList.remove("mats-icon-arrDown")
-      e.target.closest("li").querySelector("i:last-child").classList.remove("mats-icon-folder")
-    } else {
-      e.target.closest("li").querySelector("i:first-child").classList.add("mats-icon-arrDown")
-      e.target.closest("li").querySelector("i:last-child").classList.add("mats-icon-folder")
-    }
   }
 })
 const gnbIntro = document.querySelector(".nsf-tree .gnb-intro");
@@ -422,29 +413,3 @@ const gnbToggle = () => {
   })
 }
 gnbToggle();
-
-// menu icon
-const menuIcon = () => {
-  const allToggle = document.querySelectorAll(".tree-toggle")
-  const allpage = document.querySelectorAll(".tree-page")
-  if(allToggle) {
-    allToggle.forEach(toggle => {
-      const aaa = (e) => {
-        const pi = document.createElement("i")
-        pi.classList.add(e)
-        toggle.querySelector("span").prepend(pi)
-      }
-      aaa("mats-icon-folder")
-      aaa("mats-icon-arrDown")
-    })
-  }
-  if (allpage) {
-    allpage.forEach(page => {
-      const pi = document.createElement("i")
-      pi.classList.add("mats-icon-page")
-      page.querySelector("span").prepend(pi)
-    })
-  }
-}
-
-menuIcon();
