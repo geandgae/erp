@@ -245,15 +245,46 @@ ul.tab200 li span{
     width: 280px !important;
 }
 
+.nsf-form-li-25 {
+    width: 25% !important;
+}
+.nsf-form-li-33 {
+    width: 33.3% !important;
+}
+.nsf-form-li-50 {
+    width: 50% !important;
+}
+.nsf-form-li-100 {
+    width: 100% !important;
+}
 
-.nsf-form-li-2x {
+.nsf-form-li-2x{
     width: 50% !important;
 }
 .nsf-form-li-2x-33 {
     width: 66% !important;
 }
+.nsf-form-li-2x-50 {
+    width: 50% !important;
+}
 .nsf-form-li-2x-100 {
     width: 100% !important;
+}
+
+.nsf-form-item-150 {
+    width: 150px !important;
+}
+.nsf-form-item-180 {
+    width: 180px !important;
+}
+.nsf-form-item-200 {
+    width: 200px !important;
+}
+.nsf-form-item-230 {
+    width: 230px !important;
+}
+.nsf-form-item-250 {
+    width: 250px !important;
 }
 .nsf-form-item-2xx {
     width: 350px !important;

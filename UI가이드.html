@@ -347,9 +347,9 @@
         <div class="snippets">
             <p>※ 서치박스 기본 조건: li Width: 25% / span: 120px</p>
             <p>※ 단을 추가할때는 &lt;ul&gt; &lt;li&gt; ~ &lt;/li&gt; &lt;/ul&gt; 추가 해야 한다 </p>
-            <p>※ li Class: per25(width:25%) / Class: per33(width:33%) / Class: per50(width:50%) /Class: per100(width:100%)</p>
+            <p>※ ul Class: per25(li width:25%) / Class: per33(li width:33%) / Class: per50(li width:50%) /Class: per100(li width:100%)</p>
             <p>※ span Class: 기본120px / th150(width:150px) / th180(width:180px) / th200(width:200px) / th230(width:230px) </p>
-            <p>※ 필요에 의해 클래스 추가 가능하다 (new_swf.css에 추가하여 사용)</p>
+            <p>※ 필요에 의해 클래스 추가 가능하다 (new_nsf.css에 추가하여 사용)</p>
         </div>
 
 
@@ -357,7 +357,175 @@
         <h2>nsf-form(하단 폼 영역) UI 가이드</h2>
 
         <!-- 조건 : 기본 li조건 25% / span: 120px-->
+        <h2>1. 4단 li 25% (class="per25")</h2>
+        <div class="nsf-form" style="border: 1px solid #d9d9d9;">
+            <table cellpadding="0" cellspacing="0">
+                <tr>
+                    <td>
+                        <ul class="per25">
+                            <li>
+                                <span>생년월일&nbsp;</span> 
+                                <input type="text" id="txtDtRepBirtDEtc" name="dtRepBirt" title="dtRepBirt" class="nsf-param">
+                            </li>
+                            <li>
+                                <span>실제생일&nbsp;</span> 
+                                <input type="text" id="txtDtBirtDEtc" name="dtBirt" title="dtBirt" class="nsf-param">
+                            </li>
+                            <li>
+                                <span>양/음&nbsp;</span> 
+                                <select id="cboFgBirtTypeDEtc" name="fgBirtType" title="양/음" class="nsf-input nsf-param">
+                                    <option value=""></option> 																			
+                                    <option value="S">양력</option>
+                                    <option value="L">음력</option>
+                                </select>
+                            </li>
+                            <li>
+                                <span>성별&nbsp;</span> 
+                                <select id="cboCdSexDEtc" name="cdSex" title="성별" class="nsf-param">
+                                    <option value=""></option> 																			
+                                    <option value="F">여자</option>
+                                    <option value="M">남자</option>
+                                </select>
+                            </li>
+                            <li class="nsf-form-li-2x-50"><!-- li 50% -->
+                                <span class="nsf-form-item-200">사내전화&nbsp;</span> <!-- span 250px -->
+                                <input type="text" id="txtNoTelWorkDEtc" name="noTelWork" title="noTelWork" class="nsf-param">
+                            </li>
+                            <li class="nsf-form-li-2x-50"> <!-- li 50% --> 
+                                <span class="nsf-form-item-200">결혼일자&nbsp;</span> <!-- span 250px -->
+                                <input type="text" id="txtDtMarryDEtc" name="dtMarry" title="dtMarry" class="nsf-param">
+                            </li>
+                            <li class="nsf-form-li-2x-100"><!-- li 100% -->
+                                <span>본적주소&nbsp;</span>
+                                <input type="text" id="txtNoZipDEtc" name="noZip" class="nsf-param">
+                                <button id="popNoZipDEtc" class="nsf-btn-popup">
+                                    <a>&nbsp;</a>
+                                </button> 
+                                <input type="text" id="txtAddrKorDEtc" name="addrKor" class="nsf-param nsf-form-item-2x"> 
+                                <input type="text" id="txtAddrKorDetailDEtc" name="addrKorDetail" class="nsf-param nsf-form-item-2x">
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
 
+        <!-- HTML 가이드 -->
+        <h3>HTML 가이드</h3>
+        <section class="codebox">
+            <div class="code">
+                <pre class="brush: js">
+                    <div class="nsf-form" style="border: 1px solid #d9d9d9;">
+                        <table cellpadding="0" cellspacing="0">
+                            <tr>
+                                <td>
+                                    <ul class="per25">
+                                        <li>
+                                            <span>생년월일&nbsp;</span> 
+                                            <input type="text" id="txtDtRepBirtDEtc" name="dtRepBirt" title="dtRepBirt" class="nsf-param">
+                                        </li>
+                                        <li>
+                                            <span>실제생일&nbsp;</span> 
+                                            <input type="text" id="txtDtBirtDEtc" name="dtBirt" title="dtBirt" class="nsf-param">
+                                        </li>
+                                        <li>
+                                            <span>양/음&nbsp;</span> 
+                                            <select id="cboFgBirtTypeDEtc" name="fgBirtType" title="양/음" class="nsf-input nsf-param">
+                                                <option value=""></option> 																			
+                                                <option value="S">양력</option>
+                                                <option value="L">음력</option>
+                                            </select>
+                                        </li>
+                                        <li>
+                                            <span>성별&nbsp;</span> 
+                                            <select id="cboCdSexDEtc" name="cdSex" title="성별" class="nsf-param">
+                                                <option value=""></option> 																			
+                                                <option value="F">여자</option>
+                                                <option value="M">남자</option>
+                                            </select>
+                                        </li>
+                                        <li class="nsf-form-li-2x-50"><!-- li 50% -->
+                                            <span class="nsf-form-item-200">사내전화&nbsp;</span> <!-- span 250px -->
+                                            <input type="text" id="txtNoTelWorkDEtc" name="noTelWork" title="noTelWork" class="nsf-param">
+                                        </li>
+                                        <li class="nsf-form-li-2x-50"> <!-- li 50% --> 
+                                            <span class="nsf-form-item-200">결혼일자&nbsp;</span> <!-- span 250px -->
+                                            <input type="text" id="txtDtMarryDEtc" name="dtMarry" title="dtMarry" class="nsf-param">
+                                        </li>
+                                        <li class="nsf-form-li-2x-100"><!-- li 100% -->
+                                            <span>본적주소&nbsp;</span>
+                                            <input type="text" id="txtNoZipDEtc" name="noZip" class="nsf-param">
+                                            <button id="popNoZipDEtc" class="nsf-btn-popup">
+                                                <a>&nbsp;</a>
+                                            </button> 
+                                            <input type="text" id="txtAddrKorDEtc" name="addrKor" class="nsf-param nsf-form-item-2x"> 
+                                            <input type="text" id="txtAddrKorDetailDEtc" name="addrKorDetail" class="nsf-param nsf-form-item-2x">
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                </pre>
+            </div>
+        </section>
+        <div class="snippets">
+            <p>※ 서치박스 기본 조건: li Width: 25% / span: 120px</p>
+            <p>※ Ul Class: per25(width:25%) / Class: per33(width:33%) / Class: per50(width:50%) /Class: per100(width:100%)</p>
+            <p>※ li Class: nsf-form-li-25(width:25%) / nsf-form-li-33(width:33%) / nsf-form-li-50(width:50%) / nsf-form-li-100(width:100%)</p>
+            <p>※ li Class(2x: 2두배( 옆셀 합치기)): nsf-form-li-2x(width:50%) /nsf-form-li-2x-33(width:66%) / nsf-form-li-2x-100(width:100%)</p>
+            <p>※ span Class: 기본120px / nsf-form-item-150(width:150px) / nsf-form-item-180(width:180px) / nsf-form-item-200(width:200px) / nsf-form-item-230(width:230px) / nsf-form-item-250(width:250px) </p>
+            <p>※ 필요에 의해 클래스 추가 가능하다 (new_nsf.css에 추가하여 사용)</p>
+        </div>
+
+        <!-- 버튼 영역 -->
+        <h2>nsf-btnbar(버튼 영역) UI 가이드</h2>
+
+        <div class="nsf-btnbar">
+            <table>
+                <tr>
+                    <td class="nsf-right">
+                        <button id="btnFindM1" type="button" class="nsf-btn-search">조회</button>
+						<button id="btnProcessM1" type="button" class="nsf-btn-save">저장</button>
+						<button id="btnRemoveM1" type="button" class="nsf-btn-delete">삭제</button>
+						<button id="btnCreate" type="button" class="nsf-btn-add">생성</button>
+						<button id="btnCloseCancel" type="button" class="nsf-btn-close">마감취소</button>	
+						<button id="btnFix" type="button" class="nsf-btn-confirm">확정</button>		
+						<button id="btnFixCancel" type="button" class="nsf-btn-close">확정취소</button>	
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- HTML 가이드 -->
+        <h3>HTML 가이드</h3>
+        <section class="codebox">
+            <div class="code">
+                <pre class="brush: js">
+                    <div class="nsf-btnbar">
+                        <table>
+                            <tr>
+                                <td class="nsf-right">
+                                    <button id="btnFindM1" type="button" class="nsf-btn-search">조회</button>
+                                    <button id="btnRegistM1" type="button" class="nsf-btn-add">추가</button>
+                                    <button id="btnProcessM1" type="button" class="nsf-btn-save">저장</button>
+                                    <button id="btnRemoveM1" type="button" class="nsf-btn-delete">삭제</button>
+                                    <button id="btnCreate" type="button" class="nsf-btn-add">생성</button>
+                                    <button id="btnCloseCancel" type="button" class="nsf-btn-close">마감취소</button>	
+                                    <button id="btnFix" type="button" class="nsf-btn-confirm">확정</button>		
+                                    <button id="btnFixCancel" type="button" class="nsf-btn-close">확정취소</button>	
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </pre>
+            </div>
+        </section>
+        <div class="snippets">
+            <p>※ 기존 코드에 CSS 만 변경해서 사용중</p>
+            <p>※ 아이콘이 추가로 필요한경우(new_nsf.css에 추가하여 사용)</p>
+        </div>
     </div>
 
     
