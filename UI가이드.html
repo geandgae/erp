@@ -1,0 +1,365 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--
+/**
+ * ============================================================================
+ * UI 가이드 
+ *
+ * @author <a href="mailto:@"></a>
+ * @version 1.0
+ * @since 1.0
+ * <p>
+ * History<br>
+ * 1.0  2024.02.03  백인환
+ * ============================================================================
+ */
+-->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>UI 가이드</title>
+
+    <!--// css //-->
+    <link rel="stylesheet" type="text/css" href="./jquery/ui/themes/jquery-ui.css"/>
+    <link rel="stylesheet" type="text/css" href="./jquery/plugin/jqGrid/css/ui.jqgrid.css"/>
+    <link rel="stylesheet" type="text/css" href="./jquery/plugin/jqGrid/plugins/ui.multiselect.css"/>
+    <link rel="stylesheet" type="text/css" href="./nsf/css/nsf.css"/>
+    <link rel="stylesheet" type="text/css" href="./nsf/css/new_nsf.css"/><!-- 모든 컨텐츠 페이지에 추가-->
+
+     <!--// guide //-->
+     <link rel="stylesheet" type="text/css" href="./nsf/css/guide/shCore.css"/>
+     <script type="text/javascript" src="./nsf/css/guide/shCore.js"></script>
+
+    <style>
+        .guide_wrap{
+            padding: 30px;
+            width: 100%;
+            height: 100vh;
+            position: relative;
+        }
+        h1{
+            font-size: 22px;
+            padding-left: 10px;
+            letter-spacing: -1px;
+        }
+        h2{
+            font-size: 20px;
+            padding-left: 10px;
+            letter-spacing: -1px;
+            margin-top: 30px;
+        }
+        h3{
+            font-size: 16px;
+            background: #fafbfc;
+            padding: 12px 23px 12px 19px;
+            border-radius: 3px;
+            font-weight: 400;
+            background-image: linear-gradient(-180deg,#fafbfc,#eff3f6 90%);
+            border: 1px solid #d1d5da;
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .snippets{
+            background: #464646;
+            box-shadow: inset rgba(0,0,0,0.45) 0px 0px 2px;
+            margin: 10px 0 5px 0;
+            padding: 6px 10px;
+            border-radius: 3px;
+            line-height: 1;
+            position: relative;
+            color: #e9ca30;
+            border: 1px solid #3e3e3e;
+        }
+
+    </style>
+
+</head>
+<body>
+    <div style="padding: 0 30px;">
+        <h1>UI 가이드</h1>
+
+        <!-- 상단 서치폼 영역 -->
+        <h2>nsf-form-search(상단 서치폼 영역) UI 가이드</h2>
+
+        <!-- 검색조건 : 1단 li조건 25% / span: 120px-->
+        <h2>1단(클래스가 없는경우): li 25% / span:120px</h2>
+        <div id="sectionA2" class="nsf-section-resize nsf-widget-content">
+            <div class="nsf-panel">
+                <div id="grid">
+                    <div class="head nsf-form-search">
+                        <ul class="per33"><!-- 신규 상단 클래스 추가 li: width:33% -->
+                            <li>
+                                <span class="nsf-required">결의일자</span>
+                                <input type="text" id="txtDtSlipFrH" name="dtSlipFr" class="nsf-param nsf-status-ess nsf-center">
+                                <label> ~ </label>
+                                <input type="text" id="txtDtSlipToH" name="dtSlipTo" class="nsf-param nsf-status-ess nsf-center">
+                            </li>
+                            <li>
+                                <span>승인여부</span>
+                                <select id="cboYnApprveH" name="ynApprove" class="nsf-param ">
+                                    <option value=""></option>
+                                    <option value="1">승인취소</option>
+                                    <option value="2">승인</option>
+                                    <option value="3">미승인</option>
+                                    <option value="9">반려</option>
+                                </select>
+                            </li>
+                            <li>
+                                <span>발생경로</span>
+                                <select id="cboFgModuleH" name="cdPath" class="nsf-param ">
+                                    <option value=""></option>
+                                    <option value="03">결의전표등록</option>
+                                    <option value="04">결의서승인</option>
+                                    <option value="05">대체결의서(G/W)</option>
+                                    <option value="A1">감가상각자동전표</option>
+                                    <option value="H1">급여자동전표</option>
+                                    <option value="01">전기이월</option>
+                                </select>
+                            </li>
+                            <li>
+                                <span>결의부서</span>
+                                <input type="text" id="txtCdDeptH1" name="cdDept" class="nsf-param">
+                                <button id="popCdDeptH1" class="nsf-btn-popup">
+                                    <a>&nbsp;</a>
+                                </button>
+                                <input type="text" id="txtNmDeptH1" name="nmDept" class="nsf-param nsf-status-lck" disabled="true">
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 검색조건 -->
+
+        <!-- 검색조건 : 2단 li조건 33% / 50%-->
+        <h2>2단(클래스가 있는 경우): li 33% 50% / span:150px</h2>
+        <div id="sectionA2" class="nsf-section-resize nsf-widget-content">
+            <div class="nsf-panel">
+                <div id="grid">
+                    <div class="head nsf-form-search">
+                        <ul class="per33"><!-- 신규 상단 클래스 추가 li: width:33% -->
+                            <li>
+                                <span class="th150">결의일자</span>
+                                <input type="text" id="txtDtSlipFrH" name="dtSlipFr" class="nsf-param nsf-status-ess nsf-center">
+                                <label> ~ </label>
+                                <input type="text" id="txtDtSlipToH" name="dtSlipTo" class="nsf-param nsf-status-ess nsf-center">
+                            </li>
+                            <li>
+                                <span class="th150">승인여부</span>
+                                <select id="cboYnApprveH" name="ynApprove" class="nsf-param ">
+                                    <option value=""></option>
+                                    <option value="1">승인취소</option>
+                                    <option value="2">승인</option>
+                                    <option value="3">미승인</option>
+                                    <option value="9">반려</option>
+                                </select>
+                            </li>
+                            <li>
+                                <span class="th150">발생경로</span>
+                                <select id="cboFgModuleH" name="cdPath" class="nsf-param ">
+                                    <option value=""></option>
+                                    <option value="03">결의전표등록</option>
+                                    <option value="04">결의서승인</option>
+                                    <option value="05">대체결의서(G/W)</option>
+                                    <option value="A1">감가상각자동전표</option>
+                                    <option value="H1">급여자동전표</option>
+                                    <option value="01">전기이월</option>
+                                </select>
+                            </li>
+                        </ul>
+                        <ul class="per50"><!-- 신규 상단 클래스 추가 li: width:50% -->
+                            <li class="nsf-form-li-2x">
+                                <span class="th150">결의전표채번번호</span>
+                                <input type="text" id="txtNoSlipSerialH" name="noSlipSerialH" class="nsf-param nsf-resize">
+                                <button id="popNoSlipH" class="nsf-btn-popup">
+                                    <a>&nbsp;</a>
+                                </button>
+                            </li>
+                            <li class="nsf-form-li-2x">
+                                <span class="th150">결의서번호</span>
+                                <input type="text" id="txtNoAnactSerialH" name="noAnactSerial" class="nsf-param">
+                                <button id="popNoAnactSerialH" class="nsf-btn-popup">
+                                    <a>&nbsp;</a>
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 검색조건 : 3단 li조건 33% / 50%-->
+        <h2>3단(클래스가 있는 경우): li 33% 50% / span:기본(120px)</h2>
+        <div id="sectionA2" class="nsf-section-resize nsf-widget-content">
+            <div class="nsf-panel">
+                <div id="grid">
+                    <div class="head nsf-form-search">
+                        <ul class="per33"><!-- 신규 상단 클래스 추가 li: width:33% -->
+                            <li>
+                                <span class="nsf-required">결의일자</span>
+                                <input type="text" id="txtDtSlipFrH" name="dtSlipFr" class="nsf-param nsf-status-ess nsf-center">
+                                <label> ~ </label>
+                                <input type="text" id="txtDtSlipToH" name="dtSlipTo" class="nsf-param nsf-status-ess nsf-center">
+                            </li>
+                            <li>
+                                <span>승인여부</span>
+                                <select id="cboYnApprveH" name="ynApprove" class="nsf-param ">
+                                    <option value=""></option>
+                                    <option value="1">승인취소</option>
+                                    <option value="2">승인</option>
+                                    <option value="3">미승인</option>
+                                    <option value="9">반려</option>
+                                </select>
+                            </li>
+                            <li>
+                                <span>발생경로</span>
+                                <select id="cboFgModuleH" name="cdPath" class="nsf-param ">
+                                    <option value=""></option>
+                                    <option value="03">결의전표등록</option>
+                                    <option value="04">결의서승인</option>
+                                    <option value="05">대체결의서(G/W)</option>
+                                    <option value="A1">감가상각자동전표</option>
+                                    <option value="H1">급여자동전표</option>
+                                    <option value="01">전기이월</option>
+                                </select>
+                            </li>
+                        </ul>
+                        <ul class="per33"><!-- 신규 상단 클래스 추가 li: width:33% -->
+                            <li>
+                                <span>결의부서</span>
+                                <input type="text" id="txtCdDeptH1" name="cdDept" class="nsf-param">
+                                <button id="popCdDeptH1" class="nsf-btn-popup">
+                                    <a>&nbsp;</a>
+                                </button>
+                                <input type="text" id="txtNmDeptH1" name="nmDept" class="nsf-param nsf-status-lck" disabled="true">
+                            </li>
+                            <li>
+                                <span>결의등록자</span>
+                                <input type="text" id="txtIdInsertH" name="idInsert" class="nsf-param">
+                                <button id="popIdInsertH" class="nsf-btn-popup">
+                                    <a>&nbsp;</a>
+                                </button>
+                                <input type="text" id="txtNmInsertH" name="nmInsert" class="nsf-param nsf-status-lck" disabled="true">
+                            </li>
+                            <li>
+                                <span>결의금액</span>
+                                <input type="text" id="txtAmtH" name="amt" class="nsf-param nsf-right">
+                            </li>
+                        </ul>
+                        <ul class="per50"><!-- 신규 상단 클래스 추가 li: width:50% -->
+                            <li class="nsf-form-li-2x">
+                                <span>결의전표채번번호</span>
+                                <input type="text" id="txtNoSlipSerialH" name="noSlipSerialH" class="nsf-param nsf-resize">
+                                <button id="popNoSlipH" class="nsf-btn-popup">
+                                    <a>&nbsp;</a>
+                                </button>
+                            </li>
+                            <li class="nsf-form-li-2x">
+                                <span>결의서번호</span>
+                                <input type="text" id="txtNoAnactSerialH" name="noAnactSerial" class="nsf-param">
+                                <button id="popNoAnactSerialH" class="nsf-btn-popup">
+                                    <a>&nbsp;</a>
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- HTML 가이드 -->
+        <h3>HTML 가이드</h3>
+        <section class="codebox">
+            <div class="code">
+                <pre class="brush: js">
+                    <div class="head nsf-form-search">
+                        <ul class="per33"><!-- 신규 상단 클래스 추가 li: width:33% -->
+                            <li>
+                                <span class="nsf-required">결의일자</span>
+                                <input type="text" id="txtDtSlipFrH" name="dtSlipFr" class="nsf-param nsf-status-ess nsf-center">
+                                <label> ~ </label>
+                                <input type="text" id="txtDtSlipToH" name="dtSlipTo" class="nsf-param nsf-status-ess nsf-center">
+                            </li>
+                            <li>
+                                <span>승인여부</span>
+                                <select id="cboYnApprveH" name="ynApprove" class="nsf-param ">
+                                    <option value=""></option>
+                                    <option value="1">승인취소</option>
+                                    <option value="2">승인</option>
+                                    <option value="3">미승인</option>
+                                    <option value="9">반려</option>
+                                </select>
+                            </li>
+                            <li>
+                                <span>발생경로</span>
+                                <select id="cboFgModuleH" name="cdPath" class="nsf-param ">
+                                    <option value=""></option>
+                                    <option value="03">결의전표등록</option>
+                                    <option value="04">결의서승인</option>
+                                    <option value="05">대체결의서(G/W)</option>
+                                    <option value="A1">감가상각자동전표</option>
+                                    <option value="H1">급여자동전표</option>
+                                    <option value="01">전기이월</option>
+                                </select>
+                            </li>
+                        </ul>
+                        <ul class="per33"><!-- 신규 상단 클래스 추가 li: width:33% -->
+                            <li>
+                                <span>결의부서</span>
+                                <input type="text" id="txtCdDeptH1" name="cdDept" class="nsf-param">
+                                <button id="popCdDeptH1" class="nsf-btn-popup">
+                                    <a>&nbsp;</a>
+                                </button>
+                                <input type="text" id="txtNmDeptH1" name="nmDept" class="nsf-param nsf-status-lck" disabled=true>
+                            </li>
+                            <li>
+                                <span>결의등록자</span>
+                                <input type="text" id="txtIdInsertH" name="idInsert" class="nsf-param">
+                                <button id="popIdInsertH" class="nsf-btn-popup">
+                                    <a>&nbsp;</a>
+                                </button>
+                                <input type="text" id="txtNmInsertH" name="nmInsert" class="nsf-param nsf-status-lck" disabled=true>
+                            </li>
+                            <li>
+                                <span>결의금액</span>
+                                <input type="text" id="txtAmtH" name="amt" class="nsf-param nsf-right">
+                            </li>
+                        </ul>
+                        <ul class="per50">
+                            <li class="nsf-form-li-2x">
+                                <span>결의전표채번번호</span>
+                                <input type="text" id="txtNoSlipSerialH" name="noSlipSerialH" class="nsf-param nsf-resize">
+                                <button id="popNoSlipH" class="nsf-btn-popup">
+                                    <a>&nbsp;</a>
+                                </button>
+                            </li>
+                            <li class="nsf-form-li-2x">
+                                <span>결의서번호</span>
+                                <input type="text" id="txtNoAnactSerialH" name="noAnactSerial" class="nsf-param">
+                                <button id="popNoAnactSerialH" class="nsf-btn-popup">
+                                    <a>&nbsp;</a>
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+
+                </pre>
+            </div>
+        </section>
+        <div class="snippets">
+            <p>※ 서치박스 기본 조건: li Width: 25% / span: 120px</p>
+            <p>※ 단을 추가할때는 &lt;ul&gt; &lt;li&gt; ~ &lt;/li&gt; &lt;/ul&gt; 추가 해야 한다 </p>
+            <p>※ li Class: per25(width:25%) / Class: per33(width:33%) / Class: per50(width:50%) /Class: per100(width:100%)</p>
+            <p>※ span Class: 기본120px / th150(width:150px) / th180(width:180px) / th200(width:200px) / th230(width:230px) </p>
+            <p>※ 필요에 의해 클래스 추가 가능하다 (new_swf.css에 추가하여 사용)</p>
+        </div>
+
+
+        <!-- 하단 폼 영역 -->
+        <h2>nsf-form(하단 폼 영역) UI 가이드</h2>
+
+        <!-- 조건 : 기본 li조건 25% / span: 120px-->
+
+    </div>
+
+    
+</body>
+</html>

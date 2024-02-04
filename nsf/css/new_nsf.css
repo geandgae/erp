@@ -110,7 +110,22 @@ BODY, DIV, TABLE, TR, TD, UL, LI, SPAN, LABEL, INPUT, SELECT, BUTTON {
     padding: 4px 4px 3px ;
     height: 29px ;
     width: 120px;
+    color: #181818;
+    font-weight: 700;
 }
+.nsf-form-search li span.th150{
+    width: 150px !important;
+}
+.nsf-form-search li span.th180{
+    width: 180px !important;
+}
+.nsf-form-search li span.th200{
+    width: 200px !important;
+}
+.nsf-form-search li span.th230{
+    width: 230px !important;
+}
+
 
 .nsf-form-search ul + ul{
     margin-top: -1px;
@@ -191,9 +206,9 @@ BODY, DIV, TABLE, TR, TD, UL, LI, SPAN, LABEL, INPUT, SELECT, BUTTON {
 
 .nsf-form ul li span {
     display: inline-block;
-    color: #585858 ;
+    color: #181818 ;
     padding-left: 18px;
-    font-weight: normal;
+    font-weight: 700;
     border: 0px solid #bfcfda;
     height: 29px ;
     width: 120px;
@@ -229,8 +244,6 @@ ul.tab200 li {
 ul.tab200 li span{
     width: 280px !important;
 }
-
-
 
 
 .nsf-form-li-2x {
@@ -398,10 +411,21 @@ ul.tab200 li span{
 } */
 
 /*셀렉트*/
-/* SELECT {
-    border: 1px solid #aaa !important;
+select {
+    border: 1px solid #ccc !important;
     height: 20px;
-} */
+}
+select:focus {
+    border: 1px solid #aaa !important;
+    border-radius: 0 none !important;
+}
+select option{
+    border: 0 !important;
+    border-radius: 0 none !important;
+}
+
+
+
 
 .nsf-btn-popup {
     background: url(./images/icon/btn_glass.png) no-repeat;
@@ -577,4 +601,57 @@ input[type=file] {
     border: 1px solid #cccccc;
     height: 16px;
     padding-right: 5px;
+}
+
+/* sweetalert2 */
+div:where(.swal2-icon){
+    background-color: transparent;
+    border: 0.3em solid transparent;
+}
+div:where(.swal2-icon) .swal2-icon-content {
+    align-items: baseline;
+    margin-top: -0.05em;
+}
+
+div:where(.swal2-icon).swal2-success {
+    border-color: #4e7dd7;
+    color: #4e7dd7;
+}
+div:where(.swal2-icon).swal2-error {
+    border-color: #d14242;
+    color: #d14242;
+}
+div:where(.swal2-icon).swal2-warning {
+    border-color: #e5cb00;
+    color: #e5cb00;
+}
+div:where(.swal2-icon).swal2-info {
+    border-color: #4e7dd7;
+    color: #4e7dd7;
+}
+div:where(.swal2-icon).swal2-question {
+    border-color: #4e7dd7;
+    color: #4e7dd7;
+}
+
+div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm,
+div:where(.swal2-container) button:where(.swal2-styled).swal2-cancel {
+    box-shadow: none;
+    padding: 0.5em 3em 0.625em;
+}
+
+div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm:focus, 
+div:where(.swal2-container) button:where(.swal2-styled).swal2-cancel:focus {
+    box-shadow: none;
+}
+
+div:where(.swal2-icon).swal2-success .swal2-success-ring {
+    border: 0.25em solid rgba(78, 125, 215, 0.6) !important;
+}
+div:where(.swal2-icon).swal2-success [class^=swal2-success-line]{
+    background-color: #4e7dd7 !important;
+}
+
+div:where(.swal2-icon).swal2-error [class^=swal2-x-mark-line] {
+    background-color: #d14242;
 }

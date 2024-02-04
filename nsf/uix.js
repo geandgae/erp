@@ -65,6 +65,7 @@ const menuData = [
   { label: "error", idx:"error", },
   { label: "code404", idx:"code404", },
   { label: "code500", idx:"code500", },
+  { label: "alert", idx:"alert", },
 ];
 const tree = generateTree(menuData);
 const menuElement = document.querySelector(".nsf-tree .nsf-gnb-menu");
