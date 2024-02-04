@@ -6,6 +6,7 @@
   --color-3rd : #e0eafe;
   --color-4th : #d14242;
   --color-5th : #22031d;
+  --color-6th : #225ddb;
 
   --color-black : #000;
   --color-white : #fff;
@@ -502,9 +503,10 @@
 }
 .nsf-tree ul li span.active{
   font-weight: 700;
-  color: var(--color-4th);
+  color: var(--color-6th);
   background-color: var(--color-ltgray);
   pointer-events: none;
+  font-size: 13px;
 }
 
 .nsf-tree .tree-toggle span{
