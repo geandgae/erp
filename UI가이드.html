@@ -88,13 +88,13 @@
                     <div class="head nsf-form-search">
                         <ul class="per33"><!-- 신규 상단 클래스 추가 li: width:33% -->
                             <li>
-                                <span class="nsf-required">결의일자</span>
+                                <span class="nsf-required left">결의일자</span>
                                 <input type="text" id="txtDtSlipFrH" name="dtSlipFr" class="nsf-param nsf-status-ess nsf-center">
                                 <label> ~ </label>
                                 <input type="text" id="txtDtSlipToH" name="dtSlipTo" class="nsf-param nsf-status-ess nsf-center">
                             </li>
                             <li>
-                                <span>승인여부</span>
+                                <span class="center">승인여부</span>
                                 <select id="cboYnApprveH" name="ynApprove" class="nsf-param ">
                                     <option value=""></option>
                                     <option value="1">승인취소</option>
@@ -273,13 +273,13 @@
                     <div class="head nsf-form-search">
                         <ul class="per33"><!-- 신규 상단 클래스 추가 li: width:33% -->
                             <li>
-                                <span class="nsf-required">결의일자</span>
+                                <span class="nsf-required left">결의일자</span>
                                 <input type="text" id="txtDtSlipFrH" name="dtSlipFr" class="nsf-param nsf-status-ess nsf-center">
                                 <label> ~ </label>
                                 <input type="text" id="txtDtSlipToH" name="dtSlipTo" class="nsf-param nsf-status-ess nsf-center">
                             </li>
                             <li>
-                                <span>승인여부</span>
+                                <span class="center">승인여부</span>
                                 <select id="cboYnApprveH" name="ynApprove" class="nsf-param ">
                                     <option value=""></option>
                                     <option value="1">승인취소</option>
@@ -350,6 +350,7 @@
             <p>※ ul Class: per25(li width:25%) / Class: per33(li width:33%) / Class: per50(li width:50%) /Class: per100(li width:100%)</p>
             <p>※ span Class: 기본120px / th150(width:150px) / th180(width:180px) / th200(width:200px) / th230(width:230px) </p>
             <p>※ 필요에 의해 클래스 추가 가능하다 (new_nsf.css에 추가하여 사용)</p>
+            <p>※ 폼 라벨 기본 정렬 오른쪽 left or center 클래스를 추가하여 정렬 가능하다</p>
         </div>
 
 
@@ -364,11 +365,11 @@
                     <td>
                         <ul class="per25">
                             <li>
-                                <span>생년월일&nbsp;</span> 
+                                <span class="left">생년월일&nbsp;</span> 
                                 <input type="text" id="txtDtRepBirtDEtc" name="dtRepBirt" title="dtRepBirt" class="nsf-param">
                             </li>
                             <li>
-                                <span>실제생일&nbsp;</span> 
+                                <span class="center">실제생일&nbsp;</span> 
                                 <input type="text" id="txtDtBirtDEtc" name="dtBirt" title="dtBirt" class="nsf-param">
                             </li>
                             <li>
@@ -421,11 +422,11 @@
                                 <td>
                                     <ul class="per25">
                                         <li>
-                                            <span>생년월일&nbsp;</span> 
+                                            <span class="left">생년월일&nbsp;</span> 
                                             <input type="text" id="txtDtRepBirtDEtc" name="dtRepBirt" title="dtRepBirt" class="nsf-param">
                                         </li>
                                         <li>
-                                            <span>실제생일&nbsp;</span> 
+                                            <span class="center">실제생일&nbsp;</span> 
                                             <input type="text" id="txtDtBirtDEtc" name="dtBirt" title="dtBirt" class="nsf-param">
                                         </li>
                                         <li>
@@ -477,6 +478,7 @@
             <p>※ li Class(2x: 2두배( 옆셀 합치기)): nsf-form-li-2x(width:50%) /nsf-form-li-2x-33(width:66%) / nsf-form-li-2x-100(width:100%)</p>
             <p>※ span Class: 기본120px / nsf-form-item-150(width:150px) / nsf-form-item-180(width:180px) / nsf-form-item-200(width:200px) / nsf-form-item-230(width:230px) / nsf-form-item-250(width:250px) </p>
             <p>※ 필요에 의해 클래스 추가 가능하다 (new_nsf.css에 추가하여 사용)</p>
+            <p>※ 폼 라벨 기본 정렬 오른쪽 left or center 클래스를 추가하여 정렬 가능하다</p>
         </div>
 
         <!-- 버튼 영역 -->
@@ -500,7 +502,8 @@
                         <button id="" type="button" class="nsf-btn-excel">엑셀다운로드</button>
                         <button id="btnApprove" type="button" class="nsf-btn-confirm2">승인</button>
                         <button id="btnReport" type="button" class="nsf-btn-print">출력</button>
-                        <button id="btnDocument" type="button" class="nsf-btn-copy">문서보기</button>			
+                        <button id="btnDocument" type="button" class="nsf-btn-copy">문서보기</button>
+                        <button id="" type="button" class="nsf-btn-setting">설정</button>			
                     </td>
                 </tr>
             </table>
@@ -530,7 +533,7 @@
                                     <button id="" type="button" class="nsf-btn-confirm2">승인</button>
                                     <button id="" type="button" class="nsf-btn-print">출력</button>
                                     <button id="" type="button" class="nsf-btn-copy">문서보기</button>
-                                    <button id="" type="button" class="nsf-btn-copy">문서보기</button>
+                                    <button id="" type="button" class="nsf-btn-setting">설정</button>
                                 </td>
                             </tr>
                         </table>

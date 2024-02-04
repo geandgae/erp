@@ -86,16 +86,18 @@ BODY, DIV, TABLE, TR, TD, UL, LI, SPAN, LABEL, INPUT, SELECT, BUTTON {
 .nsf-panel .body { padding: 0;}
 
 .nsf-form-search {
-    background-color: #f9f9f9;
+    background-color: #ffffff;
 }
 .nsf-form-search ul {
     border: 1px solid #d6d6d6;
-    display: flex;
+    display: table;
     align-items: center;
     justify-content: space-between;
     background-color: #fff;
+    width: 100%;
 }
 .nsf-form-search li {
+    display: table-cell;
     overflow: hidden;
     white-space: nowrap;
     margin: 0;
@@ -107,12 +109,19 @@ BODY, DIV, TABLE, TR, TD, UL, LI, SPAN, LABEL, INPUT, SELECT, BUTTON {
 .nsf-form-search li span{
     background-color: #f3f3f3 ;
     display: inline-block ;
-    padding: 4px 4px 3px ;
-    height: 29px ;
+    padding: 4px 4px 3px 8px;
+    height: 22px ;
     width: 120px;
     color: #181818;
     font-weight: 700;
 }
+.nsf-form-search li span.left{
+    text-align: left !important;
+}
+.nsf-form-search li span.center{
+    text-align: center !important;
+}
+
 .nsf-form-search li span.th150{
     width: 150px !important;
 }
@@ -214,9 +223,14 @@ BODY, DIV, TABLE, TR, TD, UL, LI, SPAN, LABEL, INPUT, SELECT, BUTTON {
     width: 120px;
     text-align: right;
     background-color: #f3f3f3 ;
-    padding: 5px 2px 3px ;
+    padding: 5px 2px 3px 8px;
 }
-
+.nsf-form ul li span.left{
+    text-align: left !important;
+}
+.nsf-form ul li span.center{
+    text-align: center !important;
+}
 
 .nsf-form ul.per25 li {
     width: 25%;
@@ -293,7 +307,7 @@ ul.tab200 li span{
 /* 버튼 에어리어 */
 .nsf-btnbar {
     padding: 4px 4px 2px 4px;
-    background: #f3f3f3;
+    background: #ffffff;
     border: 0;
     border-top: 1px solid #d9d9d9;
     border-left: 1px solid #d9d9d9;
@@ -396,16 +410,9 @@ ul.tab200 li span{
 .nsf-btn-print2 { background-image: url(./images/icon/ico_print.png); background-repeat: no-repeat; padding-left: 20px; }
 .nsf-btn-up { background-image: url(./images/icon/ico_up.png); background-repeat: no-repeat; padding-left: 20px; }
 .nsf-btn-down { background-image: url(./images/icon/ico_down.png); background-repeat: no-repeat; padding-left: 20px; }
-.nsf-btn-confirm {
-    background-image: url(./images/icon/confirm.png);
-    background-repeat: no-repeat;
-    padding-left: 20px;
-}
-.nsf-btn-close {
-    background-image: url(./images/icon/close02.png);
-    background-repeat: no-repeat;
-    padding-left: 20px;
-}
+.nsf-btn-confirm {background-image: url(./images/icon/confirm.png);background-repeat: no-repeat;padding-left: 20px;}
+.nsf-btn-close {background-image: url(./images/icon/close02.png);background-repeat: no-repeat;padding-left: 20px;}
+.nsf-btn-setting {background-image: url(./images/icon/set.png);background-repeat: no-repeat;padding-left: 20px;}
 .nsf-btn-count{ 
     background: #fff url(./images/icon/count.png) top left no-repeat;
     background-position: 2px 4px; 

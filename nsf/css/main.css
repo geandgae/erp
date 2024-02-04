@@ -226,14 +226,17 @@
 }
 .nsf-main .nsf-gnb .nsf-gnb-toggle {
   position: absolute;
-  top: 28px;
+  top: 25px;
   right: -15px;
   width: 16px;
-  height: 16px;
+  height: 24px;
   display: block;
   z-index: 1;
   background-color: var(--color-prm);
   border-radius: 3px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+
   color: var(--color-white);
   display: flex;
   align-items: center;
@@ -247,7 +250,7 @@
   background-color: var(--color-ltgray);
 }
 .nsf-main .nsf-gnb.less .nsf-gnb-toggle {
-  right: -15px;
+  right: -6px;
 }
 .nsf-main .nsf-gnb.less .nsf-gnb-tab-wrap {
   display: none;
@@ -506,7 +509,6 @@
   color: var(--color-6th);
   background-color: var(--color-ltgray);
   pointer-events: none;
-  font-size: 13px;
 }
 
 .nsf-tree .tree-toggle span{
