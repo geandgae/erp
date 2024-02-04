@@ -371,9 +371,10 @@ ul.tab200 li span{
 } */
 
 
-.nsf-btn-refresh { background-image: url(./images/icon/load.png); background-repeat: no-repeat; padding-left: 20px; }
+.nsf-btn-refresh { background-image: url(./images/icon/modify.png); background-repeat: no-repeat; padding-left: 20px; }
 .nsf-btn-search { background-image: url(./images/icon/search.png); background-repeat: no-repeat; padding-left: 20px; }
 .nsf-btn-add { background-image: url(./images/icon/add.png); background-repeat: no-repeat; padding-left: 20px; }
+.nsf-btn-modify { background-image: url(./images/icon/modify.png); background-repeat: no-repeat; padding-left: 20px; }
 .nsf-btn-delete { background-image: url(./images/icon/delete.png); background-repeat: no-repeat; padding-left: 20px; }
 .nsf-btn-save { background-image: url(./images/icon/save.png); background-repeat: no-repeat; padding-left: 20px; }
 
