@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>월만 선택하는 달력</title>
+    <!--// css //-->
+    <link rel="stylesheet" type="text/css" href="./jquery/ui/themes/jquery-ui.css" />
+    <link rel="stylesheet" type="text/css" href="./jquery/plugin/jqGrid/css/ui.jqgrid.css" />
+    <link rel="stylesheet" type="text/css" href="./jquery/plugin/jqGrid/plugins/ui.multiselect.css" />
+    <link rel="stylesheet" type="text/css" href="./nsf/css/nsf.css" />
+    <link rel="stylesheet" type="text/css" href="./nsf/css/new_nsf.css" />
+    <style>
+      .calendar-month-wrap {
+        position: relative;
+      }
+      .calendar-month {
+        display: none;
+        position: absolute;
+        z-index: 100;
+        background-color: #fff;
+      }
+      .calendar-month button {
+        border: none;
+        background: none;
+      }
+      .calendar-month th,
+      .calendar-month td {
+        padding: 10px;
+        border: 1px solid #111;
+        text-align: center;
+      }
+      .calendar-month th {
+        background-color: #f0f0f0;
+      }
+      .calendar-month td {
+        cursor: pointer;
+      }
+      .calendar-month.active {
+        display: block;
+      }
+      .calendar-month .selected {
+        background-color: #fff2f0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="calendar-month-wrap">
+      <button type="button" class="month-select">월 선택</button>
+      <div class="calendar-month" style="left: 30px; top: 10px;">
+        <table>
+          <tr>
+            <th colspan="4">
+              <select id="year">
+                <option value="2022">2022년</option>
+                <option value="2023">2023년</option>
+                <option value="2024" selected>2024년</option>
+                <option value="2025">2025년</option>
+                <option value="2026">2026년</option>
+              </select>
+            </th>
+          </tr>
+          <tr>
+            <td class="month-btn" data-month="1"><span>1월</span></td>
+            <td class="month-btn" data-month="2"><span>2월</span></td>
+            <td class="month-btn" data-month="3"><span>3월</span></td>
+            <td class="month-btn" data-month="4"><span>4월</span></td>
+          </tr>
+          <tr>
+            <td class="month-btn" data-month="5"><span>5월</span></td>
+            <td class="month-btn" data-month="6"><span>6월</span></td>
+            <td class="month-btn" data-month="7"><span>7월</span></td>
+            <td class="month-btn" data-month="8"><span>8월</span></td>
+          </tr>
+          <tr>
+            <td class="month-btn" data-month="9"><span>9월</span></td>
+            <td class="month-btn" data-month="10"><span>10월</span></td>
+            <td class="month-btn" data-month="11"><span>11월</span></td>
+            <td class="month-btn" data-month="12"><span>12월</span></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const calendar = document.querySelector(".calendar-month");
+        const monthSelect = document.querySelector(".month-select");
+
+        monthSelect.addEventListener("click", function () {
+          calendar.classList.toggle("active");
+        });
+        const monthBtns = document.querySelectorAll(".month-btn");
+        monthBtns.forEach((btn) => {
+          btn.addEventListener("click", function () {
+            monthBtns.forEach((btn) => btn.classList.remove("selected"));
+            this.classList.add("selected");
+            calendar.classList.remove("active");
+            const selectedMonth = parseInt(this.dataset.month);
+            console.log(selectedMonth);
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
