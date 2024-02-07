@@ -53,7 +53,7 @@
   <body>
     <div class="calendar-month-wrap">
       <button type="button" class="month-select">월 선택</button>
-      <div class="calendar-month" style="left: 30px; top: 10px;">
+      <div class="calendar-month" style="left: 30px; top: 10px">
         <table>
           <tr>
             <th colspan="4">
@@ -104,6 +104,13 @@
             const selectedMonth = parseInt(this.dataset.month);
             console.log(selectedMonth);
           });
+        });
+        // 달력 외부를 클릭하면 달력 닫기
+        document.addEventListener("click", function (event) {
+          const target = event.target;
+          if (!calendar.contains(target) && target !== monthSelect) {
+            calendar.classList.remove("active");
+          }
         });
       });
     </script>

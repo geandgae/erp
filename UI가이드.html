@@ -173,6 +173,13 @@
               console.log(selectedMonth);
             });
           });
+          // 달력 외부를 클릭하면 달력 닫기
+          document.addEventListener("click", function (event) {
+            const target = event.target;
+            if (!calendar.contains(target) && target !== monthSelect) {
+              calendar.classList.remove("active");
+            }
+          });
         });
       </script>
 
