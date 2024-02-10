@@ -1526,7 +1526,7 @@ function fSetData(data) {
 			</div>
 			<div class="nsf-border-top"><center><img class="nsf-mini-vertical"></img></center></div>
 			<div class="body">
-				<div class="nsf-btnbar">
+				<div class="nsf-btnbar" style="border-bottom: 1px solid #d9d9d9;">
                     <table><tr><td class="nsf-right">
                         <button id="btnFindM1" type="button" class="nsf-btn-search" style="display: none;">>조회</button>
                         <button id="btnChkPdfFileM1" type="button" class="nsf-btn-detail">PDF검증</button>
@@ -1554,7 +1554,7 @@ function fSetData(data) {
                     <label class="nsf-title">특별공제(주택자금)</label>
                     <div class="ui-widget-content ui-corner-bottom">
                         <div class="nsf-form">
-                        <ul class="per33"><!-- 2016-01-03 수정 -->
+                        <ul class="per50"><!-- 2016-01-03 수정 -->
                             <li ><span class="nsf-form-item-2xx">주택임차차입금원리금상환액(대출기관)&nbsp;</span>
                                 <input type="text" id="txtAmtNHouse2M1" name="amtNHouse2M1" class="nsf-input nsf-param" style="text-align: right;" disabled>
                             </li>
@@ -1580,7 +1580,7 @@ function fSetData(data) {
                             <li ><span class="nsf-form-item-2xx">2015년이후차입분 15년이상 고정금리이면서, 비거치상환대출&nbsp;</span>
                                 <input type="text" id="txtAmtNHouse47M1" name="amtNHouse47M1" class="nsf-input nsf-param" style="text-align: right;" disabled>
                             </li>
-                            <li ><span class="nsf-form-item-2xx">2015년이후차입분 15년이상 그밖의 대출&nbsp;</span>
+                            <li class="bb_none"><span class="nsf-form-item-2xx">2015년이후차입분 15년이상 그밖의 대출&nbsp;</span>
                                 <input type="text" id="txtAmtNHouse48M1" name="amtNHouse48M1" class="nsf-input nsf-param" style="text-align: right;" disabled>
                             </li>
                             <li class="bb_none"><span class="nsf-form-item-2xx">2015년이후차입분 10~15년 고정금리이면서, 비거치상환대출&nbsp;</span>
@@ -1592,11 +1592,11 @@ function fSetData(data) {
                     <label class="nsf-title">그밖의공제(기타)</label>
                     <div class="ui-widget-content ui-corner-bottom">
                         <div class="nsf-form">
-                            <ul>
-                                <li class="bb_none"><span class="nsf-form-item-2x">소기업소상공인공제부금&nbsp;</span>
+                            <ul class="per50">
+                                <li><span class="nsf-form-item-2x">소기업소상공인공제부금&nbsp;</span>
                                     <input type="text" id="txtAmtNSbdcdM1" name="amtNSbdcdM1" class="nsf-input nsf-param" style="text-align: right;" disabled>
                                 </li>						          
-                                <li class="bb_none"><span class="nsf-form-item-2x">투자조합출자(2020)&nbsp;</span>
+                                <li><span class="nsf-form-item-2x">투자조합출자(2020)&nbsp;</span>
                                     <input type="text" id="txtAmtNInvest10M1" name="amtNInvest10M1" class="nsf-input nsf-param" style="text-align: right;" disabled>
                                 </li>
                                 <li class="bb_none"><span class="nsf-form-item-2x">투자조합출자(2021)&nbsp;</span>
