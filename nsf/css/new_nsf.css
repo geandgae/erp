@@ -120,7 +120,7 @@ body.erp-contents{
 }
 
 .nsf-border-top {
-    border-top: 1px solid #536a97 ;
+    border-top: 1px solid #9e9e9e;
 }
 .nsf-mini-vertical {
     height: 18px ;
@@ -286,6 +286,11 @@ ul.tab200 li span{
     height: 25px;
     color: #181818;
 }
+.nsf-btnbar.pop {
+    border: 0;
+    border-bottom: 1px solid #d9d9d9;
+}
+
 .nsf-btnbar.onbottom {
     border-bottom: 1px solid #d9d9d9;
 }
@@ -539,6 +544,12 @@ input[type=file] {
     border: 1px solid #d9d9d9;
 }
 
+.new_table tr th.right{
+    text-align: right;
+}
+.new_table tr th.left{
+    text-align: left;
+}
 .new_table tr td{
     padding: 2px 5px;
     border: 1px solid #d9d9d9;
@@ -564,11 +575,35 @@ input[type=file] {
     padding: 10px;
 }
 
-.new_table INPUT {
+input {
     border: 1px solid #cccccc;
     height: 16px;
     padding-right: 5px;
 }
+input:focus, input:active {
+    border: 1px solid #333333;
+    outline-offset: 0px;
+    outline: none;
+}
+textarea {
+    border: 1px solid #cccccc;
+    padding-right: 8px;
+}
+textarea:focus, textarea:active {
+    border: 1px solid #333333;
+    outline-offset: 0px;
+    outline: none;
+}
+
+select {
+    border: 1px solid #cccccc;
+}
+select:focus, select:active {
+    border: 1px solid #333333;
+    outline-offset: 0px;
+    outline: none;
+}
+
 
 /* sweetalert2 */
 div:where(.swal2-icon){
@@ -626,4 +661,7 @@ div:where(.swal2-icon).swal2-error [class^=swal2-x-mark-line] {
 /* 팝업디자인 */
 .ui-dialog-title {
     top: 1px;
+}
+.pd10{
+    padding: 10px;
 }

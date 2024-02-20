@@ -366,7 +366,7 @@ function fSBGridM1OnDblClick(grid, name, command) {
 
 </head>
 <body>
-
+<!-- 2023-02-20 팝업 수정-->
 <div id="sectionA1" class="nsf-section nsf-widget-header ui-widget-header">
 	<table><tr><td>
 		<label>공지사항등록</label>
@@ -397,14 +397,15 @@ function fSBGridM1OnDblClick(grid, name, command) {
 	<div class="nsf-panel">
 		<div id="grid">
 			<div class="body">
-				<div class="nsf-btnbar">
+				<div class="nsf-btnbar pop"><!-- 2023-02-20 추가 pop-->
 					<table><tr><td class="nsf-right">
 						<button id="btnProcessP1" type="button" class="nsf-btn-save">저장</button>
 						<button id="eClose" type="button" class="nsf-btn-close">닫기</button>
 					</td></tr></table>
 				</div>
 			</div>
-			<div class="nsf-form">
+			<!-- 2023-02-20 삭제 -->
+			<!-- <div class="nsf-form">
 				<ul>
 					<li class="nsf-form-li-2x"><span>제목</span>
 						<input type="text" id="txtTitle" name="title" class="nsf-param nsf-status-ess" style="width:472px" maxlength="100">
@@ -423,7 +424,45 @@ function fSBGridM1OnDblClick(grid, name, command) {
 						<input type="text" id="txtNoNotice" name="noNotice" class="nsf-param">
 					</li>
 				</ul>
+			</div> -->
+			<!--// 2023-02-20 삭제 -->
+			<!-- 2023-02-20 변경 -->
+			<div class="nsf-form pd10">
+				<table cellpadding="0" cellspacing="0" class="new_table" style="border-collapse: collapse; border:0;">
+					<colgroup>
+						<col  style="width: 80px;" />
+						<col  style="" />
+					</colgroup>
+					<tbody>
+						<tr>
+							<th class="left"> <!-- 2023-02-20 정렬: 기본 center정렬 / left:왼쪽정렬 / right: 오른쪽 정렬 -->
+								<span>제목</span>
+							</th>
+							<td>
+								<input type="text" id="txtTitle" name="title" class="nsf-param" style="width:583px" maxlength="100">
+							</td>
+						</tr>
+						<tr>
+							<th class="left"> <!-- 2023-02-20 정렬: 기본 center정렬 / left:왼쪽정렬 / right: 오른쪽 정렬 -->
+								<span>사용여부</span>
+							</th>
+							<td>
+								<select id="cboYnUse" name="ynUse" class="nsf-param" style="width: 100px;">
+								</select>
+							</td>
+						</tr>
+						<tr style="height: 365px;">
+							<th class="left"> <!-- 2023-02-20 정렬: 기본 center정렬 / left:왼쪽정렬 / right: 오른쪽 정렬 -->
+								<span>내용</span>
+							</th>
+							<td>
+								<textarea id="txtContents" name="contents"  cols= "76" rows="24"  class="nsf-param" maxlength="2000" style="resize: none; width:580px"></textarea>
+							</td>
+						</tr>
+					</tbody>
+				</table>
 			</div>
+			<!-- 2023-02-20 변경 -->
 		</div>
 	</div>
 </div>
