@@ -237,7 +237,7 @@ const tabCtrl = () => {
   const btnNext = document.querySelector(".nsf-tabctrl .tab-next");
   btnPrev.addEventListener("click", () => {
     let pos = parent.scrollLeft;
-    pos -= 100
+    pos -= 300
     parent.scrollTo({
       top: 0,
       left: pos,
@@ -246,7 +246,7 @@ const tabCtrl = () => {
   })
   btnNext.addEventListener("click", () => {
     let pos = parent.scrollLeft;
-    pos += 100
+    pos += 300
     parent.scrollTo({
       top: 0,
       left: pos,
