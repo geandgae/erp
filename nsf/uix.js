@@ -144,8 +144,18 @@ const makeEvent = () => {
     if (btn) {
       btn.addEventListener("click", () => {
         const id = btn.id.split("-")[1]
-        tabScroll();
         updateState(id);
+        // tabScroll();
+        const parent = document.querySelector(".nsf-tablist");
+        const target = document.querySelector(".nsf-tablist .active");
+        const parentLeft = parent.getBoundingClientRect().width;
+        const targetLeft = target.getBoundingClientRect().left;
+        const pos = Math.round((targetLeft - parentLeft) + parent.scrollLeft);
+        parent.scrollTo({
+          top: 0,
+          left: pos,
+          behavior: "smooth"
+        })
       });
     }
     if(close) {
@@ -198,11 +208,11 @@ gnbNav.addEventListener("click", (e) => {
   // console.log(e.target.closest("li").querySelector("ul"));
   const li = e.target.closest("li");
   if (li.classList.contains("tree-page")) {
-    // makeTab(e.target.id, e.target.textContent);
-    // makeTab(e.target.textContent);
-    makeArray(e.target.id, e.target.textContent);
-    updateState(e.target.id);
-    tabScroll();
+    if (e.target.id) {
+      makeArray(e.target.id, e.target.textContent);
+      updateState(e.target.id);
+      tabScroll();
+    }
   } else {
     const ul = e.target.closest("li").querySelector("ul");
     ul.classList.toggle("folded");
@@ -237,7 +247,7 @@ const tabCtrl = () => {
   const btnNext = document.querySelector(".nsf-tabctrl .tab-next");
   btnPrev.addEventListener("click", () => {
     let pos = parent.scrollLeft;
-    pos -= 100
+    pos -= 300
     parent.scrollTo({
       top: 0,
       left: pos,
@@ -246,7 +256,7 @@ const tabCtrl = () => {
   })
   btnNext.addEventListener("click", () => {
     let pos = parent.scrollLeft;
-    pos += 100
+    pos += 300
     parent.scrollTo({
       top: 0,
       left: pos,
