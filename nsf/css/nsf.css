@@ -75,7 +75,7 @@ IFRAME { border: 0; }
 .ui-dialog { padding: 0; border: 5px solid #c5d8eb; }
 .ui-dialog-titlebar { border-top: 1px solid #6785a7; border-left: 1px solid #6785a7; border-right: 1px solid #6785a7; height: 20px; }
 .ui-dialog-title { position: relative; top: 4px; }
-.ui-dialog-content { overflow: hidden !important; padding: 0 0 0 0 !important; border-bottom: 1px solid #6785a7 !important; border-left: 1px solid #6785a7 !important; border-right: 1px solid #6785a7 !important; }
+.ui-dialog-content { overflow: hidden !important; padding: 0 0 0 0 !important; border-bottom: 1px solid #6785a7; border-left: 1px solid #6785a7; border-right: 1px solid #6785a7; }
 
 .nsf-section-resize {  }
 

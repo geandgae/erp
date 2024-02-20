@@ -226,8 +226,8 @@
 }
 .nsf-main .nsf-gnb .nsf-gnb-toggle {
   position: absolute;
-  top: 25px;
-  right: -15px;
+  top: 26px;
+  right: -16px;
   width: 16px;
   height: 24px;
   display: block;
@@ -268,7 +268,7 @@
   transition: all 0.5s ease; */
 }
 .nsf-main .nsf-gnb .nsf-gnb-tabs {
-  height: 32px;
+  height: 34px;
   display: flex;
   justify-content: space-around;
   align-items: center;
