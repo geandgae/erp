@@ -2749,50 +2749,49 @@ function replaceAll(inputString, targetString, replacement){
 <div id="sectionA2" class="nsf-section-resize nsf-widget-content" >
 	<div class="nsf-panel">
 		<div class="head nsf-form-search">
-			<ul class="per33"><!-- 신규 상단 클래스 추가 li 33% -->
+			<ul>
 				<li class="nsf-form-li-2x" style="display: none;"><span>법인코드&nbsp;</span>
 					<input type="text" id="txtCdCompanyH" name="cdCompany" class="nsf-param nsf-status-ess " >
 					<button id="popCdCompanyH" class="nsf-btn-popup" ><a>&nbsp;</a></button>					    
 					<input type="text" id="txtNmCompanyH" name="nmCompany" class="nsf-param nsf-status-lck " disabled="disabled">
 				</li>
 
-				<li><span>신고사업장&nbsp;</span>
+				<li class="nsf-form-li-2x"><span>신고사업장&nbsp;</span>
 					<input type="text" id="txtCdBizAreaH" name="cdBizArea" class=" nsf-param nsf-status-ess">
                     <button id="popBizAreaPopupH" class="nsf-btn-popup" ><a>&nbsp;</a></button>						
 					<input type="text" id="txtNmBizAreaH" name="nmBizArea" class="nsf-param nsf-status-lck" disabled="disabled">
 				</li>	
 
-				<li><span class="nsf-required">과세자구분&nbsp;</span>						
+				<li class="nsf-form-li-2x"><span class="nsf-required">과세자구분&nbsp;</span>						
 					<select id="cboTpReturnH" name="tpReturn" title="과세자구분" class="nsf-param nsf-status-ess"  >	
-                            <option value="0">일반과세자</option>
-                            <option value="5">사업자단위과세</option>
-                    </select>
+													<option value="0">일반과세자</option>
+													<option value="5">사업자단위과세</option>
+											</select>
 				</li>
-                <li><span class="nsf-required">귀속일자&nbsp;</span>
+
+				<li class="nsf-form-li-2x"><span class="nsf-required">귀속일자&nbsp;</span>
 					<input type="text" id="txtDtBelongFrH" name="dtBelongFr"   class="nsf-param nsf-status-ess nsf-center" >
 					<label>~</label>
 					<input type="text" id="txtDtBelongToH" name="dtBelongTo" class="nsf-param nsf-status-ess nsf-center" >
 				</li>
-            </ul>
-            <ul class="per33"><!-- 신규 상단 클래스 추가 li 50% -->
-				<li><span>예정누락기간&nbsp;</span>
+
+				<li class="nsf-form-li-2x"><span>예정누락기간&nbsp;</span>
 <!-- 				<li class="nsf-form-li-2x"><span>계산서 미포함기간(1~9월)&nbsp;</span> -->
 					<input type="text" id="txtDtOmissionFrH" name="dtOmissionFr"  class="nsf-param nsf-center" >
 					<label>~</label>
 					<input type="text" id="txtDtOmissionToH" name="dtOmissionTo"  class="nsf-param nsf-center" >
 				</li>
 
-				<li><span class="nsf-required">계산서일자&nbsp;</span>
+				<li class="nsf-form-li-2x"><span class="nsf-required">계산서일자&nbsp;</span>
 					<input type="text" id="txtSdtBillH" name="dtBillFr"  class="nsf-param nsf-status-ess nsf-center" >
 					<label>~</label>
 					<input type="text" id="txtEdtBillH" name="dtBillTo"  class="nsf-param nsf-status-ess nsf-center" >
 				</li>
 
 				<li>
-                    <u class ="point" style="height: 29px;line-height: 2.8;">신규 작성은 '생성'을 해야 합니다.</u>
-					<!-- <span><font size="2" color="#FF0000">
+					<span><font size="2" color="#FF0000">
 						&nbsp;<b>신규 작성은 '생성'을 해야 합니다.</b></font>
-					</span>  삭제-->
+					</span> 
 				</li>
 
 			</ul>		
